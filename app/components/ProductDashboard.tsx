@@ -1,4 +1,3 @@
-// components/ProductDashboard.tsx
 import React from "react";
 import { IProduct } from "@/lib/models/Product";
 
