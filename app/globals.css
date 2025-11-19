@@ -141,3 +141,9 @@ h1, h2, h3, h4, h5, h6 {
   }
 
 }
+
+.dropdownItem:hover {
+  background-color: #bae6fd !important;
+  color: #0369a1 !important;
+}
+

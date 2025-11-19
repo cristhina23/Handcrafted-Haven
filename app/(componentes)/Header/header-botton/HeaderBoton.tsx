@@ -2,6 +2,7 @@
 import AllCategoriesBtn from './AllCategoriesBtn'
 import AllCategoriesButton from './AllCategoriesBtn'
 import CategoryMenu from './CategoryMenu'
+import UserActions from '../header-middle/UserActions'
 
 export default function HeaderBottom() {
   return (
@@ -9,6 +10,10 @@ export default function HeaderBottom() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-6 h-16">
         <AllCategoriesBtn />
         <CategoryMenu />
+
+        <div className="md:hidden">
+          <UserActions />
+        </div>
       </div>
     </div>
   )

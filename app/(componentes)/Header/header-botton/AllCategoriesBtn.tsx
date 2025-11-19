@@ -13,15 +13,27 @@ import Image from "next/image";
 export default function AllCategoriesBtn() {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger className="flex items-center gap-2 px-4 py-2 bg-sky-300 rounded-md hover:bg-sky-400">
-        <BiCategoryAlt />
-        All Categories
-        <IoIosArrowDown />
+      <DropdownMenuTrigger
+        className="
+          flex items-center gap-2
+          px-3 py-2              
+          sm:px-4 sm:py-2
+          md:px-5 md:py-2
+          bg-sky-300 rounded-md hover:bg-sky-400
+          text-sm sm:text-base md:text-lg
+        "
+      >
+        <BiCategoryAlt className="text-base sm:text-lg md:text-xl" />
+
+       
+        <span className="hidden xs:inline sm:inline">Categories</span>
+
+        <IoIosArrowDown className="text-base sm:text-lg md:text-xl" />
       </DropdownMenuTrigger>
 
       <DropdownMenuContent className="p-2 w-60">
         {/* LABEL */}
-        <DropdownMenuItem className="flex items-center justify-between gap-8 text-lg 
+        <DropdownMenuItem className="flex items-center justify-between gap-8 text-lg  dropdownItem 
                      hover:bg-sky-200/70 hover:text-sky-700 cursor-pointer rounded-md p-2 hover:font-semibold">
           Jewelry
           <Image
@@ -36,7 +48,7 @@ export default function AllCategoriesBtn() {
 
         {/* ITEMS */}
         <DropdownMenuItem
-          className="flex items-center justify-between gap-8 text-lg 
+          className="flex items-center justify-between gap-8 text-lg dropdownItem 
                      hover:bg-sky-200/70 hover:text-sky-700 cursor-pointer rounded-md p-2 hover:font-semibold"
         >
           Home-Decor
@@ -51,7 +63,7 @@ export default function AllCategoriesBtn() {
         <DropdownMenuSeparator />
 
         <DropdownMenuItem
-          className="flex items-center justify-between gap-8 text-lg 
+          className="flex items-center justify-between gap-8 text-lg dropdownItem 
                      hover:bg-sky-200/70 hover:text-sky-700 cursor-pointer rounded-md p-2 hover:font-semibold"
         >
           Textile
@@ -67,7 +79,7 @@ export default function AllCategoriesBtn() {
 
         <DropdownMenuItem
           className="flex items-center justify-between gap-8 text-lg 
-                     hover:bg-sky-200/70 hover:text-sky-700 cursor-pointer rounded-md p-2 hover:font-semibold"
+                     hover:bg-sky-200/70 hover:text-sky-700 cursor-pointer rounded-md p-2 hover:font-semibold dropdownItem"
         >
           Accessories
           <Image
@@ -81,7 +93,7 @@ export default function AllCategoriesBtn() {
         <DropdownMenuSeparator />
 
         <DropdownMenuItem
-          className="flex items-center justify-between gap-8 text-lg 
+          className="flex items-center justify-between gap-8 text-lg dropdownItem 
                      hover:bg-sky-200/70 hover:text-sky-700 cursor-pointer rounded-md p-2 hover:font-semibold"
         >
           Art

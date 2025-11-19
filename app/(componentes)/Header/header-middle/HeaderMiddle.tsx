@@ -10,7 +10,9 @@ export default function HeaderMiddle() {
         <h2 className=" text-xl md:text-2xl lg:text-3xl text-slate-900">HandCraft</h2>
       </div>
       <SearchBar />
-      <UserActions />
+      <div className="hidden md:flex">
+        <UserActions />
+      </div>
     </div>
   );
 }
