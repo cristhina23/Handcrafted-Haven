@@ -25,15 +25,15 @@ export default function AllCategoriesBtn() {
         <BiCategoryAlt className="text-base" />
 
        
-        <span className="hidden xs:inline sm:inline text-md">Categories</span>
+        <span className="hidden xs:inline sm:inline text-sm ">Categories</span>
 
         <IoIosArrowDown className="text-base " />
       </DropdownMenuTrigger>
 
-      <DropdownMenuContent className="p-2 w-60">
-        {/* LABEL */}
-        <DropdownMenuItem className="flex items-center justify-between gap-8 text-lg  dropdownItem 
-                     hover:bg-sky-200/70 hover:text-sky-700 cursor-pointer rounded-md p-2 hover:font-semibold">
+     <DropdownMenuContent className="p-2 w-60 rounded-lg shadow-[0_4px_6px_-1px_rgba(6,182,212,0.3),0_2px_4px_-1px_rgba(6,182,212,0.06)]">
+
+        
+        <DropdownMenuItem className="flex items-center justify-between gap-8  dropdownItem hover:bg-sky-200/70 hover:text-sky-700 cursor-pointer rounded-md py-1 hover:font-semibold">
           Jewelry
           <Image
             src="/jewelry.jpg"
@@ -45,10 +45,10 @@ export default function AllCategoriesBtn() {
         </DropdownMenuItem>
         <DropdownMenuSeparator />
 
-        {/* ITEMS */}
+        
         <DropdownMenuItem
-          className="flex items-center justify-between gap-8 text-lg dropdownItem 
-                     hover:bg-sky-200/70 hover:text-sky-700 cursor-pointer rounded-md p-2 hover:font-semibold"
+          className="flex items-center justify-between gap-8  dropdownItem 
+           hover:bg-sky-200/70 hover:text-sky-700 cursor-pointer rounded-md py-1 hover:font-semibold"
         >
           Home-Decor
           <Image
@@ -62,8 +62,8 @@ export default function AllCategoriesBtn() {
         <DropdownMenuSeparator />
 
         <DropdownMenuItem
-          className="flex items-center justify-between gap-8 text-lg dropdownItem 
-                     hover:bg-sky-200/70 hover:text-sky-700 cursor-pointer rounded-md p-2 hover:font-semibold"
+          className="flex items-center justify-between gap-8  dropdownItem 
+         hover:bg-sky-200/70 hover:text-sky-700 cursor-pointer rounded-md py-1 hover:font-semibold"
         >
           Textile
           <Image
@@ -77,23 +77,23 @@ export default function AllCategoriesBtn() {
         <DropdownMenuSeparator />
 
         <DropdownMenuItem
-          className="flex items-center justify-between gap-8 text-lg 
-                     hover:bg-sky-200/70 hover:text-sky-700 cursor-pointer rounded-md p-2 hover:font-semibold dropdownItem"
+          className="flex items-center justify-between gap-8 
+           hover:bg-sky-200/70 hover:text-sky-700 cursor-pointer rounded-md py-1 hover:font-semibold dropdownItem"
         >
           Accessories
           <Image
             src="/accesories.jpg"
             alt="accessories"
-            width={50}
-            height={50}
+            width={40}
+            height={40}
             className="rounded-full object-contain"
           />
         </DropdownMenuItem>
         <DropdownMenuSeparator />
 
         <DropdownMenuItem
-          className="flex items-center justify-between gap-8 text-lg dropdownItem 
-                     hover:bg-sky-200/70 hover:text-sky-700 cursor-pointer rounded-md p-2 hover:font-semibold"
+          className="flex items-center justify-between gap-8  dropdownItem 
+           hover:bg-sky-200/70 hover:text-sky-700 cursor-pointer rounded-md py-1 hover:font-semibold"
         >
           Art
           <Image
