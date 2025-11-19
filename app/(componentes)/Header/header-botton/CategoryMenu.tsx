@@ -14,13 +14,22 @@ export default function CategoryMenu() {
   const pathname = usePathname();
 
   return (
-    <nav className="hidden md:flex w-2/4">
-      <ul className="flex gap-8 overflow-x-auto whitespace-nowrap text-lg font-medium text-slate-700">
+    <nav className="hidden md:flex flex-1 items-end">
+      <ul
+        className="
+          flex items-center 
+          gap-4 lg:gap-8 
+          whitespace-nowrap 
+          text-base  
+          font-medium text-slate-700
+          overflow-x-hidden
+        "
+      >
         {categories.map((cat) => {
           const isActive = pathname === cat.path;
 
           return (
-            <li key={cat.name}>
+            <li key={cat.name} className="shrink-0">
               <Link
                 href={cat.path}
                 className={`
@@ -41,3 +50,4 @@ export default function CategoryMenu() {
     </nav>
   );
 }
+

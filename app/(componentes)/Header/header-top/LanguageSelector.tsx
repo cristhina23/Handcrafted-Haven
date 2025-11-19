@@ -4,25 +4,40 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
+} from "@/components/ui/select";
 
 type LanguageSelectorProps = {
   defaultLang?: string;
 };
 
-function LanguageSelector({ defaultLang = "en" }: LanguageSelectorProps) {
+export default function LanguageSelector({
+  defaultLang = "en",
+}: LanguageSelectorProps) {
   return (
-    <Select>
-      <SelectTrigger className="w-[110px] text-gray-900 border-slate-500 outline-none focus:outline-none focus:ring-2 focus:ring-[#6EBADD] focus:border-[#6EBADD] data-[placeholder]:text-slate-800">
-        <SelectValue placeholder="Language"  />
-      </SelectTrigger>
-      <SelectContent>
+    <Select defaultValue={defaultLang}>
+      <SelectTrigger
+        className="
+          h-4            
+          min-h-0        
+          px-1
+          py-0           
+          text-[10px]    
+          rounded-md
+          bg-sky-300
+          border border-slate-500
+          focus:ring-1 focus:ring-sky-400
+          hover:bg-slate-100
+          transition
+        "
+      >
+  <SelectValue placeholder="EN" />
+</SelectTrigger>
+
+
+      <SelectContent className="text-sm">
         <SelectItem value="en">English</SelectItem>
         <SelectItem value="es">Spanish</SelectItem>
-        
       </SelectContent>
     </Select>
-  )
+  );
 }
-
-export default LanguageSelector

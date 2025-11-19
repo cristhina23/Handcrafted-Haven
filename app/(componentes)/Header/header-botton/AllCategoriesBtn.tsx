@@ -16,19 +16,18 @@ export default function AllCategoriesBtn() {
       <DropdownMenuTrigger
         className="
           flex items-center gap-2
-          px-3 py-2              
-          sm:px-4 sm:py-2
-          md:px-5 md:py-2
+          px-2 py-2              
+          
           bg-sky-300 rounded-md hover:bg-sky-400
-          text-sm sm:text-base md:text-lg
+          text-sm sm:text-base 
         "
       >
-        <BiCategoryAlt className="text-base sm:text-lg md:text-xl" />
+        <BiCategoryAlt className="text-base" />
 
        
-        <span className="hidden xs:inline sm:inline">Categories</span>
+        <span className="hidden xs:inline sm:inline text-md">Categories</span>
 
-        <IoIosArrowDown className="text-base sm:text-lg md:text-xl" />
+        <IoIosArrowDown className="text-base " />
       </DropdownMenuTrigger>
 
       <DropdownMenuContent className="p-2 w-60">

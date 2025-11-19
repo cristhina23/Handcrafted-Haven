@@ -34,6 +34,7 @@ export default function RootLayout({
       <body
         className={`${merriweather.variable} ${poppins.variable} font-sans antialiased w-full`}
       >
+      
         <Header />
         {children}
       </body>

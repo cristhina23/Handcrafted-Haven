@@ -11,8 +11,8 @@ export default function Logo({ className = "" }: LogoProps) {
       <Image
         src="/logo.svg"
         alt="Brand Logo"
-        width={200}
-        height={200}
+        width={100}
+        height={100}
         className="
           w-[70px]       
           md:w-[60px]   
