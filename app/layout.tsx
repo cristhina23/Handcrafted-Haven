@@ -1,15 +1,22 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Header from "./(componentes)/Header/Header";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+import { Merriweather, Poppins } from "next/font/google";
+
+
+// Headings font
+const merriweather = Merriweather({
+  variable: "--font-merriweather",
   subsets: ["latin"],
+  weight: ["300", "400", "700", "900"], 
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+// Paragraphs font
+const poppins = Poppins({
+  variable: "--font-poppins",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600"], 
 });
 
 export const metadata: Metadata = {
@@ -25,8 +32,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${merriweather.variable} ${poppins.variable} font-sans antialiased w-full`}
       >
+        <Header />
         {children}
       </body>
     </html>
