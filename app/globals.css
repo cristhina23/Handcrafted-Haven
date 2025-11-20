@@ -58,6 +58,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 :root {
+  --brand-primary: #F0E1D0;
+  --brand-secondary: #876A5C;
+  --brand-dark: #111111;
+  --brand-light: #F9F8F6;
+  --brand-light-gray: #FAFBFD;
+  --brand-light-blue: #6EBADD;
+  --brand-pale: #D0D3D8;
   --font-heading: var(--font-merriweather);
   --font-body: var(--font-poppins);
   --radius: 0.625rem;
