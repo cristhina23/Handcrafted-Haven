@@ -8,6 +8,7 @@ import Footer from "../components/Footer/Footer"
 >>>>>>> 4b9b7dcd18e8e2cfb6d83fb135f680ed513b2114
 
 import { Merriweather, Poppins } from "next/font/google";
+import Footer from "@/components/Footer/Footer";
 
 
 // Headings font
