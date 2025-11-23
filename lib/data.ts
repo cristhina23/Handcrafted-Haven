@@ -85,12 +85,92 @@ const users =[
     "image": "https://res.cloudinary.com/dttbqvomc/image/upload/v1763775283/Imagen_de_WhatsApp_2025-11-21_a_las_19.02.58_7fe30e40_ezltfu.jpg"
   },
   {
-    "_id": "",
+    "_id": "692218de1bb94c4026ecee0f",
     "fullName": "Cristhina Chacon",
     "email": "cristhina.chacon@example.com",
     "password": "123456",
     "image": "https://res.cloudinary.com/dttbqvomc/image/upload/v1763775162/samples/landscapes/beach-boat.jpg"
   },
+  {
+    "_id": "69228dac758610b8abeb63b4",
+    "fullName": "Laura Mendoza",
+    "email": "laura.mendoza@example.com",
+    "password": "password123",
+    "image": "https://randomuser.me/api/portraits/women/12.jpg",
+    "createdAt": "2024-11-20T12:00:00Z"
+  },
+  {
+    "_id": "69228dac758610b8abeb63b5",
+    "fullName": "Carlos Alvarez",
+    "email": "carlos.alvarez@example.com",
+    "password": "mypassword456",
+    "image": "https://randomuser.me/api/portraits/men/22.jpg",
+    "createdAt": "2024-11-20T12:05:00Z"
+  },
+  {
+    "_id": "69228dac758610b8abeb63b6",
+    "fullName": "Sofía Rivas",
+    "email": "sofia.rivas@example.com",
+    "password": "secure789",
+    "image": "https://randomuser.me/api/portraits/women/33.jpg",
+    "createdAt": "2024-11-20T12:10:00Z"
+  },
+  {
+    "_id": "69228dac758610b8abeb63b7",
+    "fullName": "Miguel Torres",
+    "email": "miguel.torres@example.com",
+    "password": "pass2024",
+    "image": "https://randomuser.me/api/portraits/men/44.jpg",
+    "createdAt": "2024-11-20T12:15:00Z"
+  },
+  {
+    "_id": "69228dac758610b8abeb63b8",
+    "fullName": "Ana Castillo",
+    "email": "ana.castillo@example.com",
+    "password": "ana12345",
+    "image": "https://randomuser.me/api/portraits/women/55.jpg",
+    "createdAt": "2024-11-20T12:20:00Z"
+  },
+  {
+    "_id": "69228dac758610b8abeb63b9",
+    "fullName": "Daniel Vega",
+    "email": "daniel.vega@example.com",
+    "password": "vega2024",
+    "image": "https://randomuser.me/api/portraits/men/66.jpg",
+    "createdAt": "2024-11-20T12:25:00Z"
+  },
+  {
+    "_id": "69228dac758610b8abeb63ba",
+    "fullName": "Mariana López",
+    "email": "mariana.lopez@example.com",
+    "password": "mariana321",
+    "image": "https://randomuser.me/api/portraits/women/77.jpg",
+    "createdAt": "2024-11-20T12:30:00Z"
+  },
+  {
+    "_id": "69228dac758610b8abeb63bb",
+    "fullName": "Jorge Salcedo",
+    "email": "jorge.salcedo@example.com",
+    "password": "jorgepass",
+    "image": "https://randomuser.me/api/portraits/men/88.jpg",
+    "createdAt": "2024-11-20T12:35:00Z"
+  },
+  {
+    "_id": "69228dac758610b8abeb63bc",
+    "fullName": "Paula Andrade",
+    "email": "paula.andrade@example.com",
+    "password": "andrade2024",
+    "image": "https://randomuser.me/api/portraits/women/99.jpg",
+    "createdAt": "2024-11-20T12:40:00Z"
+  },
+  {
+    "_id": "69228dac758610b8abeb63bd",
+    "fullName": "Ricardo Fuentes",
+    "email": "ricardo.fuentes@example.com",
+    "password": "fuentespass",
+    "image": "https://randomuser.me/api/portraits/men/11.jpg",
+    "createdAt": "2024-11-20T12:45:00Z"
+  }
 ]
 
 
@@ -238,6 +318,7 @@ const sellersProfiles =[
   // seller 1
   const seller1Products = [
   {
+    "_id": "692125e7758610b8abeb5e9d",
     "sellerId": "69211ed4758610b8abeb5e73",
     "title": "Golden Leaf Necklace",
     "description": "A delicate 18k gold-plated necklace featuring a minimalist leaf pendant crafted for everyday elegance.",
@@ -256,6 +337,7 @@ const sellersProfiles =[
     "shippingMethods": ["Standard", "Express"]
   },
   {
+    "_id": "692125e7758610b8abeb5e9e",
     "sellerId": "69211ed4758610b8abeb5e73",
     "title": "Minimalist Silver Ring",
     "description": "Sterling silver band ring with a sleek modern finish, perfect for stacking or wearing alone.",
@@ -276,6 +358,7 @@ const sellersProfiles =[
     "shippingMethods": ["Standard"]
   },
   {
+    "_id": "692125e7758610b8abeb5e9f",
     "sellerId": "69211ed4758610b8abeb5e73",
     "title": "Pearl Drop Earrings",
     "description": "Elegant freshwater pearl earrings designed with hypoallergenic hooks for comfort and style.",
@@ -294,6 +377,7 @@ const sellersProfiles =[
     "shippingMethods": ["Standard", "Premium"]
   },
   {
+    "_id": "692125e7758610b8abeb5ea0",
     "sellerId": "69211ed4758610b8abeb5e73",
     "title": "Emerald Charm Bracelet",
     "description": "Handcrafted bracelet featuring emerald charms and gold-plated links, ideal for gifting.",
@@ -312,6 +396,7 @@ const sellersProfiles =[
     "shippingMethods": ["Standard", "Express"]
   },
   {
+    "_id": "692125e7758610b8abeb5ea1",
     "sellerId": "69211ed4758610b8abeb5e73",
     "title": "Personalized Name Necklace",
     "description": "Custom gold-plated necklace featuring a personalized name pendant, crafted with premium materials.",
@@ -333,6 +418,7 @@ const sellersProfiles =[
 
 const seller2Products = [
   {
+    "_id": "69212a28758610b8abeb5eac",
     "sellerId": "69211ed4758610b8abeb5e74",
     "title": "Handwoven Rattan Wall Mirror",
     "description": "A boho-style rattan wall mirror that adds warmth and texture to any room. Handcrafted with durable natural fibers.",
@@ -352,6 +438,7 @@ const seller2Products = [
     "shippingMethods": ["Standard", "Express"]
   },
   {
+    "_id": "69212a28758610b8abeb5ead",
     "sellerId": "69211ed4758610b8abeb5e74",
     "title": "Rustic Wooden Candle Holders (Set of 3)",
     "description": "A handcrafted set of rustic wooden candle holders, perfect for adding a cozy ambiance to living rooms, bedrooms, or dining tables.",
@@ -371,6 +458,7 @@ const seller2Products = [
     "shippingMethods": ["Standard"]
   },
   {
+    "_id": "69212a28758610b8abeb5eae",
     "sellerId": "69211ed4758610b8abeb5e74",
     "title": "Minimalist Cotton Throw Blanket",
     "description": "A soft, breathable cotton throw blanket with a fringe finish. Ideal for sofas, bedrooms, and cozy evenings.",
@@ -391,6 +479,7 @@ const seller2Products = [
     "shippingMethods": ["Standard", "Premium"]
   },
   {
+    "_id": "69212a28758610b8abeb5eaf",
     "sellerId": "69211ed4758610b8abeb5e74",
     "title": "Ceramic Decorative Vase",
     "description": "Elegant matte ceramic vase suitable for dried flowers, pampas, or as an aesthetic standalone decor piece.",
@@ -410,6 +499,7 @@ const seller2Products = [
     "shippingMethods": ["Standard", "Express"]
   },
   {
+    "_id": "69212a28758610b8abeb5eb0",
     "sellerId": "69211ed4758610b8abeb5e74",
     "title": "Handcrafted Ceramic Table Bowl",
     "description": "A handcrafted ceramic bowl with a matte textured finish. Perfect as a centerpiece for dining tables, coffee tables, or for holding fruits and decorative items.",
@@ -433,6 +523,7 @@ const seller2Products = [
 
 const seller3Products = [
   {
+    "_id": "69212e6e758610b8abeb5ebe",
     "sellerId": "69211ed4758610b8abeb5e75",
     "title": "Handwoven Andean Throw Blanket",
     "description": "Soft alpaca-blend throw blanket handmade with traditional Andean patterns. Ideal for sofas, bedrooms, or cozy reading corners.",
@@ -452,6 +543,7 @@ const seller3Products = [
     "shippingMethods": ["Standard", "Express"]
   },
   {
+    "_id": "69212e6e758610b8abeb5ebf",
     "sellerId": "69211ed4758610b8abeb5e75",
     "title": "Handwoven Cushion Cover Set",
     "description": "Set of two cushion covers made with Peruvian cotton, decorated with colorful geometric ancestral patterns.",
@@ -470,6 +562,7 @@ const seller3Products = [
     "shippingMethods": ["Standard"]
   },
   {
+    "_id": "69212e6e758610b8abeb5ec0",
     "sellerId": "69211ed4758610b8abeb5e75",
     "title": "Alpaca Wool Scarf",
     "description": "Lightweight yet warm handmade alpaca scarf. Perfect for winter or stylish outfits.",
@@ -492,6 +585,7 @@ const seller3Products = [
     "shippingMethods": ["Standard", "Express"]
   },
   {
+    "_id": "69212e6e758610b8abeb5ec1",
     "sellerId": "69211ed4758610b8abeb5e75",
     "title": "Traditional Peruvian Table Runner",
     "description": "Handwoven table runner featuring bright Peruvian motifs. Adds color and warmth to any dining table.",
@@ -511,10 +605,11 @@ const seller3Products = [
     "shippingMethods": ["Standard"]
   },
   {
+    "_id": "69212e6e758610b8abeb5ec2",
     "sellerId": "69211ed4758610b8abeb5e75",
     "title": "Hand Loomed Tote Bag",
     "description": "Durable handmade tote bag crafted from Peruvian cotton with traditional loom weaving patterns.",
-    "price": 52.0,
+    "price": 52.00,
     "images": [
       "https://res.cloudinary.com/dttbqvomc/image/upload/v1763781819/il_794xN.7380192536_4qt0_phon9r.avif",
       "https://res.cloudinary.com/dttbqvomc/image/upload/v1763781820/il_794xN.7380209428_64h9_gjm1g9.jpg"
@@ -532,6 +627,7 @@ const seller3Products = [
 
 const seller4Products = [
   {
+    "_id": "69213a4c758610b8abeb5ef5",
     "sellerId": "69211ed4758610b8abeb5e76",
     "title": "Handcrafted Beaded Bracelet",
     "description": "Colorful beaded bracelet handmade with natural stones and glass beads — perfect to add a pop of color to any outfit.",
@@ -552,6 +648,7 @@ const seller4Products = [
     "shippingMethods": ["Standard", "Express"]
   },
   {
+    "_id": "69213a4c758610b8abeb5ef6",
     "sellerId": "69211ed4758610b8abeb5e76",
     "title": "Leather Tassel Keychain",
     "description": "Premium genuine leather tassel keychain in a variety of colors. Adds style and functionality to your keys or bag.",
@@ -576,6 +673,7 @@ const seller4Products = [
     "shippingMethods": ["Standard"]
   },
   {
+    "_id": "69213a4c758610b8abeb5ef7",
     "sellerId": "69211ed4758610b8abeb5e76",
     "title": "Minimalist Laptop Sleeve",
     "description": "Slim and water-resistant laptop sleeve made with padded microfiber. Perfect for students and professionals who want lightweight protection.",
@@ -600,6 +698,7 @@ const seller4Products = [
     "shippingMethods": ["Standard", "Express"]
   },
   {
+    "_id": "69213a4c758610b8abeb5ef8",
     "sellerId": "69211ed4758610b8abeb5e76",
     "title": "Leather Desk Pad",
     "description": "Elegant PU-leather desk pad that protects your workspace and provides a smooth writing and mouse-friendly surface.",
@@ -620,6 +719,7 @@ const seller4Products = [
     "shippingMethods": ["Standard"]
   },
   {
+    "_id": "69213a4c758610b8abeb5ef9",
     "sellerId": "69211ed4758610b8abeb5e76",
     "title": "Canvas Tote Bag for Work & Study",
     "description": "Durable canvas tote bag with internal pockets. Ideal for carrying books, laptops, planners, and daily essentials.",
@@ -643,6 +743,7 @@ const seller4Products = [
 
 const seller5Products = [
   {
+    "_id": "692139bd758610b8abeb5eef",
     "sellerId": "69211ed4758610b8abeb5e77",
     "title": "Abstract Sunrise Canvas",
     "description": "A vibrant abstract painting inspired by sunrise colors, perfect for living rooms, studios, or offices.",
@@ -663,6 +764,7 @@ const seller5Products = [
   },
 
   {
+    "_id": "692139bd758610b8abeb5ef0",
     "sellerId": "69211ed4758610b8abeb5e77",
     "title": "Modern Line Art Portrait",
     "description": "Minimalist line art portrait printed on high-quality matte paper. Ideal for modern decor lovers.",
@@ -684,6 +786,7 @@ const seller5Products = [
   },
 
   {
+    "_id": "692139bd758610b8abeb5ef1",
     "sellerId": "69211ed4758610b8abeb5e77",
     "title": "Hand-Painted Ceramic Art Plate",
     "description": "Decorative ceramic plate with hand-painted artistic patterns, perfect for walls or shelves.",
@@ -705,6 +808,7 @@ const seller5Products = [
   },
 
   {
+    "_id": "692139bd758610b8abeb5ef2",
     "sellerId": "69211ed4758610b8abeb5e77",
     "title": "Watercolor Nature Landscape",
     "description": "Soft watercolor painting featuring mountains and misty forests. A soothing piece for any environment.",
@@ -725,6 +829,7 @@ const seller5Products = [
   },
 
   {
+    "_id": "692139bd758610b8abeb5ef3",
     "sellerId": "69211ed4758610b8abeb5e77",
     "title": "Geometric Abstract Print",
     "description": "High-quality print featuring geometric shapes in bold modern colors, perfect for a contemporary space.",
@@ -748,6 +853,7 @@ const seller5Products = [
 
 const seller6Products = [
   {
+    "_id": "69213dbe758610b8abeb5f03",
     "sellerId": "69211ed4758610b8abeb5e78",
     "title": "Rustic Oak Coffee Table",
     "description": "Handcrafted oak coffee table with a natural matte finish. Perfect for living rooms with rustic or modern decor.",
@@ -768,6 +874,7 @@ const seller6Products = [
   },
 
   {
+    "_id": "69213dbe758610b8abeb5f04",
     "sellerId": "69211ed4758610b8abeb5e78",
     "title": "Hand-Carved Wooden Wall Clock",
     "description": "Elegant wooden wall clock made from walnut, featuring hand-carved details and silent movement.",
@@ -788,6 +895,7 @@ const seller6Products = [
   },
 
   {
+    "_id": "69213dbe758610b8abeb5f05",
     "sellerId": "69211ed4758610b8abeb5e78",
     "title": "Solid Wood Floating Shelves (Set of 2)",
     "description": "Minimalist floating shelves crafted from European birch wood. Perfect for books, plants, or decor.",
@@ -809,6 +917,7 @@ const seller6Products = [
   },
 
   {
+    "_id": "69213dbe758610b8abeb5f06",
     "sellerId": "69211ed4758610b8abeb5e78",
     "title": "Handcrafted Wood & Glass Lamp",
     "description": "Modern bedside lamp featuring a handcrafted wooden base and a frosted glass shade. Soft ambient lighting.",
@@ -829,6 +938,7 @@ const seller6Products = [
   },
 
   {
+    "_id": "69213dbe758610b8abeb5f07",
     "sellerId": "69211ed4758610b8abeb5e78",
     "title": "Premium Hardwood Cutting Board",
     "description": "Durable cutting board made from European maple and walnut. Ideal for kitchens or as a gift.",
@@ -1309,7 +1419,7 @@ const seller11Products =  [
     "sellerId": "69211ed4758610b8abeb5e7d",
     "title": "Custom Family Portrait Illustration",
     "description": "A fully personalized hand-drawn family portrait, created in a warm and expressive artistic style.",
-    "price": 80,
+    "price": 80.00,
     "images": [
       "https://res.cloudinary.com/dttbqvomc/image/upload/v1763840460/il_794xN.7186494559_imno_ikktmc.webp",
       "https://res.cloudinary.com/dttbqvomc/image/upload/v1763840457/il_794xN.7186410475_803q_baf1tw.webp",
@@ -1392,7 +1502,7 @@ const seller12Products = [
     "sellerId": "69211ed4758610b8abeb5e7e",
     "title": "Hand-Printed Mandala Cushion Cover",
     "description": "A handmade cushion cover with hand-printed mandala designs using eco-friendly ink.",
-    "price": 18,
+    "price": 18.00,
     "images": [
       "https://res.cloudinary.com/dttbqvomc/image/upload/v1763841595/il_794xN.7304336647_lmtf_wibasx.webp",
       "https://res.cloudinary.com/dttbqvomc/image/upload/v1763841539/il_794xN.7256387466_6ypt_r0upsi.webp"
@@ -1471,3 +1581,563 @@ const seller12Products = [
     "shippingMethods": ["Standard", "Express"]
   }
 ]
+
+// ** Reviews ** //
+
+const reviewsProdct1Seller1 = [
+  {
+    "productId": "692125e7758610b8abeb5e9d",
+    "userId": "F69228dac758610b8abeb63b4",
+    "sellerId": "69211ed4758610b8abeb5e73",
+    "rating": 5,
+    "comment": "Absolutely stunning! The gold tone looks premium and the leaf design is so delicate. I’ve been wearing it every day and it still looks brand new.",
+    "createdAt": "2024-11-20T14:10:00Z"
+  },
+  {
+    "productId": "692125e7758610b8abeb5e9d",
+    "userId": "69228dac758610b8abeb63b5",
+    "sellerId": "69211ed4758610b8abeb5e73",
+    "rating": 5,
+    "comment": "I bought this as a gift for my sister and she loved it. Simple, elegant, and lightweight — perfect for daily wear.",
+    "createdAt": "2024-11-21T11:50:00Z"
+  },
+  {
+    "productId": "692125e7758610b8abeb5e9d",
+    "userId": "69228dac758610b8abeb63b6",
+    "sellerId": "69211ed4758610b8abeb5e73",
+    "rating": 4,
+    "comment": "Beautiful necklace, but the chain was a bit shorter than I expected. Still, the pendant is gorgeous and very well-made.",
+    "createdAt": "2024-11-22T09:35:00Z"
+  }
+]
+
+const reviewsProdct2Seller1 = [
+  {
+    "productId": "692125e7758610b8abeb5e9e",
+    "userId": "69228dac758610b8abeb63b7",
+    "sellerId": "69211ed4758610b8abeb5e73",
+    "rating": 4,
+    "comment": "Super cute and minimal! I love stacking it with my other rings. The silver finish is shiny and doesn’t tarnish easily.",
+    "images": [],
+    "createdAt": "2024-11-20T15:20:00Z"
+  },
+  {
+    "productId": "692125e7758610b8abeb5e9e",
+    "userId": "69228dac758610b8abeb63b8",
+    "sellerId": "69211ed4758610b8abeb5e73",
+    "rating": 4,
+    "comment": "I ordered size 7 and it fits perfectly. It’s simple but stylish — exactly what I was looking for.",
+    "images": [],
+    "createdAt": "2024-11-21T10:05:00Z"
+  },
+  {
+    "productId": "692125e7758610b8abeb5e9e",
+    "userId": "69228dac758610b8abeb63b9",
+    "sellerId": "69211ed4758610b8abeb5e73",
+    "rating": 4,
+    "comment": "Nice ring for the price. I just wish it came in more sizes, but the quality is definitely worth it.",
+    "images": [],
+    "createdAt": "2024-11-22T17:20:00Z"
+  }
+]
+
+const reviewsProdct3Seller1 = [
+  {
+    "productId": "692125e7758610b8abeb5e9f",
+    "userId": "69228dac758610b8abeb63ba",
+    "sellerId": "69211ed4758610b8abeb5e73",
+    "rating": 5,
+    "comment": "These earrings are gorgeous! The pearls look real and the drop length is perfect. I wore them to a wedding and got so many compliments.",
+    "images": [],
+    "createdAt": "2024-11-20T13:45:00Z"
+  },
+  {
+    "productId": "692125e7758610b8abeb5e9f",
+    "userId": "69228dac758610b8abeb63bb",
+    "sellerId": "69211ed4758610b8abeb5e73",
+    "rating": 5,
+    "comment": "They’re lightweight and don’t irritate my ears, which I love. Elegant without feeling too formal.",
+    "images": [],
+    "createdAt": "2024-11-21T09:15:00Z"
+  },
+  {
+    "productId": "692125e7758610b8abeb5e9f",
+    "userId": "69228dac758610b8abeb63bc",
+    "sellerId": "69211ed4758610b8abeb5e73",
+    "rating": 4,
+    "comment": "Beautiful earrings, but they arrived in a small box without much padding. Luckily they weren’t damaged. The design is lovely though!",
+    "images": [],
+    "createdAt": "2024-11-22T18:00:00Z"
+  }
+]
+
+const reviewsProdct4Seller1 = [
+  {
+    "productId": "692125e7758610b8abeb5ea0",
+    "userId": "69228dac758610b8abeb63b4",
+    "sellerId": "69211ed4758610b8abeb5e73",
+    "rating": 5,
+    "comment": "The bracelet is gorgeous! The emerald charms look vibrant and the gold-plated links feel sturdy. It looks even better in person.",
+    "images": [],
+    "createdAt": "2024-11-23T10:15:00Z"
+  },
+  {
+    "productId": "692125e7758610b8abeb5ea0",
+    "userId": "69228dac758610b8abeb63b5",
+    "sellerId": "69211ed4758610b8abeb5e73",
+    "rating": 4,
+    "comment": "Beautiful bracelet, perfect size and adjustable. The emerald stones have a nice shine, although the clasp feels a little delicate.",
+    "images": [],
+    "createdAt": "2024-11-23T12:40:00Z"
+  },
+  {
+    "productId": "692125e7758610b8abeb5ea0",
+    "userId": "69228dac758610b8abeb63b6",
+    "sellerId": "69211ed4758610b8abeb5e73",
+    "rating": 5,
+    "comment": "Bought it as a gift for my mom and she absolutely loved it. The craftsmanship is excellent and the emerald charms look very elegant.",
+    "images": [],
+    "createdAt": "2024-11-23T15:25:00Z"
+  },
+]
+
+const reviewsProdct5Seller1 = [
+  {
+    "productId": "692125e7758610b8abeb5ea1",
+    "userId": "69228dac758610b8abeb63b7",
+    "sellerId": "69211ed4758610b8abeb5e73",
+    "rating": 5,
+    "comment": "I love personalized jewelry and this necklace did not disappoint. The name is perfectly cut and the gold-plated finish looks premium.",
+    "images": [],
+    "createdAt": "2024-11-23T11:30:00Z"
+  },
+  {
+    "productId": "692125e7758610b8abeb5ea1",
+    "userId": "69228dac758610b8abeb63b8",
+    "sellerId": "69211ed4758610b8abeb5e73",
+    "rating": 4,
+    "comment": "The necklace is beautiful and well-made. Since it’s custom, it took a bit longer to ship, but it was definitely worth the wait.",
+    "images": [],
+    "createdAt": "2024-11-23T14:05:00Z"
+  },
+  {
+    "productId": "692125e7758610b8abeb5ea1",
+    "userId": "69228dac758610b8abeb63b9",
+    "sellerId": "69211ed4758610b8abeb5e73",
+    "rating": 5,
+    "comment": "Exactly what I wanted! The letters are clean and the chain length is perfect. It feels like a luxury piece at a great price.",
+    "images": [],
+    "createdAt": "2024-11-23T16:55:00Z"
+  }
+]
+
+const reviewsProduct1Seller2 = [
+  {
+    "productId": "69212a28758610b8abeb5eac",
+    "userId": "692218de1bb94c4026ecee0f",
+    "sellerId": "69211ed4758610b8abeb5e74",
+    "rating": 5,
+    "comment": "The craftsmanship is beautiful. The rattan adds such a warm, natural touch to my living room. Totally worth it.",
+    "createdAt": "2024-11-23T10:10:00Z"
+  },
+  {
+    "productId": "69212a28758610b8abeb5eac",
+    "userId": "69228dac758610b8abeb63b4",
+    "sellerId": "69211ed4758610b8abeb5e74",
+    "rating": 4,
+    "comment": "Lovely boho-style mirror. I expected it to be a bit thicker, but it still looks amazing on the wall.",
+    "createdAt": "2024-11-23T12:45:00Z"
+  },
+  {
+    "productId": "69212a28758610b8abeb5eac",
+    "userId": "69228dac758610b8abeb63b5",
+    "sellerId": "69211ed4758610b8abeb5e74",
+    "rating": 5,
+    "comment": "Exceeded my expectations! The fibers feel sturdy and the design is gorgeous. Definitely recommend.",
+    "createdAt": "2024-11-23T15:20:00Z"
+  }
+];
+
+const reviewsProduct2Seller2 = [
+  {
+    "productId": "69212a28758610b8abeb5ead",
+    "userId": "69228dac758610b8abeb63b6",
+    "sellerId": "69211ed4758610b8abeb5e74",
+    "rating": 5,
+    "comment": "These candle holders are stunning! They instantly make the room feel cozier. Great quality wood.",
+    "createdAt": "2024-11-23T10:50:00Z"
+  },
+  {
+    "productId": "69212a28758610b8abeb5ead",
+    "userId": "69228dac758610b8abeb63b7",
+    "sellerId": "69211ed4758610b8abeb5e74",
+    "rating": 4,
+    "comment": "Very nice rustic look. A bit lighter in color than I expected, but still beautiful on my shelf.",
+    "createdAt": "2024-11-23T13:30:00Z"
+  },
+  {
+    "productId": "69212a28758610b8abeb5ead",
+    "userId": "69228dac758610b8abeb63b8",
+    "sellerId": "69211ed4758610b8abeb5e74",
+    "rating": 5,
+    "comment": "Perfect set! Each size complements the others. They look amazing on my dining table.",
+    "createdAt": "2024-11-23T17:05:00Z"
+  }
+];
+
+const reviewsProduct3Seller2 = [
+  {
+    "productId": "69212a28758610b8abeb5eae",
+    "userId": "69228dac758610b8abeb63b9",
+    "sellerId": "69211ed4758610b8abeb5e74",
+    "rating": 5,
+    "comment": "Super soft and breathable. I use it every night on the couch. The quality is excellent.",
+    "createdAt": "2024-11-23T09:40:00Z"
+  },
+  {
+    "productId": "69212a28758610b8abeb5eae",
+    "userId": "69228dac758610b8abeb63ba",
+    "sellerId": "69211ed4758610b8abeb5e74",
+    "rating": 4,
+    "comment": "Nice blanket and very cozy. I just wish it was a little thicker, but I still love it.",
+    "createdAt": "2024-11-23T13:15:00Z"
+  },
+  {
+    "productId": "69212a28758610b8abeb5eae",
+    "userId": "69228dac758610b8abeb63bb",
+    "sellerId": "69211ed4758610b8abeb5e74",
+    "rating": 5,
+    "comment": "The texture feels premium and the color blends perfectly with my decor. Highly recommended.",
+    "createdAt": "2024-11-23T16:40:00Z"
+  }
+];
+
+const reviewsProduct4Seller2 = [
+  {
+    "productId": "69212a28758610b8abeb5eaf",
+    "userId": "69228dac758610b8abeb63bc",
+    "sellerId": "69211ed4758610b8abeb5e74",
+    "rating": 5,
+    "comment": "Elegant and simple. The matte finish makes it look very high-end. Perfect for pampas grass.",
+    "createdAt": "2024-11-23T11:25:00Z"
+  },
+  {
+    "productId": "69212a28758610b8abeb5eaf",
+    "userId": "69228dac758610b8abeb63bd",
+    "sellerId": "69211ed4758610b8abeb5e74",
+    "rating": 4,
+    "comment": "Great decorative piece. It’s slightly smaller than I imagined, but still gorgeous.",
+    "createdAt": "2024-11-23T14:15:00Z"
+  },
+  {
+    "productId": "69212a28758610b8abeb5eaf",
+    "userId": "692218de1bb94c4026ecee0f",
+    "sellerId": "69211ed4758610b8abeb5e74",
+    "rating": 5,
+    "comment": "Minimalist and stylish. Exactly what I wanted for my entryway table.",
+    "createdAt": "2024-11-23T17:50:00Z"
+  }
+];
+
+const reviewsProduct5Seller2 = [
+  {
+    "productId": "69212a28758610b8abeb5eb0",
+    "userId": "69228dac758610b8abeb63b4",
+    "sellerId": "69211ed4758610b8abeb5e74",
+    "rating": 5,
+    "comment": "Beautiful centerpiece. The matte texture feels luxurious and the shape is perfect.",
+    "images": [],
+    "createdAt": "2024-11-23T09:55:00Z"
+  },
+  {
+    "productId": "69212a28758610b8abeb5eb0",
+    "userId": "69228dac758610b8abeb63b7",
+    "sellerId": "69211ed4758610b8abeb5e74",
+    "rating": 4,
+    "comment": "Very elegant bowl. Slightly lighter than I expected, but still a fantastic decor item.",
+    "images": [],
+    "createdAt": "2024-11-23T12:20:00Z"
+  },
+  {
+    "productId": "69212a28758610b8abeb5eb0",
+    "userId": "69228dac758610b8abeb63ba",
+    "sellerId": "69211ed4758610b8abeb5e74",
+    "rating": 5,
+    "comment": "Looks amazing on my dining table and feels well-made. Totally recommend it.",
+    "images": [],
+    "createdAt": "2024-11-23T17:10:00Z"
+  }
+];
+
+const reviewsProduct1Seller3 = [
+  {
+    "productId": "69212e6e758610b8abeb5ebe",
+    "userId": "692218de1bb94c4026ecee0f",
+    "sellerId": "69211ed4758610b8abeb5e75",
+    "rating": 5,
+    "comment": "The blanket is incredibly soft and warm. The Andean patterns make it feel truly unique.",
+    "createdAt": "2024-11-23T09:20:00Z"
+  },
+  {
+    "productId": "69212e6e758610b8abeb5ebe",
+    "userId": "69228dac758610b8abeb63b4",
+    "sellerId": "69211ed4758610b8abeb5e75",
+    "rating": 5,
+    "comment": "Beautiful craftsmanship! It looks amazing on my sofa and feels high quality.",
+    "createdAt": "2024-11-23T11:45:00Z"
+  },
+  {
+    "productId": "69212e6e758610b8abeb5ebe",
+    "userId": "69228dac758610b8abeb63b5",
+    "sellerId": "69211ed4758610b8abeb5e75",
+    "rating": 4,
+    "comment": "Very well-made and warm. I just wish it arrived a bit sooner, but the product is excellent.",
+    "createdAt": "2024-11-23T14:15:00Z"
+  }
+];
+
+const reviewsProduct2Seller3 = [
+  {
+    "productId": "69212e6e758610b8abeb5ebf",
+    "userId": "69228dac758610b8abeb63b6",
+    "sellerId": "69211ed4758610b8abeb5e75",
+    "rating": 5,
+    "comment": "The colors are vibrant and the fabric feels durable. They completely transformed my living room.",
+    "createdAt": "2024-11-23T10:00:00Z"
+  },
+  {
+    "productId": "69212e6e758610b8abeb5ebf",
+    "userId": "69228dac758610b8abeb63b7",
+    "sellerId": "69211ed4758610b8abeb5e75",
+    "rating": 4,
+    "comment": "Great quality and beautiful designs. I wish they came in more size options.",
+    "createdAt": "2024-11-23T12:35:00Z"
+  },
+  {
+    "productId": "69212e6e758610b8abeb5ebf",
+    "userId": "69228dac758610b8abeb63b8",
+    "sellerId": "69211ed4758610b8abeb5e75",
+    "rating": 5,
+    "comment": "Exactly as described! They feel handmade and authentic. Totally worth the price.",
+    "createdAt": "2024-11-23T15:10:00Z"
+  }
+];
+
+const reviewsProduct3Seller3 = [
+  {
+    "productId": "69212e6e758610b8abeb5ec0",
+    "userId": "69228dac758610b8abeb63b9",
+    "sellerId": "69211ed4758610b8abeb5e75",
+    "rating": 5,
+    "comment": "Super soft and lightweight. It keeps me warm without feeling heavy. I love it!",
+    "createdAt": "2024-11-23T09:50:00Z"
+  },
+  {
+    "productId": "69212e6e758610b8abeb5ec0",
+    "userId": "69228dac758610b8abeb63ba",
+    "sellerId": "69211ed4758610b8abeb5e75",
+    "rating": 4,
+    "comment": "The alpaca wool feels premium. I chose the grey one and it looks elegant with any outfit.",
+    "createdAt": "2024-11-23T13:05:00Z"
+  },
+  {
+    "productId": "69212e6e758610b8abeb5ec0",
+    "userId": "69228dac758610b8abeb63bb",
+    "sellerId": "69211ed4758610b8abeb5e75",
+    "rating": 5,
+    "comment": "Beautiful craftsmanship and very warm. This is my new favorite winter accessory.",
+    "createdAt": "2024-11-23T16:40:00Z"
+  }
+];
+
+const reviewsProduct4Seller3 = [
+  {
+    "productId": "69212e6e758610b8abeb5ec1",
+    "userId": "69228dac758610b8abeb63bc",
+    "sellerId": "69211ed4758610b8abeb5e75",
+    "rating": 5,
+    "comment": "The colors are stunning! It instantly brightened up my dining area. Great quality.",
+    "createdAt": "2024-11-23T10:25:00Z"
+  },
+  {
+    "productId": "69212e6e758610b8abeb5ec1",
+    "userId": "69228dac758610b8abeb63bd",
+    "sellerId": "69211ed4758610b8abeb5e75",
+    "rating": 4,
+    "comment": "Very authentic and well-made. The 180cm option fit my table perfectly.",
+    "images": [],
+    "createdAt": "2024-11-23T13:30:00Z"
+  },
+  {
+    "productId": "69212e6e758610b8abeb5ec1",
+    "userId": "692218de1bb94c4026ecee0f",
+    "sellerId": "69211ed4758610b8abeb5e75",
+    "rating": 5,
+    "comment": "Beautiful artisan work! You can tell it was carefully crafted by hand.",
+    "createdAt": "2024-11-23T17:00:00Z"
+  }
+];
+
+const reviewsProduct5Seller3 = [
+  {
+    "productId": "69212e6e758610b8abeb5ec2",
+    "userId": "69228dac758610b8abeb63b4",
+    "sellerId": "69211ed4758610b8abeb5e75",
+    "rating": 5,
+    "comment": "Very sturdy and beautifully designed. I use it daily and it still looks new!",
+    "createdAt": "2024-11-23T09:40:00Z"
+  },
+  {
+    "productId": "69212e6e758610b8abeb5ec2",
+    "userId": "69228dac758610b8abeb63b5",
+    "sellerId": "69211ed4758610b8abeb5e75",
+    "rating": 4,
+    "comment": "The craftsmanship is amazing. I love the traditional weaving details.",
+    "createdAt": "2024-11-23T12:10:00Z"
+  },
+  {
+    "productId": "69212e6e758610b8abeb5ec2",
+    "userId": "69228dac758610b8abeb63b6",
+    "sellerId": "69211ed4758610b8abeb5e75",
+    "rating": 5,
+    "comment": "Perfect size and very durable. It’s my new go-to bag for everything.",
+    "createdAt": "2024-11-23T15:50:00Z"
+  }
+];
+
+
+const reviewsProduct1Seller4 = [
+  {
+    "productId": "69213a4c758610b8abeb5ef5",
+    "userId": "69228dac758610b8abeb63b7",
+    "sellerId": "69211ed4758610b8abeb5e76",
+    "rating": 5,
+    "comment": "Beautiful bracelet! The natural stones look vibrant and the quality feels excellent.",
+    "createdAt": "2024-10-12T09:45:00Z"
+  },
+  {
+    "productId": "69213a4c758610b8abeb5ef5",
+    "userId": "69228dac758610b8abeb63b8",
+    "sellerId": "69211ed4758610b8abeb5e76",
+    "rating": 4,
+    "comment": "Loved the colors. Fits perfectly and adds a nice touch to my outfits.",
+    "createdAt": "2024-11-02T14:22:00Z"
+  },
+  {
+    "productId": "69213a4c758610b8abeb5ef5",
+    "userId": "69228dac758610b8abeb63b9",
+    "sellerId": "69211ed4758610b8abeb5e76",
+    "rating": 5,
+    "comment": "Amazing craftsmanship. Looks handmade and unique. Would totally buy again.",
+    "createdAt": "2024-11-18T17:10:00Z"
+  }
+];
+
+const reviewsProduct2Seller4 = [
+  {
+    "productId": "69213a4c758610b8abeb5ef5",
+    "userId": "69228dac758610b8abeb63b7",
+    "sellerId": "69211ed4758610b8abeb5e76",
+    "rating": 5,
+    "comment": "Beautiful bracelet! The natural stones look vibrant and the quality feels excellent.",
+    "createdAt": "2024-10-12T09:45:00Z"
+  },
+  {
+    "productId": "69213a4c758610b8abeb5ef5",
+    "userId": "69228dac758610b8abeb63b8",
+    "sellerId": "69211ed4758610b8abeb5e76",
+    "rating": 4,
+    "comment": "Loved the colors. Fits perfectly and adds a nice touch to my outfits.",
+    "createdAt": "2024-11-02T14:22:00Z"
+  },
+  {
+    "productId": "69213a4c758610b8abeb5ef5",
+    "userId": "69228dac758610b8abeb63b9",
+    "sellerId": "69211ed4758610b8abeb5e76",
+    "rating": 5,
+    "comment": "Amazing craftsmanship. Looks handmade and unique. Would totally buy again.",
+    "createdAt": "2024-11-18T17:10:00Z"
+  }
+];
+
+const reviewsProduct3Seller4 = [
+  {
+    "productId": "69213a4c758610b8abeb5ef7",
+    "userId": "69228dac758610b8abeb63b7",
+    "sellerId": "69211ed4758610b8abeb5e76",
+    "rating": 5,
+    "comment": "Lightweight, protective, and looks very modern. Fits my laptop perfectly.",
+    "createdAt": "2024-08-14T11:15:00Z"
+  },
+  {
+    "productId": "69213a4c758610b8abeb5ef7",
+    "userId": "69228dac758610b8abeb63b8",
+    "sellerId": "69211ed4758610b8abeb5e76",
+    "rating": 4,
+    "comment": "Good padding and premium feel. The gray color is very sleek.",
+    "createdAt": "2024-10-05T16:50:00Z"
+  },
+  {
+    "productId": "69213a4c758610b8abeb5ef7",
+    "userId": "69228dac758610b8abeb63b9",
+    "sellerId": "69211ed4758610b8abeb5e76",
+    "rating": 5,
+    "comment": "Excellent quality for the price. My laptop feels safe when traveling.",
+    "createdAt": "2024-11-21T20:05:00Z"
+  }
+];
+
+const reviewsProduct4Seller4 = [
+  {
+    "productId": "69213a4c758610b8abeb5ef8",
+    "userId": "69228dac758610b8abeb63b7",
+    "sellerId": "69211ed4758610b8abeb5e76",
+    "rating": 5,
+    "comment": "Very smooth surface. My desk looks more elegant now.",
+    "createdAt": "2024-07-30T08:55:00Z"
+  },
+  {
+    "productId": "69213a4c758610b8abeb5ef8",
+    "userId": "69228dac758610b8abeb63b8",
+    "sellerId": "69211ed4758610b8abeb5e76",
+    "rating": 4,
+    "comment": "Good size and durable material. Perfect for work.",
+    "createdAt": "2024-09-18T15:33:00Z"
+  },
+  {
+    "productId": "69213a4c758610b8abeb5ef8",
+    "userId": "69228dac758610b8abeb63b9",
+    "sellerId": "69211ed4758610b8abeb5e76",
+    "rating": 5,
+    "comment": "Exactly what I needed. The leather finish is beautiful.",
+    "createdAt": "2024-11-11T19:10:00Z"
+  }
+]
+;
+
+const reviewsProduct5Seller4 = [
+  {
+    "productId": "69213a4c758610b8abeb5ef9",
+    "userId": "69228dac758610b8abeb63b7",
+    "sellerId": "69211ed4758610b8abeb5e76",
+    "rating": 5,
+    "comment": "Super spacious and strong. I use it every day for work.",
+    "createdAt": "2024-08-22T12:40:00Z"
+  },
+  {
+    "productId": "69213a4c758610b8abeb5ef9",
+    "userId": "69228dac758610b8abeb63b8",
+    "sellerId": "69211ed4758610b8abeb5e76",
+    "rating": 4,
+    "comment": "Good quality fabric. The beige one looks very cute.",
+    "createdAt": "2024-10-27T10:50:00Z"
+  },
+  {
+    "productId": "69213a4c758610b8abeb5ef9",
+    "userId": "69228dac758610b8abeb63b9",
+    "sellerId": "69211ed4758610b8abeb5e76",
+    "rating": 5,
+    "comment": "Perfect for carrying my laptop and books. Strong and stylish.",
+    "createdAt": "2024-11-19T21:30:00Z"
+  }
+];
