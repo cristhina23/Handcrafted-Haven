@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Header from "./(componentes)/Header/Header";
+
+import Header from "./(components)/Header/Header";
+
 import Footer from "../components/Footer/Footer"
 
 import { Merriweather, Poppins } from "next/font/google";
+
 
 
 // Headings font
