@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDownIcon, Check } from "lucide-react";
 
-type SortOption =
+export type SortOption =
   | "manual"
   | "best-selling"
   | "title-ascending"
