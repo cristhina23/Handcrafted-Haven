@@ -451,7 +451,8 @@ const seller2Products = [
     "categoryId": "6920e4c01eef40052ea9de9d",
     "quantity": 60,
     "variants": [
-      { "color": "Natural Wood" }
+      { "color": "Natural Wood" },
+      { "color": "Black" }
     ],
     "isCustomOrder": false,
     "dimensions": "Small–20cm, Medium–25cm, Large–30cm",
