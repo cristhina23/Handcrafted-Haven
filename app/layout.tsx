@@ -36,11 +36,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${merriweather.variable} ${poppins.variable} font-sans antialiased w-full`}
+        className={`${merriweather.variable} ${poppins.variable} font-sans antialiased w-full bg-[#F1F5F9]`}
       >
       
         <Header />
-        {children}
+        <main className="w-full">{children}</main>
+        
         <Footer/>
       </body>
     </html>
