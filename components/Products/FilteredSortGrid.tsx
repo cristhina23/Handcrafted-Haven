@@ -4,30 +4,41 @@ import Gr4 from "@/public/gr4.svg";
 import Gr3 from "@/public/gr3.svg";
 import Gr2 from "@/public/gr2.svg";
 import Gr from "@/public/gr.svg";
+import { TbFilterPlus } from "react-icons/tb";
 
 
 interface FilterSortGridProps {
   totalProducts: number;
   onGridChange: (value: number) => void;
-  onSortChange?: (value: SortOption) => void; // nuevo
+  onSortChange?: (value: SortOption) => void; 
+  onMobileFilterClick?: () => void;
 }
 
 export const FilterSortGrid: React.FC<FilterSortGridProps> = ({
   totalProducts,
   onGridChange,
   onSortChange,
+  onMobileFilterClick,
 }) => {
   return (
     <div className="mb-6 bg-white p-4 rounded-xl shadow-sm">
       <div className="flex justify-between items-center">
         {/* SORT */}
-        <div className="flex items-center gap-4">
-          <p className="w-24 font-medium text-slate-700">Sort By:</p>
+        <div className="flex items-center gap-0.5 md:gap-4">
+          <p className=" w-20 md:w-24 font-medium text-slate-700">Sort By:</p>
           <DynamicSortSelector onChange={onSortChange} />
+          
+        </div>
+        
+        {/* ICONO MOBILE */}
+        <div className="md:hidden">
+          <button onClick={onMobileFilterClick}>
+            <TbFilterPlus className="text-slate-800 w-5 h-6" />
+          </button>
         </div>
 
         {/* GRID BUTTONS */}
-        <div className="flex items-center gap-4">
+        <div className="hidden md:flex items-center gap-4">
           <p className="text-sm">{totalProducts} products</p>
           <div className="flex gap-3">
             <Image onClick={() => onGridChange(4)} src={Gr4} alt="grid" className="cursor-pointer" />
@@ -36,6 +47,7 @@ export const FilterSortGrid: React.FC<FilterSortGridProps> = ({
             <Image onClick={() => onGridChange(1)} src={Gr} alt="grid" className="cursor-pointer" />
           </div>
         </div>
+        
       </div>
     </div>
   );

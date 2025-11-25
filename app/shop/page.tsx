@@ -12,9 +12,9 @@ function shopPage
     <>
       <Meta title="Products" />
       <BreadCrumb title="Products" />
-      <Container class1="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 bg-slate-100">
+      <Container class1="max-w-7xl mx-auto px-2 md:px-6 lg:px-8 bg-slate-100">
       
-        <div className="w-full  p-6 md:p-10">
+        <div className="w-full  p-6 md:p-8">
           <div className="flex gap-6">
             
             <aside className="hidden lg:block w-64">

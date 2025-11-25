@@ -56,7 +56,7 @@ export default function DynamicSortSelector({
   };
 
   return (
-    <div className="relative w-48" ref={dropdownRef}>
+    <div className="relative w-42  md:w-48" ref={dropdownRef}>
       <motion.button
         whileHover={{ scale: 1.03 }}
         whileTap={{ scale: 0.97 }}
