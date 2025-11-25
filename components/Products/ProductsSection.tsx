@@ -12,8 +12,16 @@ export default function ProductsSection() {
   const [grid, setGrid] = useState(3);
   const [products, setProducts] = useState<Product[]>([]);
   const [categories, setCategories] = useState<{ _id: string; name: string }[]>([]);
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [selectedPriceRanges, setSelectedPriceRanges] = useState<
+    { min?: number; max?: number }[]
+  >([]);
   const [sortBy, setSortBy] = useState<SortOption>("manual");
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
+
+  // Filtros temporales para el modal
+  const [tempCategory, setTempCategory] = useState<string | null>(null);
+  const [tempPriceRanges, setTempPriceRanges] = useState<{ min?: number; max?: number }[]>([]);
 
   // Cargar productos y categorías
   useEffect(() => {
@@ -26,7 +34,7 @@ export default function ProductsSection() {
     const getCategories = async () => {
       const res = await fetch("/api/categories");
       const data = await res.json();
-      setCategories(data);
+      setCategories(Array.isArray(data) ? data : data.categories);
     };
 
     getProducts();
@@ -36,77 +44,120 @@ export default function ProductsSection() {
   // Ordenar productos
   const sortedProducts = [...products].sort((a, b) => {
     switch (sortBy) {
-      case "title-ascending": return a.title.localeCompare(b.title);
-      case "title-descending": return b.title.localeCompare(a.title);
-      case "price-ascending": return a.price - b.price;
-      case "price-descending": return b.price - a.price;
-      case "created-ascending": return new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime();
-      case "created-descending": return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
-      default: return 0;
+      case "title-ascending":
+        return a.title.localeCompare(b.title);
+      case "title-descending":
+        return b.title.localeCompare(a.title);
+      case "price-ascending":
+        return a.price - b.price;
+      case "price-descending":
+        return b.price - a.price;
+      case "created-ascending":
+        return new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime();
+      case "created-descending":
+        return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+      default:
+        return 0;
     }
   });
 
-  const handleCategorySelect = (cat: { _id: string; name: string }) => {
-    console.log("Selected category:", cat.name);
-  };
+  // Aplicar filtros seleccionados
+  const filteredProducts = sortedProducts.filter((product) => {
+    // Filtrar por categoría
+    const categoryMatch = !selectedCategory || product.categoryId === selectedCategory;
 
-  const handlePriceChange = (range: { label: string; min?: number; max?: number }, checked: boolean) => {
-    console.log("Selected price range:", range, checked);
+    // Filtrar por precio
+    const priceMatch =
+      selectedPriceRanges.length === 0 ||
+      selectedPriceRanges.some(
+        (range) =>
+          (!range.min || product.price >= range.min) &&
+          (!range.max || product.price <= range.max)
+      );
+
+    return categoryMatch && priceMatch;
+  });
+
+  const handleApplyFilters = () => {
+    setSelectedCategory(tempCategory);
+    setSelectedPriceRanges(tempPriceRanges);
+    setIsMobileFilterOpen(false);
   };
 
   return (
     <section className="space-y-6">
-
+      {/* Filter + Sort + Mobile icon */}
       <FilterSortGrid
         totalProducts={products.length}
         onGridChange={setGrid}
         onSortChange={setSortBy}
-        onMobileFilterClick={() => setIsMobileFilterOpen(true)}
+        onMobileFilterClick={() => {
+          setTempCategory(selectedCategory);
+          setTempPriceRanges(selectedPriceRanges);
+          setIsMobileFilterOpen(true);
+        }}
       />
 
-      <ProductsContainer products={sortedProducts} grid={grid} />
+      {/* Products */}
+      <ProductsContainer products={filteredProducts} grid={grid} />
 
-      {/* Modal movile */}
-     {isMobileFilterOpen && (
-      <div className="fixed inset-0 z-50 flex">
-        {/* Fondo negro detrás del sidebar */}
-        <div
-          className="absolute inset-0 bg-black/50 z-10"
-          onClick={() => setIsMobileFilterOpen(false)}
-        ></div>
+      {/* Mobile Filter Modal */}
+      {isMobileFilterOpen && (
+        <div className="fixed inset-0 z-50">
+          {/* Fondo negro */}
+          <div
+            className="absolute inset-0 bg-black/50 z-10"
+            onClick={() => setIsMobileFilterOpen(false)}
+          />
 
-        {/* Sidebar de filtros con z-index mayor */}
-        <div className="ml-auto w-full max-w-xs bg-white h-full p-6 flex flex-col overflow-y-auto transform transition-transform duration-300 ease-in-out z-20">
-          <div className="flex justify-between items-center mb-4">
-            <h2 className="text-xl font-semibold">Filters</h2>
+          {/* Sidebar de filtros */}
+          <div className="fixed right-0 top-0 h-full w-full max-w-xs bg-white p-6 overflow-y-auto z-20 transform transition-transform duration-300 ease-in-out">
+            {/* Header */}
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-xl font-semibold">Filters</h2>
+              <button
+                onClick={() => setIsMobileFilterOpen(false)}
+                className="text-slate-700 text-lg font-bold"
+              >
+                X
+              </button>
+            </div>
+
+            {/* Categorías */}
+            {categories.length > 0 && (
+              <ShopBy
+                categories={categories}
+                onSelect={(cat) => setTempCategory(cat._id)}
+              />
+            )}
+
+            {/* Filtros de precio */}
+            <div className="mt-6">
+              <FilterBy
+                onChange={(range, checked) => {
+                  if (checked) {
+                    setTempPriceRanges([...tempPriceRanges, { min: range.min, max: range.max }]);
+                  } else {
+                    setTempPriceRanges(
+                      tempPriceRanges.filter(
+                        (r) => r.min !== range.min || r.max !== range.max
+                      )
+                    );
+                  }
+                }}
+              />
+            </div>
+
+            {/* Apply Button */}
             <button
-              onClick={() => setIsMobileFilterOpen(false)}
-              className="text-slate-700 text-lg font-bold"
+              onClick={handleApplyFilters}
+              className="mt-6 w-full bg-slate-800 text-white py-2 rounded-lg hover:bg-slate-900 transition"
             >
-              X
+              Apply Filters
             </button>
           </div>
-
-          {/* Categorías */}
-          {categories.length > 0 && (
-            <ShopBy categories={categories} onSelect={handleCategorySelect} />
-          )}
-
-          {/* Filters */}
-          <div className="mt-6">
-            <FilterBy onChange={handlePriceChange} />
-          </div>
-
-          {/* Botón aplicar */}
-          <button
-            onClick={() => setIsMobileFilterOpen(false)}
-            className="mt-6 w-full bg-slate-800 text-white py-2 rounded-lg hover:bg-slate-900 transition"
-          >
-            Apply Filters
-          </button>
         </div>
-      </div>
-    )}
+      )}
     </section>
   );
 }
