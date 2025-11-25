@@ -16,9 +16,10 @@ interface Props {
 
 const defaultRanges: PriceRange[] = [
   { label: "Any Price" },
-  { label: "0 USD to 100", min: 0, max: 100 },
-  { label: "100 USD to 200", min: 100, max: 200 },
-  { label: "200 USD to 300", min: 200, max: 300 },
+  { label: "0 USD to 25", min: 0, max: 25 },
+  { label: "25 USD to 50", min: 25, max: 50 },
+  { label: "50 USD to 100", min: 50, max: 100 },
+  { label: "100 USD and above", min: 100 },
 ];
 
 const FilterBy: React.FC<Props> = ({ ranges = defaultRanges, onChange }) => {
