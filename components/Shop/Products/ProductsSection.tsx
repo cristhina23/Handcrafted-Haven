@@ -4,6 +4,7 @@ import ProductsContainer from "./ProductsContainer";
 import { Product } from "@/types/";
 import { SortOption } from "./DynamicSortSelector";
 import { FilterSortGrid } from "@/components/Shop/Products/FilteredSortGrid";
+import ProductCardSkeleton from "./ProductCardSkeleton";
 
 interface Props {
   products: Product[];
@@ -12,6 +13,7 @@ interface Props {
   onGridChange: (value: number) => void;
   onSortChange: (value: SortOption) => void;
   onOpenMobileFilter: () => void;
+  loading?: boolean;
 }
 
 export default function ProductsSection({
@@ -21,6 +23,7 @@ export default function ProductsSection({
   onGridChange,
   onSortChange,
   onOpenMobileFilter,
+  loading,
 }: Props) {
   // Ordenar productos
   const sortedProducts = [...products].sort((a, b) => {
@@ -42,9 +45,35 @@ export default function ProductsSection({
     }
   });
 
+  // ⛔ AQUI estaba tu error
+  if (loading) {
+    return (
+      <section className="space-y-6">
+        <FilterSortGrid
+          totalProducts={0}               // o products.length si prefieres
+          onGridChange={onGridChange}
+          onSortChange={onSortChange}
+          onMobileFilterClick={onOpenMobileFilter}
+        />
+
+        <div
+          className={`grid gap-6 mt-4
+            grid-cols-1
+            ${grid === 2 ? "sm:grid-cols-2" : ""}
+            ${grid === 3 ? "sm:grid-cols-3" : ""}
+            ${grid === 4 ? "sm:grid-cols-4" : ""}
+          `}
+        >
+          {Array.from({ length: grid * 2 }).map((_, i) => (
+            <ProductCardSkeleton key={i} grid={grid} />
+          ))}
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="space-y-6">
-      {/* Filter + Sort + Mobile icon */}
       <FilterSortGrid
         totalProducts={products.length}
         onGridChange={onGridChange}
@@ -52,7 +81,6 @@ export default function ProductsSection({
         onMobileFilterClick={onOpenMobileFilter}
       />
 
-      {/* Products */}
       <ProductsContainer products={sortedProducts} grid={grid} />
     </section>
   );

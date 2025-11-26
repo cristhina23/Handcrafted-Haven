@@ -10,7 +10,7 @@ import { SortOption } from "@/components/Shop/Products/DynamicSortSelector";
 export default function ShopView() {
   const [grid, setGrid] = useState(3);
   const [sortBy, setSortBy] = useState<SortOption>("manual");
-
+  const [loading, setLoading] = useState(true);
   const [products, setProducts] = useState<Product[]>([]);
   const [categories, setCategories] = useState<{ _id: string; name: string }[]>([]);
 
@@ -51,20 +51,20 @@ export default function ShopView() {
   // FETCH PRODUCTS & CATEGORIES
   // ============================
   useEffect(() => {
-    const fetchProducts = async () => {
-      const res = await fetch("/api/products");
-      const data = await res.json();
-      setProducts(Array.isArray(data) ? data : []);
+   const fetchData = async () => {
+      const resProducts = await fetch("/api/products");
+      const dataProducts = await resProducts.json();
+
+      const resCategories = await fetch("/api/categories");
+      const dataCategories = await resCategories.json();
+
+      setProducts(Array.isArray(dataProducts) ? dataProducts : []);
+      setCategories(Array.isArray(dataCategories) ? dataCategories : []);
+
+      setLoading(false); 
     };
 
-    const fetchCategories = async () => {
-      const res = await fetch("/api/categories");
-      const data = await res.json();
-      setCategories(Array.isArray(data) ? data : []);
-    };
-
-    fetchProducts();
-    fetchCategories();
+    fetchData();
   }, []);
 
   // ============================
@@ -78,6 +78,7 @@ export default function ShopView() {
         price: selectedPrice,
       };
       localStorage.setItem("shopFilters", JSON.stringify(filters));
+
     } catch (error) {
       console.error("Error saving filters to localStorage:", error);
     }
@@ -123,6 +124,7 @@ export default function ShopView() {
       <div className="flex-1">
         <ProductsSection
           products={filteredProducts}
+          loading={loading} 
           grid={grid}
           sortBy={sortBy}
           onGridChange={setGrid}
