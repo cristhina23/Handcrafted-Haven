@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import ShopBy from "./ShopBy";
 import FilterBy, { PriceRange } from "./FilterBy";
+import FilterByCountry from "./FilterByCountry";
 
 interface Category {
   _id: string;
@@ -15,6 +16,9 @@ interface SidebarProps {
   selectedPrice?: PriceRange | null;
   onCategorySelect?: (categoryId: string | null) => void;
   onPriceSelect?: (range: PriceRange | null) => void;
+  countries?: string[]; 
+  selectedCountry?: string | null;
+  onCountrySelect?: (country: string | null) => void;
   onApply?: () => void; // optional for mobile modal
 }
 
@@ -24,6 +28,9 @@ export default function Sidebar({
   selectedPrice: defaultSelectedPrice,
   onCategorySelect,
   onPriceSelect,
+  countries = [],
+  selectedCountry,
+  onCountrySelect,
   onApply,
 }: SidebarProps) {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(
@@ -81,6 +88,14 @@ export default function Sidebar({
         setCustomMin={setCustomMin}
         setCustomMax={setCustomMax}
       />
+
+      {countries.length > 0 && (
+        <FilterByCountry
+          countries={countries}
+          selectedCountry={selectedCountry}
+          onChange={onCountrySelect}
+        />
+      )}
 
       <div className="flex flex-col gap-3 pt-4">
         {/* Apply Filters */}
