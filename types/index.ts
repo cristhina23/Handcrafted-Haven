@@ -70,6 +70,7 @@ export interface Product {
   shippingMethods: string[];
   createdAt: string;
   updatedAt: string;
+  sellerCountry?: string | null;
 }
 
 

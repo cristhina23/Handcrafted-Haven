@@ -11,14 +11,14 @@ interface FilterSortGridProps {
   totalProducts: number;
   onGridChange: (value: number) => void;
   onSortChange?: (value: SortOption) => void; 
-  onMobileFilterClick?: () => void;
+  onMobileFilterClick?: () => void; // <-- nueva prop
 }
 
 export const FilterSortGrid: React.FC<FilterSortGridProps> = ({
   totalProducts,
   onGridChange,
   onSortChange,
-  onMobileFilterClick,
+  onMobileFilterClick, // recibimos la función
 }) => {
   return (
     <div className="mb-6 bg-white p-4 rounded-xl shadow-sm">
@@ -27,12 +27,11 @@ export const FilterSortGrid: React.FC<FilterSortGridProps> = ({
         <div className="flex items-center gap-0.5 md:gap-4">
           <p className=" w-20 md:w-24 font-medium text-slate-700">Sort By:</p>
           <DynamicSortSelector onChange={onSortChange} />
-          
         </div>
-        
+
         {/* ICONO MOBILE */}
         <div className="md:hidden">
-          <button onClick={onMobileFilterClick}>
+          <button onClick={onMobileFilterClick}> {/* <-- usamos la prop */}
             <TbFilterPlus className="text-slate-800 w-5 h-6" />
           </button>
         </div>
@@ -47,7 +46,6 @@ export const FilterSortGrid: React.FC<FilterSortGridProps> = ({
             <Image onClick={() => onGridChange(1)} src={Gr} alt="grid" className="cursor-pointer" />
           </div>
         </div>
-        
       </div>
     </div>
   );
