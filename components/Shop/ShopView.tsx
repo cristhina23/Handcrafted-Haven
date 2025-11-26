@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Sidebar, { PriceRange } from "@/components/Shop/Sidebar/Sidebar";
+import Sidebar from "@/components/Shop/Sidebar/Sidebar";
+import { PriceRange } from "@/components/Shop/Sidebar/FilterBy";
 import ProductsSection from "@/components/Shop/Products/ProductsSection";
 import { Product } from "@/types";
 import { SortOption } from "@/components/Shop/Products/DynamicSortSelector";
@@ -17,7 +18,7 @@ export default function ShopView() {
   // FILTER STATES (LOAD FROM LOCALSTORAGE ON INIT)
   // ============================
   const [selectedCategory, setSelectedCategory] = useState<string | null>(() => {
-    if (typeof window === "undefined") return null; // solo en cliente
+    if (typeof window === "undefined") return null;
     try {
       const saved = localStorage.getItem("shopFilters");
       if (saved) {
@@ -31,7 +32,7 @@ export default function ShopView() {
   });
 
   const [selectedPrice, setSelectedPrice] = useState<PriceRange | null>(() => {
-    if (typeof window === "undefined") return null; // only on the client
+    if (typeof window === "undefined") return null;
     try {
       const saved = localStorage.getItem("shopFilters");
       if (saved) {
@@ -70,7 +71,7 @@ export default function ShopView() {
   // SAVE FILTERS TO LOCALSTORAGE
   // ============================
   useEffect(() => {
-    if (typeof window === "undefined") return; // only on the client
+    if (typeof window === "undefined") return;
     try {
       const filters = {
         category: selectedCategory,
@@ -151,7 +152,7 @@ export default function ShopView() {
               onCategorySelect={setSelectedCategory}
               selectedPrice={selectedPrice}
               onPriceSelect={setSelectedPrice}
-              onApply={() => setIsMobileFilterOpen(false)} // close the modal
+              onApply={() => setIsMobileFilterOpen(false)}
             />
           </div>
         </div>
