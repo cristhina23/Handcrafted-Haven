@@ -64,6 +64,9 @@ export interface Product {
   images: string[];
   categoryId: string;
   quantity: number;
+  country?: string;
+  rating: number;
+  ratingCount: number;
   variants?: Variant[];
   isCustomOrder: boolean;
   dimensions?: string;

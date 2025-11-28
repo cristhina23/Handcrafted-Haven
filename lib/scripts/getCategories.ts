@@ -1,4 +1,4 @@
-import { connectDB } from "./db/db";
+import { connectDB } from "../db/db";
 import { Category } from "@/lib/models/Category";
 import { LeanCategory } from "@/types";
 

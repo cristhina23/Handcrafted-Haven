@@ -25,7 +25,7 @@ export const FilterSortGrid: React.FC<FilterSortGridProps> = ({
       <div className="flex justify-between items-center">
         {/* SORT */}
         <div className="flex items-center gap-0.5 md:gap-4">
-          <p className=" w-20 md:w-24 font-medium text-slate-700">Sort By:</p>
+          <p className=" w-32 md:w-20 font-medium text-slate-700">Sort By:</p>
           <DynamicSortSelector onChange={onSortChange} />
         </div>
 

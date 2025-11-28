@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { Heart, Eye, ShoppingCart } from "lucide-react";
+import { Heart, Eye, ShoppingCart, ArrowLeftRight, ArrowRight } from "lucide-react";
 import QuickViewModal from "./QuickViewModal";
 import { Product } from "@/types";
 import Link from "next/link";
@@ -18,7 +18,7 @@ export default function ProductCard({ product, grid }: Props) {
 
   return (
     <>
-     <Link href={`/shop/product/${product._id}`}>
+     
       <motion.div
         className={`
           bg-white p-4 rounded-xl shadow 
@@ -42,21 +42,25 @@ export default function ProductCard({ product, grid }: Props) {
             alt={product.title}
             fill
             className="object-cover"
+            onClick={() => setShowModal(true)}
           />
         </div>
 
         {/* TEXT */}
+        <Link href={`/shop/product/${product._id}`}>
         <div className={`${isHorizontal ? "w-[60%]" : "w-full mt-3"}`}>
-          <h2 className="text-lg font-semibold text-slate-800">{product.title}</h2>
+          <h2 className="text-lg font-semibold text-slate-800 hover:text-slate-700">{product.title}</h2>
+          {/* <span>{product.}</span> */}
           <p className="text-sm text-slate-600 mt-1 line-clamp-2">
             {product.description}
           </p>
 
-          <div className="mt-3 font-bold text-slate-900">
+          <div className="mt-3 font-bold text-slate-900 flex justify-between">
             ${product.price}
+            
           </div>
         </div>
-
+            </Link>
         <AnimatePresence>
             {hovered && (
               <motion.div
@@ -76,7 +80,7 @@ export default function ProductCard({ product, grid }: Props) {
             )}
           </AnimatePresence>
       </motion.div>
-     </Link>
+     
 
      {/* Modal de QuickView */}
       <QuickViewModal

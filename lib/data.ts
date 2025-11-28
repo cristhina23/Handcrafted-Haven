@@ -178,6 +178,7 @@ const users =[
 
 const sellersProfiles =[
   {
+    "_id": "6921200e758610b8abeb5e83",
     "userId": "69211ed4758610b8abeb5e73",
     "shopName": "Ariana's Fine Jewelry",
     "bio": "Handmade jewelry inspired by elegance and minimalism.",
@@ -189,6 +190,7 @@ const sellersProfiles =[
     "reviews": []
   },
   {
+    "_id": "6921200e758610b8abeb5e84",
     "userId": "69211ed4758610b8abeb5e74",
     "shopName": "Rodriguez Home Art",
     "bio": "Warm, cozy, and stylish home decor pieces.",
@@ -200,6 +202,7 @@ const sellersProfiles =[
     "reviews": []
   },
   {
+    "_id": "6921200e758610b8abeb5e85",
     "userId": "69211ed4758610b8abeb5e75",
     "shopName": "Marisol Textiles",
     "bio": "Colorful handmade textiles inspired by Latin tradition.",
@@ -211,6 +214,7 @@ const sellersProfiles =[
     "reviews": []
   },
   {
+    "_id": "6921200e758610b8abeb5e86",
     "userId": "69211ed4758610b8abeb5e76",
     "shopName": "Carolina's Accessories",
     "bio": "Trendy accessories designed for daily style.",
@@ -222,6 +226,7 @@ const sellersProfiles =[
     "reviews": []
   },
   {
+    "_id": "6921200e758610b8abeb5e87",
     "userId": "69211ed4758610b8abeb5e77",
     "shopName": "Perez Art Studio",
     "bio": "Unique paintings and artistic pieces.",
@@ -233,6 +238,7 @@ const sellersProfiles =[
     "reviews": []
   },
   {
+    "_id": "6921200e758610b8abeb5e88",
     "userId": "69211ed4758610b8abeb5e78",
     "shopName": "Schmidt Woodcraft",
     "bio": "European-inspired wood furniture and decor.",
@@ -244,6 +250,7 @@ const sellersProfiles =[
     "reviews": []
   },
   {
+    "_id": "6921200e758610b8abeb5e89",
     "userId": "69211ed4758610b8abeb5e79",
     "shopName": "Hana Textile Studio",
     "bio": "Soft and premium-textile creations with Japanese influence.",
@@ -255,6 +262,7 @@ const sellersProfiles =[
     "reviews": []
   },
   {
+    "_id": "6921200e758610b8abeb5e8a",
     "userId": "69211ed4758610b8abeb5e7a",
     "shopName": "MJ Accessories",
     "bio": "Modern accessories for women and men.",
@@ -266,6 +274,7 @@ const sellersProfiles =[
     "reviews": []
   },
   {
+    "_id": "6921200e758610b8abeb5e8b",
     "userId": "69211ed4758610b8abeb5e7b",
     "shopName": "Romano Ceramics",
     "bio": "Colorful ceramic art handmade in Italy.",
@@ -277,6 +286,7 @@ const sellersProfiles =[
     "reviews": []
   },
   {
+    "_id": "6921200e758610b8abeb5e8c",
     "userId": "69211ed4758610b8abeb5e7c",
     "shopName": "Petrova Artisan Jewelry",
     "bio": "Handcrafted Eastern European jewelry made with traditional techniques and modern elegance.",
@@ -288,6 +298,7 @@ const sellersProfiles =[
     "reviews": []
   },
   {
+    "_id": "6921200e758610b8abeb5e8d",
     "userId": "69211ed4758610b8abeb5e7d",
     "shopName": "Carter’s Creative Shop",
     "bio": "Unique handcrafted art pieces and custom-made creative gifts.",
@@ -299,6 +310,7 @@ const sellersProfiles =[
     "reviews": []
   },
   {
+    "_id": "6921200e758610b8abeb5e8e",
     "userId": "69211ed4758610b8abeb5e7e",
     "shopName": "Nair Textile Studio",
     "bio": "Handcrafted textiles with vibrant colors and traditional Indian weaving techniques.",
@@ -319,7 +331,7 @@ const sellersProfiles =[
   const seller1Products = [
   {
     "_id": "692125e7758610b8abeb5e9d",
-    "sellerId": "69211ed4758610b8abeb5e73",
+    "sellerId": "6921200e758610b8abeb5e83",
     "title": "Golden Leaf Necklace",
     "description": "A delicate 18k gold-plated necklace featuring a minimalist leaf pendant crafted for everyday elegance.",
     "price": 45.99,
@@ -329,6 +341,9 @@ const sellersProfiles =[
     ],
     "categoryId": "6920e4c01eef40052ea9de9c",
     "quantity": 50,
+    "country": "Venezuela",
+    "rating": 4.7,
+    "ratingCount": 12,
     "variants": [
       { "color": "Gold", "material": "18k Gold-plated" }
     ],
@@ -338,7 +353,7 @@ const sellersProfiles =[
   },
   {
     "_id": "692125e7758610b8abeb5e9e",
-    "sellerId": "69211ed4758610b8abeb5e73",
+    "sellerId": "6921200e758610b8abeb5e83",
     "title": "Minimalist Silver Ring",
     "description": "Sterling silver band ring with a sleek modern finish, perfect for stacking or wearing alone.",
     "price": 29.50,
@@ -348,6 +363,9 @@ const sellersProfiles =[
     ],
     "categoryId": "6920e4c01eef40052ea9de9c",
     "quantity": 120,
+    "country": "Venezuela",
+    "rating": 4.9,
+    "ratingCount": 15,
     "variants": [
       { "size": "6" },
       { "size": "7" },
@@ -359,7 +377,7 @@ const sellersProfiles =[
   },
   {
     "_id": "692125e7758610b8abeb5e9f",
-    "sellerId": "69211ed4758610b8abeb5e73",
+    "sellerId": "6921200e758610b8abeb5e83",
     "title": "Pearl Drop Earrings",
     "description": "Elegant freshwater pearl earrings designed with hypoallergenic hooks for comfort and style.",
     "price": 38.99,
@@ -369,6 +387,9 @@ const sellersProfiles =[
     ],
     "categoryId": "6920e4c01eef40052ea9de9c",
     "quantity": 85,
+    "country": "Venezuela",
+    "rating": 4.5,
+    "ratingCount": 10,
     "variants": [
       { "color": "White Pearl", "material": "Freshwater Pearl" }
     ],
@@ -378,7 +399,7 @@ const sellersProfiles =[
   },
   {
     "_id": "692125e7758610b8abeb5ea0",
-    "sellerId": "69211ed4758610b8abeb5e73",
+    "sellerId": "6921200e758610b8abeb5e83",
     "title": "Emerald Charm Bracelet",
     "description": "Handcrafted bracelet featuring emerald charms and gold-plated links, ideal for gifting.",
     "price": 59.00,
@@ -388,6 +409,9 @@ const sellersProfiles =[
     ],
     "categoryId": "6920e4c01eef40052ea9de9c",
     "quantity": 40,
+    "country": "Venezuela",
+    "rating": 4.7,
+    "ratingCount": 8,
     "variants": [
       { "color": "Green", "material": "Emerald Stone" }
     ],
@@ -397,7 +421,7 @@ const sellersProfiles =[
   },
   {
     "_id": "692125e7758610b8abeb5ea1",
-    "sellerId": "69211ed4758610b8abeb5e73",
+    "sellerId": "6921200e758610b8abeb5e83",
     "title": "Personalized Name Necklace",
     "description": "Custom gold-plated necklace featuring a personalized name pendant, crafted with premium materials.",
     "price": 65.00,
@@ -407,6 +431,9 @@ const sellersProfiles =[
     ],
     "categoryId": "6920e4c01eef40052ea9de9c",
     "quantity": 0,
+    "country": "Venezuela",
+    "rating": 5.0,
+    "ratingCount": 18,
     "variants": [
       { "color": "Gold", "material": "Stainless Steel Gold-plated" }
     ],
@@ -429,6 +456,9 @@ const seller2Products = [
     ],
     "categoryId": "6920e4c01eef40052ea9de9d",
     "quantity": 25,
+    "country": "Colombia",
+    "rating": 4.8,
+    "ratingCount": 12,
     "variants": [
       { "size": "40cm" },
       { "size": "50cm" }
@@ -450,6 +480,9 @@ const seller2Products = [
     ],
     "categoryId": "6920e4c01eef40052ea9de9d",
     "quantity": 60,
+    "country": "Colombia",
+    "rating": 4.8,
+    "ratingCount": 10,
     "variants": [
       { "color": "Natural Wood" },
       { "color": "Black" }
@@ -471,6 +504,9 @@ const seller2Products = [
     ],
     "categoryId": "6920e4c01eef40052ea9de9d",
     "quantity": 80,
+    "country": "Colombia",
+    "rating": 4.3,
+    "ratingCount": 16,
     "variants": [
       { "color": "Beige" },
       { "color": "Gray" }
@@ -491,6 +527,9 @@ const seller2Products = [
     ],
     "categoryId": "6920e4c01eef40052ea9de9d",
     "quantity": 40,
+    "country": "Colombia",
+    "rating": 4.2,
+    "ratingCount": 12,
     "variants": [
       { "color": "Matte White" }
       
@@ -512,6 +551,9 @@ const seller2Products = [
     ],
     "categoryId": "6920e4c01eef40052ea9de9d",
     "quantity": 50,
+    "country": "Colombia",
+    "rating": 4.6,
+    "ratingCount": 22,
     "variants": [
       { "color": "Matte Black" }
     ],
@@ -536,6 +578,9 @@ const seller3Products = [
     ],
     "categoryId": "6920e4c01eef40052ea9de9e",
     "quantity": 40,
+    "country": "Peru",
+    "rating": 4.8,
+    "ratingCount": 15,
     "variants": [
       { "color": "Earth Tones" }
     ],
@@ -555,6 +600,9 @@ const seller3Products = [
     ],
     "categoryId": "6920e4c01eef40052ea9de9e",
     "quantity": 55,
+    "country": "Peru",
+    "rating": 43,
+    "ratingCount": 11,
     "variants": [
       { "size": "45x45 cm" }
     ],
@@ -575,6 +623,9 @@ const seller3Products = [
     ],
     "categoryId": "6920e4c01eef40052ea9de9e",
     "quantity": 80,
+    "country": "Peru",
+    "rating": 4.4,
+    "ratingCount": 19,
     "variants": [
       { "color": "Grey" },
       { "color": "Coral" },
@@ -597,6 +648,9 @@ const seller3Products = [
     ],
     "categoryId": "6920e4c01eef40052ea9de9e",
     "quantity": 60,
+    "country": "Peru",
+    "rating": 4.0,
+    "ratingCount": 1,
     "variants": [
       { "length": "150cm" },
       { "length": "180cm" }
@@ -617,6 +671,9 @@ const seller3Products = [
     ],
     "categoryId": "6920e4c01eef40052ea9de9e",
     "quantity": 45,
+    "country": "Peru",
+    "rating": 3.8,
+    "ratingCount": 10,
     "variants": [
       { "color": "Cream" }
     ],
@@ -639,6 +696,9 @@ const seller4Products = [
     ],
     "categoryId": "6920e4c01eef40052ea9de9f",
     "quantity": 100,
+    "country": "Mexico",
+    "rating": 4.5,
+    "ratingCount": 15,
     "variants": [
       { "color": "Turquoise" },
       { "color": "Pink" },
@@ -661,6 +721,9 @@ const seller4Products = [
     ],
     "categoryId": "6920e4c01eef40052ea9de9f",
     "quantity": 200,
+    "country": "Mexico",
+    "rating": 5.0,
+    "ratingCount": 9,
     "variants": [
       { "color": "Black" },
       { "color": "Mustard" },
@@ -686,6 +749,9 @@ const seller4Products = [
     ],
     "categoryId": "6920e4c01eef40052ea9de9f",
     "quantity": 85,
+    "country": "Mexico",
+    "rating": 4.8,
+    "ratingCount": 25,
     "variants": [
       { "color": "Blue" },
       { "color": "Gray" },
@@ -710,6 +776,9 @@ const seller4Products = [
     ],
     "categoryId": "6920e4c01eef40052ea9de9f",
     "quantity": 120,
+    "country": "Mexico",
+    "rating": 5.0,
+    "ratingCount": 35,
     "variants": [
       { "color": "Black" },
       { "color": "Chestnut Brown" },
@@ -731,6 +800,9 @@ const seller4Products = [
     ],
     "categoryId": "6920e4c01eef40052ea9de9f",
     "quantity": 160,
+    "country": "Mexico",
+    "rating": 4.7,
+    "ratingCount": 25,
     "variants": [
       { "color": "Beige" },
       { "color": "Black" }
@@ -755,6 +827,9 @@ const seller5Products = [
     ],
     "categoryId": "6920e4c01eef40052ea9dea0",
     "quantity": 8,
+    "country": "Argentina",
+    "rating": 4.8,
+    "ratingCount": 10,
     "variants": [
       { "size": "40x50 cm" },
       { "size": "60x80 cm" }
@@ -776,6 +851,9 @@ const seller5Products = [
     ],
     "categoryId": "6920e4c01eef40052ea9dea0",
     "quantity": 25,
+    "country": "Argentina",
+    "rating": 4.7,
+    "ratingCount": 11,
     "variants": [
       { "size": "A4" },
       { "size": "A3" },
@@ -799,6 +877,9 @@ const seller5Products = [
     ],
     "categoryId": "6920e4c01eef40052ea9dea0",
     "quantity": 14,
+    "country": "Argentina",
+    "rating": 5.0,
+    "ratingCount": 30,
     "variants": [
       { "color": "Blue-White" },
       { "color": "Terracotta" }
@@ -820,6 +901,9 @@ const seller5Products = [
     ],
     "categoryId": "6920e4c01eef40052ea9dea0",
     "quantity": 10,
+    "country": "Argentina",
+    "rating": 4.5,
+    "ratingCount": 11,
     "variants": [
       { "size": "30x40 cm" },
       { "size": "50x70 cm" }
@@ -841,6 +925,9 @@ const seller5Products = [
     ],
     "categoryId": "6920e4c01eef40052ea9dea0",
     "quantity": 30,
+    "country": "Argentina",
+    "rating": 4.8,
+    "ratingCount": 13,
     "variants": [
       { "size": "A3" },
       { "size": "A2" },
@@ -865,6 +952,9 @@ const seller6Products = [
     ],
     "categoryId": "6920e4c01eef40052ea9de9d",
     "quantity": 6,
+    "country": "Germany",
+    "rating": 4.7,
+    "ratingCount": 15,
     "variants": [
       { "size": "90x50x40 cm" },
       { "size": "110x60x45 cm" }
@@ -886,6 +976,9 @@ const seller6Products = [
     ],
     "categoryId": "6920e4c01eef40052ea9de9d",
     "quantity": 20,
+    "country": "Germany",
+    "rating": 5.0,
+    "ratingCount": 25,
     "variants": [
       { "color": "Natural Walnut" },
       { "color": "Dark Walnut" }
@@ -908,6 +1001,9 @@ const seller6Products = [
     ],
     "categoryId": "6920e4c01eef40052ea9de9d",
     "quantity": 35,
+    "country": "Germany",
+    "rating": 4.6,
+    "ratingCount": 45,
     "variants": [
       { "size": "60 cm" },
       { "size": "80 cm" }
@@ -929,6 +1025,9 @@ const seller6Products = [
     ],
     "categoryId": "6920e4c01eef40052ea9de9d",
     "quantity": 12,
+    "country": "Germany",
+    "rating": 5.0,
+    "ratingCount": 36,
     "variants": [
       { "color": "Natural Wood" },
       { "color": "Dark Chestnut" }
@@ -950,6 +1049,9 @@ const seller6Products = [
     ],
     "categoryId": "6920e4c01eef40052ea9de9d",
     "quantity": 40,
+    "country": "Germany",
+    "rating": 4.4,
+    "ratingCount": 14,
     "variants": [
       { "size": "30x20 cm" },
       { "size": "40x30 cm" }
@@ -962,6 +1064,7 @@ const seller6Products = [
 
 const seller7Products = [
   {
+    "_id": "69289f7b758610b8abeb79ad",
     "sellerId": "69211ed4758610b8abeb5e79",
     "title": "Handwoven Japanese Throw Blanket",
     "description": "Soft handwoven throw blanket inspired by Japanese textile patterns. Perfect for sofas, bedrooms, and cozy spaces.",
@@ -973,6 +1076,9 @@ const seller7Products = [
     ],
     "categoryId": "6920e4c01eef40052ea9de9e",
     "quantity": 20,
+    "country": "India",
+    "rating": 4.8,
+    "ratingCount": 23,
     "variants": [
       { "color": "Navy Blue" }
     ],
@@ -982,6 +1088,7 @@ const seller7Products = [
   },
 
   {
+    "_id": "69289f7b758610b8abeb79ae",
     "sellerId": "69211ed4758610b8abeb5e79",
     "title": "Traditional Indigo Dyed Scarf",
     "description": "Lightweight scarf dyed using natural indigo, following Japanese aizome techniques.",
@@ -993,6 +1100,9 @@ const seller7Products = [
     ],
     "categoryId": "6920e4c01eef40052ea9de9e",
     "quantity": 40,
+    "country": "India",
+    "rating": 4.6,
+    "ratingCount": 27,
     "variants": [
       { "size": "180x55 cm" },
       { "color": "Navy Blue" },
@@ -1007,6 +1117,7 @@ const seller7Products = [
   },
 
   {
+    "_id": "69289f7b758610b8abeb79af",
     "sellerId": "69211ed4758610b8abeb5e79",
     "title": "Handmade Embroidered Cushion Cover",
     "description": "Cushion cover with delicate hand embroidery inspired by Japanese minimalist motifs.",
@@ -1017,6 +1128,9 @@ const seller7Products = [
     ],
     "categoryId": "6920e4c01eef40052ea9de9e",
     "quantity": 35,
+    "country": "India",
+    "rating": 4.8,
+    "ratingCount": 13,
     "variants": [
       { "color": "White" },
       { "color": "Soft Pink" },
@@ -1029,6 +1143,7 @@ const seller7Products = [
   },
 
   {
+    "_id": "69289f7b758610b8abeb79b0",
     "sellerId": "69211ed4758610b8abeb5e79",
     "title": "Premium Cotton Table Runner",
     "description": "Elegant cotton table runner inspired by Japanese geometric linework. Perfect for dining tables.",
@@ -1039,6 +1154,9 @@ const seller7Products = [
     ],
     "categoryId": "6920e4c01eef40052ea9de9e",
     "quantity": 18,
+    "country": "India",
+    "rating": 4.8,
+    "ratingCount": 3,
     "variants": [
       { "size": "180x35 cm" },
       { "size": "200x35 cm" }
@@ -1049,6 +1167,7 @@ const seller7Products = [
   },
 
   {
+    "_id": "69289f7b758610b8abeb79b1",
     "sellerId": "69211ed4758610b8abeb5e79",
     "title": "Soft Knit Baby Blanket",
     "description": "Ultra-soft knitted baby blanket made with premium cotton yarn and Japanese pastel color themes.",
@@ -1059,6 +1178,9 @@ const seller7Products = [
     ],
     "categoryId": "6920e4c01eef40052ea9de9e",
     "quantity": 22,
+    "country": "India",
+    "rating": 5.0,
+    "ratingCount": 9,
     "variants": [
       { "color": "Beige" },
       { "color": "Soft Pink" },
@@ -1074,6 +1196,7 @@ const seller7Products = [
 
 const seller8Products = [
   {
+    "_id": "69289f7b758610b8abeb79b2",
     "sellerId": "69211ed4758610b8abeb5e7a",
     "title": "Minimalist Leather Wallet",
     "description": "Slim and stylish leather wallet designed for everyday use. Fits up to 8 cards and bills without bulk.",
@@ -1084,6 +1207,9 @@ const seller8Products = [
     ],
     "categoryId": "6920e4c01eef40052ea9de9f",
     "quantity": 30,
+    "country": "USA",
+    "rating": 4.7,
+    "ratingCount": 12,
     "variants": [
       { "color": "Black" },
       { "color": "Brown" },
@@ -1095,6 +1221,7 @@ const seller8Products = [
   },
 
   {
+    "_id": "69289f7b758610b8abeb79b3",
     "sellerId": "69211ed4758610b8abeb5e7a",
     "title": "Handwoven Macramé Keychain",
     "description": "Handcrafted macramé keychain made with strong cotton cord. Modern, lightweight and perfect for bags or keys.",
@@ -1106,6 +1233,9 @@ const seller8Products = [
     ],
     "categoryId": "6920e4c01eef40052ea9de9f",
     "quantity": 60,
+    "country": "USA",
+    "rating": 4.8,
+    "ratingCount": 32,
     "variants": [
       { "color": "Pink" },
       { "color": "Olive Green" },
@@ -1118,6 +1248,7 @@ const seller8Products = [
   },
 
   {
+    "_id": "69289f7b758610b8abeb79b4",
     "sellerId": "69211ed4758610b8abeb5e7a",
     "title": "Handcrafted Leather Wristband",
     "description": "Minimalist wristband handmade with genuine leather, cut and stitched by hand. Soft, durable and stylish.",
@@ -1128,6 +1259,9 @@ const seller8Products = [
     ],
     "categoryId": "6920e4c01eef40052ea9de9f",
     "quantity": 35,
+    "country": "USA",
+    "rating": 4.9,
+    "ratingCount": 41,
     "variants": [
       { "color": "Dark Brown" },
       { "color": "Black" },
@@ -1139,6 +1273,7 @@ const seller8Products = [
   },
 
   {
+    "_id": "69289f7b758610b8abeb79b5",
     "sellerId": "69211ed4758610b8abeb5e7a",
     "title": "Handmade Wooden Bead Necklace",
     "description": "Bohemian necklace made with polished natural wood beads and handwoven cord. Lightweight and eco-friendly.",
@@ -1149,6 +1284,9 @@ const seller8Products = [
     ],
     "categoryId": "6920e4c01eef40052ea9de9f",
     "quantity": 28,
+    "country": "USA",
+    "rating": 4.5,
+    "ratingCount": 11,
     "variants": [
       { "material": "Natural Wood" },
       { "material": "Dark Walnut Wood" }
@@ -1159,6 +1297,7 @@ const seller8Products = [
   },
 
   {
+    "_id": "69289f7b758610b8abeb79b6",
     "sellerId": "69211ed4758610b8abeb5e7a",
     "title": "Hand-Stitched Fabric Tote Bag",
     "description": "Eco-friendly tote bag made from hand-stitched cotton fabric. Perfect for daily use, shopping or books.",
@@ -1170,6 +1309,9 @@ const seller8Products = [
     ],
     "categoryId": "6920e4c01eef40052ea9de9f",
     "quantity": 20,
+    "country": "USA",
+    "rating": 4.8,
+    "ratingCount": 27,
     "variants": [
       { "color": "Cream" },
       { "color": "Beige" },
@@ -1184,6 +1326,7 @@ const seller8Products = [
 
 const seller9Products = [
   {
+    "_id": "69289f7b758610b8abeb79b7",
     "sellerId": "69211ed4758610b8abeb5e7b",
     "title": "Hand-Painted Mediterranean Vase",
     "description": "A ceramic vase inspired by Mediterranean coastal colors, carefully hand-painted and glazed.",
@@ -1194,6 +1337,9 @@ const seller9Products = [
     ],
     "categoryId": "6920e4c01eef40052ea9dea0",
     "quantity": 12,
+    "country": "Italy",
+    "rating": 4.7,
+    "ratingCount": 8,
     "variants": [
       { "color": "Floral" }
     ],
@@ -1202,6 +1348,7 @@ const seller9Products = [
     "shippingMethods": ["Standard", "Express"]
   },
   {
+    "_id": "69289f7b758610b8abeb79b7",
     "sellerId": "69211ed4758610b8abeb5e7b",
     "title": "Rustic Terracotta Bowl",
     "description": "Handcrafted terracotta bowl made using traditional Italian artisan techniques.",
@@ -1212,6 +1359,9 @@ const seller9Products = [
     ],
     "categoryId": "6920e4c01eef40052ea9dea0",
     "quantity": 25,
+    "country": "Italy",
+    "rating": 4.6,
+    "ratingCount": 12,
     "variants": [
       { "material": "Terracotta" }
     ],
@@ -1220,6 +1370,7 @@ const seller9Products = [
     "shippingMethods": ["Standard"]
   },
   {
+    "_id": "69289f7b758610b8abeb79b9",
     "sellerId": "69211ed4758610b8abeb5e7b",
     "title": "Italian Floral Ceramic Plate",
     "description": "A decorative ceramic plate with hand-painted floral motifs inspired by Italian heritage.",
@@ -1230,6 +1381,9 @@ const seller9Products = [
     ],
     "categoryId": "6920e4c01eef40052ea9dea0",
     "quantity": 18,
+    "country": "Italy",
+    "rating": 4.8,
+    "ratingCount": 22,
     "variants": [
       { "color": "Multicolor" }
     ],
@@ -1238,6 +1392,7 @@ const seller9Products = [
     "shippingMethods": ["Standard"]
   },
   {
+    "_id": "69289f7b758610b8abeb79ba",
     "sellerId": "69211ed4758610b8abeb5e7b",
     "title": "Mini Ceramic Planters Set (3 pcs)",
     "description": "Set of three small ceramic planters, individually hand-painted in bright Italian colors.",
@@ -1248,6 +1403,9 @@ const seller9Products = [
     ],
     "categoryId": "6920e4c01eef40052ea9dea0",
     "quantity": 20,
+    "country": "Italy",
+    "rating": 5.0,
+    "ratingCount": 47,
     "variants": [
       { "color": "Beige" },
       { "color": "Blue" },
@@ -1258,6 +1416,7 @@ const seller9Products = [
     "shippingMethods": ["Standard"]
   },
   {
+    "_id": "69289f7b758610b8abeb79bb",
     "sellerId": "69211ed4758610b8abeb5e7b",
     "title": "Handmade Ceramic Cups (2 pcs)",
     "description": "Pair of artisan cups with glossy Italian glazing. Perfect for coffee lovers.",
@@ -1268,6 +1427,9 @@ const seller9Products = [
     ],
     "categoryId": "6920e4c01eef40052ea9dea0",
     "quantity": 30,
+    "country": "Italy",
+    "rating": 4.5,
+    "ratingCount": 52,
     "variants": [
       { "color": "White & Blue" },
       { "color": "Green & Blue" },
@@ -1281,6 +1443,7 @@ const seller9Products = [
 
 const seller10Products = [
   {
+    "_id": "69289f7b758610b8abeb79bc",
     "sellerId": "69211ed4758610b8abeb5e7c",
     "title": "Handcrafted Silver Filigree Earrings",
     "description": "Elegant earrings handcrafted using traditional Russian filigree techniques. Lightweight and highly detailed.",
@@ -1291,6 +1454,9 @@ const seller10Products = [
     ],
     "categoryId": "6920e4c01eef40052ea9de9c",
     "quantity": 20,
+    "country": "Russia",
+    "rating": 4.7,
+    "ratingCount": 32,
     "variants": [
       { "material": "Sterling Silver" }
     ],
@@ -1299,6 +1465,7 @@ const seller10Products = [
     "shippingMethods": ["Standard", "Express"]
   },
   {
+    "_id": "69289f7b758610b8abeb79bd",
     "sellerId": "69211ed4758610b8abeb5e7c",
     "title": "Amber Stone Pendant Necklace",
     "description": "A handcrafted necklace featuring authentic Baltic amber set in silver. Warm, natural tones and a timeless design.",
@@ -1309,6 +1476,9 @@ const seller10Products = [
     ],
     "categoryId": "6920e4c01eef40052ea9de9c",
     "quantity": 15,
+    "country": "Russia",
+    "rating": 5.0,
+    "ratingCount": 39,
     "variants": [
       { "size": "45 cm" },
       { "size": "50 cm" }
@@ -1318,6 +1488,7 @@ const seller10Products = [
     "shippingMethods": ["Standard"]
   },
   {
+    "_id": "69289f7b758610b8abeb79be",
     "sellerId": "69211ed4758610b8abeb5e7c",
     "title": "Handwoven Beaded Bracelet",
     "description": "Traditional Eastern European bead weaving technique with vibrant colors. Every bracelet is unique.",
@@ -1328,6 +1499,9 @@ const seller10Products = [
     ],
     "categoryId": "6920e4c01eef40052ea9de9c",
     "quantity": 35,
+    "country": "Russia",
+    "rating": 4.8,
+    "ratingCount": 31,
     "variants": [
       { "color": "Blue & White" }
     ],
@@ -1336,6 +1510,7 @@ const seller10Products = [
     "shippingMethods": ["Standard"]
   },
   {
+    "_id": "69289f7b758610b8abeb79bf",
     "sellerId": "69211ed4758610b8abeb5e7c",
     "title": "Silver Engraved Ring",
     "description": "A personalized handcrafted sterling silver ring engraved with traditional Slavic patterns. Minimalist yet artistic.",
@@ -1346,6 +1521,9 @@ const seller10Products = [
     ],
     "categoryId": "6920e4c01eef40052ea9de9c",
     "quantity": 25,
+    "country": "Russia",
+    "rating": 4.4,
+    "ratingCount": 18,
     "variants": [
       { "size": "6" },
       { "size": "7" },
@@ -1356,6 +1534,7 @@ const seller10Products = [
     "shippingMethods": ["Standard"]
   },
   {
+    "_id": "69289f7b758610b8abeb79c0",
     "sellerId": "69211ed4758610b8abeb5e7c",
     "title": "Pearl & Silver Drop Necklace",
     "description": "A delicate necklace featuring freshwater pearls paired with artisan-crafted silver elements.",
@@ -1366,6 +1545,9 @@ const seller10Products = [
     ],
     "categoryId": "6920e4c01eef40052ea9de9c",
     "quantity": 18,
+    "country": "Russia",
+    "rating": 5.0,
+    "ratingCount": 27,
     "variants": [
       { "material": "Freshwater Pearl" }
     ],
@@ -1377,6 +1559,7 @@ const seller10Products = [
 
 const seller11Products =  [
   {
+    "_id": "69289f7b758610b8abeb79c1",
     "sellerId": "69211ed4758610b8abeb5e7d",
     "title": "Sunrise Canvas",
     "description": "A vibrant painting inspired by sunrise colors, perfect for living rooms or creative spaces.",
@@ -1387,6 +1570,9 @@ const seller11Products =  [
     ],
     "categoryId": "6920e4c01eef40052ea9dea0",
     "quantity": 8,
+    "country": "USA",
+    "rating": 4.9,
+    "ratingCount": 15,
     "variants": [
       { "size": "40x50 cm" },
       { "size": "60x80 cm" }
@@ -1397,6 +1583,7 @@ const seller11Products =  [
   },
 
   {
+    "_id": "69289f7b758610b8abeb79c2",
     "sellerId": "69211ed4758610b8abeb5e7d",
     "title": "Hand-Painted Coastal Landscape",
     "description": "A relaxing hand-painted landscape featuring soft blues and greens, ideal for bedrooms and hallways.",
@@ -1407,6 +1594,9 @@ const seller11Products =  [
     ],
     "categoryId": "6920e4c01eef40052ea9dea0",
     "quantity": 12,
+    "country": "USA",
+    "rating": 4.7,
+    "ratingCount": 20,
     "variants": [
       { "size": "30x40 cm" },
       { "size": "50x70 cm" }
@@ -1417,6 +1607,7 @@ const seller11Products =  [
   },
 
   {
+    "_id": "69289f7b758610b8abeb79c3",
     "sellerId": "69211ed4758610b8abeb5e7d",
     "title": "Custom Family Portrait Illustration",
     "description": "A fully personalized hand-drawn family portrait, created in a warm and expressive artistic style.",
@@ -1428,6 +1619,9 @@ const seller11Products =  [
     ],
     "categoryId": "6920e4c01eef40052ea9dea0",
     "quantity": 50,
+    "country": "USA",
+    "rating": 5.0,
+    "ratingCount": 23,
     "variants": [
       { "size": "A4" },
       { "size": "A3" }
@@ -1438,6 +1632,7 @@ const seller11Products =  [
   },
 
   {
+    "_id": "69289f7b758610b8abeb79c4",
     "sellerId": "69211ed4758610b8abeb5e7d",
     "title": "Watercolor Botanical Set (3 Pieces)",
     "description": "A set of three delicate watercolor botanical illustrations printed on premium textured paper.",
@@ -1448,6 +1643,9 @@ const seller11Products =  [
     ],
     "categoryId": "6920e4c01eef40052ea9dea0",
     "quantity": 30,
+    "country": "USA",
+    "rating": 4.6,
+    "ratingCount": 21,
     "variants": [
       { "size": "Digital File" },
       { "size": "Printed 40x50 cm" }
@@ -1458,6 +1656,7 @@ const seller11Products =  [
   },
 
   {
+    "_id": "69289f7b758610b8abeb79c5",
     "sellerId": "69211ed4758610b8abeb5e7d",
     "title": "Mini Wooden Easel Art Set",
     "description": "A handcrafted mini art set including a tiny wooden easel and a hand-painted micro canvas.",
@@ -1468,6 +1667,9 @@ const seller11Products =  [
     ],
     "categoryId": "6920e4c01eef40052ea9dea0",
     "quantity": 20,
+    "country": "USA",
+    "rating": 4.8,
+    "ratingCount": 29,
     "variants": [
       { "color": "Natural Wood" },
       { "color": "Walnut" }
@@ -1480,6 +1682,7 @@ const seller11Products =  [
 
 const seller12Products = [
   {
+    "_id": "69289f7b758610b8abeb79c6",
     "sellerId": "69211ed4758610b8abeb5e7e",
     "title": "Handwoven Cotton Throw Blanket",
     "description": "A soft, handwoven cotton throw blanket featuring traditional Indian weaving patterns. Perfect for sofas and beds.",
@@ -1490,6 +1693,9 @@ const seller12Products = [
     ],
     "categoryId": "6920e4c01eef40052ea9de9e",
     "quantity": 25,
+    "country": "India",
+    "rating": 4.7,
+    "ratingCount": 15,
     "variants": [
       { "color": "Cream" },
       { "color": "Beige" }
@@ -1500,6 +1706,7 @@ const seller12Products = [
   },
 
   {
+    "_id": "69289f7b758610b8abeb79c7",
     "sellerId": "69211ed4758610b8abeb5e7e",
     "title": "Hand-Printed Mandala Cushion Cover",
     "description": "A handmade cushion cover with hand-printed mandala designs using eco-friendly ink.",
@@ -1510,6 +1717,9 @@ const seller12Products = [
     ],
     "categoryId": "6920e4c01eef40052ea9de9e",
     "quantity": 40,
+    "country": "India",
+    "rating": 4.9,
+    "ratingCount": 12,
     "variants": [
       { "color": "White"},
       { "size": "45x45 cm" }
@@ -1520,6 +1730,7 @@ const seller12Products = [
   },
 
   {
+    "_id": "69289f7b758610b8abeb79c8",
     "sellerId": "69211ed4758610b8abeb5e7e",
     "title": "Handmade Silk Table Runner",
     "description": "A premium silk table runner with gold-thread detailing inspired by Kerala heritage designs.",
@@ -1530,6 +1741,9 @@ const seller12Products = [
     ],
     "categoryId": "6920e4c01eef40052ea9de9e",
     "quantity": 15,
+    "country": "India",
+    "rating": 4.8,
+    "ratingCount": 8,
     "variants": [
       { "color": "White" },
       { "size": "30x180 cm" }
@@ -1540,6 +1754,7 @@ const seller12Products = [
   },
 
   {
+    "_id": "69289f7b758610b8abeb79c9",
     "sellerId": "69211ed4758610b8abeb5e7e",
     "title": "Traditional Block-Printed Bed Sheet Set",
     "description": "A king-size bed sheet set created using traditional block-print methods and natural dyes.",
@@ -1550,6 +1765,9 @@ const seller12Products = [
     ],
     "categoryId": "6920e4c01eef40052ea9de9e",
     "quantity": 18,
+    "country": "India",
+    "rating": 4.7,
+    "ratingCount": 10,
     "variants": [
       { "color": "Indigo", "size": "King", "material": "Cotton" },
       { "color": "Saffron", "size": "King", "material": "Cotton" }
@@ -1560,6 +1778,7 @@ const seller12Products = [
   },
 
   {
+    "_id": "69289f7b758610b8abeb79ca",
     "sellerId": "69211ed4758610b8abeb5e7e",
     "title": "Handwoven Wool Scarf",
     "description": "A warm and lightweight wool scarf made by Indian artisans using traditional handloom techniques.",
@@ -1570,6 +1789,9 @@ const seller12Products = [
     ],
     "categoryId": "6920e4c01eef40052ea9de9e",
     "quantity": 28,
+    "country": "India",
+    "rating": 0.0,
+    "ratingCount": 0,
     "variants": [
       { "color": "Burgundy"  },
       { "color": "Gray" },
@@ -2142,3 +2364,987 @@ const reviewsProduct5Seller4 = [
     "createdAt": "2024-11-19T21:30:00Z"
   }
 ];
+
+
+const reviewsSeller5 = [
+  {
+    "productId": "692139bd758610b8abeb5eef",
+    "userId": "69228dac758610b8abeb6401",
+    "sellerId": "69211ed4758610b8abeb5e77",
+    "rating": 5,
+    "comment": "The colors are vibrant and the canvas feels premium. It brightens up my living room.",
+    "createdAt": "2024-11-23T09:15:00Z"
+  },
+  {
+    "productId": "692139bd758610b8abeb5eef",
+    "userId": "69228dac758610b8abeb6402",
+    "sellerId": "69211ed4758610b8abeb5e77",
+    "rating": 4,
+    "comment": "Beautiful abstract work. I wish the frame was a bit thicker, but overall very happy.",
+    "createdAt": "2024-11-24T11:40:00Z"
+  },
+  {
+    "productId": "692139bd758610b8abeb5eef",
+    "userId": "69228dac758610b8abeb6403",
+    "sellerId": "69211ed4758610b8abeb5e77",
+    "rating": 5,
+    "comment": "Stunning piece! The sunrise tones are calming and unique. Highly recommend this artist.",
+    "createdAt": "2024-11-25T16:05:00Z"
+  },
+
+  {
+    "productId": "692139bd758610b8abeb5ef0",
+    "userId": "69228dac758610b8abeb6404",
+    "sellerId": "69211ed4758610b8abeb5e77",
+    "rating": 5,
+    "comment": "Minimalist and elegant. The line work is crisp and looks amazing framed.",
+    "createdAt": "2024-11-23T10:20:00Z"
+  },
+  {
+    "productId": "692139bd758610b8abeb5ef0",
+    "userId": "69228dac758610b8abeb6405",
+    "sellerId": "69211ed4758610b8abeb5e77",
+    "rating": 4,
+    "comment": "Great quality print. I just wish shipping was a bit faster.",
+    "createdAt": "2024-11-24T13:45:00Z"
+  },
+  {
+    "productId": "692139bd758610b8abeb5ef0",
+    "userId": "69228dac758610b8abeb6406",
+    "sellerId": "69211ed4758610b8abeb5e77",
+    "rating": 5,
+    "comment": "Perfect for my office wall. Clean design and very modern.",
+    "createdAt": "2024-11-25T18:10:00Z"
+  },
+
+  {
+    "productId": "692139bd758610b8abeb5ef1",
+    "userId": "69228dac758610b8abeb6407",
+    "sellerId": "69211ed4758610b8abeb5e77",
+    "rating": 5,
+    "comment": "The hand-painted details are gorgeous. It feels like a true artisan piece.",
+    "createdAt": "2024-11-23T09:50:00Z"
+  },
+  {
+    "productId": "692139bd758610b8abeb5ef1",
+    "userId": "69228dac758610b8abeb6408",
+    "sellerId": "69211ed4758610b8abeb5e77",
+    "rating": 5,
+    "comment": "Beautiful plate! I hung it on my wall and it’s a centerpiece now.",
+    "createdAt": "2024-11-24T12:30:00Z"
+  },
+  {
+    "productId": "692139bd758610b8abeb5ef1",
+    "userId": "69228dac758610b8abeb6409",
+    "sellerId": "69211ed4758610b8abeb5e77",
+    "rating": 4,
+    "comment": "Lovely craftsmanship. Slightly smaller than expected, but still stunning.",
+    "createdAt": "2024-11-25T15:00:00Z"
+  },
+
+  {
+    "productId": "692139bd758610b8abeb5ef2",
+    "userId": "69228dac758610b8abeb6410",
+    "sellerId": "69211ed4758610b8abeb5e77",
+    "rating": 5,
+    "comment": "The watercolor tones are calming. It adds serenity to my bedroom.",
+    "createdAt": "2024-11-23T08:30:00Z"
+  },
+  {
+    "productId": "692139bd758610b8abeb5ef2",
+    "userId": "69228dac758610b8abeb6411",
+    "sellerId": "69211ed4758610b8abeb5e77",
+    "rating": 4,
+    "comment": "Beautiful landscape. The paper quality is good, though I’d prefer a thicker frame.",
+    "createdAt": "2024-11-24T14:20:00Z"
+  },
+  {
+    "productId": "692139bd758610b8abeb5ef2",
+    "userId": "69228dac758610b8abeb6412",
+    "sellerId": "69211ed4758610b8abeb5e77",
+    "rating": 5,
+    "comment": "Amazing detail in the mountains. Truly feels handmade.",
+    "createdAt": "2024-11-25T17:40:00Z"
+  },
+
+  {
+    "productId": "692139bd758610b8abeb5ef3",
+    "userId": "69228dac758610b8abeb6413",
+    "sellerId": "69211ed4758610b8abeb5e77",
+    "rating": 5,
+    "comment": "Bold colors and geometric shapes make this print stand out in my living room.",
+    "createdAt": "2024-11-23T09:10:00Z"
+  },
+  {
+    "productId": "692139bd758610b8abeb5ef3",
+    "userId": "69228dac758610b8abeb6414",
+    "sellerId": "69211ed4758610b8abeb5e77",
+    "rating": 4,
+    "comment": "Great quality print. The colors are vivid, though I wish it came framed.",
+    "createdAt": "2024-11-24T11:55:00Z"
+  },
+  {
+    "productId": "692139bd758610b8abeb5ef3",
+    "userId": "69228dac758610b8abeb6415",
+    "sellerId": "69211ed4758610b8abeb5e77",
+    "rating": 5,
+    "comment": "Perfect addition to my modern decor. Love the abstract design.",
+    "createdAt": "2024-11-25T16:25:00Z"
+  }
+]
+
+const reviewsSeller6 = [
+  {
+    "productId": "69213dbe758610b8abeb5f03",
+    "userId": "69228dac758610b8abeb6501",
+    "sellerId": "69211ed4758610b8abeb5e78",
+    "rating": 5,
+    "comment": "The oak finish is stunning. It feels solid and adds warmth to my living room.",
+    "createdAt": "2024-11-23T09:30:00Z"
+  },
+  {
+    "productId": "69213dbe758610b8abeb5f03",
+    "userId": "69228dac758610b8abeb6502",
+    "sellerId": "69211ed4758610b8abeb5e78",
+    "rating": 4,
+    "comment": "Beautiful craftsmanship. Slightly heavier than expected, but very durable.",
+    "createdAt": "2024-11-24T12:10:00Z"
+  },
+  {
+    "productId": "69213dbe758610b8abeb5f03",
+    "userId": "69228dac758610b8abeb6503",
+    "sellerId": "69211ed4758610b8abeb5e78",
+    "rating": 5,
+    "comment": "Perfect centerpiece for my living room. The rustic look is exactly what I wanted.",
+    "createdAt": "2024-11-25T15:45:00Z"
+  },
+
+  {
+    "productId": "69213dbe758610b8abeb5f04",
+    "userId": "69228dac758610b8abeb6504",
+    "sellerId": "69211ed4758610b8abeb5e78",
+    "rating": 5,
+    "comment": "The hand-carved details are exquisite. It’s silent and looks elegant on my wall.",
+    "createdAt": "2024-11-23T10:00:00Z"
+  },
+  {
+    "productId": "69213dbe758610b8abeb5f04",
+    "userId": "69228dac758610b8abeb6505",
+    "sellerId": "69211ed4758610b8abeb5e78",
+    "rating": 4,
+    "comment": "Beautiful walnut finish. I wish it came in a larger size, but still love it.",
+    "createdAt": "2024-11-24T13:20:00Z"
+  },
+  {
+    "productId": "69213dbe758610b8abeb5f04",
+    "userId": "69228dac758610b8abeb6506",
+    "sellerId": "69211ed4758610b8abeb5e78",
+    "rating": 5,
+    "comment": "Elegant and timeless. The craftsmanship is top-notch.",
+    "createdAt": "2024-11-25T17:50:00Z"
+  },
+
+  {
+    "productId": "69213dbe758610b8abeb5f05",
+    "userId": "69228dac758610b8abeb6507",
+    "sellerId": "69211ed4758610b8abeb5e78",
+    "rating": 5,
+    "comment": "These shelves are sturdy and look minimalistic. Perfect for my plants and books.",
+    "createdAt": "2024-11-23T09:40:00Z"
+  },
+  {
+    "productId": "69213dbe758610b8abeb5f05",
+    "userId": "69228dac758610b8abeb6508",
+    "sellerId": "69211ed4758610b8abeb5e78",
+    "rating": 4,
+    "comment": "Great quality wood. Installation was easy, though screws could be stronger.",
+    "createdAt": "2024-11-24T14:00:00Z"
+  },
+  {
+    "productId": "69213dbe758610b8abeb5f05",
+    "userId": "69228dac758610b8abeb6509",
+    "sellerId": "69211ed4758610b8abeb5e78",
+    "rating": 5,
+    "comment": "Minimalist and elegant. They hold weight well and look stylish.",
+    "createdAt": "2024-11-25T18:30:00Z"
+  },
+
+  {
+    "productId": "69213dbe758610b8abeb5f06",
+    "userId": "69228dac758610b8abeb6510",
+    "sellerId": "69211ed4758610b8abeb5e78",
+    "rating": 5,
+    "comment": "The lamp gives off a soft glow. The wood base feels premium.",
+    "createdAt": "2024-11-23T08:50:00Z"
+  },
+  {
+    "productId": "69213dbe758610b8abeb5f06",
+    "userId": "69228dac758610b8abeb6511",
+    "sellerId": "69211ed4758610b8abeb5e78",
+    "rating": 4,
+    "comment": "Beautiful design. The glass shade is delicate but adds elegance.",
+    "createdAt": "2024-11-24T15:10:00Z"
+  },
+  {
+    "productId": "69213dbe758610b8abeb5f06",
+    "userId": "69228dac758610b8abeb6512",
+    "sellerId": "69211ed4758610b8abeb5e78",
+    "rating": 5,
+    "comment": "Perfect bedside lamp. Soft lighting and modern look.",
+    "createdAt": "2024-11-25T19:40:00Z"
+  },
+
+  {
+    "productId": "69213dbe758610b8abeb5f07",
+    "userId": "69228dac758610b8abeb6513",
+    "sellerId": "69211ed4758610b8abeb5e78",
+    "rating": 5,
+    "comment": "Solid cutting board. It feels durable and looks beautiful in my kitchen.",
+    "createdAt": "2024-11-23T09:55:00Z"
+  },
+  {
+    "productId": "69213dbe758610b8abeb5f07",
+    "userId": "69228dac758610b8abeb6514",
+    "sellerId": "69211ed4758610b8abeb5e78",
+    "rating": 4,
+    "comment": "Great quality wood. Slightly heavy, but that makes it sturdy.",
+    "createdAt": "2024-11-24T12:45:00Z"
+  },
+  {
+    "productId": "69213dbe758610b8abeb5f07",
+    "userId": "69228dac758610b8abeb6515",
+    "sellerId": "69211ed4758610b8abeb5e78",
+    "rating": 5,
+    "comment": "Perfect size for daily cooking. The walnut finish is gorgeous.",
+    "createdAt": "2024-11-25T16:20:00Z"
+  }
+]
+
+
+const reviewsSeller7 = [
+  {
+    "productId": "69289f7b758610b8abeb79ad",
+    "userId": "69228dac758610b8abeb6601",
+    "sellerId": "69211ed4758610b8abeb5e79",
+    "rating": 5,
+    "comment": "The blanket is incredibly soft and cozy. The Japanese-inspired design makes it unique.",
+    "createdAt": "2024-11-23T09:20:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79ad",
+    "userId": "69228dac758610b8abeb6602",
+    "sellerId": "69211ed4758610b8abeb5e79",
+    "rating": 4,
+    "comment": "Beautiful craftsmanship. I wish it was a bit larger, but still love it.",
+    "createdAt": "2024-11-24T11:45:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79ad",
+    "userId": "69228dac758610b8abeb6603",
+    "sellerId": "69211ed4758610b8abeb5e79",
+    "rating": 5,
+    "comment": "Perfect for my sofa. Soft texture and elegant navy blue color.",
+    "createdAt": "2024-11-25T15:10:00Z"
+  },
+
+  {
+    "productId": "69289f7b758610b8abeb79ae",
+    "userId": "69228dac758610b8abeb6604",
+    "sellerId": "69211ed4758610b8abeb5e79",
+    "rating": 5,
+    "comment": "The indigo dye is rich and authentic. Lightweight and perfect for daily wear.",
+    "createdAt": "2024-11-23T10:30:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79ae",
+    "userId": "69228dac758610b8abeb6605",
+    "sellerId": "69211ed4758610b8abeb5e79",
+    "rating": 4,
+    "comment": "Lovely scarf. The colors are vibrant, though I wish it was slightly thicker.",
+    "createdAt": "2024-11-24T13:00:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79ae",
+    "userId": "69228dac758610b8abeb6606",
+    "sellerId": "69211ed4758610b8abeb5e79",
+    "rating": 5,
+    "comment": "Beautifully dyed and lightweight. A perfect accessory for any outfit.",
+    "createdAt": "2024-11-25T17:20:00Z"
+  },
+
+  {
+    "productId": "69289f7b758610b8abeb79af",
+    "userId": "69228dac758610b8abeb6607",
+    "sellerId": "69211ed4758610b8abeb5e79",
+    "rating": 5,
+    "comment": "The embroidery is delicate and elegant. It adds charm to my living room.",
+    "createdAt": "2024-11-23T09:50:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79af",
+    "userId": "69228dac758610b8abeb6608",
+    "sellerId": "69211ed4758610b8abeb5e79",
+    "rating": 4,
+    "comment": "Beautiful cushion cover. The stitching is neat, though I prefer a thicker fabric.",
+    "createdAt": "2024-11-24T12:40:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79af",
+    "userId": "69228dac758610b8abeb6609",
+    "sellerId": "69211ed4758610b8abeb5e79",
+    "rating": 5,
+    "comment": "Minimalist and stylish. Perfect for my bedroom decor.",
+    "createdAt": "2024-11-25T16:30:00Z"
+  },
+
+  {
+    "productId": "69289f7b758610b8abeb79b0",
+    "userId": "69228dac758610b8abeb6610",
+    "sellerId": "69211ed4758610b8abeb5e79",
+    "rating": 5,
+    "comment": "Elegant design and high-quality cotton. Looks perfect on my dining table.",
+    "createdAt": "2024-11-23T08:40:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79b0",
+    "userId": "69228dac758610b8abeb6611",
+    "sellerId": "69211ed4758610b8abeb5e79",
+    "rating": 4,
+    "comment": "Beautiful runner. The geometric design is unique, though I wish it was wider.",
+    "createdAt": "2024-11-24T14:15:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79b0",
+    "userId": "69228dac758610b8abeb6612",
+    "sellerId": "69211ed4758610b8abeb5e79",
+    "rating": 5,
+    "comment": "Perfect for special dinners. Adds elegance to the table setting.",
+    "createdAt": "2024-11-25T18:50:00Z"
+  },
+
+  {
+    "productId": "69289f7b758610b8abeb79b1",
+    "userId": "69228dac758610b8abeb6613",
+    "sellerId": "69211ed4758610b8abeb5e79",
+    "rating": 5,
+    "comment": "Extremely soft and cozy. My baby loves it and the pastel colors are adorable.",
+    "createdAt": "2024-11-23T09:10:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79b1",
+    "userId": "69228dac758610b8abeb6614",
+    "sellerId": "69211ed4758610b8abeb5e79",
+    "rating": 4,
+    "comment": "Lovely blanket. The knit is tight and durable, though I wish it was slightly larger.",
+    "createdAt": "2024-11-24T11:55:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79b1",
+    "userId": "69228dac758610b8abeb6615",
+    "sellerId": "69211ed4758610b8abeb5e79",
+    "rating": 5,
+    "comment": "Perfect gift for a newborn. Soft cotton and beautiful craftsmanship.",
+    "createdAt": "2024-11-25T16:25:00Z"
+  }
+]
+
+const reviewsSeller8 = [
+  {
+    "productId": "69289f7b758610b8abeb79b2",
+    "userId": "69228dac758610b8abeb6701",
+    "sellerId": "69211ed4758610b8abeb5e7a",
+    "rating": 5,
+    "comment": "Slim and stylish. Fits my cards perfectly without adding bulk.",
+    "createdAt": "2024-11-23T09:30:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79b2",
+    "userId": "69228dac758610b8abeb6702",
+    "sellerId": "69211ed4758610b8abeb5e7a",
+    "rating": 4,
+    "comment": "Great quality leather. I wish it had a coin pocket, but still love it.",
+    "createdAt": "2024-11-24T12:00:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79b2",
+    "userId": "69228dac758610b8abeb6703",
+    "sellerId": "69211ed4758610b8abeb5e7a",
+    "rating": 5,
+    "comment": "Perfect everyday wallet. Compact and elegant design.",
+    "createdAt": "2024-11-25T15:20:00Z"
+  },
+
+  {
+    "productId": "69289f7b758610b8abeb79b3",
+    "userId": "69228dac758610b8abeb6704",
+    "sellerId": "69211ed4758610b8abeb5e7a",
+    "rating": 5,
+    "comment": "Super cute and lightweight. Adds a nice touch to my bag.",
+    "createdAt": "2024-11-23T10:10:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79b3",
+    "userId": "69228dac758610b8abeb6705",
+    "sellerId": "69211ed4758610b8abeb5e7a",
+    "rating": 4,
+    "comment": "Lovely craftsmanship. The cotton cord feels strong and durable.",
+    "createdAt": "2024-11-24T13:30:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79b3",
+    "userId": "69228dac758610b8abeb6706",
+    "sellerId": "69211ed4758610b8abeb5e7a",
+    "rating": 5,
+    "comment": "Perfect little accessory. I bought two in different colors.",
+    "createdAt": "2024-11-25T17:45:00Z"
+  },
+
+  {
+    "productId": "69289f7b758610b8abeb79b4",
+    "userId": "69228dac758610b8abeb6707",
+    "sellerId": "69211ed4758610b8abeb5e7a",
+    "rating": 5,
+    "comment": "The leather is soft and comfortable. Looks very stylish on my wrist.",
+    "createdAt": "2024-11-23T09:50:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79b4",
+    "userId": "69228dac758610b8abeb6708",
+    "sellerId": "69211ed4758610b8abeb5e7a",
+    "rating": 4,
+    "comment": "Beautiful wristband. Slightly tight at first, but adjusts well.",
+    "createdAt": "2024-11-24T12:40:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79b5",
+    "userId": "69228dac758610b8abeb6709",
+    "sellerId": "69211ed4758610b8abeb5e7a",
+    "rating": 5,
+    "comment": "Minimalist and elegant. Goes perfectly with casual outfits.",
+    "createdAt": "2024-11-25T16:30:00Z"
+  },
+
+  {
+    "productId": "69289f7b758610b8abeb79b5",
+    "userId": "69228dac758610b8abeb6710",
+    "sellerId": "69211ed4758610b8abeb5e7a",
+    "rating": 5,
+    "comment": "Lightweight and eco-friendly. The natural wood beads look beautiful.",
+    "createdAt": "2024-11-23T08:40:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79b5",
+    "userId": "69228dac758610b8abeb6711",
+    "sellerId": "69211ed4758610b8abeb5e7a",
+    "rating": 4,
+    "comment": "Lovely necklace. The cord feels sturdy, though I wish it was adjustable.",
+    "createdAt": "2024-11-24T14:15:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79b5",
+    "userId": "69228dac758610b8abeb6712",
+    "sellerId": "69211ed4758610b8abeb5e7a",
+    "rating": 5,
+    "comment": "Perfect bohemian style. I get compliments every time I wear it.",
+    "createdAt": "2024-11-25T18:50:00Z"
+  },
+
+  {
+    "productId": "69289f7b758610b8abeb79b6",
+    "userId": "69228dac758610b8abeb6713",
+    "sellerId": "69211ed4758610b8abeb5e7a",
+    "rating": 5,
+    "comment": "Spacious and eco-friendly. Perfect for shopping and daily use.",
+    "createdAt": "2024-11-23T09:10:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79b6",
+    "userId": "69228dac758610b8abeb6714",
+    "sellerId": "69211ed4758610b8abeb5e7a",
+    "rating": 4,
+    "comment": "Great tote bag. The stitching is neat, though I wish it had an inner pocket.",
+    "createdAt": "2024-11-24T11:55:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79b6",
+    "userId": "69228dac758610b8abeb6715",
+    "sellerId": "69211ed4758610b8abeb5e7a",
+    "rating": 5,
+    "comment": "Stylish and durable. I use it every day for work.",
+    "createdAt": "2024-11-25T16:25:00Z"
+  }
+]
+
+
+
+const reviewsSeller9 = [
+  {
+    "productId": "69289f7b758610b8abeb79b7",
+    "userId": "69228dac758610b8abeb7001",
+    "sellerId": "69211ed4758610b8abeb5e7b",
+    "rating": 5,
+    "comment": "The colors are vibrant and the glaze is smooth. A beautiful Mediterranean touch.",
+    "createdAt": "2024-11-23T09:20:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79b7",
+    "userId": "69228dac758610b8abeb7002",
+    "sellerId": "69211ed4758610b8abeb5e7b",
+    "rating": 4,
+    "comment": "Lovely vase. Slightly smaller than expected, but the hand-painting is exquisite.",
+    "createdAt": "2024-11-24T12:40:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79b7",
+    "userId": "69228dac758610b8abeb7003",
+    "sellerId": "69211ed4758610b8abeb5e7b",
+    "rating": 5,
+    "comment": "Perfect centerpiece. The coastal colors bring warmth to my space.",
+    "createdAt": "2024-11-25T15:10:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79b7",
+    "userId": "69228dac758610b8abeb7004",
+    "sellerId": "69211ed4758610b8abeb5e7b",
+    "rating": 5,
+    "comment": "Beautiful terracotta texture. Feels authentic and well-crafted.",
+    "createdAt": "2024-11-23T10:00:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79b7",
+    "userId": "69228dac758610b8abeb7005",
+    "sellerId": "69211ed4758610b8abeb5e7b",
+    "rating": 4,
+    "comment": "Great bowl for serving or decor. The earthy tone is lovely.",
+    "createdAt": "2024-11-24T13:30:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79b7",
+    "userId": "69228dac758610b8abeb7006",
+    "sellerId": "69211ed4758610b8abeb5e7b",
+    "rating": 5,
+    "comment": "Feels handmade and special. I love the rustic finish.",
+    "createdAt": "2024-11-25T17:45:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79b9",
+    "userId": "69228dac758610b8abeb7007",
+    "sellerId": "69211ed4758610b8abeb5e7b",
+    "rating": 5,
+    "comment": "The floral design is stunning. It adds charm to my kitchen wall.",
+    "createdAt": "2024-11-23T09:50:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79b9",
+    "userId": "69228dac758610b8abeb7008",
+    "sellerId": "69211ed4758610b8abeb5e7b",
+    "rating": 4,
+    "comment": "Lovely plate. The colors are vivid, though I wish it came with a stand.",
+    "createdAt": "2024-11-24T12:40:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79b9",
+    "userId": "69228dac758610b8abeb7009",
+    "sellerId": "69211ed4758610b8abeb5e7b",
+    "rating": 5,
+    "comment": "Authentic Italian artistry. It’s now my favorite decorative piece.",
+    "createdAt": "2024-11-25T16:30:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79ba",
+    "userId": "69228dac758610b8abeb7010",
+    "sellerId": "69211ed4758610b8abeb5e7b",
+    "rating": 5,
+    "comment": "Adorable planters! Each one is unique and full of personality.",
+    "createdAt": "2024-11-23T08:40:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79ba",
+    "userId": "69228dac758610b8abeb7011",
+    "sellerId": "69211ed4758610b8abeb5e7b",
+    "rating": 4,
+    "comment": "Great set. The colors are cheerful, though I wish they were slightly larger.",
+    "createdAt": "2024-11-24T14:15:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79ba",
+    "userId": "69228dac758610b8abeb7012",
+    "sellerId": "69211ed4758610b8abeb5e7b",
+    "rating": 5,
+    "comment": "Perfect for succulents. They brighten up my windowsill beautifully.",
+    "createdAt": "2024-11-25T18:50:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79bb",
+    "userId": "69228dac758610b8abeb7013",
+    "sellerId": "69211ed4758610b8abeb5e7b",
+    "rating": 5,
+    "comment": "These cups are gorgeous. The glaze is smooth and the colors are rich.",
+    "createdAt": "2024-11-23T09:10:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79bb",
+    "userId": "69228dac758610b8abeb7014",
+    "sellerId": "69211ed4758610b8abeb5e7b",
+    "rating": 4,
+    "comment": "Beautiful set. I wish they were a bit taller, but they’re perfect for espresso.",
+    "createdAt": "2024-11-24T11:55:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79bb",
+    "userId": "69228dac758610b8abeb7015",
+    "sellerId": "69211ed4758610b8abeb5e7b",
+    "rating": 5,
+    "comment": "Elegant and practical. I use them every morning!",
+    "createdAt": "2024-11-25T16:25:00Z"
+  }
+]
+
+
+
+const reviewsSeller10 = [
+  {
+    "productId": "69289f7b758610b8abeb79bc",
+    "userId": "69228dac758610b8abeb7101",
+    "sellerId": "69211ed4758610b8abeb5e7c",
+    "rating": 5,
+    "comment": "The filigree work is incredibly detailed. Lightweight and elegant for everyday wear.",
+    "createdAt": "2024-11-23T09:20:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79bc",
+    "userId": "69228dac758610b8abeb7102",
+    "sellerId": "69211ed4758610b8abeb5e7c",
+    "rating": 4,
+    "comment": "Beautiful craftsmanship. I wish the hooks were slightly longer, but still lovely.",
+    "createdAt": "2024-11-24T12:40:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79bc",
+    "userId": "69228dac758610b8abeb7103",
+    "sellerId": "69211ed4758610b8abeb5e7c",
+    "rating": 5,
+    "comment": "Elegant and timeless. I get compliments every time I wear them.",
+    "createdAt": "2024-11-25T15:10:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79bd",
+    "userId": "69228dac758610b8abeb7104",
+    "sellerId": "69211ed4758610b8abeb5e7c",
+    "rating": 5,
+    "comment": "The amber is warm and rich. The silver setting makes it feel luxurious.",
+    "createdAt": "2024-11-23T10:00:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79bd",
+    "userId": "69228dac758610b8abeb7105",
+    "sellerId": "69211ed4758610b8abeb5e7c",
+    "rating": 4,
+    "comment": "Beautiful necklace. I wish the chain was a bit thicker, but the pendant is stunning.",
+    "createdAt": "2024-11-24T13:30:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79bd",
+    "userId": "69228dac758610b8abeb7106",
+    "sellerId": "69211ed4758610b8abeb5e7c",
+    "rating": 5,
+    "comment": "Authentic Baltic amber. It feels special and well-crafted.",
+    "createdAt": "2024-11-25T17:45:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79be",
+    "userId": "69228dac758610b8abeb7107",
+    "sellerId": "69211ed4758610b8abeb5e7c",
+    "rating": 5,
+    "comment": "The beadwork is vibrant and unique. Comfortable and adjustable fit.",
+    "createdAt": "2024-11-23T09:50:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79be",
+    "userId": "69228dac758610b8abeb7108",
+    "sellerId": "69211ed4758610b8abeb5e7c",
+    "rating": 4,
+    "comment": "Lovely bracelet. The colors are bright, though I wish it came in more patterns.",
+    "createdAt": "2024-11-24T12:40:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79be",
+    "userId": "69228dac758610b8abeb7109",
+    "sellerId": "69211ed4758610b8abeb5e7c",
+    "rating": 5,
+    "comment": "Beautiful craftsmanship. It feels handmade and authentic.",
+    "createdAt": "2024-11-25T16:30:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79bf",
+    "userId": "69228dac758610b8abeb7110",
+    "sellerId": "69211ed4758610b8abeb5e7c",
+    "rating": 5,
+    "comment": "The engraved patterns are stunning. Fits perfectly and feels very personal.",
+    "createdAt": "2024-11-23T08:40:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79bf",
+    "userId": "69228dac758610b8abeb7111",
+    "sellerId": "69211ed4758610b8abeb5e7c",
+    "rating": 4,
+    "comment": "Lovely ring. The silver is high quality, though I wish there were more size options.",
+    "createdAt": "2024-11-24T14:15:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79bf",
+    "userId": "69228dac758610b8abeb7112",
+    "sellerId": "69211ed4758610b8abeb5e7c",
+    "rating": 5,
+    "comment": "Minimalist yet artistic. A perfect everyday accessory.",
+    "createdAt": "2024-11-25T18:50:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79c0",
+    "userId": "69228dac758610b8abeb7113",
+    "sellerId": "69211ed4758610b8abeb5e7c",
+    "rating": 5,
+    "comment": "Elegant and delicate. The pearls are lustrous and the silver complements them beautifully.",
+    "createdAt": "2024-11-23T09:10:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79c0",
+    "userId": "69228dac758610b8abeb7114",
+    "sellerId": "69211ed4758610b8abeb5e7c",
+    "rating": 4,
+    "comment": "Beautiful necklace. The chain is sturdy, though I wish it was adjustable.",
+    "createdAt": "2024-11-24T11:55:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79c0",
+    "userId": "69228dac758610b8abeb7115",
+    "sellerId": "69211ed4758610b8abeb5e7c",
+    "rating": 5,
+    "comment": "Perfect gift. The pearls shine wonderfully and the silver work is exquisite.",
+    "createdAt": "2024-11-25T16:25:00Z"
+  }
+]
+
+const reviewsSeller11 = [
+  {
+    "productId": "69289f7b758610b8abeb79c1",
+    "userId": "69228dac758610b8abeb7201",
+    "sellerId": "69211ed4758610b8abeb5e7d",
+    "rating": 5,
+    "comment": "The colors are radiant and uplifting. It adds energy to my studio wall.",
+    "createdAt": "2024-11-23T09:20:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79c1",
+    "userId": "69228dac758610b8abeb7202",
+    "sellerId": "69211ed4758610b8abeb5e7d",
+    "rating": 4,
+    "comment": "Beautiful canvas. I wish the frame was a bit thicker, but the painting is stunning.",
+    "createdAt": "2024-11-24T12:40:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79c1",
+    "userId": "69228dac758610b8abeb7203",
+    "sellerId": "69211ed4758610b8abeb5e7d",
+    "rating": 5,
+    "comment": "Perfect for my creative corner. The sunrise tones are calming and vibrant.",
+    "createdAt": "2024-11-25T15:10:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79c2",
+    "userId": "69228dac758610b8abeb7204",
+    "sellerId": "69211ed4758610b8abeb5e7d",
+    "rating": 5,
+    "comment": "The blues and greens are so soothing. It’s perfect for my bedroom.",
+    "createdAt": "2024-11-23T10:00:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79c2",
+    "userId": "69228dac758610b8abeb7205",
+    "sellerId": "69211ed4758610b8abeb5e7d",
+    "rating": 4,
+    "comment": "Lovely landscape. I wish it came in a larger size, but the detail is great.",
+    "createdAt": "2024-11-24T13:30:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79c2",
+    "userId": "69228dac758610b8abeb7206",
+    "sellerId": "69211ed4758610b8abeb5e7d",
+    "rating": 5,
+    "comment": "Peaceful and elegant. It brings a calm vibe to my hallway.",
+    "createdAt": "2024-11-25T17:45:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79c3",
+    "userId": "69228dac758610b8abeb7207",
+    "sellerId": "69211ed4758610b8abeb5e7d",
+    "rating": 5,
+    "comment": "Absolutely loved our custom portrait. It captured our family perfectly.",
+    "createdAt": "2024-11-23T09:50:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79c3",
+    "userId": "69228dac758610b8abeb7208",
+    "sellerId": "69211ed4758610b8abeb5e7d",
+    "rating": 4,
+    "comment": "Great illustration. The style is warm and expressive, though delivery took a bit longer.",
+    "createdAt": "2024-11-24T12:40:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79c3",
+    "userId": "69228dac758610b8abeb7209",
+    "sellerId": "69211ed4758610b8abeb5e7d",
+    "rating": 5,
+    "comment": "Such a meaningful gift. The artist captured every detail beautifully.",
+    "createdAt": "2024-11-25T16:30:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79c4",
+    "userId": "69228dac758610b8abeb7210",
+    "sellerId": "69211ed4758610b8abeb5e7d",
+    "rating": 5,
+    "comment": "Delicate and elegant prints. The paper texture adds a premium feel.",
+    "createdAt": "2024-11-23T08:40:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79c4",
+    "userId": "69228dac758610b8abeb7211",
+    "sellerId": "69211ed4758610b8abeb5e7d",
+    "rating": 4,
+    "comment": "Beautiful set. I wish it included frames, but the artwork is lovely.",
+    "createdAt": "2024-11-24T14:15:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79c4",
+    "userId": "69228dac758610b8abeb7212",
+    "sellerId": "69211ed4758610b8abeb5e7d",
+    "rating": 5,
+    "comment": "Perfect for my gallery wall. The botanical theme is soft and natural.",
+    "createdAt": "2024-11-25T18:50:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79c5",
+    "sellerId": "69211ed4758610b8abeb5e7d",
+    "rating": 5,
+    "comment": "Adorable mini set! The tiny canvas is so charming and well-painted.",
+    "createdAt": "2024-11-23T09:10:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79c5",
+    "userId": "69228dac758610b8abeb7214",
+    "sellerId": "69211ed4758610b8abeb5e7d",
+    "rating": 4,
+    "comment": "Great gift idea. The easel is sturdy, though I wish the canvas was slightly larger.",
+    "createdAt": "2024-11-24T11:55:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79c5",
+    "userId": "69228dac758610b8abeb7215",
+    "sellerId": "69211ed4758610b8abeb5e7d",
+    "rating": 5,
+    "comment": "Perfect for my desk. It adds a creative touch to my workspace.",
+    "createdAt": "2024-11-25T16:25:00Z"
+  }
+]
+
+const reviewsSeller12 = [
+  {
+    "productId": "69289f7b758610b8abeb79c6",
+    "userId": "69228dac758610b8abeb7301",
+    "sellerId": "69211ed4758610b8abeb5e7e",
+    "rating": 5,
+    "comment": "The cotton is soft and breathable. Perfect for cozy evenings on the sofa.",
+    "createdAt": "2024-11-23T09:20:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79c6",
+    "userId": "69228dac758610b8abeb7302",
+    "sellerId": "69211ed4758610b8abeb5e7e",
+    "rating": 4,
+    "comment": "Beautiful weaving patterns. I wish it was slightly thicker, but still very comfortable.",
+    "createdAt": "2024-11-24T12:40:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79c6",
+    "userId": "69228dac758610b8abeb7303",
+    "sellerId": "69211ed4758610b8abeb5e7e",
+    "rating": 5,
+    "comment": "Lovely craftsmanship. The cream color blends perfectly with my decor.",
+    "createdAt": "2024-11-25T15:10:00Z"
+  },
+
+  {
+    "productId": "69289f7b758610b8abeb79c7",
+    "userId": "69228dac758610b8abeb7304",
+    "sellerId": "69211ed4758610b8abeb5e7e",
+    "rating": 5,
+    "comment": "The mandala print is vibrant and eco-friendly. It brightens up my living room.",
+    "createdAt": "2024-11-23T10:00:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79c7",
+    "userId": "69228dac758610b8abeb7305",
+    "sellerId": "69211ed4758610b8abeb5e7e",
+    "rating": 4,
+    "comment": "Beautiful cushion cover. The ink quality is great, though I wish it came in more colors.",
+    "createdAt": "2024-11-24T13:30:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79c7",
+    "userId": "69228dac758610b8abeb7306",
+    "sellerId": "69211ed4758610b8abeb5e7e",
+    "rating": 5,
+    "comment": "Minimalist and stylish. The hand-printing feels authentic and unique.",
+    "createdAt": "2024-11-25T17:45:00Z"
+  },
+
+  {
+    "productId": "69289f7b758610b8abeb79c8",
+    "userId": "69228dac758610b8abeb7307",
+    "sellerId": "69211ed4758610b8abeb5e7e",
+    "rating": 5,
+    "comment": "The silk is premium quality. The gold-thread detailing is exquisite.",
+    "createdAt": "2024-11-23T09:50:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79c8",
+    "userId": "69228dac758610b8abeb7308",
+    "sellerId": "69211ed4758610b8abeb5e7e",
+    "rating": 4,
+    "comment": "Elegant runner. I wish it was slightly wider, but the design is beautiful.",
+    "createdAt": "2024-11-24T12:40:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79c8",
+    "userId": "69228dac758610b8abeb7309",
+    "sellerId": "69211ed4758610b8abeb5e7e",
+    "rating": 5,
+    "comment": "Adds a luxurious touch to my dining table. Truly heritage-inspired.",
+    "createdAt": "2024-11-25T16:30:00Z"
+  },
+
+  {
+    "productId": "69289f7b758610b8abeb79c9",
+    "userId": "69228dac758610b8abeb7310",
+    "sellerId": "69211ed4758610b8abeb5e7e",
+    "rating": 5,
+    "comment": "The block-printing is authentic and the natural dyes look amazing.",
+    "createdAt": "2024-11-23T08:40:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79c9",
+    "userId": "69228dac758610b8abeb7311",
+    "sellerId": "69211ed4758610b8abeb5e7e",
+    "rating": 4,
+    "comment": "Lovely bed sheet set. The cotton feels soft, though I wish it came with pillow covers.",
+    "createdAt": "2024-11-24T14:15:00Z"
+  },
+  {
+    "productId": "69289f7b758610b8abeb79c9",
+    "userId": "69228dac758610b8abeb7312",
+    "sellerId": "69211ed4758610b8abeb5e7e",
+    "rating": 5,
+    "comment": "King-size perfection. The indigo print is bold and traditional.",
+    "createdAt": "2024-11-25T18:50:00Z"
+  }
+]

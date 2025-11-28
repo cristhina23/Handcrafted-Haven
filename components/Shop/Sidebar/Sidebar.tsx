@@ -70,6 +70,7 @@ export default function Sidebar({
     setCustomMax("");
     onCategorySelect?.(null);
     onPriceSelect?.(null);
+    onApply?.();
   };
 
   return (

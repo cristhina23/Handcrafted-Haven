@@ -1,14 +1,14 @@
-// app/api/products/[id]/route.ts
+
 import { connectDB } from "@/lib/db/db";
 import { Product } from "@/lib/models/Product";
 import { NextResponse } from "next/server";
 
 export async function GET(
   request: Request,
-  { params }: { params: Promise<{ id: string }> } // params es un Promise
+  { params }: { params: Promise<{ id: string }> } 
 ) {
   try {
-    const resolvedParams = await params; // ⬅️ desenlazamos el Promise
+    const resolvedParams = await params; 
     const { id } = resolvedParams;
 
     await connectDB();
