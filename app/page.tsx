@@ -1,4 +1,4 @@
-import Hero from "../components/Hero";
+import Hero from "@/components/Hero/Hero";
 import ProductDashboard from "../components/ProductDashboard";
 import { connectDB } from "@/lib/db/db";
 import {Product} from "@/lib/models/Product";
