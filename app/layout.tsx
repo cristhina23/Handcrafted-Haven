@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Footer from "../components/Footer/Footer"
+import AOSWrapper from "@/components/AosWrapper";
 
 import Header from "@/components/Header/Header";
 
-import Footer from "../components/Footer/Footer";
+
 //import AOSWrapper from "@/components/AosWrapper";
 
 import { Merriweather, Poppins } from "next/font/google";
@@ -39,6 +41,7 @@ export default function RootLayout({
       <body
         className={`${merriweather.variable} ${poppins.variable} font-sans antialiased w-full bg-[#F1F5F9]`}
       >
+        <AOSWrapper/>
          {/*<AOSWrapper/>*/}
         <Header />
         <main className="w-full">{children}</main>
