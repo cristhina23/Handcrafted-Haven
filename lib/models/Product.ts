@@ -14,6 +14,9 @@ export interface IProduct extends Document {
   images: string[];
   categoryId: mongoose.Types.ObjectId;
   quantity: number;
+  country?: string;
+  rating: number;
+  ratingCount: number;
   variants?: IVariant[];
   isCustomOrder: boolean;
   dimensions?: string;
@@ -30,6 +33,9 @@ const ProductSchema = new Schema<IProduct>(
     images: { type: [String], required: true },
     categoryId: { type: Schema.Types.ObjectId, ref: "Category", required: true },
     quantity: { type: Number, default: 0 },
+    country: { type: String },
+    rating: { type: Number, default: 0 },
+    ratingCount: { type: Number, default: 0 },
     variants: [
       {
         color: String,
@@ -47,3 +53,6 @@ const ProductSchema = new Schema<IProduct>(
 export const Product =
   mongoose.models.Product ||
   mongoose.model<IProduct>("Product", ProductSchema);
+
+
+  

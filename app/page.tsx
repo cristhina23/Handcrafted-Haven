@@ -1,5 +1,5 @@
-import Hero from "./(componentes)/Hero";
-import ProductDashboard from "./(componentes)/ProductDashboard";
+import Hero from "../components/Hero";
+import ProductDashboard from "../components/ProductDashboard";
 import { connectDB } from "@/lib/db/db";
 import {Product} from "@/lib/models/Product";
 
