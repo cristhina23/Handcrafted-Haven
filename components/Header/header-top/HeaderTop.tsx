@@ -6,7 +6,7 @@ function HeaderTop() {
     <div
       className="
         hidden md:flex
-        w-full bg-sky-300 text-slate-800 text-xs px-4 py-1
+        w-full bg-sky-300 text-slate-800 text-xs px-8 py-1
         flex-col md:flex-row md:justify-between md:items-center gap-1
       "
     >
