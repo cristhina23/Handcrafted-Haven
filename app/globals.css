@@ -159,3 +159,9 @@ h1, h2, h3, h4, h5, h6 {
   min-width: 50px !important;
   min-height: 50px !important;
 }
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}

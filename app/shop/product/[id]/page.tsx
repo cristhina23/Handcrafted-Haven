@@ -1,9 +1,18 @@
-import React from 'react'
+import BreadCrumb from "@/components/BreadCrump";
+import Meta from "@/components/Meta";
+import ProductPageContainer from "@/components/ProductPage/ProductPageContainer";
 
-function ProductDetails() {
-  return (
-    <div>ProductDetails</div>
-  )
+interface Props {
+  params: Promise<{ id: string }>; 
 }
 
-export default ProductDetails
+export default async function ProductPage({ params }: Props) {
+  const resolvedParams = await params; 
+  return (
+    <>
+      <Meta title="Products" />
+      <BreadCrumb title="Products" />
+      <ProductPageContainer productId={resolvedParams.id} />
+    </>
+    );
+}

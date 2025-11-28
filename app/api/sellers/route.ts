@@ -7,9 +7,9 @@ export async function GET() {
     await connectDB();
 
     const sellers = await Seller.find().lean();
-    const countries = Array.from(new Set(sellers.map((s) => s.country).filter(Boolean)));
+    
 
-    return NextResponse.json(countries);
+    return NextResponse.json(sellers);
   } catch (error) {
     return NextResponse.json({ error: "Failed to fetch seller countries" }, { status: 500 });
   }
