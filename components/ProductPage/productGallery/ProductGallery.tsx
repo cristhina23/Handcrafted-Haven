@@ -23,14 +23,14 @@ export default function ProductGallery({ images }: Props) {
     <div className="flex-1 relative bg-white py-9 rounded-xl shadow-sm border border-slate-200">
       {/* Imagen principal */}
       <div className="flex items-center justify-center">
-         <div className="size-9 flex items-center justify-center bg-white p-2 rounded-full shadow-md transition-all duration-300 ease-out hover:scale-105 hover:shadow-xl">
+         
         <button
         onClick={handlePrev}
-        className="text-gray-600 hover:text-gray-800 text-2xl"
+        className="text-gray-600 hover:text-gray-800 text-2xl px-2 transition-all duration-300 ease-out hover:scale-105 hover:shadow-xl"
       >
         &#10094; 
       </button>
-      </div>
+      
         <Image
         src={images[currentIndex]}
         alt={`Product Image ${currentIndex}`}
@@ -40,14 +40,14 @@ export default function ProductGallery({ images }: Props) {
       />
 
      
-      <div className=" size-9 flex items-center justify-center bg-white p-2 rounded-full shadow-md transition-all duration-300 ease-out hover:scale-105 hover:shadow-xl">
+      
       <button
         onClick={handleNext}
-        className="text-gray-600 hover:text-gray-800 text-2xl "
+        className="text-gray-600 hover:text-gray-800 text-2xl px-2 transition-all duration-300 ease-out hover:scale-105 hover:shadow-xl "
       >
         &#10095; 
       </button>
-      </div>
+      
       </div>
 
       {/* Thumbnails */}

@@ -35,8 +35,8 @@ export default function ProductPageContainer({ productId }: Props) {
 
         // Aquí guardas TODO lo que tu UI usa
         setProduct(data.product);
-        setSeller(data.seller);
-        setCategory(data.category);
+        setSeller(data.product.sellerId);
+        setCategory(data.product.categoryId);
         setReviews(data.reviews);
 
       } catch (error) {
@@ -65,8 +65,8 @@ export default function ProductPageContainer({ productId }: Props) {
           rating={product.rating}
           ratingCount={product.ratingCount}
           location={product.country}
-          seller={seller?.shopName ?? "N/A"}
-          category={category?.name ?? "N/A"}
+          seller={seller?.shopName }
+          category={category?.name }
           stock={product.quantity}
           colors={product.variants?.map((v) => v.color).filter((c): c is string => Boolean(c)) || []}
           dimensions={product.dimensions}
