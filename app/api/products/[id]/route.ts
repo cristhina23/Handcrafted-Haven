@@ -12,11 +12,15 @@ export async function GET(
     const { id } = resolvedParams;
 
     await connectDB();
-    const product = await Product.findById(id).lean();
+    const product = await Product.findById(id)
+      .populate("sellerId", "shopName country")
+      .populate("categoryId", "name")
+      .lean();
+
 
     if (!product) { return NextResponse.json( { message: "Product not found", id }, { status: 404 } ); } 
     
-    return NextResponse.json(product);
+    return NextResponse.json({ product });
   } catch (error) {
     console.error("Error:", error);
     return NextResponse.json({ message: "Server error" }, { status: 500 });

@@ -54,6 +54,7 @@ export default function ShopView() {
    const fetchData = async () => {
       const resProducts = await fetch("/api/products");
       const dataProducts = await resProducts.json();
+      console.log(dataProducts);
 
       const resCategories = await fetch("/api/categories");
       const dataCategories = await resCategories.json();

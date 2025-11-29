@@ -330,7 +330,7 @@ const sellersProfiles =[
   // seller 1
   const seller1Products = [
   {
-    "_id": "692125e7758610b8abeb5e9d",
+    "_id": { "$oid": "692125e7758610b8abeb5e9d" },
     "sellerId": "6921200e758610b8abeb5e83",
     "title": "Golden Leaf Necklace",
     "description": "A delicate 18k gold-plated necklace featuring a minimalist leaf pendant crafted for everyday elegance.",
@@ -352,7 +352,7 @@ const sellersProfiles =[
     "shippingMethods": ["Standard", "Express"]
   },
   {
-    "_id": "692125e7758610b8abeb5e9e",
+    "_id": { "$oid": "692125e7758610b8abeb5e9e"},
     "sellerId": "6921200e758610b8abeb5e83",
     "title": "Minimalist Silver Ring",
     "description": "Sterling silver band ring with a sleek modern finish, perfect for stacking or wearing alone.",
@@ -376,7 +376,7 @@ const sellersProfiles =[
     "shippingMethods": ["Standard"]
   },
   {
-    "_id": "692125e7758610b8abeb5e9f",
+    "_id": { "$oid":"692125e7758610b8abeb5e9f"},
     "sellerId": "6921200e758610b8abeb5e83",
     "title": "Pearl Drop Earrings",
     "description": "Elegant freshwater pearl earrings designed with hypoallergenic hooks for comfort and style.",
@@ -398,7 +398,7 @@ const sellersProfiles =[
     "shippingMethods": ["Standard", "Premium"]
   },
   {
-    "_id": "692125e7758610b8abeb5ea0",
+    "_id": { "$oid":"692125e7758610b8abeb5ea0"},
     "sellerId": "6921200e758610b8abeb5e83",
     "title": "Emerald Charm Bracelet",
     "description": "Handcrafted bracelet featuring emerald charms and gold-plated links, ideal for gifting.",
@@ -420,7 +420,7 @@ const sellersProfiles =[
     "shippingMethods": ["Standard", "Express"]
   },
   {
-    "_id": "692125e7758610b8abeb5ea1",
+    "_id": { "$oid":"692125e7758610b8abeb5ea1"},
     "sellerId": "6921200e758610b8abeb5e83",
     "title": "Personalized Name Necklace",
     "description": "Custom gold-plated necklace featuring a personalized name pendant, crafted with premium materials.",
@@ -445,8 +445,8 @@ const sellersProfiles =[
 
 const seller2Products = [
   {
-    "_id": "69212a28758610b8abeb5eac",
-    "sellerId": "69211ed4758610b8abeb5e74",
+    "_id": { "$oid":"69212a28758610b8abeb5eac" },
+    "sellerId": "6921200e758610b8abeb5e84",
     "title": "Handwoven Rattan Wall Mirror",
     "description": "A boho-style rattan wall mirror that adds warmth and texture to any room. Handcrafted with durable natural fibers.",
     "price": 79.99,
@@ -468,8 +468,8 @@ const seller2Products = [
     "shippingMethods": ["Standard", "Express"]
   },
   {
-    "_id": "69212a28758610b8abeb5ead",
-    "sellerId": "69211ed4758610b8abeb5e74",
+    "_id": { "$oid":"69212a28758610b8abeb5ead"},
+    "sellerId": "6921200e758610b8abeb5e84",
     "title": "Rustic Wooden Candle Holders (Set of 3)",
     "description": "A handcrafted set of rustic wooden candle holders, perfect for adding a cozy ambiance to living rooms, bedrooms, or dining tables.",
     "price": 34.99,
@@ -492,8 +492,8 @@ const seller2Products = [
     "shippingMethods": ["Standard"]
   },
   {
-    "_id": "69212a28758610b8abeb5eae",
-    "sellerId": "69211ed4758610b8abeb5e74",
+    "_id": { "$oid":"69212a28758610b8abeb5eae"},
+    "sellerId": "6921200e758610b8abeb5e84",
     "title": "Minimalist Cotton Throw Blanket",
     "description": "A soft, breathable cotton throw blanket with a fringe finish. Ideal for sofas, bedrooms, and cozy evenings.",
     "price": 49.99,
@@ -516,8 +516,8 @@ const seller2Products = [
     "shippingMethods": ["Standard", "Premium"]
   },
   {
-    "_id": "69212a28758610b8abeb5eaf",
-    "sellerId": "69211ed4758610b8abeb5e74",
+    "_id": { "$oid":"69212a28758610b8abeb5eaf"},
+    "sellerId": "6921200e758610b8abeb5e84",
     "title": "Ceramic Decorative Vase",
     "description": "Elegant matte ceramic vase suitable for dried flowers, pampas, or as an aesthetic standalone decor piece.",
     "price": 55.00,
@@ -539,8 +539,8 @@ const seller2Products = [
     "shippingMethods": ["Standard", "Express"]
   },
   {
-    "_id": "69212a28758610b8abeb5eb0",
-    "sellerId": "69211ed4758610b8abeb5e74",
+    "_id": { "$oid":"69212a28758610b8abeb5eb0"},
+    "sellerId": "6921200e758610b8abeb5e84",
     "title": "Handcrafted Ceramic Table Bowl",
     "description": "A handcrafted ceramic bowl with a matte textured finish. Perfect as a centerpiece for dining tables, coffee tables, or for holding fruits and decorative items.",
     "price": 58.50,
@@ -566,8 +566,8 @@ const seller2Products = [
 
 const seller3Products = [
   {
-    "_id": "69212e6e758610b8abeb5ebe",
-    "sellerId": "69211ed4758610b8abeb5e75",
+    "_id": { "$oid":"69212e6e758610b8abeb5ebe"},
+    "sellerId": "6921200e758610b8abeb5e85",
     "title": "Handwoven Andean Throw Blanket",
     "description": "Soft alpaca-blend throw blanket handmade with traditional Andean patterns. Ideal for sofas, bedrooms, or cozy reading corners.",
     "price": 89.99,
@@ -589,8 +589,8 @@ const seller3Products = [
     "shippingMethods": ["Standard", "Express"]
   },
   {
-    "_id": "69212e6e758610b8abeb5ebf",
-    "sellerId": "69211ed4758610b8abeb5e75",
+    "_id": { "$oid":"69212e6e758610b8abeb5ebf"},
+    "sellerId": "6921200e758610b8abeb5e85",
     "title": "Handwoven Cushion Cover Set",
     "description": "Set of two cushion covers made with Peruvian cotton, decorated with colorful geometric ancestral patterns.",
     "price": 45.0,
@@ -611,8 +611,8 @@ const seller3Products = [
     "shippingMethods": ["Standard"]
   },
   {
-    "_id": "69212e6e758610b8abeb5ec0",
-    "sellerId": "69211ed4758610b8abeb5e75",
+    "_id": { "$oid":"69212e6e758610b8abeb5ec0"},
+    "sellerId": "6921200e758610b8abeb5e85",
     "title": "Alpaca Wool Scarf",
     "description": "Lightweight yet warm handmade alpaca scarf. Perfect for winter or stylish outfits.",
     "price": 39.5,
@@ -637,8 +637,8 @@ const seller3Products = [
     "shippingMethods": ["Standard", "Express"]
   },
   {
-    "_id": "69212e6e758610b8abeb5ec1",
-    "sellerId": "69211ed4758610b8abeb5e75",
+    "_id": { "$oid":"69212e6e758610b8abeb5ec1"},
+    "sellerId": "6921200e758610b8abeb5e85",
     "title": "Traditional Peruvian Table Runner",
     "description": "Handwoven table runner featuring bright Peruvian motifs. Adds color and warmth to any dining table.",
     "price": 34.99,
@@ -660,8 +660,8 @@ const seller3Products = [
     "shippingMethods": ["Standard"]
   },
   {
-    "_id": "69212e6e758610b8abeb5ec2",
-    "sellerId": "69211ed4758610b8abeb5e75",
+    "_id": { "$oid":"69212e6e758610b8abeb5ec2"},
+    "sellerId": "6921200e758610b8abeb5e85",
     "title": "Hand Loomed Tote Bag",
     "description": "Durable handmade tote bag crafted from Peruvian cotton with traditional loom weaving patterns.",
     "price": 52.00,
@@ -685,8 +685,8 @@ const seller3Products = [
 
 const seller4Products = [
   {
-    "_id": "69213a4c758610b8abeb5ef5",
-    "sellerId": "69211ed4758610b8abeb5e76",
+    "_id": { "$oid":"69213a4c758610b8abeb5ef5"},
+    "sellerId": "6921200e758610b8abeb5e86",
     "title": "Handcrafted Beaded Bracelet",
     "description": "Colorful beaded bracelet handmade with natural stones and glass beads — perfect to add a pop of color to any outfit.",
     "price": 25.99,
@@ -709,8 +709,8 @@ const seller4Products = [
     "shippingMethods": ["Standard", "Express"]
   },
   {
-    "_id": "69213a4c758610b8abeb5ef6",
-    "sellerId": "69211ed4758610b8abeb5e76",
+    "_id": { "$oid":"69213a4c758610b8abeb5ef6"},
+    "sellerId": "6921200e758610b8abeb5e86",
     "title": "Leather Tassel Keychain",
     "description": "Premium genuine leather tassel keychain in a variety of colors. Adds style and functionality to your keys or bag.",
     "price": 14.50,
@@ -737,8 +737,8 @@ const seller4Products = [
     "shippingMethods": ["Standard"]
   },
   {
-    "_id": "69213a4c758610b8abeb5ef7",
-    "sellerId": "69211ed4758610b8abeb5e76",
+    "_id": { "$oid":"69213a4c758610b8abeb5ef7"},
+    "sellerId": "6921200e758610b8abeb5e86",
     "title": "Minimalist Laptop Sleeve",
     "description": "Slim and water-resistant laptop sleeve made with padded microfiber. Perfect for students and professionals who want lightweight protection.",
     "price": 32.99,
@@ -765,8 +765,8 @@ const seller4Products = [
     "shippingMethods": ["Standard", "Express"]
   },
   {
-    "_id": "69213a4c758610b8abeb5ef8",
-    "sellerId": "69211ed4758610b8abeb5e76",
+    "_id": { "$oid":"69213a4c758610b8abeb5ef8"},
+    "sellerId": "6921200e758610b8abeb5e86",
     "title": "Leather Desk Pad",
     "description": "Elegant PU-leather desk pad that protects your workspace and provides a smooth writing and mouse-friendly surface.",
     "price": 27.50,
@@ -789,8 +789,8 @@ const seller4Products = [
     "shippingMethods": ["Standard"]
   },
   {
-    "_id": "69213a4c758610b8abeb5ef9",
-    "sellerId": "69211ed4758610b8abeb5e76",
+    "_id": { "$oid":"69213a4c758610b8abeb5ef9"},
+    "sellerId": "6921200e758610b8abeb5e86",
     "title": "Canvas Tote Bag for Work & Study",
     "description": "Durable canvas tote bag with internal pockets. Ideal for carrying books, laptops, planners, and daily essentials.",
     "price": 22.99,
@@ -816,8 +816,8 @@ const seller4Products = [
 
 const seller5Products = [
   {
-    "_id": "692139bd758610b8abeb5eef",
-    "sellerId": "69211ed4758610b8abeb5e77",
+    "_id": { "$oid":"692139bd758610b8abeb5eef"},
+    "sellerId": "6921200e758610b8abeb5e87",
     "title": "Abstract Sunrise Canvas",
     "description": "A vibrant abstract painting inspired by sunrise colors, perfect for living rooms, studios, or offices.",
     "price": 120.00,
@@ -840,8 +840,8 @@ const seller5Products = [
   },
 
   {
-    "_id": "692139bd758610b8abeb5ef0",
-    "sellerId": "69211ed4758610b8abeb5e77",
+    "_id": { "$oid":"692139bd758610b8abeb5ef0"},
+    "sellerId": "6921200e758610b8abeb5e87",
     "title": "Modern Line Art Portrait",
     "description": "Minimalist line art portrait printed on high-quality matte paper. Ideal for modern decor lovers.",
     "price": 45.00,
@@ -865,8 +865,8 @@ const seller5Products = [
   },
 
   {
-    "_id": "692139bd758610b8abeb5ef1",
-    "sellerId": "69211ed4758610b8abeb5e77",
+    "_id": { "$oid":"692139bd758610b8abeb5ef1"},
+    "sellerId": "6921200e758610b8abeb5e87",
     "title": "Hand-Painted Ceramic Art Plate",
     "description": "Decorative ceramic plate with hand-painted artistic patterns, perfect for walls or shelves.",
     "price": 75.50,
@@ -890,8 +890,8 @@ const seller5Products = [
   },
 
   {
-    "_id": "692139bd758610b8abeb5ef2",
-    "sellerId": "69211ed4758610b8abeb5e77",
+    "_id": { "$oid":"692139bd758610b8abeb5ef2"},
+    "sellerId": "6921200e758610b8abeb5e87",
     "title": "Watercolor Nature Landscape",
     "description": "Soft watercolor painting featuring mountains and misty forests. A soothing piece for any environment.",
     "price": 95.00,
@@ -914,8 +914,8 @@ const seller5Products = [
   },
 
   {
-    "_id": "692139bd758610b8abeb5ef3",
-    "sellerId": "69211ed4758610b8abeb5e77",
+    "_id": { "$oid":"692139bd758610b8abeb5ef3"},
+    "sellerId": "6921200e758610b8abeb5e87",
     "title": "Geometric Abstract Print",
     "description": "High-quality print featuring geometric shapes in bold modern colors, perfect for a contemporary space.",
     "price": 55.00,
@@ -941,8 +941,8 @@ const seller5Products = [
 
 const seller6Products = [
   {
-    "_id": "69213dbe758610b8abeb5f03",
-    "sellerId": "69211ed4758610b8abeb5e78",
+    "_id": { "$oid":"69213dbe758610b8abeb5f03"},
+    "sellerId": "6921200e758610b8abeb5e88",
     "title": "Rustic Oak Coffee Table",
     "description": "Handcrafted oak coffee table with a natural matte finish. Perfect for living rooms with rustic or modern decor.",
     "price": 320.00,
@@ -965,8 +965,8 @@ const seller6Products = [
   },
 
   {
-    "_id": "69213dbe758610b8abeb5f04",
-    "sellerId": "69211ed4758610b8abeb5e78",
+    "_id": { "$oid":"69213dbe758610b8abeb5f04"},
+    "sellerId": "6921200e758610b8abeb5e88",
     "title": "Hand-Carved Wooden Wall Clock",
     "description": "Elegant wooden wall clock made from walnut, featuring hand-carved details and silent movement.",
     "price": 85.00,
@@ -989,8 +989,8 @@ const seller6Products = [
   },
 
   {
-    "_id": "69213dbe758610b8abeb5f05",
-    "sellerId": "69211ed4758610b8abeb5e78",
+    "_id": { "$oid":"69213dbe758610b8abeb5f05"},
+    "sellerId": "6921200e758610b8abeb5e88",
     "title": "Solid Wood Floating Shelves (Set of 2)",
     "description": "Minimalist floating shelves crafted from European birch wood. Perfect for books, plants, or decor.",
     "price": 70.00,
@@ -1014,8 +1014,8 @@ const seller6Products = [
   },
 
   {
-    "_id": "69213dbe758610b8abeb5f06",
-    "sellerId": "69211ed4758610b8abeb5e78",
+    "_id": { "$oid":"69213dbe758610b8abeb5f06"},
+    "sellerId": "6921200e758610b8abeb5e88",
     "title": "Handcrafted Wood & Glass Lamp",
     "description": "Modern bedside lamp featuring a handcrafted wooden base and a frosted glass shade. Soft ambient lighting.",
     "price": 110.00,
@@ -1038,8 +1038,8 @@ const seller6Products = [
   },
 
   {
-    "_id": "69213dbe758610b8abeb5f07",
-    "sellerId": "69211ed4758610b8abeb5e78",
+    "_id": { "$oid":"69213dbe758610b8abeb5f07"},
+    "sellerId": "6921200e758610b8abeb5e88",
     "title": "Premium Hardwood Cutting Board",
     "description": "Durable cutting board made from European maple and walnut. Ideal for kitchens or as a gift.",
     "price": 65.00,
@@ -1064,8 +1064,8 @@ const seller6Products = [
 
 const seller7Products = [
   {
-    "_id": "69289f7b758610b8abeb79ad",
-    "sellerId": "69211ed4758610b8abeb5e79",
+    "_id": { "$oid":"69289f7b758610b8abeb79ad"},
+    "sellerId": "6921200e758610b8abeb5e89",
     "title": "Handwoven Japanese Throw Blanket",
     "description": "Soft handwoven throw blanket inspired by Japanese textile patterns. Perfect for sofas, bedrooms, and cozy spaces.",
     "price": 68.00,
@@ -1088,8 +1088,8 @@ const seller7Products = [
   },
 
   {
-    "_id": "69289f7b758610b8abeb79ae",
-    "sellerId": "69211ed4758610b8abeb5e79",
+    "_id": { "$oid":"69289f7b758610b8abeb79ae"},
+    "sellerId": "6921200e758610b8abeb5e89",
     "title": "Traditional Indigo Dyed Scarf",
     "description": "Lightweight scarf dyed using natural indigo, following Japanese aizome techniques.",
     "price": 32.00,
@@ -1117,8 +1117,8 @@ const seller7Products = [
   },
 
   {
-    "_id": "69289f7b758610b8abeb79af",
-    "sellerId": "69211ed4758610b8abeb5e79",
+    "_id": { "$oid":"69289f7b758610b8abeb79af"},
+    "sellerId": "6921200e758610b8abeb5e89",
     "title": "Handmade Embroidered Cushion Cover",
     "description": "Cushion cover with delicate hand embroidery inspired by Japanese minimalist motifs.",
     "price": 28.50,
@@ -1143,8 +1143,8 @@ const seller7Products = [
   },
 
   {
-    "_id": "69289f7b758610b8abeb79b0",
-    "sellerId": "69211ed4758610b8abeb5e79",
+    "_id": { "$oid":"69289f7b758610b8abeb79b0"},
+    "sellerId": "6921200e758610b8abeb5e89",
     "title": "Premium Cotton Table Runner",
     "description": "Elegant cotton table runner inspired by Japanese geometric linework. Perfect for dining tables.",
     "price": 40.00,
@@ -1167,8 +1167,8 @@ const seller7Products = [
   },
 
   {
-    "_id": "69289f7b758610b8abeb79b1",
-    "sellerId": "69211ed4758610b8abeb5e79",
+    "_id": { "$oid":"69289f7b758610b8abeb79b1"},
+    "sellerId": "6921200e758610b8abeb5e89",
     "title": "Soft Knit Baby Blanket",
     "description": "Ultra-soft knitted baby blanket made with premium cotton yarn and Japanese pastel color themes.",
     "price": 52.00,
@@ -1196,8 +1196,8 @@ const seller7Products = [
 
 const seller8Products = [
   {
-    "_id": "69289f7b758610b8abeb79b2",
-    "sellerId": "69211ed4758610b8abeb5e7a",
+    "_id": { "$oid":"69289f7b758610b8abeb79b2"},
+    "sellerId": "6921200e758610b8abeb5e8a",
     "title": "Minimalist Leather Wallet",
     "description": "Slim and stylish leather wallet designed for everyday use. Fits up to 8 cards and bills without bulk.",
     "price": 38.00,
@@ -1221,8 +1221,8 @@ const seller8Products = [
   },
 
   {
-    "_id": "69289f7b758610b8abeb79b3",
-    "sellerId": "69211ed4758610b8abeb5e7a",
+    "_id": { "$oid":"69289f7b758610b8abeb79b3"},
+    "sellerId": "6921200e758610b8abeb5e8a",
     "title": "Handwoven Macramé Keychain",
     "description": "Handcrafted macramé keychain made with strong cotton cord. Modern, lightweight and perfect for bags or keys.",
     "price": 12.00,
@@ -1248,8 +1248,8 @@ const seller8Products = [
   },
 
   {
-    "_id": "69289f7b758610b8abeb79b4",
-    "sellerId": "69211ed4758610b8abeb5e7a",
+    "_id": { "$oid":"69289f7b758610b8abeb79b4"},
+    "sellerId": "6921200e758610b8abeb5e8a",
     "title": "Handcrafted Leather Wristband",
     "description": "Minimalist wristband handmade with genuine leather, cut and stitched by hand. Soft, durable and stylish.",
     "price": 26.00,
@@ -1273,8 +1273,8 @@ const seller8Products = [
   },
 
   {
-    "_id": "69289f7b758610b8abeb79b5",
-    "sellerId": "69211ed4758610b8abeb5e7a",
+    "_id": { "$oid":"69289f7b758610b8abeb79b5"},
+    "sellerId": "6921200e758610b8abeb5e8a",
     "title": "Handmade Wooden Bead Necklace",
     "description": "Bohemian necklace made with polished natural wood beads and handwoven cord. Lightweight and eco-friendly.",
     "price": 32.00,
@@ -1297,8 +1297,8 @@ const seller8Products = [
   },
 
   {
-    "_id": "69289f7b758610b8abeb79b6",
-    "sellerId": "69211ed4758610b8abeb5e7a",
+    "_id": { "$oid":"69289f7b758610b8abeb79b6"},
+    "sellerId": "6921200e758610b8abeb5e8a",
     "title": "Hand-Stitched Fabric Tote Bag",
     "description": "Eco-friendly tote bag made from hand-stitched cotton fabric. Perfect for daily use, shopping or books.",
     "price": 42.00,
@@ -1326,8 +1326,8 @@ const seller8Products = [
 
 const seller9Products = [
   {
-    "_id": "69289f7b758610b8abeb79b7",
-    "sellerId": "69211ed4758610b8abeb5e7b",
+    "_id": { "$oid":"69289f7b758610b8abeb79b7"},
+    "sellerId": "6921200e758610b8abeb5e8b",
     "title": "Hand-Painted Mediterranean Vase",
     "description": "A ceramic vase inspired by Mediterranean coastal colors, carefully hand-painted and glazed.",
     "price": 68.00,
@@ -1347,9 +1347,10 @@ const seller9Products = [
     "dimensions": "28 cm height",
     "shippingMethods": ["Standard", "Express"]
   },
+  // review here
   {
-    "_id": "69289f7b758610b8abeb79b7",
-    "sellerId": "69211ed4758610b8abeb5e7b",
+    "_id": { "$oid":"69289f7b758610b8abeb79b8"},
+    "sellerId": "6921200e758610b8abeb5e8b",
     "title": "Rustic Terracotta Bowl",
     "description": "Handcrafted terracotta bowl made using traditional Italian artisan techniques.",
     "price": 32.50,
@@ -1370,8 +1371,8 @@ const seller9Products = [
     "shippingMethods": ["Standard"]
   },
   {
-    "_id": "69289f7b758610b8abeb79b9",
-    "sellerId": "69211ed4758610b8abeb5e7b",
+    "_id": { "$oid":"69289f7b758610b8abeb79b9"},
+    "sellerId": "6921200e758610b8abeb5e8b",
     "title": "Italian Floral Ceramic Plate",
     "description": "A decorative ceramic plate with hand-painted floral motifs inspired by Italian heritage.",
     "price": 45.00,
@@ -1392,8 +1393,8 @@ const seller9Products = [
     "shippingMethods": ["Standard"]
   },
   {
-    "_id": "69289f7b758610b8abeb79ba",
-    "sellerId": "69211ed4758610b8abeb5e7b",
+    "_id": { "$oid":"69289f7b758610b8abeb79ba"},
+    "sellerId": "6921200e758610b8abeb5e8b",
     "title": "Mini Ceramic Planters Set (3 pcs)",
     "description": "Set of three small ceramic planters, individually hand-painted in bright Italian colors.",
     "price": 39.90,
@@ -1416,8 +1417,8 @@ const seller9Products = [
     "shippingMethods": ["Standard"]
   },
   {
-    "_id": "69289f7b758610b8abeb79bb",
-    "sellerId": "69211ed4758610b8abeb5e7b",
+    "_id": { "$oid":"69289f7b758610b8abeb79bb"},
+    "sellerId": "6921200e758610b8abeb5e8b",
     "title": "Handmade Ceramic Cups (2 pcs)",
     "description": "Pair of artisan cups with glossy Italian glazing. Perfect for coffee lovers.",
     "price": 27.00,
@@ -1443,8 +1444,8 @@ const seller9Products = [
 
 const seller10Products = [
   {
-    "_id": "69289f7b758610b8abeb79bc",
-    "sellerId": "69211ed4758610b8abeb5e7c",
+    "_id": { "$oid":"69289f7b758610b8abeb79bc"},
+    "sellerId": "6921200e758610b8abeb5e8c",
     "title": "Handcrafted Silver Filigree Earrings",
     "description": "Elegant earrings handcrafted using traditional Russian filigree techniques. Lightweight and highly detailed.",
     "price": 42.00,
@@ -1465,8 +1466,8 @@ const seller10Products = [
     "shippingMethods": ["Standard", "Express"]
   },
   {
-    "_id": "69289f7b758610b8abeb79bd",
-    "sellerId": "69211ed4758610b8abeb5e7c",
+    "_id": { "$oid":"69289f7b758610b8abeb79bd"},
+    "sellerId": "6921200e758610b8abeb5e8c",
     "title": "Amber Stone Pendant Necklace",
     "description": "A handcrafted necklace featuring authentic Baltic amber set in silver. Warm, natural tones and a timeless design.",
     "price": 65.00,
@@ -1488,8 +1489,8 @@ const seller10Products = [
     "shippingMethods": ["Standard"]
   },
   {
-    "_id": "69289f7b758610b8abeb79be",
-    "sellerId": "69211ed4758610b8abeb5e7c",
+    "_id": { "$oid":"69289f7b758610b8abeb79be"},
+    "sellerId": "6921200e758610b8abeb5e8c",
     "title": "Handwoven Beaded Bracelet",
     "description": "Traditional Eastern European bead weaving technique with vibrant colors. Every bracelet is unique.",
     "price": 28.00,
@@ -1510,8 +1511,8 @@ const seller10Products = [
     "shippingMethods": ["Standard"]
   },
   {
-    "_id": "69289f7b758610b8abeb79bf",
-    "sellerId": "69211ed4758610b8abeb5e7c",
+    "_id": { "$oid":"69289f7b758610b8abeb79bf"},
+    "sellerId": "6921200e758610b8abeb5e8c",
     "title": "Silver Engraved Ring",
     "description": "A personalized handcrafted sterling silver ring engraved with traditional Slavic patterns. Minimalist yet artistic.",
     "price": 38.00,
@@ -1534,8 +1535,8 @@ const seller10Products = [
     "shippingMethods": ["Standard"]
   },
   {
-    "_id": "69289f7b758610b8abeb79c0",
-    "sellerId": "69211ed4758610b8abeb5e7c",
+    "_id": { "$oid":"69289f7b758610b8abeb79c0"},
+    "sellerId": "6921200e758610b8abeb5e8c",
     "title": "Pearl & Silver Drop Necklace",
     "description": "A delicate necklace featuring freshwater pearls paired with artisan-crafted silver elements.",
     "price": 58.00,
@@ -1559,8 +1560,8 @@ const seller10Products = [
 
 const seller11Products =  [
   {
-    "_id": "69289f7b758610b8abeb79c1",
-    "sellerId": "69211ed4758610b8abeb5e7d",
+    "_id": { "$oid":"69289f7b758610b8abeb79c1"},
+    "sellerId": "6921200e758610b8abeb5e8d",
     "title": "Sunrise Canvas",
     "description": "A vibrant painting inspired by sunrise colors, perfect for living rooms or creative spaces.",
     "price": 120,
@@ -1583,8 +1584,8 @@ const seller11Products =  [
   },
 
   {
-    "_id": "69289f7b758610b8abeb79c2",
-    "sellerId": "69211ed4758610b8abeb5e7d",
+    "_id": { "$oid":"69289f7b758610b8abeb79c2"},
+    "sellerId": "6921200e758610b8abeb5e8d",
     "title": "Hand-Painted Coastal Landscape",
     "description": "A relaxing hand-painted landscape featuring soft blues and greens, ideal for bedrooms and hallways.",
     "price": 95,
@@ -1607,8 +1608,8 @@ const seller11Products =  [
   },
 
   {
-    "_id": "69289f7b758610b8abeb79c3",
-    "sellerId": "69211ed4758610b8abeb5e7d",
+    "_id": { "$oid":"69289f7b758610b8abeb79c3"},
+    "sellerId": "6921200e758610b8abeb5e8d",
     "title": "Custom Family Portrait Illustration",
     "description": "A fully personalized hand-drawn family portrait, created in a warm and expressive artistic style.",
     "price": 80.00,
@@ -1632,8 +1633,8 @@ const seller11Products =  [
   },
 
   {
-    "_id": "69289f7b758610b8abeb79c4",
-    "sellerId": "69211ed4758610b8abeb5e7d",
+    "_id": { "$oid":"69289f7b758610b8abeb79c4"},
+    "sellerId": "6921200e758610b8abeb5e8d",
     "title": "Watercolor Botanical Set (3 Pieces)",
     "description": "A set of three delicate watercolor botanical illustrations printed on premium textured paper.",
     "price": 45,
@@ -1656,8 +1657,8 @@ const seller11Products =  [
   },
 
   {
-    "_id": "69289f7b758610b8abeb79c5",
-    "sellerId": "69211ed4758610b8abeb5e7d",
+    "_id": { "$oid":"69289f7b758610b8abeb79c5"},
+    "sellerId": "6921200e758610b8abeb5e8d",
     "title": "Mini Wooden Easel Art Set",
     "description": "A handcrafted mini art set including a tiny wooden easel and a hand-painted micro canvas.",
     "price": 25,
@@ -1682,8 +1683,8 @@ const seller11Products =  [
 
 const seller12Products = [
   {
-    "_id": "69289f7b758610b8abeb79c6",
-    "sellerId": "69211ed4758610b8abeb5e7e",
+    "_id": { "$oid":"69289f7b758610b8abeb79c6"},
+    "sellerId": "6921200e758610b8abeb5e8e",
     "title": "Handwoven Cotton Throw Blanket",
     "description": "A soft, handwoven cotton throw blanket featuring traditional Indian weaving patterns. Perfect for sofas and beds.",
     "price": 55,
@@ -1706,8 +1707,8 @@ const seller12Products = [
   },
 
   {
-    "_id": "69289f7b758610b8abeb79c7",
-    "sellerId": "69211ed4758610b8abeb5e7e",
+    "_id": { "$oid":"69289f7b758610b8abeb79c7"},
+    "sellerId": "6921200e758610b8abeb5e8e",
     "title": "Hand-Printed Mandala Cushion Cover",
     "description": "A handmade cushion cover with hand-printed mandala designs using eco-friendly ink.",
     "price": 18.00,
@@ -1730,8 +1731,8 @@ const seller12Products = [
   },
 
   {
-    "_id": "69289f7b758610b8abeb79c8",
-    "sellerId": "69211ed4758610b8abeb5e7e",
+    "_id": { "$oid":"69289f7b758610b8abeb79c8"},
+    "sellerId": "6921200e758610b8abeb5e8e",
     "title": "Handmade Silk Table Runner",
     "description": "A premium silk table runner with gold-thread detailing inspired by Kerala heritage designs.",
     "price": 70,
@@ -1754,8 +1755,8 @@ const seller12Products = [
   },
 
   {
-    "_id": "69289f7b758610b8abeb79c9",
-    "sellerId": "69211ed4758610b8abeb5e7e",
+    "_id": { "$oid":"69289f7b758610b8abeb79c9"},
+    "sellerId": "6921200e758610b8abeb5e8e",
     "title": "Traditional Block-Printed Bed Sheet Set",
     "description": "A king-size bed sheet set created using traditional block-print methods and natural dyes.",
     "price": 85,
@@ -1778,8 +1779,8 @@ const seller12Products = [
   },
 
   {
-    "_id": "69289f7b758610b8abeb79ca",
-    "sellerId": "69211ed4758610b8abeb5e7e",
+    "_id": { "$oid":"69289f7b758610b8abeb79ca"},
+    "sellerId": "6921200e758610b8abeb5e8e",
     "title": "Handwoven Wool Scarf",
     "description": "A warm and lightweight wool scarf made by Indian artisans using traditional handloom techniques.",
     "price": 35,
