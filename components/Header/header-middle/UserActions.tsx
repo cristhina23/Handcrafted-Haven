@@ -4,7 +4,6 @@ import { FC } from "react";
 import { FaRegHeart, FaRegUser } from "react-icons/fa";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { useUser, SignInButton, UserButton } from "@clerk/nextjs";
-import Link from "next/link";
 
 const UserActions: FC = () => {
   const { isSignedIn, user } = useUser();
