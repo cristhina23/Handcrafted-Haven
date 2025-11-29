@@ -17,9 +17,8 @@ export async function POST(req: Request) {
   const svix_timestamp = headerPayload.get("svix-timestamp");
   const svix_signature = headerPayload.get("svix-signature");
 
-  // If there are no headers, error out
   if (!svix_id || !svix_timestamp || !svix_signature) {
-    return new Response("Error occured -- no svix headers", {
+    return new Response("Error: Missing svix headers", {
       status: 400,
     });
   }
@@ -28,12 +27,12 @@ export async function POST(req: Request) {
   const payload = await req.json();
   const body = JSON.stringify(payload);
 
-  // Create a new Svix instance with your secret.
+  // Create a new Svix instance with your webhook secret
   const wh = new Webhook(WEBHOOK_SECRET);
 
   let evt: WebhookEvent;
 
-  // Verify the payload with the headers
+  // Verify the webhook
   try {
     evt = wh.verify(body, {
       "svix-id": svix_id,
@@ -42,7 +41,7 @@ export async function POST(req: Request) {
     }) as WebhookEvent;
   } catch (err) {
     console.error("Error verifying webhook:", err);
-    return new Response("Error occured", {
+    return new Response("Error: Verification failed", {
       status: 400,
     });
   }
@@ -50,93 +49,59 @@ export async function POST(req: Request) {
   // Handle the webhook
   const eventType = evt.type;
 
+  if (eventType === "user.deleted") {
+    await connectDB();
+    const { id } = evt.data;
+
+    // Delete user from MongoDB
+    const deletedUser = await User.findOneAndDelete({ clerkId: id });
+
+    if (deletedUser) {
+      console.log(`✅ User deleted from MongoDB: ${deletedUser.email}`);
+    } else {
+      console.log(`⚠️ User not found in MongoDB: ${id}`);
+    }
+
+    return new Response("User deleted from database", { status: 200 });
+  }
+
   if (eventType === "user.created") {
+    await connectDB();
     const { id, email_addresses, first_name, last_name, image_url } = evt.data;
 
-    // Conectar a MongoDB
-    await connectDB();
+    // Create user in MongoDB
+    await User.create({
+      clerkId: id,
+      email: email_addresses[0].email_address,
+      fullName: `${first_name || ""} ${last_name || ""}`.trim(),
+      image: image_url,
+      profileCompleted: false,
+    });
 
-    try {
-      // Crear usuario en tu base de datos
-      const newUser = await User.create({
-        clerkId: id, // ID de Clerk para referencia
-        email: email_addresses[0].email_address,
-        fullName: `${first_name || ""} ${last_name || ""}`.trim(),
-        image: image_url || "",
-      });
-
-      console.log("Usuario creado en MongoDB:", newUser);
-
-      return new Response(
-        JSON.stringify({ message: "User created", user: newUser }),
-        {
-          status: 201,
-          headers: { "Content-Type": "application/json" },
-        }
-      );
-    } catch (error) {
-      console.error("Error creando usuario:", error);
-      return new Response("Error creating user in database", {
-        status: 500,
-      });
-    }
+    console.log(
+      `✅ User created in MongoDB: ${email_addresses[0].email_address}`
+    );
+    return new Response("User created in database", { status: 200 });
   }
 
   if (eventType === "user.updated") {
+    await connectDB();
     const { id, email_addresses, first_name, last_name, image_url } = evt.data;
 
-    await connectDB();
+    // Update user in MongoDB
+    await User.findOneAndUpdate(
+      { clerkId: id },
+      {
+        email: email_addresses[0].email_address,
+        fullName: `${first_name || ""} ${last_name || ""}`.trim(),
+        image: image_url,
+      }
+    );
 
-    try {
-      // Actualizar usuario en tu base de datos
-      const updatedUser = await User.findOneAndUpdate(
-        { clerkId: id },
-        {
-          email: email_addresses[0].email_address,
-          fullName: `${first_name || ""} ${last_name || ""}`.trim(),
-          image: image_url || "",
-        },
-        { new: true }
-      );
-
-      console.log("Usuario actualizado en MongoDB:", updatedUser);
-
-      return new Response(
-        JSON.stringify({ message: "User updated", user: updatedUser }),
-        {
-          status: 200,
-          headers: { "Content-Type": "application/json" },
-        }
-      );
-    } catch (error) {
-      console.error("Error actualizando usuario:", error);
-      return new Response("Error updating user in database", {
-        status: 500,
-      });
-    }
-  }
-
-  if (eventType === "user.deleted") {
-    const { id } = evt.data;
-
-    await connectDB();
-
-    try {
-      // Eliminar usuario de tu base de datos
-      const deletedUser = await User.findOneAndDelete({ clerkId: id });
-
-      console.log("Usuario eliminado de MongoDB:", deletedUser);
-
-      return new Response(JSON.stringify({ message: "User deleted" }), {
-        status: 200,
-        headers: { "Content-Type": "application/json" },
-      });
-    } catch (error) {
-      console.error("Error eliminando usuario:", error);
-      return new Response("Error deleting user from database", {
-        status: 500,
-      });
-    }
+    console.log(
+      `✅ User updated in MongoDB: ${email_addresses[0].email_address}`
+    );
+    return new Response("User updated in database", { status: 200 });
   }
 
   return new Response("Webhook received", { status: 200 });
