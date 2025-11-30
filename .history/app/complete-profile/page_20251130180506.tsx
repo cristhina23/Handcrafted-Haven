@@ -18,6 +18,7 @@ export default function CompleteProfilePage() {
   const { user } = useUser();
   const router = useRouter();
   const [loading, setLoading] = useState(false);
+  const {}
 
   // Obtener username de Clerk si existe
   const clerkUsername = user?.username || user?.firstName?.toLowerCase() || "";
@@ -124,10 +125,9 @@ export default function CompleteProfilePage() {
     });
   };
 
-
-
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#F9F8F6] py-12 px-4">
+    {!user && (
+      <div className="min-h-screen flex items-center justify-center bg-[#F9F8F6] py-12 px-4">
       <Card className="w-full max-w-2xl">
         <CardHeader>
           <CardTitle className="text-3xl font-bold text-[#111111] text-center">
@@ -310,5 +310,6 @@ export default function CompleteProfilePage() {
         </CardContent>
       </Card>
     </div>
+    )}
   );
 }

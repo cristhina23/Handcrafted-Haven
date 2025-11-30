@@ -14,7 +14,6 @@ export interface IUser extends Document {
     zipCode?: string;
     country?: string;
   };
-  role?: string;
   profileCompleted: boolean; 
   createdAt: Date;
   updatedAt: Date;
@@ -36,7 +35,6 @@ const UserSchema = new Schema<IUser>(
       country: { type: String },
     },
     profileCompleted: { type: Boolean, default: false },
-    role: { type: String, default: "user" },
   },
   { timestamps: true }
 );

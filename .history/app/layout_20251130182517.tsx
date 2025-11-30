@@ -41,7 +41,7 @@ export default function RootLayout({
           
           <AOSWrapper />
           <Header />
-          
+          <ProfileChecker>
             <main className="w-full">{children}</main>
           
           <Footer />

@@ -36,7 +36,7 @@ const UserSchema = new Schema<IUser>(
       country: { type: String },
     },
     profileCompleted: { type: Boolean, default: false },
-    role: { type: String, default: "user" },
+
   },
   { timestamps: true }
 );

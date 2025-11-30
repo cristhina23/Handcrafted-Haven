@@ -30,7 +30,7 @@ const UserActions: FC = () => {
             <UserButton.Link
               label="Profile"
               labelIcon={<User className="size-4" />}
-              href={`/dashboard/${user?.id}`}
+              href="/dashboard"
             />
             
           </UserButton.MenuItems>
