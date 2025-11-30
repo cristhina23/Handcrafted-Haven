@@ -25,25 +25,25 @@ const UserActions: FC = () => {
 
       {/* Account */}
       {isSignedIn ? (
-        <UserButton>
-          <UserButton.MenuItems>
-            <UserButton.Link
-              label="Profile"
-              labelIcon={<User className="size-4" />}
-              href="/profile"
-            />
-            
-          </UserButton.MenuItems>
-        </UserButton>
-      ) : (
-        <SignedOut>
-          <SignInButton>
-            <div>Login</div>
-          </SignInButton>
-        </SignedOut>
-      )}
-    </div>
-  );
+      <UserButton>
+        <UserButton.MenuItems>
+          <UserButton.Link
+            label="Profile"
+            labelIcon={<User className="size-4" />}
+            href="/profile"
+          />
+          
+        </UserButton.MenuItems>
+      </UserButton>
+    ) : (
+      <SignedOut>
+        <SignInButton>
+          <div>Login</div>
+        </SignInButton>
+      </SignedOut>
+    )}
+        </div>
+      );
 };
 
 export default UserActions;

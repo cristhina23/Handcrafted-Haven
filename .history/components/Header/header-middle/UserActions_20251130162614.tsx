@@ -4,7 +4,6 @@ import { FC } from "react";
 import { FaRegHeart, FaRegUser } from "react-icons/fa";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { useUser, SignInButton, UserButton, SignedOut } from "@clerk/nextjs";
-import { User } from "lucide-react";
 
 const UserActions: FC = () => {
   const { isSignedIn, user } = useUser();
@@ -25,23 +24,27 @@ const UserActions: FC = () => {
 
       {/* Account */}
       {isSignedIn ? (
-        <UserButton>
-          <UserButton.MenuItems>
-            <UserButton.Link
-              label="Profile"
-              labelIcon={<User className="size-4" />}
-              href="/profile"
-            />
-            
-          </UserButton.MenuItems>
-        </UserButton>
-      ) : (
-        <SignedOut>
-          <SignInButton>
-            <div>Login</div>
-          </SignInButton>
-        </SignedOut>
-      )}
+  <UserButton>
+    <UserButton.MenuItems>
+      <UserButton.Link
+        label="Profile"
+        labelIcon={<User className="size-4" />}
+        href="/profile"
+      />
+      <UserButton.Link
+        label="Manage account"
+        href="/settings"
+      />
+      <UserButton.SignOut />
+    </UserButton.MenuItems>
+  </UserButton>
+) : (
+  <SignedOut>
+    <SignInButton>
+      <div>Login</div>
+    </SignInButton>
+  </SignedOut>
+)}
     </div>
   );
 };

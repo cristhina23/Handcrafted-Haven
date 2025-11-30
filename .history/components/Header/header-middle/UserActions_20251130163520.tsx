@@ -42,8 +42,8 @@ const UserActions: FC = () => {
           </SignInButton>
         </SignedOut>
       )}
-    </div>
-  );
+      </div>
+    );
 };
 
 export default UserActions;

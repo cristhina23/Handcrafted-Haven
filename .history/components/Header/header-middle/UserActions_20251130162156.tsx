@@ -23,26 +23,23 @@ const UserActions: FC = () => {
         <span className="text-slate-900 text-xs sm:text-sm">Cart</span>
       </div>
 
-      {/* Account */}
+      {/* Account - Cambia según si está logueado */}
       {isSignedIn ? (
-        <UserButton>
-          <UserButton.MenuItems>
-            <UserButton.Link
-              label="Profile"
-              labelIcon={<User className="size-4" />}
-              href="/profile"
-            />
-            
-          </UserButton.MenuItems>
-        </UserButton>
+        <div className="flex gap-2 items-center">
+          <span className="text-slate-900 text-xs sm:text-sm hidden sm:inline">
+            {user?.firstName || "Account"}
+          </span>
+          <UserButton
+            appearance={{
+              elements: {
+                avatarBox: "w-8 h-8 sm:w-9 sm:h-9",
+              },
+            }}
+          />
+        </div>
       ) : (
-        <SignedOut>
-          <SignInButton>
-            <div>Login</div>
-          </SignInButton>
-        </SignedOut>
-      )}
-    </div>
+         <>
+          ></>
   );
 };
 
