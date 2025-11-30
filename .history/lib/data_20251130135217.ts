@@ -657,7 +657,7 @@ const seller3Products = [
     "ratingCount": 1,
     "variants": [
       { "size": "150cm" },
-      { "size": "180cm" }
+      { "length": "180cm" }
     ],
     "isCustomOrder": true,
     "dimensions": "150–180 cm length",
@@ -762,8 +762,7 @@ const seller4Products = [
       { "color": "Orange" },
       { "color": "Green" },
       { "color": "Dark Gray" },
-      { "color": "Blue" },
-      { "size": "13''" }, { "size": "15''" }
+      { "color": "Blue" }
     ],
     "isCustomOrder": false,
     "dimensions": "Available in 13'' and 15''",

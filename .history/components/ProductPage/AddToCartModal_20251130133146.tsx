@@ -183,7 +183,7 @@ export default function AddToCartModal({
                     }))}
                     value={selectedShipping}
                     onChange={(value) => setSelectedShipping(value)}
-                    widthClass="w-full" 
+                    widthClass="w-full" // opcional, así mantiene el tamaño completo
                   />
               </div>
 

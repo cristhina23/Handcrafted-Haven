@@ -7,6 +7,7 @@ import ProductReviews from "./ProductReviews";
 import PopularProducts from "./PopularProducts";
 import { Product } from "@/types";
 import ProductDescription from "./ProductDescription";
+import AddToCartModal from "./AddToCartModal";
 
 interface Props {
   productId: string;
@@ -19,6 +20,7 @@ export default function ProductPageContainer({ productId }: Props) {
   const [reviews, setReviews] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [isModalOpen, setModalOpen] = useState(false);
+  
 
   useEffect(() => {
     let isCancelled = false;
@@ -50,6 +52,19 @@ export default function ProductPageContainer({ productId }: Props) {
     return () => { isCancelled = true };
   }, [productId]);
 
+  const handleAdd = (data: {
+    variants: {
+      
+      size: string | null;
+      color: string | null;
+      material: string | null;
+    };
+    shippingMethod: string;
+    quantity: number;
+  }) => {
+    console.log("ADDED →", data);
+  };
+
   if (loading) return <p className="text-center mt-10">Loading...</p>;
   if (!product) return <p className="text-center mt-10 text-red-500">Product not found</p>;
 
@@ -76,9 +91,17 @@ export default function ProductPageContainer({ productId }: Props) {
 
       <ProductDescription description={product.description} />
 
-      {/* <ProductReviews reviews={reviews} /> */}
+      <ProductReviews reviews={reviews} />
 
       <PopularProducts grid={3} />
+
+      {/* Modal */}
+      <AddToCartModal
+        isOpen={isModalOpen}
+        onClose={() => setModalOpen(false)}
+        product={product}
+        onAddToCart={handleAdd}
+/>
     </div>
   );
 }

@@ -762,8 +762,7 @@ const seller4Products = [
       { "color": "Orange" },
       { "color": "Green" },
       { "color": "Dark Gray" },
-      { "color": "Blue" },
-      { "size": "13''" }, { "size": "15''" }
+      { "color": "Blue" }
     ],
     "isCustomOrder": false,
     "dimensions": "Available in 13'' and 15''",

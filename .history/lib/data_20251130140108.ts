@@ -1752,7 +1752,7 @@ const seller12Products = [
     "ratingCount": 8,
     "variants": [
       { "color": "White" },
-      { "size": "30x180 cm" }
+      { "size": "30x180 cm" }dimen
     ],
     "isCustomOrder": true,
     "dimensions": "30x180 cm",

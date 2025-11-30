@@ -486,10 +486,7 @@ const seller2Products = [
     "variants": [
       { "color": "Natural Wood" },
       { "color": "Black" },
-      { "size": "Small–20cm" },
-      { "size": "Medium–25cm" },
-      { "size": "Large–30cm" },
-
+      { "size": "Small" },
     ],
     "isCustomOrder": false,
     "dimensions": "Small–20cm, Medium–25cm, Large–30cm",
@@ -656,8 +653,8 @@ const seller3Products = [
     "rating": 4.0,
     "ratingCount": 1,
     "variants": [
-      { "size": "150cm" },
-      { "size": "180cm" }
+      { "length": "150cm" },
+      { "length": "180cm" }
     ],
     "isCustomOrder": true,
     "dimensions": "150–180 cm length",
@@ -762,8 +759,7 @@ const seller4Products = [
       { "color": "Orange" },
       { "color": "Green" },
       { "color": "Dark Gray" },
-      { "color": "Blue" },
-      { "size": "13''" }, { "size": "15''" }
+      { "color": "Blue" }
     ],
     "isCustomOrder": false,
     "dimensions": "Available in 13'' and 15''",
