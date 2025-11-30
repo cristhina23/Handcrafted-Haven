@@ -38,7 +38,6 @@ export default function RootLayout({
         <body
           className={`${merriweather.variable} ${poppins.variable} font-sans antialiased w-full bg-[#F1F5F9]`}
         >
-          
           <AOSWrapper />
           <Header />
           <ProfileChecker>

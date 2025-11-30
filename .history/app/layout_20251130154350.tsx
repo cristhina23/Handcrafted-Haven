@@ -38,7 +38,11 @@ export default function RootLayout({
         <body
           className={`${merriweather.variable} ${poppins.variable} font-sans antialiased w-full bg-[#F1F5F9]`}
         >
-          
+           <ClientClerkProvider
+     |       ^
+  58 |         {...mergeNextClerkPropsWithEnv(rest)}
+  59 |         nonce={await generateNonce()}
+  60 |         initialState={await generateStatePromise()}
           <AOSWrapper />
           <Header />
           <ProfileChecker>

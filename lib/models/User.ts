@@ -1,19 +1,40 @@
 import mongoose, { Schema, Document } from "mongoose";
 
 export interface IUser extends Document {
-  fullName: string;
+  clerkId: string; // ID de Clerk (requerido)
   email: string;
-  password: string;
+  fullName: string;
+  username?: string; // Nombre de usuario único
+  phone?: string;
   image?: string;
+  address?: {
+    street?: string;
+    city?: string;
+    state?: string;
+    zipCode?: string;
+    country?: string;
+  };
+  profileCompleted: boolean; // Para saber si completó el perfil
   createdAt: Date;
+  updatedAt: Date;
 }
 
 const UserSchema = new Schema<IUser>(
   {
-    fullName: { type: String, required: true },
+    clerkId: { type: String, required: true, unique: true },
     email: { type: String, required: true, unique: true },
-    password: { type: String, required: true },
+    fullName: { type: String, required: true },
+    username: { type: String, unique: true, sparse: true }, // Único pero opcional
+    phone: { type: String },
     image: { type: String },
+    address: {
+      street: { type: String },
+      city: { type: String },
+      state: { type: String },
+      zipCode: { type: String },
+      country: { type: String },
+    },
+    profileCompleted: { type: Boolean, default: false },
   },
   { timestamps: true }
 );
