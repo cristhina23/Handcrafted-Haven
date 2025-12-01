@@ -32,6 +32,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  
   return (
     <ClerkProvider>
       <html lang="en">
@@ -40,7 +41,7 @@ export default function RootLayout({
         >
           
           <AOSWrapper />
-          
+          {!isDashboard && <Header />}
           
             <main className="w-full">{children}</main>
           

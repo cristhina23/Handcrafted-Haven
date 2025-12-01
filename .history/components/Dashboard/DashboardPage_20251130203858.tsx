@@ -10,7 +10,7 @@ export default function DashboardPage() {
   return (
     <div>
       Welcome, {user.firstName}! 👋
-      
+      <Sidebar
     </div>
   );
 }

@@ -7,6 +7,7 @@ import ProfileChecker from "@/components/ProfileChecker";
 import { ClerkProvider } from "@clerk/nextjs";
 
 import { Merriweather, Poppins } from "next/font/google";
+import { usePathname } from "next/navigation";
 
 // Headings font
 const merriweather = Merriweather({
@@ -32,6 +33,10 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const pathname = usePathname();
+
+  const isDashboard = pathname.startsWith("/dashboard");
+
   return (
     <ClerkProvider>
       <html lang="en">
@@ -40,7 +45,7 @@ export default function RootLayout({
         >
           
           <AOSWrapper />
-          
+          {!isDashboard && <Header />}
           
             <main className="w-full">{children}</main>
           

@@ -32,6 +32,9 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const pathname = usePathname();
+
+  const isDashboard = pathname.startsWith("/dashboard");
   return (
     <ClerkProvider>
       <html lang="en">
@@ -40,7 +43,7 @@ export default function RootLayout({
         >
           
           <AOSWrapper />
-          
+          {!isDashboard && <Header />}
           
             <main className="w-full">{children}</main>
           

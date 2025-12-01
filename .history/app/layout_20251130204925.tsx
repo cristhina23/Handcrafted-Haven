@@ -40,7 +40,7 @@ export default function RootLayout({
         >
           
           <AOSWrapper />
-          
+          {!isDashboard && <Header />}
           
             <main className="w-full">{children}</main>
           
