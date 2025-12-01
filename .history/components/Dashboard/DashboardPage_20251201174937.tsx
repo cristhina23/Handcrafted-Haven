@@ -4,7 +4,7 @@ import { useUser } from "@clerk/nextjs";
 import { useSeller } from "@/contexts/SellerContext";
 
 interface Props {
-  clerkId?: string; 
+  clerkId?: string; // opcional, si quieres usar Clerk user id directamente
 }
 
 export default function DashboardPage({ clerkId }: Props) {

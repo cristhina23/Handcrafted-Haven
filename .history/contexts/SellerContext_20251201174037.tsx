@@ -1,0 +1,61 @@
+"use client";
+
+import { createContext, useContext, useEffect, useState, ReactNode } from "react";
+import { useUser } from "@clerk/nextjs";
+import { SellerType } from "@/types";
+
+interface SellerContextType {
+  seller: SellerType | null;
+  loading: boolean;
+  error: string | null;
+}
+
+const SellerContext = createContext<SellerContextType | undefined>(undefined);
+
+interface Props {
+  children: ReactNode;
+}
+
+export function SellerProvider({ children }: Props) {
+  const { user, isSignedIn } = useUser();
+  const [seller, setSeller] = useState<SellerType | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!isSignedIn || !user) return;
+
+    async function fetchSeller() {
+      try {
+        const res = await fetch(`/api/seller/get-by-clerk?clerkId=${user.id}`, {
+          cache: "no-store",
+        });
+        if (!res.ok) {
+          const err = await res.json();
+          throw new Error(err.error || "Failed to fetch seller");
+        }
+        const data = await res.json();
+        setSeller(data.seller);
+      } catch (err: any) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchSeller();
+  }, [isSignedIn, user]);
+
+  return (
+    <SellerContext.Provider value={{ seller, loading, error }}>
+      {children}
+    </SellerContext.Provider>
+  );
+}
+
+// Hook para consumir el contexto
+export function useSeller() {
+  const context = useContext(SellerContext);
+  if (!context) throw new Error("useSeller must be used within a SellerProvider");
+  return context;
+}

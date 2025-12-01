@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import Sidebar from "@/components/Dashboard/Sidebar";
 import Header from "@/components/Dashboard/header/Header";
 import { ThemeProvider } from "@/providers/ThemeProvider";
-import { SellerProvider } from "@/contexts/SellerContext";
 
 export default function DashboardLayout({
   children,
@@ -39,13 +38,13 @@ export default function DashboardLayout({
       <div className="flex-1 flex flex-col">
         <Header collapsed={collapsed} setCollapsed={setCollapsed} />
 
-        
+        {/* 👇 AQUÍ ES DONDE APARECEN LAS SUB-PÁGINAS */}
         <main className="p-6 overflow-y-auto flex-1 bg-background text-foreground">
           {children}
         </main>
       </div>
     </div>
     </ThemeProvider>
-  </SellerProvider>
+    </SellerProvider>
   );
 }

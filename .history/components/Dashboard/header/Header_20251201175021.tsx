@@ -38,7 +38,7 @@ const Header: React.FC<HeaderProps> = ({ collapsed, setCollapsed }) => {
           <Bell  size={20} />
         </button>
         <div>
-         <ProfileImage sellerImageUrl={seller?.profileImage || user?.imageUrl} user={user} />
+         {/* <ProfileImage sellerImageUrl={seller?.imageUrl} user={user} /> */}
         </div>
       
       </div>

@@ -39,7 +39,7 @@ export default function DashboardLayout({
       <div className="flex-1 flex flex-col">
         <Header collapsed={collapsed} setCollapsed={setCollapsed} />
 
-        
+        {/* 👇 AQUÍ ES DONDE APARECEN LAS SUB-PÁGINAS */}
         <main className="p-6 overflow-y-auto flex-1 bg-background text-foreground">
           {children}
         </main>

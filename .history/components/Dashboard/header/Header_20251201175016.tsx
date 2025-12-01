@@ -6,7 +6,6 @@ import { Bell, ListIndentDecrease } from "lucide-react";
 import { useUser } from "@clerk/nextjs";
 import Image from "next/image";
 import ProfileImage from "./ProfileImage";
-import { useSeller } from "@/contexts/SellerContext";
 
 interface HeaderProps {
   collapsed: boolean;
@@ -38,7 +37,7 @@ const Header: React.FC<HeaderProps> = ({ collapsed, setCollapsed }) => {
           <Bell  size={20} />
         </button>
         <div>
-         <ProfileImage sellerImageUrl={seller?.profileImage || user?.imageUrl} user={user} />
+         {/* <ProfileImage sellerImageUrl={seller?.imageUrl} user={user} /> */}
         </div>
       
       </div>

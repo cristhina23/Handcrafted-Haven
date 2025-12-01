@@ -1,10 +1,11 @@
 "use client";
 
 import { useUser } from "@clerk/nextjs";
-import { useSeller } from "@/contexts/SellerContext";
+import { useEffect, useState } from "react";
+import { SellerType } from "@/types";
 
 interface Props {
-  clerkId?: string; 
+  clerkId?: string; // opcional, si quieres usar Clerk user id directamente
 }
 
 export default function DashboardPage({ clerkId }: Props) {
