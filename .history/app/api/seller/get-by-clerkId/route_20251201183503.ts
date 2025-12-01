@@ -9,7 +9,7 @@ export async function GET(req: Request) {
 
     const { searchParams } = new URL(req.url);
     const clerkId = searchParams.get("clerkId");
-    console.log("clerkId recibido:", clerkId); 
+    console.log("clerkId recibido:", clerkId); // <-- depuración
 
     if (!clerkId) {
       return NextResponse.json({ error: "clerkId required" }, { status: 400 });

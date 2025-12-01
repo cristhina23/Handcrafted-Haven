@@ -3,14 +3,11 @@ import { connectDB } from "@/lib/db/db";
 import { User } from "@/lib/models/User";
 import { Seller } from "@/lib/models/Seller";
 
-export async function GET(req: Request) {
+export async function GET(req: NextRequest, context: { params: { clerkId: string } }) {
   try {
     await connectDB();
 
-    const { searchParams } = new URL(req.url);
-    const clerkId = searchParams.get("clerkId");
-    console.log("clerkId recibido:", clerkId); 
-
+    const { clerkId } = context.params; // aquí viene directamente de la URL
     if (!clerkId) {
       return NextResponse.json({ error: "clerkId required" }, { status: 400 });
     }
@@ -27,4 +24,3 @@ export async function GET(req: Request) {
     return NextResponse.json({ error: "Server error" }, { status: 500 });
   }
 }
-
