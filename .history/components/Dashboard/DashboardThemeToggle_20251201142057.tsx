@@ -11,7 +11,7 @@ export default function DashboardThemeToggle() {
       className="p-2 rounded-md hover:bg-gray-500 dark:hover:bg-gray-700 text-red-700"
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
     >
-      {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+      {theme === "dark" ? <Sun size={18} /> : <Moon size={20} />}
     </button>
   );
 }
