@@ -6,12 +6,18 @@ import ProductCardSkeleton from "./ProductCardSkeleton";
 
 import { Product } from "@/types";
 
-export default function ProductsSectionLoader(props: any) {
+interface ProductsSectionLoaderProps {
+  grid?: boolean;
+  [key: string]: unknown;
+}
+
+export default function ProductsSectionLoader(
+  props: ProductsSectionLoaderProps
+) {
   const [loading, setLoading] = useState(true);
   const [products, setProducts] = useState<Product[] | null>(null);
 
   useEffect(() => {
-    setLoading(true);
     fetch("/api/products")
       .then((res) => res.json())
       .then((data) => setProducts(data))
@@ -19,13 +25,8 @@ export default function ProductsSectionLoader(props: any) {
   }, []);
 
   if (loading || !products) {
-    return <ProductsCaradSkeleton grid={props.grid} />;
+    return <ProductCardSkeleton grid={props.grid} />;
   }
 
-  return (
-    <ProductsSection
-      {...props}
-      products={products}
-    />
-  );
+  return <ProductsSection {...props} products={products} />;
 }

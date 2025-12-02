@@ -199,11 +199,9 @@ createdAt
 updatedAt
 2025-12-01T21:01:53.315+00:00
   }
-] */ */
-
+] */
 
 //Sellers
-
 const sellersProfiles =[
   {
     "_id": "692e0391758610b8abeb8e99",
