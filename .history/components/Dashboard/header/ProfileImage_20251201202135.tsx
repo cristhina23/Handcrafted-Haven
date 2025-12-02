@@ -71,7 +71,7 @@ export default function ProfileImage({ sellerImageUrl, user }: HeaderProps) {
           >
             {/* Header */}
             <div className="flex items-start justify-between px-4 py-3 border-b border-gray-200">
-              <h3 className="text-sm font-semibold text-slate-700 capitalize">Hi, {user?.fullName}</h3>
+              <h3 className="text-sm font-semibold text-gray-700 capitalize">Hi, {user?.fullName}</h3>
               
             </div>
 

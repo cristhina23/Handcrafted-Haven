@@ -71,7 +71,7 @@ export default function ProfileImage({ sellerImageUrl, user }: HeaderProps) {
           >
             {/* Header */}
             <div className="flex items-start justify-between px-4 py-3 border-b border-gray-200">
-              <h3 className="text-sm font-semibold text-slate-700 capitalize">Hi, {user?.fullName}</h3>
+              <h3 className="text-sm font-semibold text-gray-700 capitalize">Hi, {user?.fullName}</h3>
               
             </div>
 
@@ -87,7 +87,7 @@ export default function ProfileImage({ sellerImageUrl, user }: HeaderProps) {
                   <motion.div  
                     className="px-4 py-4 w-full hover:bg-gray-100 border-b border-gray-100 cursor-pointer"                 >
                     <Link href="/dashboard/profile">
-                      <p className="flex items-center gap-2 font-semibold text-slate-800 text-sm text-start"><User size={18} /> Edit Profile</p>
+                      <p className="flex items-center gap-2 font-semibold text-gray-800 text-sm text-start"><User size={18} /> Edit Profile</p>
                     </Link>
                   </motion.div>
                 

@@ -1,7 +1,7 @@
 'use client';
 
 import Image from "next/image";
-import { Settings, Store, User, User as UserIcon } from "lucide-react";
+import { User as UserIcon } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
@@ -71,7 +71,7 @@ export default function ProfileImage({ sellerImageUrl, user }: HeaderProps) {
           >
             {/* Header */}
             <div className="flex items-start justify-between px-4 py-3 border-b border-gray-200">
-              <h3 className="text-sm font-semibold text-slate-700 capitalize">Hi, {user?.fullName}</h3>
+              <h3 className="text-sm font-semibold text-gray-700 capita">Hi, {user?.fullName}</h3>
               
             </div>
 
@@ -84,42 +84,12 @@ export default function ProfileImage({ sellerImageUrl, user }: HeaderProps) {
                 className="max-h-72 px-2 overflow-y-auto flex flex-col items-start"
               >
                 
-                  <motion.div  
-                    className="px-4 py-4 w-full hover:bg-gray-100 border-b border-gray-100 cursor-pointer"                 >
-                    <Link href="/dashboard/profile">
-                      <p className="flex items-center gap-2 font-semibold text-slate-800 text-sm text-start"><User size={18} /> Edit Profile</p>
-                    </Link>
-                  </motion.div>
-                
-              </motion.div>
-              <motion.div
-                initial="hidden"
-                animate="visible"
-                exit="hidden"
-                className="max-h-72 px-2 overflow-y-auto flex flex-col items-start"
-              >
-                
-                  <motion.div  
+                  <motion.div
+                    
+                    
                     className="px-4 py-3 w-full hover:bg-gray-100 border-b border-gray-100 cursor-pointer"                 >
-                    <Link href="/dashboard/my-store">
-                      <p className="flex items-center gap-2 font-semibold text-slate-800 text-sm text-start"><Store size={18} /> My Store</p>
-                    </Link>
-                  </motion.div>
-                
-              </motion.div>
-
-              <motion.div
-                initial="hidden"
-                animate="visible"
-                exit="hidden"
-                className="max-h-72 px-2 overflow-y-auto flex flex-col items-start"
-              >
-                
-                  <motion.div  
-                    className="px-4 py-3 w-full hover:bg-gray-100 border-b border-gray-100 cursor-pointer"                 >
-                    <Link href="/dashboard/settings">
-                      <p className="flex items-center gap-2 font-semibold text-slate-800 text-sm text-start"><Settings size={18} /> Settings</p>
-                    </Link>
+                    <p className="font-semibold text-gray-800 text-sm text-start">hola tiltle</p>
+                    <p className="text-gray-500 text-xs mt-1 text-start">hola</p>
                   </motion.div>
                 
               </motion.div>
@@ -127,8 +97,8 @@ export default function ProfileImage({ sellerImageUrl, user }: HeaderProps) {
             
 
             {/* Footer */}
-            <div className="px-4 py-2 border-t border-gray-200 text-center bg-gray-50 hover:bg-gray-100 cursor-pointer text-sm font-medium text-slate-700">
-              <Link href="/">Go back to home page</Link>
+            <div className="px-4 py-2 border-t border-gray-200 text-center bg-gray-50 hover:bg-gray-100 cursor-pointer text-sm font-medium text-gray-700">
+              <Link href="/">go back to home page</Link>
             </div>
           </motion.div>
         )}
