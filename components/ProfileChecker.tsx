@@ -39,9 +39,8 @@ export default function ProfileChecker({
         if (!data.exists || !data.profileCompleted) {
           // Redirigir a completar perfil
           router.push("/complete-profile");
-        } else {
-          setChecking(false);
         }
+        setChecking(false);
       } catch (error) {
         console.error("Error checking profile:", error);
         setChecking(false);
