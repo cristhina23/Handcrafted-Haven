@@ -158,3 +158,8 @@ export interface aggregateSellerData{
 export interface starRatingProps{
   rating:number
 }
+export interface Notification {
+  id: string;
+  title: string;
+  message: string;
+}

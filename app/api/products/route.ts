@@ -6,8 +6,11 @@ import { Product } from "@/lib/models/Product";
 export async function GET() {
   try {
     await connectDB();
-    const products = await Product.find().lean(); // lean() for performance
-    return NextResponse.json(products);
+    const products = await Product.find();
+
+    return NextResponse.json(
+      JSON.parse(JSON.stringify(products))
+    );
   } catch (error) {
     console.error("Error fetching products:", error);
     return NextResponse.json({ error: "Failed to load products" }, { status: 500 });

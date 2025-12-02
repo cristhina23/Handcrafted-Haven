@@ -43,7 +43,7 @@ export default function ProductInfo({ title, description, price, rating, ratingC
         <p className="flex items-center gap-2 text-slate-800"><FaCheck className="text-green-600" /> Returns & exchanges accepted</p>
       </div>
 
-      <div className="flex flex-col gap-1">
+      <div className="flex flex-col gap-3">
         <p className="text-slate-700">
           <span className="font-semibold">Seller:</span> {seller}
           </p>
@@ -54,7 +54,7 @@ export default function ProductInfo({ title, description, price, rating, ratingC
           <span className="font-semibold">Stock: </span>{stock}
           </p>
         <p className="text-slate-700">
-          <span className="font-semibold">Colors:</span> {colors}
+          <span className="font-semibold">Colors:</span> {colors && colors.join(", ")}
           </p>
         <p className="text-slate-700">
           <span className="font-semibold">Dimensions:</span> {dimensions}</p>
@@ -68,9 +68,9 @@ export default function ProductInfo({ title, description, price, rating, ratingC
 
         </div>  
       </div>
-      <p className="text-slate-700">{description}</p>
+      
 
-     <div className=" w-full flex gap-4">
+     <div className=" w-full flex gap-4 mt-4">
        <button
         className="flex-1 bg-slate-800 text-white font-semibold py-2 px-4 rounded shadow-md hover:bg-slate-700 hover:shadow-xl hover:scale-[1.03] transition-all duration-200 ease-out  "
         onClick={onAddToCart}
