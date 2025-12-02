@@ -126,3 +126,35 @@ export interface WishlistType {
   userId: string;
   products: string[];
 }
+
+
+export interface SellerAvatarProps {
+    seller: {
+        _id: string
+        shopName :string,
+        profileImage?: string,
+        rating?: number,
+        specialties?: string,
+        totalReviews?: number,
+        fullName: string,
+        image: string,
+        totalSales?: number
+    }
+}
+export interface aggregateSellerData{
+    _id: string,
+    shopName: string,
+    rating: number,
+    specialties?: string,
+    totalReviews?: number,
+    fullName: string,
+    image: string,
+    totalSales?: number
+}
+
+/*****************************
+ *  StarIcon Rating
+*****************************/
+export interface starRatingProps{
+  rating:number
+}
