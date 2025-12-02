@@ -7,7 +7,6 @@ import { useUser } from "@clerk/nextjs";
 import Image from "next/image";
 import ProfileImage from "./ProfileImage";
 import { useSeller } from "@/contexts/SellerContext";
-import NotificationDropdown from "./NotificationDropdown";
 
 interface HeaderProps {
   collapsed: boolean;
@@ -19,11 +18,10 @@ const Header: React.FC<HeaderProps> = ({ collapsed, setCollapsed }) => {
   const { isSignedIn, user } = useUser();
   const { seller, loading, error } = useSeller();
 
-  const notifications = [
-    { id: "1", title: "Rishi Chopra", message: "You have a new message" },
-    { id: "2", title: "Neha Kannded", message: "Your order has been shipped" },
-    { id: "3", title: "Nirmala Chauhan", message: "New comment on your post" },
-  ];
+  
+  
+
+
 
 
   return (
@@ -36,8 +34,8 @@ const Header: React.FC<HeaderProps> = ({ collapsed, setCollapsed }) => {
 
       <div className="flex gap-4">
         <DashboardThemeToggle  />
-        <button className="p-2 rounded-md hover:bg-gray-500 dark:hover:bg-gray-700 text-slate-300">
-           <NotificationDropdown notifications={notifications} />
+        <button className="p-2 rounded-md hover:bg-gray-500 dark:hover:bg-gray-700 text-slat">
+          <Bell  size={20} />
         </button>
         <div>
          <ProfileImage sellerImageUrl={seller?.profileImage || user?.imageUrl} user={user} />

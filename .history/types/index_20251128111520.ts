@@ -126,9 +126,3 @@ export interface WishlistType {
   userId: string;
   products: string[];
 }
-
-export interface Notification {
-  id: string;
-  title: string;
-  message: string;
-}

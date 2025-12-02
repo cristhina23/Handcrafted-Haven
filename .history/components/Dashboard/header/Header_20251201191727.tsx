@@ -20,10 +20,13 @@ const Header: React.FC<HeaderProps> = ({ collapsed, setCollapsed }) => {
   const { seller, loading, error } = useSeller();
 
   const notifications = [
-    { id: "1", title: "Rishi Chopra", message: "You have a new message" },
-    { id: "2", title: "Neha Kannded", message: "Your order has been shipped" },
-    { id: "3", title: "Nirmala Chauhan", message: "New comment on your post" },
-  ];
+  { id: "1", message: "You have a new message" },
+  { id: "2", message: "Your order has been shipped" },
+  { id: "3", message: "New comment on your post" },
+];
+  
+
+
 
 
   return (
