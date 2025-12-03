@@ -24,14 +24,8 @@ export default function RevenueByCountry() {
   };
 
   return (
-    <div className="w-full p-4 flex gap-8">
-     <div className="flex-2">
-       <Card>
-        <CardHeader>
-        <CardTitle className="font-bold text-lg">Revenue By Country</CardTitle>
-        <CardDescription>Last 6 months</CardDescription>
-      </CardHeader>
-       <ChartContainer config={chartConfig} className="border p-8">
+    <div className="w-full p-4 flex">
+      <ChartContainer config={chartConfig}>
       <ResponsiveContainer width="100%" height={400}>
         <BarChart 
           data={data}
@@ -47,13 +41,11 @@ export default function RevenueByCountry() {
         </BarChart>
       </ResponsiveContainer>
     </ChartContainer>
-    </Card>
-     </div>
 
 
 
       {/* LISTA DE PAISES Y REVENUE */}
-      <div className="mt-4 flex-1">
+      <div className="mt-4 ">
         <h3 className="font-semibold mb-2">Top countries by revenue</h3>
         <ul className="text-sm text-slate-600">
           {data.map((item) => (

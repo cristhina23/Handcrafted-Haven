@@ -28,10 +28,10 @@ export default function RevenueByCountry() {
      <div className="flex-2">
        <Card>
         <CardHeader>
-        <CardTitle className="font-bold text-lg">Revenue By Country</CardTitle>
+        <CardTitle>Revenue By Country</CardTitle>
         <CardDescription>Last 6 months</CardDescription>
       </CardHeader>
-       <ChartContainer config={chartConfig} className="border p-8">
+       <ChartContainer config={chartConfig} className="border boerder-r">
       <ResponsiveContainer width="100%" height={400}>
         <BarChart 
           data={data}

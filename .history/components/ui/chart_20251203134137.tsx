@@ -1,8 +1,7 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 /* /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import * as React from "react";
+/* import * as React from "react";
 import { cn } from "@/lib/scripts/utils";
 
 // CONFIG
@@ -76,5 +75,5 @@ export function ChartTooltipContent({
       <p className="opacity-80">{String(item?.value ?? "")}</p>
     </div>
   );
-}
- 
+} */
+ */

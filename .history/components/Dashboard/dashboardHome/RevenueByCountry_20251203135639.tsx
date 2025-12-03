@@ -24,31 +24,8 @@ export default function RevenueByCountry() {
   };
 
   return (
-    <div className="w-full p-4 flex gap-8">
-     <div className="flex-2">
-       <Card>
-        <CardHeader>
-        <CardTitle className="font-bold text-lg">Revenue By Country</CardTitle>
-        <CardDescription>Last 6 months</CardDescription>
-      </CardHeader>
-       <ChartContainer config={chartConfig} className="border p-8">
-      <ResponsiveContainer width="100%" height={400}>
-        <BarChart 
-          data={data}
-          layout="vertical"
-          margin={{
-                  left: 20,
-                }}
-        >
-          <XAxis type="number" /> {/* valores */}
-          <YAxis type="category" dataKey="country" /> {/* categorías */}
-          <Tooltip content={<ChartTooltipContent />} />
-          <Bar dataKey="revenue" fill="#3b82f6" radius={[0, 6, 6, 0]} />
-        </BarChart>
-      </ResponsiveContainer>
-    </ChartContainer>
-    </Card>
-     </div>
+    <div className="w-full p-4 flex">
+     
 
 
 
