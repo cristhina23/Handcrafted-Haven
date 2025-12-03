@@ -7,6 +7,8 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { Merriweather, Poppins } from "next/font/google";
 
 import LayoutWrapper from "@/components/Dashboard/LayoutWrapper";
+import { CartProvider } from "@/contexts/CartContext";
+import CartModal from "@/components/Cart/CartModal";
 
 // Headings font
 const merriweather = Merriweather({
@@ -32,18 +34,19 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-   
-
   return (
     <ClerkProvider>
       <html lang="en">
         <body
           className={`${merriweather.variable} ${poppins.variable} font-sans antialiased w-full bg-[#F1F5F9]`}
         >
-          <ProfileChecker>
-          <AOSWrapper />
-           <LayoutWrapper>{children}</LayoutWrapper>
-          </ProfileChecker>
+          <CartProvider>
+            <ProfileChecker>
+              <AOSWrapper />
+              <LayoutWrapper>{children}</LayoutWrapper>
+              <CartModal />
+            </ProfileChecker>
+          </CartProvider>
         </body>
       </html>
     </ClerkProvider>

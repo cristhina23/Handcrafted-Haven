@@ -58,6 +58,7 @@ export interface Variant {
 export interface Product {
   _id: string;
   sellerId: string;
+  sellerName?: string;
   title: string;
   description: string;
   price: number;
@@ -75,7 +76,6 @@ export interface Product {
   updatedAt: string;
   sellerCountry?: string | null;
 }
-
 
 // ---------- Cart ----------
 export interface CartItemType {
