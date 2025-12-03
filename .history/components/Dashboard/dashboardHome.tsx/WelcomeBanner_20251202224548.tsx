@@ -8,11 +8,11 @@ function WelcomeBanner() {
   const {user } = useUser();
   const { seller, loading, error } = useSeller();
  
-  const imageSource = seller?.profileImage || user?.imageUrl || '';
+  const image
   return (
     <div className='w-full bg-linear-to-r from-indigo-500 from-10% via-sky-500 via-30% to-purple-500 to-90% p-6 rounded-md flex items-center gap-6'>
       <Image
-        src={ imageSource }
+        src={ seller?.profileImage ||user?.imageUrl || ''}
         alt="User Image"
         width={100}
         height={100}
