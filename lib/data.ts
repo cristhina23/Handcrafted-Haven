@@ -186,6 +186,7 @@ const users = [
   },
 ];
 
+]
 //Sellers
 const sellersProfiles = [
   {
