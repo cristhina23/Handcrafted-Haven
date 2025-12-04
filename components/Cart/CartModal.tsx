@@ -96,13 +96,13 @@ export default function CartModal() {
                   {/* Product Details */}
                   <div className="flex-1 min-w-0">
                     <h3 className="font-semibold text-sm text-slate-900 truncate">
-                      {item.productName}
+                      {item.productName || "Unknown Product"}
                     </h3>
                     <p className="text-xs text-gray-500 mb-2">
-                      by {item.sellerName}
+                      by {item.sellerName || "Unknown Seller"}
                     </p>
                     <p className="text-sm font-bold text-slate-900">
-                      ${item.price.toFixed(2)}
+                      ${(item.price || 0).toFixed(2)}
                     </p>
 
                     {/* Quantity Controls */}

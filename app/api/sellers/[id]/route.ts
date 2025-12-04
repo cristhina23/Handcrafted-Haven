@@ -14,11 +14,14 @@ export async function GET(
     const seller = await Seller.findById(id);
 
     if (!seller) {
-      return NextResponse.json({ message: "Seller not found" }, { status: 404 });
+      return NextResponse.json(
+        { message: "Seller not found" },
+        { status: 404 }
+      );
     }
 
     return NextResponse.json(seller);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (err: any) {
     return NextResponse.json({ error: err.message }, { status: 500 });
   }

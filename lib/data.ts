@@ -192,14 +192,11 @@ address
 Object
 profileCompleted
 true
-role
-"seller"
-createdAt
-2025-12-01T21:01:53.315+00:00
-updatedAt
-2025-12-01T21:01:53.315+00:00
+role: "seller",
+createdAt: "2025-12-01T21:01:53.315+00:00",
+updatedAt: "2025-12-01T21:01:53.315+00:00"
   }
-] */ */
+] */
 
 
 //Sellers

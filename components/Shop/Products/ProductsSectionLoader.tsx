@@ -6,7 +6,14 @@ import ProductCardSkeleton from "./ProductCardSkeleton";
 
 import { Product } from "@/types";
 
-export default function ProductsSectionLoader(props: any) {
+interface ProductsSectionLoaderProps {
+  grid?: string;
+  [key: string]: unknown;
+}
+
+export default function ProductsSectionLoader(
+  props: ProductsSectionLoaderProps
+) {
   const [loading, setLoading] = useState(true);
   const [products, setProducts] = useState<Product[] | null>(null);
 
@@ -19,13 +26,8 @@ export default function ProductsSectionLoader(props: any) {
   }, []);
 
   if (loading || !products) {
-    return <ProductsCaradSkeleton grid={props.grid} />;
+    return <ProductCardSkeleton grid={props.grid} />;
   }
 
-  return (
-    <ProductsSection
-      {...props}
-      products={products}
-    />
-  );
+  return <ProductsSection {...props} products={products} />;
 }

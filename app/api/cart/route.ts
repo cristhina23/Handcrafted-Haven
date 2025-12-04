@@ -17,7 +17,7 @@ export async function GET(req: NextRequest) {
       );
     }
 
-    const cart = await Cart.findOne({ userId }).populate("items.productId");
+    const cart = await Cart.findOne({ userId });
 
     if (!cart) {
       return NextResponse.json({

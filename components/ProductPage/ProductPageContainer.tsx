@@ -9,6 +9,8 @@ import { Product } from "@/types";
 import ProductDescription from "./ProductDescription";
 import AddToCartModal from "./AddToCartModal";
 import { useCart } from "@/contexts/CartContext";
+import { useRouter } from "next/navigation";
+import { useUser } from "@clerk/nextjs";
 
 interface Props {
   productId: string;
@@ -22,6 +24,8 @@ export default function ProductPageContainer({ productId }: Props) {
   const [loading, setLoading] = useState(true);
   const [isModalOpen, setModalOpen] = useState(false);
   const { addToCart } = useCart();
+  const router = useRouter();
+  const { isSignedIn } = useUser();
 
   const handleAddToCart = () => {
     if (!product) return;
@@ -34,6 +38,32 @@ export default function ProductPageContainer({ productId }: Props) {
       sellerId: product.sellerId,
       sellerName: product.sellerName || seller?.shopName || "Unknown Seller",
     });
+  };
+
+  const handlePayNow = () => {
+    if (!product) return;
+
+    // Check if user is signed in
+    if (!isSignedIn) {
+      router.push("/sign-in?redirect_url=/checkout");
+      return;
+    }
+
+    // Add to cart without opening modal
+    addToCart(
+      {
+        productId: product._id,
+        productName: product.title,
+        productImage: product.images[0],
+        price: product.price,
+        sellerId: product.sellerId,
+        sellerName: product.sellerName || seller?.shopName || "Unknown Seller",
+      },
+      false
+    );
+
+    // Redirect to checkout
+    router.push("/checkout");
   };
   useEffect(() => {
     let isCancelled = false;
@@ -106,6 +136,7 @@ export default function ProductPageContainer({ productId }: Props) {
           }
           dimensions={product.dimensions}
           onAddToCart={handleAddToCart}
+          onPayNow={handlePayNow}
         />
       </div>
 
