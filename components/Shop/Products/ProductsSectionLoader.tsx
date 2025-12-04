@@ -5,10 +5,14 @@ import ProductsSection from "./ProductsSection";
 import ProductCardSkeleton from "./ProductCardSkeleton";
 
 import { Product } from "@/types";
+import { SortOption } from "./DynamicSortSelector";
 
 interface ProductsSectionLoaderProps {
-  grid?: string;
-  [key: string]: unknown;
+  grid: number;
+  sortBy: SortOption;
+  onGridChange: (value: number) => void;
+  onSortChange: (value: SortOption) => void;
+  onOpenMobileFilter: () => void;
 }
 
 export default function ProductsSectionLoader(
@@ -18,7 +22,6 @@ export default function ProductsSectionLoader(
   const [products, setProducts] = useState<Product[] | null>(null);
 
   useEffect(() => {
-    setLoading(true);
     fetch("/api/products")
       .then((res) => res.json())
       .then((data) => setProducts(data))
@@ -26,8 +29,8 @@ export default function ProductsSectionLoader(
   }, []);
 
   if (loading || !products) {
-    return <ProductCardSkeleton grid={props.grid} />;
+    return <ProductCardSkeleton />;
   }
 
-  return <ProductsSection {...props} products={products} />;
+  return <ProductsSection {...props} products={products} loading={loading} />;
 }
