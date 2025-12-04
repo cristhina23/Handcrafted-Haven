@@ -20,7 +20,8 @@ export async function GET() {
       .lean();
 
     // Transform to include sellerName
-    const productsWithSeller = products.map((product: PopulatedProduct) => ({
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const productsWithSeller = products.map((product: any) => ({
       ...product,
       sellerName:
         (typeof product.sellerId === "object" && product.sellerId?.shopName) ||

@@ -1,14 +1,14 @@
 "use client";
 
-import * as React from "react"
-import { useEffect,useState } from "react";
-import { Card, CardContent } from "@/components/ui/card"
+import * as React from "react";
+import { useEffect, useState } from "react";
+import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
   CarouselContent,
-  CarouselItem
-} from "@/components/ui/carousel"
-import Autoplay from "embla-carousel-autoplay"
+  CarouselItem,
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 
 interface Review {
   _id: string;
@@ -22,14 +22,14 @@ export function CarouselOrientation() {
   const [reviews, setReviews] = useState<Review[]>([]);
   useEffect(() => {
     fetch("/api/reviews")
-      .then(res => res.json())
-      .then(data => setReviews(data));
+      .then((res) => res.json())
+      .then((data) => setReviews(data));
   }, []);
   return (
     <Carousel
       opts={{
         align: "start",
-        }}
+      }}
       plugins={[
         Autoplay({
           delay: 3000,
@@ -44,10 +44,10 @@ export function CarouselOrientation() {
             <div className="p-1">
               <Card className="bg-transparent py-3 border-(--brand-light-gray) text-(--brand-pale)">
                 <CardContent className="flex flex-col p-5">
-                  <q>
-                    {review.comment}        
-                  </q>
-                  <p className="font-semibold mt-3 ">{review.userId?.fullName?? "anonymous user"}</p>
+                  <q>{review.comment}</q>
+                  <p className="font-semibold mt-3 ">
+                    {review.userId?.fullName ?? "anonymous user"}
+                  </p>
                 </CardContent>
               </Card>
             </div>
@@ -55,5 +55,5 @@ export function CarouselOrientation() {
         ))}
       </CarouselContent>
     </Carousel>
-  )
+  );
 }

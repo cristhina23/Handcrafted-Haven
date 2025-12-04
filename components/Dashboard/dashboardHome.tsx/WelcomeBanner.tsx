@@ -1,29 +1,28 @@
-'use client'
+"use client";
 
-import Image from 'next/image'
-import { useUser } from '@clerk/nextjs';
-import { useSeller } from '@/contexts/SellerContext';
+import Image from "next/image";
+import { useUser } from "@clerk/nextjs";
+import { useSeller } from "@/contexts/SellerContext";
 
 function WelcomeBanner() {
-  const {user } = useUser();
+  const { user } = useUser();
   const { seller, loading, error } = useSeller();
- 
 
   return (
-    <div className='w-full bg-linear-to-r from-indigo-500 from-10% via-sky-500 via-30% to-purple-500 to-90% p-6 rounded-md flex items-center gap-6'>
+    <div className="w-full bg-linear-to-r from-indigo-500 from-10% via-sky-500 via-30% to-purple-500 to-90% p-6 rounded-md flex items-center gap-6">
       <Image
-        src={seller?.profileImage || user?.imageUrl || '/placeholder.png'}
+        src={seller?.profileImage || user?.imageUrl || "/placeholder.png"}
         alt="User Image"
         width={100}
         height={100}
-        className='rounded-lg overflow-hidden'
+        className="rounded-lg overflow-hidden"
       />
       <div>
-        <h1 className='text-lg font-bold '>Welcome {user?.firstName}</h1>
+        <h1 className="text-lg font-bold ">Welcome {user?.firstName}</h1>
         <p>{seller?.shopName} is ready for another great day of growth.</p>
       </div>
     </div>
-  )
+  );
 }
 
-export default WelcomeBanner
+export default WelcomeBanner;
