@@ -65,7 +65,7 @@ export default function ProductsSection({
           `}
         >
           {Array.from({ length: grid * 2 }).map((_, i) => (
-            <ProductCardSkeleton key={i} grid={grid} />
+            <ProductCardSkeleton key={i} />
           ))}
         </div>
       </section>
