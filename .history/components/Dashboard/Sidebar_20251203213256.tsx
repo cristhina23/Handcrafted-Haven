@@ -4,7 +4,6 @@ import Link from "next/link";
 import { sidebarLinks } from "./navigation";
 import { X } from "lucide-react";
 import { FC } from "react";
-import CustomAccordionItem from "../CustomAccordionItem";
 
 interface SidebarProps {
   activeMenu: boolean;
@@ -50,9 +49,9 @@ const Sidebar: FC<SidebarProps> = ({
 
       <div className="mt-5">
         {sidebarLinks.map((section) => (
-          <div key={section.title} className="">
+          <div key={section.title}>
             {!collapsed && (
-              <p className="text-slate-300 uppercase px-4 mt-4 mb-2 text-sm ">
+              <p className="text-slate-300 uppercase px-4 mt-4 mb-2 text-sm">
                 {section.title}
               </p>
             )}
@@ -61,24 +60,24 @@ const Sidebar: FC<SidebarProps> = ({
               const Icon = link.icon;
 
               return (
-                <CustomAccordionItem
+                <Link
+                  href={`${process.env.NEXT_PUBLIC_BASE_URL}/${link.href}`}
                   key={link.name}
-                  label={link.name.replace("-", " ")}
-                  icon={Icon}
-                  collapsed={collapsed}
+                  onClick={handleCloseSidebar}
+                  className={`flex items-center gap-4 pl-4 py-3 rounded-lg m-2 transition-all duration-300
+                   ${
+                     collapsed
+                       ? "justify-center"
+                       : "text-slate-300 dark:text-gray-200 hover:bg-slate-800 hover:text-gray-100 dark:hover:bg-slate-900/60 dark:hover:text-gray-100"
+                   }`}
                 >
-                  {/* Aquí metes las subcategorías */}
-                  {link.sublinks?.map((sub) => (
-                    <Link
-                      key={sub.name}
-                      href={sub.href}
-                      onClick={handleCloseSidebar}
-                      className=" text-md dark:text-gray-300 hover:bg-slate-600 px-4 py-2 hover:text-white"
-                    >
-                      {sub.name}
-                    </Link>
-                  ))}
-                </CustomAccordionItem>
+                  <Icon size={20} />
+                  {!collapsed && (
+                    <span className="capitalize">
+                      {link.name.replace("-", " ")}
+                    </span>
+                  )}
+                </Link>
               );
             })}
           </div>

@@ -50,9 +50,9 @@ const Sidebar: FC<SidebarProps> = ({
 
       <div className="mt-5">
         {sidebarLinks.map((section) => (
-          <div key={section.title} className="">
+          <div key={section.title}>
             {!collapsed && (
-              <p className="text-slate-300 uppercase px-4 mt-4 mb-2 text-sm ">
+              <p className="text-slate-300 uppercase px-4 mt-4 mb-2 text-sm">
                 {section.title}
               </p>
             )}
@@ -73,7 +73,7 @@ const Sidebar: FC<SidebarProps> = ({
                       key={sub.name}
                       href={sub.href}
                       onClick={handleCloseSidebar}
-                      className=" text-md dark:text-gray-300 hover:bg-slate-600 px-4 py-2 hover:text-white"
+                      className=" text- hover:text-white"
                     >
                       {sub.name}
                     </Link>

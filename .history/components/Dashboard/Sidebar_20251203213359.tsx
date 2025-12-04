@@ -4,7 +4,6 @@ import Link from "next/link";
 import { sidebarLinks } from "./navigation";
 import { X } from "lucide-react";
 import { FC } from "react";
-import CustomAccordionItem from "../CustomAccordionItem";
 
 interface SidebarProps {
   activeMenu: boolean;
@@ -50,39 +49,39 @@ const Sidebar: FC<SidebarProps> = ({
 
       <div className="mt-5">
         {sidebarLinks.map((section) => (
-          <div key={section.title} className="">
-            {!collapsed && (
-              <p className="text-slate-300 uppercase px-4 mt-4 mb-2 text-sm ">
-                {section.title}
-              </p>
-            )}
+  <div key={section.title}>
+    {!collapsed && (
+      <p className="text-slate-300 uppercase px-4 mt-4 mb-2 text-sm">
+        {section.title}
+      </p>
+    )}
 
-            {section.links.map((link) => {
-              const Icon = link.icon;
+    {section.links.map((link) => {
+      const Icon = link.icon;
 
-              return (
-                <CustomAccordionItem
-                  key={link.name}
-                  label={link.name.replace("-", " ")}
-                  icon={Icon}
-                  collapsed={collapsed}
-                >
-                  {/* Aquí metes las subcategorías */}
-                  {link.sublinks?.map((sub) => (
-                    <Link
-                      key={sub.name}
-                      href={sub.href}
-                      onClick={handleCloseSidebar}
-                      className=" text-md dark:text-gray-300 hover:bg-slate-600 px-4 py-2 hover:text-white"
-                    >
-                      {sub.name}
-                    </Link>
-                  ))}
-                </CustomAccordionItem>
-              );
-            })}
-          </div>
-        ))}
+      return (
+        <CustomAccordionItem
+          key={link.name}
+          label={link.name.replace("-", " ")}
+          icon={Icon}
+          collapsed={collapsed}
+        >
+          {/* Aquí metes las subcategorías */}
+          {link.subItems?.map((sub) => (
+            <Link
+              key={sub.name}
+              href={sub.href}
+              onClick={handleCloseSidebar}
+              className="hover:text-white"
+            >
+              {sub.name}
+            </Link>
+          ))}
+        </CustomAccordionItem>
+      );
+    })}
+  </div>
+))}
       </div>
     </div>
   );

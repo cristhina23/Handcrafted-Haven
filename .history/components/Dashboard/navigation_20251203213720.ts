@@ -26,8 +26,8 @@ export const sidebarLinks = [
         href: "/dashboard/products", 
         icon: Package,
         sublinks: [
-          { name: "all products", href: "/dashboard/products?tab=all" },
-          { name: "add product", href: "/dashboard/products?tab=add" }
+          { name: "all products", href: "/dashboard/products" },
+          { name: "add product", href: "/dashboard/products/new" }
         ]
       },
       { 

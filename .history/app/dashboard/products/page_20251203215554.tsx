@@ -1,4 +1,4 @@
-import ProductsPageContainer from '@/components/Dashboard/products/ProductsPageContainer'
+import ProductsPage from '@/components/Dashboard/products/ProductsPageContainer'
 import React from 'react'
 
 function page() {

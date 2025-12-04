@@ -1,17 +1,3 @@
-import { hr } from "framer-motion/client";
-import {
-  LayoutDashboard,
-  Package,
-  ShoppingCart,
-  BarChart3,
-  MessageSquare,
-  Store,
-  User,
-  Settings,
-  HelpCircle,
-  Bell,
-} from "lucide-react";
-
 export const sidebarLinks = [
   {
     title: "Main",
@@ -26,8 +12,9 @@ export const sidebarLinks = [
         href: "/dashboard/products", 
         icon: Package,
         sublinks: [
-          { name: "all products", href: "/dashboard/products?tab=all" },
-          { name: "add product", href: "/dashboard/products?tab=add" }
+          { name: "all products", href: "/dashboard/products" },
+          { name: "add product", href: "/dashboard/products/new" },
+          { name: "categories", href: "/dashboard/products/categories" },
         ]
       },
       { 
@@ -97,4 +84,3 @@ export const sidebarLinks = [
     ],
   },
 ];
-

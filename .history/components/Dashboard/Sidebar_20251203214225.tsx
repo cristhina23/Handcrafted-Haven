@@ -52,7 +52,7 @@ const Sidebar: FC<SidebarProps> = ({
         {sidebarLinks.map((section) => (
           <div key={section.title} className="">
             {!collapsed && (
-              <p className="text-slate-300 uppercase px-4 mt-4 mb-2 text-sm ">
+              <p className="text-slate-300 uppercase px-4 mt-4 mb-2 text-sm bg-red-600">
                 {section.title}
               </p>
             )}
