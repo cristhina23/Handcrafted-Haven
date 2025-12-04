@@ -1,6 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Force webpack for production builds to avoid Turbopack font issues
+  webpack: (config) => {
+    return config;
+  },
   images: {
     remotePatterns: [
       {
