@@ -7,12 +7,12 @@ import Hero from "@/components/Hero/Hero";
 
 export default function Home() {
   return (
-    <main className="font-sans">
+    <>
       <Hero />
       <CategorySection />
       <Impression />
       <MeetOurMakers />
       <Events/>
-    </main>
+    </>
   );
 }

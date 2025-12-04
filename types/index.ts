@@ -91,21 +91,23 @@ export interface CartType {
 }
 
 // ---------- Order ----------
-export interface OrderItemType {
-  sellerId: string;
-  productId: string;
+export interface IOrderItem {
+  productId: Types.ObjectId;
+  sellerId: Types.ObjectId;
   quantity: number;
   priceAtPurchase: number;
+  discount?: number; 
+  subtotal: number;
 }
 
-export interface OrderType {
-  _id: string;
-  buyerId: string;
-  items: OrderItemType[];
-  shippingCost: number;
-  total: number;
+export interface IOrder extends Document {
+  buyerId: Types.ObjectId;
+  items: IOrderItem[];
+  itemsTotal: number;
+  shippingTotal: number;
+  grandTotal: number;
   status: "pending" | "processing" | "shipped" | "delivered";
-  createdAt: string;
+  createdAt: Date;
 }
 
 // ---------- Review ----------
@@ -125,4 +127,10 @@ export interface WishlistType {
   _id: string;
   userId: string;
   products: string[];
+}
+
+export interface Notification {
+  id: string;
+  title: string;
+  message: string;
 }

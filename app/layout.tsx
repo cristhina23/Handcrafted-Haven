@@ -1,29 +1,25 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Footer from "../components/Footer/Footer"
 import AOSWrapper from "@/components/AosWrapper";
-
-import Header from "@/components/Header/Header";
-
-
-//import AOSWrapper from "@/components/AosWrapper";
+import ProfileChecker from "@/components/ProfileChecker";
+import { ClerkProvider } from "@clerk/nextjs";
 
 import { Merriweather, Poppins } from "next/font/google";
 
-
+import LayoutWrapper from "@/components/Dashboard/LayoutWrapper";
 
 // Headings font
 const merriweather = Merriweather({
   variable: "--font-merriweather",
   subsets: ["latin"],
-  weight: ["300", "400", "700", "900"], 
+  weight: ["300", "400", "700", "900"],
 });
 
 // Paragraphs font
 const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"], 
+  weight: ["300", "400", "500", "600"],
 });
 
 export const metadata: Metadata = {
@@ -36,18 +32,20 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+   
+
   return (
-    <html lang="en">
-      <body
-        className={`${merriweather.variable} ${poppins.variable} font-sans antialiased w-full bg-[#F1F5F9]`}
-      >
-        <AOSWrapper/>
-         {/*<AOSWrapper/>*/}
-        <Header />
-        <main className="w-full">{children}</main>
-        
-        <Footer/>
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body
+          className={`${merriweather.variable} ${poppins.variable} font-sans antialiased w-full bg-[#F1F5F9]`}
+        >
+          <ProfileChecker>
+          <AOSWrapper />
+           <LayoutWrapper>{children}</LayoutWrapper>
+          </ProfileChecker>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }

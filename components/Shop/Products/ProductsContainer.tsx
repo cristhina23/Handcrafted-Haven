@@ -19,7 +19,7 @@ export default function ProductsContainer({ products, grid }: Props) {
       `}
     >
       {products.map((product, index) => (
-        <ProductCard key={product._id + index} product={product} grid={grid} />
+        <ProductCard key={`${product._id}-${index}`} product={product} grid={grid} />
       ))}
     </div>
   );
