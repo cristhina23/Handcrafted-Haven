@@ -170,41 +170,33 @@ const users =[
     "password": "fuentespass",
     "image": "https://randomuser.me/api/portraits/men/11.jpg",
     "createdAt": "2024-11-20T12:45:00Z"
+  },
+  {
+    "_id": "692e6c048d62b51179eb7953",
+    "fullName": "Seller Demo",
+    "email": "byu.handcraftedhaven2025@gmail.com",
+    "password": "T3sTing123456",
+    "image": "https://randomuser.me/api/portraits/men/11.jpg",
+    "createdAt": "2024-11-20T12:45:00Z"
   }
- /*  {
-    
-/* _id
-692e02417bcdabea1edcb8b2
-clerkId
-"user_36GANh8UcRzQGFqDf8o7cN1VdRE"
-email
-"cristhinachacon23@gmail.com"
-fullName
-"cristhina"
-username
-"cristhina"
-phone
-"+1 5550000000"
-image
-"https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdl…"
-
-address
-Object
-profileCompleted
-true
-role
-"seller"
-createdAt
-2025-12-01T21:01:53.315+00:00
-updatedAt
-2025-12-01T21:01:53.315+00:00
-  }
-] */ */
 
 
+]
 //Sellers
 
 const sellersProfiles =[
+    {
+    "_id": { "$oid":"692e709b758610b8abeb901c"},
+    "userId": { "$oid": "692e6c048d62b51179eb7953" },
+    "shopName": "Andean Threads Studio",
+    "bio": "I create handmade knitted and woven textile pieces inspired by Andean culture. Each item is crafted with care, using traditional techniques passed down through generations.",
+    "profileImage": "https://img.clerk.com/eyJ0eXBlIjoiZGVmYXVsdCIsImlpZCI6Imluc18zNjl1N0dt…",
+    "country": "Peru",
+    "specialties": ["Knitting", "Crochet", "Woven Textiles", "Handmade Apparel"],
+    "rating": 4.9,
+    "totalSales": 0,
+    "reviews": []
+  },
   {
     "_id": "692e0391758610b8abeb8e99",
     "userId": {"$oid":"692e02417bcdabea1edcb8b2"},
@@ -366,6 +358,264 @@ const sellersProfiles =[
 
 
 // Products data
+
+const sellerDemoProducts = [
+  {
+    "_id": { "$oid": "692f2855758610b8abeb92b9" },
+    "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+    "title": "Handwoven Alpaca Scarf – Soft Winter Edition",
+    "description": "A luxurious handwoven scarf made from premium Peruvian alpaca wool. Ultra-soft, lightweight, and naturally warm. Perfect for cold seasons and everyday use.",
+    "price": 48,
+    "images": [
+      "https://res.cloudinary.com/dttbqvomc/image/upload/v1764696074/il_794xN.3349112027_l6h3_pvmans.webp",
+      "https://res.cloudinary.com/dttbqvomc/image/upload/v1764696074/il_794xN.3483899050_bf1s_bjopbd.webp",
+      "https://res.cloudinary.com/dttbqvomc/image/upload/v1764696075/il_794xN.3301412604_mwzw_grolrf.webp"
+    ],
+    "categoryId": { "$oid": "6920e4c01eef40052ea9de9e" },
+    "quantity": 25,
+    "country": "Peru",
+    "rating": 4.9,
+    "ratingCount": 128,
+    "variants": [
+      { "color": "Cream" },
+      { "color": "Dark Gray" },
+      { "material": "Alpaca" }
+    ],
+    "isCustomOrder": true,
+    "dimensions": "180cm x 30cm",
+    "shippingMethods": ["Standard", "Express"]
+  },
+  {
+    "_id": { "$oid": "692f2855758610b8abeb92ba" },
+    "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+    "title": "Knitted Baby Blanket – Soft Cotton",
+    "description": "A delicate hand-knitted baby blanket crafted with hypoallergenic cotton yarn. Gentle on newborn skin and perfect as a gift.",
+    "price": 55,
+    "images": [
+      "https://res.cloudinary.com/dttbqvomc/image/upload/v1764696075/il_794xN.5499280454_682i_gxowgc.webp",
+      "https://res.cloudinary.com/dttbqvomc/image/upload/v1764696074/il_794xN.3332320005_jl7x_hsgfw2.webp",
+      "https://res.cloudinary.com/dttbqvomc/image/upload/v1764696074/il_794xN.3284626596_qtqq_wmzo6c.webp"
+    ],
+    "categoryId": { "$oid": "6920e4c01eef40052ea9de9e" },
+    "quantity": 15,
+    "country": "Peru",
+    "rating": 5.0,
+    "ratingCount": 67,
+    "variants": [
+      { "color": "Pastel Pink" },
+      { "color": "Sky Blue" },
+      { "material": "Cotton" }
+    ],
+    "isCustomOrder": true,
+    "dimensions": "90cm x 90cm",
+    "shippingMethods": ["Standard"]
+  },
+  {
+    "_id": { "$oid": "692f2855758610b8abeb92bb" },
+    "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+    "title": "Handmade Crochet Tote Bag",
+    "description": "Stylish and durable crochet tote bag made with thick cotton yarn. Ideal for everyday use, shopping trips, or beach days.",
+    "price": 32,
+    "images": [
+      "https://res.cloudinary.com/dttbqvomc/image/upload/v1764696076/il_794xN.7426151083_h1xu_ti3xgo.webp",
+      "https://res.cloudinary.com/dttbqvomc/image/upload/v1764696075/il_794xN.7426149081_b9tw_uu4c7c.webp",
+      "https://res.cloudinary.com/dttbqvomc/image/upload/v1764696075/il_794xN.7378226550_1axa_dp3o1s.webp"
+    ],
+    "categoryId": { "$oid": "6920e4c01eef40052ea9de9e" },
+    "quantity": 30,
+    "country": "Peru",
+    "rating": 4.8,
+    "ratingCount": 92,
+    "variants": [
+      { "color": "Cream" },
+      { "color": "Mustard" },
+      { "color": "Black" },
+      { "material": "Cotton" }
+    ],
+    "isCustomOrder": false,
+    "dimensions": "35cm x 30cm",
+    "shippingMethods": ["Standard"]
+  },
+  {
+     "_id": { "$oid": "692f2855758610b8abeb92bc" },
+    "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+    "title": "Chunky Knit Pillow Cover",
+    "description": "Decorative hand-knit pillow cover using premium wool. Adds a cozy and modern touch to any living room or bedroom.",
+    "price": 29,
+    "images": [
+      "https://res.cloudinary.com/dttbqvomc/image/upload/v1764696074/il_794xN.2583961501_84ax_rogmni.avif",
+      "https://res.cloudinary.com/dttbqvomc/image/upload/v1764696075/il_794xN.6057566506_2nsz_qvxwmi.avif"
+    ],
+    "categoryId": { "$oid": "6920e4c01eef40052ea9de9e" },
+    "quantity": 40,
+    "country": "Peru",
+    "rating": 4.7,
+    "ratingCount": 53,
+    "variants": [
+      { "color": "Cream" },
+      { "color": "Purple" },
+      { "color": "Black" },
+      { "material": "Wool" }
+    ],
+    "isCustomOrder": false,
+    "dimensions": "45cm x 45cm",
+    "shippingMethods": ["Standard", "Express"]
+  },
+  {
+    "_id": { "$oid": "692f2855758610b8abeb92bd" },
+    "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+    "title": "Andean Knitted Poncho",
+    "description": "Traditional Andean-inspired poncho made with natural alpaca fibers. Lightweight, warm, and beautifully patterned.",
+    "price": 78,
+    "images": [
+      "https://res.cloudinary.com/dttbqvomc/image/upload/v1764696076/il_794xN.7475252953_5zfr_hc8uai.avif",
+      "https://res.cloudinary.com/dttbqvomc/image/upload/v1764696076/il_794xN.7475236329_rs3s_hvzkwn.jpg"
+    ],
+    "categoryId": { "$oid": "6920e4c01eef40052ea9de9e" },
+    "quantity": 12,
+    "country": "Peru",
+    "rating": 5.0,
+    "ratingCount": 40,
+    "variants": [
+      { "color": "Earth Tones" },
+      { "color": "Black & White" },
+      { "material": "Alpaca" }
+    ],
+    "isCustomOrder": true,
+    "dimensions": "One Size - 95cm length",
+    "shippingMethods": ["Standard", "Express"]
+  },
+  {
+    "_id": { "$oid": "692f2855758610b8abeb92be" },
+    "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+    "title": "Handwoven Table Runner – Andean Patterns",
+    "description": "A colorful handwoven table runner inspired by traditional Andean textile heritage. Adds warmth and unique flair to home décor.",
+    "price": 36,
+    "images": [
+      "https://res.cloudinary.com/dttbqvomc/image/upload/v1764696074/il_794xN.2267999962_ev9f_pwxnu4.webp",
+      "https://res.cloudinary.com/dttbqvomc/image/upload/v1764696073/il_794xN.2267997500_ou8k_hdcd5q.avif"
+    ],
+    "categoryId": { "$oid": "6920e4c01eef40052ea9de9e" },
+    "quantity": 20,
+    "country": "Peru",
+    "rating": 4.8,
+    "ratingCount": 77,
+    "variants": [
+      { "color": "Multicolor" },
+      { "color": "Terracotta Mix" },
+      { "material": "Wool" }
+    ],
+    "isCustomOrder": true,
+    "dimensions": "150cm x 30cm",
+    "shippingMethods": ["Standard"]
+  },
+  {
+    "_id": { "$oid": "692f2855758610b8abeb92bf" },
+    "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+    "title": "Crochet Headband – Winter Style",
+    "description": "A soft and warm handmade crochet headband perfect for cold days. Stretchy and comfortable fit.",
+    "price": 18,
+    "images": [
+      "https://res.cloudinary.com/dttbqvomc/image/upload/v1764696075/il_794xN.7361560491_5nnu_qogkey.avif",
+      "https://res.cloudinary.com/dttbqvomc/image/upload/v1764696075/il_794xN.7361490909_pe9o_tkkfzw.avif"
+    ],
+    "categoryId": { "$oid": "6920e4c01eef40052ea9de9e" },
+    "quantity": 35,
+    "country": "Peru",
+    "rating": 4.7,
+    "ratingCount": 33,
+    "variants": [
+      { "color": "Burgundy" },
+      { "color": "Black" },
+      { "material": "Acrylic Wool" }
+    ],
+    "isCustomOrder": false,
+    "dimensions": "One size fits most",
+    "shippingMethods": ["Standard"]
+  },
+  {
+    "_id": { "$oid": "692f2855758610b8abeb92c0" },
+    "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+    "title": "Knitted Wool Socks – Handmade Andean Style",
+    "description": "Cozy and warm wool socks knitted by hand with traditional Andean patterns. Ideal for cold climates.",
+    "price": 22,
+    "images": [
+      "https://res.cloudinary.com/dttbqvomc/image/upload/v1764696074/il_794xN.4396892583_q7fr_fcmzbr.avif",
+      "https://res.cloudinary.com/dttbqvomc/image/upload/v1764696073/il_794xN.3477352784_vxb6_n80qz9.avif"
+    ],
+    "categoryId": { "$oid": "6920e4c01eef40052ea9de9e" },
+    "quantity": 28,
+    "country": "Peru",
+    "rating": 4.9,
+    "ratingCount": 101,
+    "variants": [
+      { "color": "Gray Pattern" },
+      { "color": "Red Pattern" },
+      { "material": "Wool" }
+    ],
+    "isCustomOrder": true,
+    "dimensions": "Multiple sizes",
+    "shippingMethods": ["Standard", "Express"]
+  },
+  {
+    "_id": { "$oid": "692f2855758610b8abeb92c1" },
+    "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+    "title": "Macramé Wall Hanging – Boho Style",
+    "description": "Handcrafted macramé wall hanging made with 100% cotton ropes. Perfect for adding a bohemian touch to any room.",
+    "price": 45,
+    "images": [
+      "https://res.cloudinary.com/dttbqvomc/image/upload/v1764696075/il_794xN.7410649067_p7ap_hj4hj0.avif",
+      "https://res.cloudinary.com/dttbqvomc/image/upload/v1764696076/il_794xN.7410650573_2kux_nc980y.avif"
+    ],
+    "categoryId": { "$oid": "6920e4c01eef40052ea9de9e" },
+    "quantity": 18,
+    "country": "Peru",
+    "rating": 4.8,
+    "ratingCount": 58,
+    "variants": [
+      { "color": "Natural" },
+      { "color": "Beige" },
+      { "material": "Cotton" }
+    ],
+    "isCustomOrder": false,
+    "dimensions": "60cm x 40cm",
+    "shippingMethods": ["Standard"]
+  },
+  {
+    "_id": { "$oid": "692f2855758610b8abeb92c2" },
+    "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+    "title": "Hand-Knit Sweater – Alpaca Blend",
+    "description": "Premium alpaca-blend sweater knitted by hand. Soft, breathable, and incredibly warm. A timeless Andean garment.",
+    "price": 89,
+    "images": [
+      "https://res.cloudinary.com/dttbqvomc/image/upload/v1764696074/il_794xN.1505760095_mww7_fv8xqm.webp",
+      "https://res.cloudinary.com/dttbqvomc/image/upload/v1764696073/il_794xN.1505759677_7196_bhdg1p.avif"
+    ],
+    "categoryId": { "$oid": "6920e4c01eef40052ea9de9e" },
+    "quantity": 10,
+    "country": "Peru",
+    "rating": 5.0,
+    "ratingCount": 24,
+    "variants": [
+      { "color": "Cream" },
+      { "color": "Brown" },
+      { "color": "Blue" },
+      { "color": "green" },
+      { "color": "white" },
+      { "material": "Alpaca Blend" },
+      { "size": "XS" },
+      { "size": "S" },
+      { "size": "M" },
+      { "size": "L" },
+      { "size": "XL" }
+    ],
+    "isCustomOrder": true,
+    "dimensions": "Varies by size",
+    "shippingMethods": ["Standard", "Express"]
+  }
+]
+
+
 
   // seller 1
   const seller1Products = [
@@ -3392,5 +3642,1676 @@ const reviewsSeller12 = [
     "rating": 5,
     "comment": "King-size perfection. The indigo print is bold and traditional.",
     "createdAt": "2024-11-25T18:50:00Z"
+  }
+]
+
+const reviewsDemoProducts = [
+  {
+    "productId": { "$oid":"692f2855758610b8abeb92b9"},
+    "userId": { "$oid":"692218de1bb94c4026ecee0f"},
+    "sellerId": { "$oid":"692e709b758610b8abeb901c"},
+    "rating": 5,
+    "comment": "The alpaca wool is incredibly soft and warm. Perfect for chilly evenings.",
+    "createdAt": "2024-11-23T09:20:00Z"
+  },
+  {
+    "productId": { "$oid":"692f2855758610b8abeb92b9"},
+    "userId": { "$oid":"69228dac758610b8abeb63b4"},
+    "sellerId": { "$oid":"692e709b758610b8abeb901c"},
+    "rating": 4,
+    "comment": "Beautiful craftsmanship. I wish it came in more colors, but the quality is excellent.",
+    "createdAt": "2024-11-24T12:40:00Z"
+  },
+  {
+    "productId": { "$oid":"692f2855758610b8abeb92b9"},
+    "userId": { "$oid":"69228dac758610b8abeb63b6"},
+    "sellerId":{ "$oid": "692e709b758610b8abeb901c"},
+    "rating": 5,
+    "comment": "Lightweight yet warm. It feels luxurious and authentic.",
+    "createdAt": "2024-11-25T15:10:00Z"
+  },
+
+  {
+    "productId": { "$oid":"692f2855758610b8abeb92ba"},
+    "userId": { "$oid":"692218de1bb94c4026ecee0f"},
+    "sellerId": { "$oid":"692e709b758610b8abeb901c"},
+    "rating": 5,
+    "comment": "Gentle and cozy. My newborn sleeps peacefully with this blanket.",
+    "createdAt": "2024-11-23T10:00:00Z"
+  },
+  {
+    "productId": { "$oid":"692f2855758610b8abeb92ba"},
+    "userId": { "$oid":"69228dac758610b8abeb63b4"},
+    "sellerId": { "$oid":"692e709b758610b8abeb901c"},
+    "rating": 4,
+    "comment": "Soft cotton texture. I wish it was slightly larger, but still wonderful.",
+    "createdAt": "2024-11-24T13:30:00Z"
+  },
+  {
+    "productId": { "$oid":"692f2855758610b8abeb92ba"},
+    "userId": { "$oid":"69228dac758610b8abeb63b5"},
+    "sellerId": { "$oid":"692e709b758610b8abeb901c"},
+    "rating": 5,
+    "comment": "Perfect gift for a baby shower. Hypoallergenic and beautifully knitted.",
+    "createdAt": "2024-11-25T17:45:00Z"
+  },
+
+  {
+    "productId": { "$oid":"692f2855758610b8abeb92bb"},
+    "userId": { "$oid":"692218de1bb94c4026ecee0f"},
+    "sellerId": { "$oid":"692e709b758610b8abeb901c"},
+    "rating": 5,
+    "comment": "Durable and stylish. I use it daily for shopping and it holds up great.",
+    "createdAt": "2024-11-23T09:50:00Z"
+  },
+  {
+    "productId": { "$oid":"692f2855758610b8abeb92bb"},
+    "userId": { "$oid":"69228dac758610b8abeb63b6"},
+    "sellerId": { "$oid":"692e709b758610b8abeb901c"},
+    "rating": 4,
+    "comment": "Lovely tote. The crochet work is neat, though I wish it had a zipper.",
+    "createdAt": "2024-11-24T12:40:00Z"
+  },
+  {
+    "productId": { "$oid":"692f2855758610b8abeb92bb"},
+    "userId": { "$oid":"69228dac758610b8abeb63b4"},
+    "sellerId": { "$oid":"692e709b758610b8abeb901c"},
+    "rating": 5,
+    "comment": "Unique and handmade. It feels authentic and receives compliments everywhere.",
+    "createdAt": "2024-11-25T16:30:00Z"
+  },
+
+  {
+    "productId": { "$oid":"692f2855758610b8abeb92bc"},
+    "userId": { "$oid":"69228dac758610b8abeb63b5"},
+    "sellerId": { "$oid":"692e709b758610b8abeb901c"},
+    "rating": 5,
+    "comment": "Adds a cozy touch to my living room. The wool is soft and warm.",
+    "createdAt": "2024-11-23T08:40:00Z"
+  },
+  {
+    "productId": { "$oid":"692f2855758610b8abeb92bc"},
+    "userId": { "$oid":"69228dac758610b8abeb63b8"},
+    "sellerId": { "$oid":"692e709b758610b8abeb901c"},
+    "rating": 4,
+    "comment": "Beautiful pillow cover. I wish it came in more sizes, but the knit is excellent.",
+    "createdAt": "2024-11-24T14:15:00Z"
+  },
+  {
+    "productId": { "$oid":"692f2855758610b8abeb92bc"},
+    "userId": { "$oid":"69228dac758610b8abeb63b7"},
+    "sellerId": { "$oid":"692e709b758610b8abeb901c"},
+    "rating": 5,
+    "comment": "High-quality wool. It feels handmade and adds warmth to my decor.",
+    "createdAt": "2024-11-25T18:50:00Z"
+  },
+
+  {
+    "productId": { "$oid":"692f2855758610b8abeb92bd"},
+    "userId": { "$oid":"69228dac758610b8abeb63b6"},
+    "sellerId": { "$oid":"692e709b758610b8abeb901c"},
+    "rating": 5,
+    "comment": "The alpaca fibers are warm and lightweight. Perfect for winter outings.",
+    "createdAt": "2024-11-23T09:10:00Z"
+  },
+  {
+    "productId": { "$oid":"692f2855758610b8abeb92bd"},
+    "userId": { "$oid":"69228dac758610b8abeb63b8"},
+    "sellerId": { "$oid":"692e709b758610b8abeb901c"},
+    "rating": 4,
+    "comment": "Beautiful poncho. The patterns are traditional and authentic, though delivery took longer.",
+    "createdAt": "2024-11-24T11:55:00Z"
+  },
+  {
+    "productId": { "$oid":"692f2855758610b8abeb92bd"},
+    "userId": { "$oid":"692218de1bb94c4026ecee0f"},
+    "sellerId": { "$oid":"692e709b758610b8abeb901c"},
+    "rating": 5,
+    "comment": "Stylish and warm. It feels like a true Andean heritage piece.",
+    "createdAt": "2024-11-25T16:25:00Z"
+  },
+   {
+    "productId": { "$oid":"692f2855758610b8abeb92be"},
+    "userId": { "$oid":"69228dac758610b8abeb63b5"},
+    "sellerId": { "$oid":"692e709b758610b8abeb901c"},
+    "rating": 5,
+    "comment": "The colors are vibrant and the weaving is flawless. It adds charm to my dining table.",
+    "createdAt": "2024-11-23T09:20:00Z"
+  },
+  {
+    "productId": { "$oid":"692f2855758610b8abeb92be"},
+    "userId": { "$oid":"69228dac758610b8abeb63b4"},
+    "sellerId": { "$oid":"692e709b758610b8abeb901c"},
+    "rating": 4,
+    "comment": "Beautiful runner. I wish it was slightly wider, but the craftsmanship is excellent.",
+    "createdAt": "2024-11-24T12:40:00Z"
+  },
+  {
+    "productId": { "$oid":"692f2855758610b8abeb92be"},
+    "userId": { "$oid":"69228dac758610b8abeb63b7"},
+    "sellerId": { "$oid":"692e709b758610b8abeb901c"},
+    "rating": 5,
+    "comment": "Authentic Andean design. It feels handmade and unique.",
+    "createdAt": "2024-11-25T15:10:00Z"
+  },
+
+  {
+    "productId": { "$oid":"692f2855758610b8abeb92bf"},
+    "userId": { "$oid":"69228dac758610b8abeb63b6"},
+    "sellerId": { "$oid":"692e709b758610b8abeb901c"},
+    "rating": 5,
+    "comment": "Warm and comfortable. The crochet work is neat and it fits perfectly.",
+    "createdAt": "2024-11-23T10:00:00Z"
+  },
+  {
+    "productId": { "$oid":"692f2855758610b8abeb92bf"},
+    "userId": { "$oid":"69228dac758610b8abeb63b8"},
+    "sellerId": { "$oid":"692e709b758610b8abeb901c"},
+    "rating": 4,
+    "comment": "Lovely headband. I wish it came in more colors, but the quality is great.",
+    "createdAt": "2024-11-24T13:30:00Z"
+  },
+  {
+    "productId": { "$oid":"692f2855758610b8abeb92bf"},
+    "userId": { "$oid":"69228dac758610b8abeb63ba"},
+    "sellerId": { "$oid":"692e709b758610b8abeb901c"},
+    "rating": 5,
+    "comment": "Perfect for winter walks. It keeps my ears warm and looks stylish.",
+    "createdAt": "2024-11-25T17:45:00Z"
+  },
+
+  {
+    "productId": { "$oid":"692f2855758610b8abeb92c0"},
+    "userId": { "$oid":"69228dac758610b8abeb63b5"},
+    "sellerId": { "$oid":"692e709b758610b8abeb901c"},
+    "rating": 5,
+    "comment": "Super warm and cozy. The Andean patterns are beautiful and authentic.",
+    "createdAt": "2024-11-23T09:50:00Z"
+  },
+  {
+    "productId": { "$oid":"692f2855758610b8abeb92c0"},
+    "userId": { "$oid":"692218de1bb94c4026ecee0f"},
+    "sellerId": { "$oid":"692e709b758610b8abeb901c"},
+    "rating": 4,
+    "comment": "Great socks. I wish they were a bit thicker, but they are very comfortable.",
+    "createdAt": "2024-11-24T12:40:00Z"
+  },
+  {
+    "productId": { "$oid":"692f2855758610b8abeb92c0"},
+    "userId": { "$oid":"69228dac758610b8abeb63b6"},
+    "sellerId": { "$oid":"692e709b758610b8abeb901c"},
+    "rating": 5,
+    "comment": "Perfect for cold climates. They feel handmade and special.",
+    "createdAt": "2024-11-25T16:30:00Z"
+  },
+
+  {
+    "productId": { "$oid":"692f2855758610b8abeb92c1"},
+    "userId": { "$oid":"69228dac758610b8abeb63b7"},
+    "sellerId": { "$oid":"692e709b758610b8abeb901c"},
+    "rating": 5,
+    "comment": "Adds a bohemian touch to my room. The cotton ropes are high quality.",
+    "createdAt": "2024-11-23T08:40:00Z"
+  },
+  {
+    "productId": { "$oid":"692f2855758610b8abeb92c1"},
+    "userId": { "$oid":"69228dac758610b8abeb63b8"},
+    "sellerId": { "$oid":"692e709b758610b8abeb901c"},
+    "rating": 4,
+    "comment": "Beautiful wall hanging. I wish it was slightly larger, but it looks amazing.",
+    "createdAt": "2024-11-24T14:15:00Z"
+  },
+  {
+    "productId": { "$oid":"692f2855758610b8abeb92c1"},
+    "userId": { "$oid":"69228dac758610b8abeb63ba"},
+    "sellerId": { "$oid":"692e709b758610b8abeb901c"},
+    "rating": 5,
+    "comment": "Handmade and authentic. It brightens up my living space.",
+    "createdAt": "2024-11-25T18:50:00Z"
+  },
+
+  {
+    "productId": { "$oid":"692f2855758610b8abeb92c2"},
+    "userId": { "$oid":"69228dac758610b8abeb63ba"},
+    "sellerId": { "$oid":"692e709b758610b8abeb901c"},
+    "rating": 5,
+    "comment": "Soft and breathable. The alpaca blend makes it incredibly warm and comfortable.",
+    "createdAt": "2024-11-23T09:10:00Z"
+  },
+  {
+    "productId": { "$oid":"692f2855758610b8abeb92c2"},
+    "userId": { "$oid":"69228dac758610b8abeb63b6"},
+    "sellerId": { "$oid":"692e709b758610b8abeb901c"},
+    "rating": 4,
+    "comment": "Beautiful sweater. I wish it came in more colors, but the knit is excellent.",
+    "createdAt": "2024-11-24T11:55:00Z"
+  },
+  {
+    "productId": { "$oid":"692f2855758610b8abeb92c2"},
+    "userId": { "$oid":"69228dac758610b8abeb63b4"},
+    "sellerId": { "$oid":"692e709b758610b8abeb901c"},
+    "rating": 5,
+    "comment": "Timeless Andean garment. It feels handmade and authentic.",
+    "createdAt": "2024-11-25T16:25:00Z"
+  }
+]
+
+/// ORDER DEMO
+
+const ordersDemo =[
+  {
+    "buyerId": { "$oid": "69228dac758610b8abeb63b4" },
+    "items": [
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92b9" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 2,
+        "priceAtPurchase": 48,
+        "discount": 0,
+        "subtotal": 96
+      }
+    ],
+    "itemsTotal": 96,
+    "shippingTotal": 10,
+    "grandTotal": 106,
+    "status": "delivered",
+    "createdAt": "2025-08-15T10:30:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69228dac758610b8abeb63b5" },
+    "items": [
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92ba" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 1,
+        "priceAtPurchase": 55,
+        "discount": 0,
+        "subtotal": 55
+      },
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92bb" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 1,
+        "priceAtPurchase": 32,
+        "discount": 0,
+        "subtotal": 32
+      }
+    ],
+    "itemsTotal": 87,
+    "shippingTotal": 10,
+    "grandTotal": 97,
+    "status": "delivered",
+    "createdAt": "2025-07-20T14:15:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69228dac758610b8abeb63b6" },
+    "items": [
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92bc" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 3,
+        "priceAtPurchase": 29,
+        "discount": 0,
+        "subtotal": 87
+      }
+    ],
+    "itemsTotal": 87,
+    "shippingTotal": 10,
+    "grandTotal": 97,
+    "status": "delivered",
+    "createdAt": "2025-06-12T09:45:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69228dac758610b8abeb63b7" },
+    "items": [
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92bd" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 1,
+        "priceAtPurchase": 78,
+        "discount": 0,
+        "subtotal": 78
+      }
+    ],
+    "itemsTotal": 78,
+    "shippingTotal": 10,
+    "grandTotal": 88,
+    "status": "delivered",
+    "createdAt": "2025-05-28T16:20:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69228dac758610b8abeb63b8" },
+    "items": [
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92be" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 2,
+        "priceAtPurchase": 36,
+        "discount": 0,
+        "subtotal": 72
+      },
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92bf" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 1,
+        "priceAtPurchase": 18,
+        "discount": 0,
+        "subtotal": 18
+      }
+    ],
+    "itemsTotal": 90,
+    "shippingTotal": 10,
+    "grandTotal": 100,
+    "status": "delivered",
+    "createdAt": "2025-04-19T13:30:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69228dac758610b8abeb63b9" },
+    "items": [
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92c0" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 2,
+        "priceAtPurchase": 22,
+        "discount": 0,
+        "subtotal": 44
+      },
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92c1" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 1,
+        "priceAtPurchase": 45,
+        "discount": 0,
+        "subtotal": 45
+      }
+    ],
+    "itemsTotal": 89,
+    "shippingTotal": 10,
+    "grandTotal": 99,
+    "status": "delivered",
+    "createdAt": "2025-03-22T15:40:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69228dac758610b8abeb63ba" },
+    "items": [
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92c2" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 1,
+        "priceAtPurchase": 89,
+        "discount": 0,
+        "subtotal": 89
+      }
+    ],
+    "itemsTotal": 89,
+    "shippingTotal": 10,
+    "grandTotal": 99,
+    "status": "delivered",
+    "createdAt": "2025-09-01T15:40:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69228dac758610b8abeb63bb" },
+    "items": [
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92bb" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 1,
+        "priceAtPurchase": 32,
+        "discount": 0,
+        "subtotal": 32
+      },
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92bc" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 2,
+        "priceAtPurchase": 29,
+        "discount": 0,
+        "subtotal": 58
+      }
+    ],
+    "itemsTotal": 90,
+    "shippingTotal": 10,
+    "grandTotal": 100,
+    "status": "shipped",
+    "createdAt": "2025-11-25T12:10:00Z"
+  },
+  
+  {
+    "buyerId": { "$oid": "69211ed4758610b8abeb5e77" },
+    "items": [
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92b9" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 2,
+        "priceAtPurchase": 48,
+        "discount": 0,
+        "subtotal": 96
+      }
+    ],
+    "itemsTotal": 96,
+    "shippingTotal": 10,
+    "grandTotal": 106,
+    "status": "delivered",
+    "createdAt": "2025-08-10T09:30:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69211ed4758610b8abeb5e78" },
+    "items": [
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92ba" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 1,
+        "priceAtPurchase": 55,
+        "discount": 0,
+        "subtotal": 55
+      },
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92bb" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 1,
+        "priceAtPurchase": 32,
+        "discount": 0,
+        "subtotal": 32
+      }
+    ],
+    "itemsTotal": 87,
+    "shippingTotal": 10,
+    "grandTotal": 97,
+    "status": "delivered",
+    "createdAt": "2025-07-22T14:15:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69211ed4758610b8abeb5e79" },
+    "items": [
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92bc" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 3,
+        "priceAtPurchase": 29,
+        "discount": 0,
+        "subtotal": 87
+      }
+    ],
+    "itemsTotal": 87,
+    "shippingTotal": 10,
+    "grandTotal": 97,
+    "status": "delivered",
+    "createdAt": "2025-06-18T11:00:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69211ed4758610b8abeb5e7a" },
+    "items": [
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92bd" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 1,
+        "priceAtPurchase": 78,
+        "discount": 0,
+        "subtotal": 78
+      }
+    ],
+    "itemsTotal": 78,
+    "shippingTotal": 10,
+    "grandTotal": 88,
+    "status": "delivered",
+    "createdAt": "2025-05-25T16:20:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69211ed4758610b8abeb5e7b" },
+    "items": [
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92be" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 2,
+        "priceAtPurchase": 36,
+        "discount": 0,
+        "subtotal": 72
+      },
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92bf" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 1,
+        "priceAtPurchase": 18,
+        "discount": 0,
+        "subtotal": 18
+      }
+    ],
+    "itemsTotal": 90,
+    "shippingTotal": 10,
+    "grandTotal": 100,
+    "status": "delivered",
+    "createdAt": "2025-04-30T13:30:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69211ed4758610b8abeb5e7c" },
+    "items": [
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92c0" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 2,
+        "priceAtPurchase": 22,
+        "discount": 0,
+        "subtotal": 44
+      },
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92c1" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 1,
+        "priceAtPurchase": 45,
+        "discount": 0,
+        "subtotal": 45
+      }
+    ],
+    "itemsTotal": 89,
+    "shippingTotal": 10,
+    "grandTotal": 99,
+    "status": "delivered",
+    "createdAt": "2025-03-28T09:50:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69211ed4758610b8abeb5e7d" },
+    "items": [
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92c2" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 1,
+        "priceAtPurchase": 89,
+        "discount": 0,
+        "subtotal": 89
+      }
+    ],
+    "itemsTotal": 89,
+    "shippingTotal": 10,
+    "grandTotal": 99,
+    "status": "delivered",
+    "createdAt": "2025-09-01T15:40:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69211ed4758610b8abeb5e7e" },
+    "items": [
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92bb" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 1,
+        "priceAtPurchase": 32,
+        "discount": 0,
+        "subtotal": 32
+      },
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92bc" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 2,
+        "priceAtPurchase": 29,
+        "discount": 0,
+        "subtotal": 58
+      }
+    ],
+    "itemsTotal": 90,
+    "shippingTotal": 10,
+    "grandTotal": 100,
+    "status": "shipped",
+    "createdAt": "2025-11-25T12:10:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69228dac758610b8abeb63b4" },
+    "items": [
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92ba" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 1,
+        "priceAtPurchase": 55,
+        "discount": 0,
+        "subtotal": 55
+      }
+    ],
+    "itemsTotal": 55,
+    "shippingTotal": 10,
+    "grandTotal": 65,
+    "status": "delivered",
+    "createdAt": "2025-08-12T09:30:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69228dac758610b8abeb63b5" },
+    "items": [
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92bb" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 2,
+        "priceAtPurchase": 32,
+        "discount": 0,
+        "subtotal": 64
+      }
+    ],
+    "itemsTotal": 64,
+    "shippingTotal": 10,
+    "grandTotal": 74,
+    "status": "delivered",
+    "createdAt": "2025-07-20T14:15:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69228dac758610b8abeb63b6" },
+    "items": [
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92bc" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 1,
+        "priceAtPurchase": 29,
+        "discount": 0,
+        "subtotal": 29
+      },
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92bd" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 1,
+        "priceAtPurchase": 78,
+        "discount": 0,
+        "subtotal": 78
+      }
+    ],
+    "itemsTotal": 107,
+    "shippingTotal": 10,
+    "grandTotal": 117,
+    "status": "delivered",
+    "createdAt": "2025-06-18T11:00:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69228dac758610b8abeb63b7" },
+    "items": [
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92be" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 2,
+        "priceAtPurchase": 36,
+        "discount": 0,
+        "subtotal": 72
+      }
+    ],
+    "itemsTotal": 72,
+    "shippingTotal": 10,
+    "grandTotal": 82,
+    "status": "delivered",
+    "createdAt": "2025-05-25T16:20:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69228dac758610b8abeb63b8" },
+    "items": [
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92bf" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 3,
+        "priceAtPurchase": 18,
+        "discount": 0,
+        "subtotal": 54
+      }
+    ],
+    "itemsTotal": 54,
+    "shippingTotal": 10,
+    "grandTotal": 64,
+    "status": "delivered",
+    "createdAt": "2025-04-30T13:30:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69228dac758610b8abeb63b9" },
+    "items": [
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92c0" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 2,
+        "priceAtPurchase": 22,
+        "discount": 0,
+        "subtotal": 44
+      },
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92c1" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 1,
+        "priceAtPurchase": 45,
+        "discount": 0,
+        "subtotal": 45
+      }
+    ],
+    "itemsTotal": 89,
+    "shippingTotal": 10,
+    "grandTotal": 99,
+    "status": "delivered",
+    "createdAt": "2025-03-28T09:50:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69228dac758610b8abeb63ba" },
+    "items": [
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92c2" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 1,
+        "priceAtPurchase": 89,
+        "discount": 0,
+        "subtotal": 89
+      }
+    ],
+    "itemsTotal": 89,
+    "shippingTotal": 10,
+    "grandTotal": 99,
+    "status": "delivered",
+    "createdAt": "2025-09-01T15:40:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69228dac758610b8abeb63bb" },
+    "items": [
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92b9" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 1,
+        "priceAtPurchase": 48,
+        "discount": 0,
+        "subtotal": 48
+      },
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92bc" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 2,
+        "priceAtPurchase": 29,
+        "discount": 0,
+        "subtotal": 58
+      }
+    ],
+    "itemsTotal": 106,
+    "shippingTotal": 10,
+    "grandTotal": 116,
+    "status": "shipped",
+    "createdAt": "2025-11-25T12:10:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69228dac758610b8abeb63bc" },
+    "items": [
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92bd" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 1,
+        "priceAtPurchase": 78,
+        "discount": 0,
+        "subtotal": 78
+      },
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92c0" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 1,
+        "priceAtPurchase": 22,
+        "discount": 0,
+        "subtotal": 22
+      }
+    ],
+    "itemsTotal": 100,
+    "shippingTotal": 10,
+    "grandTotal": 110,
+    "status": "processing",
+    "createdAt": "2025-11-29T10:00:00Z"
+  },
+  
+  {
+    "buyerId": { "$oid": "69228dac758610b8abeb63b4" },
+    "items": [
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92b9" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 1,
+        "priceAtPurchase": 48,
+        "discount": 0,
+        "subtotal": 48
+      },
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92ba" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 1,
+        "priceAtPurchase": 55,
+        "discount": 0,
+        "subtotal": 55
+      }
+    ],
+    "itemsTotal": 103,
+    "shippingTotal": 10,
+    "grandTotal": 113,
+    "status": "delivered",
+    "createdAt": "2025-08-10T09:30:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69228dac758610b8abeb63b5" },
+    "items": [
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92bb" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 2,
+        "priceAtPurchase": 32,
+        "discount": 0,
+        "subtotal": 64
+      }
+    ],
+    "itemsTotal": 64,
+    "shippingTotal": 10,
+    "grandTotal": 74,
+    "status": "delivered",
+    "createdAt": "2025-07-22T14:15:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69228dac758610b8abeb63b6" },
+    "items": [
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92bc" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 3,
+        "priceAtPurchase": 29,
+        "discount": 0,
+        "subtotal": 87
+      }
+    ],
+    "itemsTotal": 87,
+    "shippingTotal": 10,
+    "grandTotal": 97,
+    "status": "delivered",
+    "createdAt": "2025-06-18T11:00:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69228dac758610b8abeb63b7" },
+    "items": [
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92bd" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 1,
+        "priceAtPurchase": 78,
+        "discount": 0,
+        "subtotal": 78
+      },
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92be" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 1,
+        "priceAtPurchase": 36,
+        "discount": 0,
+        "subtotal": 36
+      }
+    ],
+    "itemsTotal": 114,
+    "shippingTotal": 10,
+    "grandTotal": 124,
+    "status": "delivered",
+    "createdAt": "2025-05-25T16:20:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69228dac758610b8abeb63b8" },
+    "items": [
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92bf" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 2,
+        "priceAtPurchase": 18,
+        "discount": 0,
+        "subtotal": 36
+      },
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92c0" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 1,
+        "priceAtPurchase": 22,
+        "discount": 0,
+        "subtotal": 22
+      }
+    ],
+    "itemsTotal": 58,
+    "shippingTotal": 10,
+    "grandTotal": 68,
+    "status": "delivered",
+    "createdAt": "2025-04-30T13:30:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69228dac758610b8abeb63b9" },
+    "items": [
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92c1" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 1,
+        "priceAtPurchase": 45,
+        "discount": 0,
+        "subtotal": 45
+      }
+    ],
+    "itemsTotal": 45,
+    "shippingTotal": 10,
+    "grandTotal": 55,
+    "status": "delivered",
+    "createdAt": "2025-03-28T09:50:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69228dac758610b8abeb63ba" },
+    "items": [
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92c2" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 1,
+        "priceAtPurchase": 89,
+        "discount": 0,
+        "subtotal": 89
+      }
+    ],
+    "itemsTotal": 89,
+    "shippingTotal": 10,
+    "grandTotal": 99,
+    "status": "delivered",
+    "createdAt": "2025-09-01T15:40:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69228dac758610b8abeb63bb" },
+    "items": [
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92b9" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 1,
+        "priceAtPurchase": 48,
+        "discount": 0,
+        "subtotal": 48
+      },
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92bc" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 2,
+        "priceAtPurchase": 29,
+        "discount": 0,
+        "subtotal": 58
+      }
+    ],
+    "itemsTotal": 106,
+    "shippingTotal": 10,
+    "grandTotal": 116,
+    "status": "shipped",
+    "createdAt": "2025-11-25T12:10:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69228dac758610b8abeb63b4" },
+    "items": [
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92b9" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 1,
+        "priceAtPurchase": 48,
+        "discount": 0,
+        "subtotal": 48
+      }
+    ],
+    "itemsTotal": 48,
+    "shippingTotal": 10,
+    "grandTotal": 58,
+    "status": "delivered",
+    "createdAt": "2025-08-15T10:30:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69228dac758610b8abeb63b5" },
+    "items": [
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92ba" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 2,
+        "priceAtPurchase": 55,
+        "discount": 0,
+        "subtotal": 110
+      }
+    ],
+    "itemsTotal": 110,
+    "shippingTotal": 10,
+    "grandTotal": 120,
+    "status": "delivered",
+    "createdAt": "2025-07-20T14:15:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69228dac758610b8abeb63b6" },
+    "items": [
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92bb" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 1,
+        "priceAtPurchase": 32,
+        "discount": 0,
+        "subtotal": 32
+      },
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92bc" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 2,
+        "priceAtPurchase": 29,
+        "discount": 0,
+        "subtotal": 58
+      }
+    ],
+    "itemsTotal": 90,
+    "shippingTotal": 10,
+    "grandTotal": 100,
+    "status": "delivered",
+    "createdAt": "2025-06-18T11:00:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69228dac758610b8abeb63b7" },
+    "items": [
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92bd" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 1,
+        "priceAtPurchase": 78,
+        "discount": 0,
+        "subtotal": 78
+      }
+    ],
+    "itemsTotal": 78,
+    "shippingTotal": 10,
+    "grandTotal": 88,
+    "status": "delivered",
+    "createdAt": "2025-05-25T16:20:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69228dac758610b8abeb63b8" },
+    "items": [
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92be" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 2,
+        "priceAtPurchase": 36,
+        "discount": 0,
+        "subtotal": 72
+      }
+    ],
+    "itemsTotal": 72,
+    "shippingTotal": 10,
+    "grandTotal": 82,
+    "status": "delivered",
+    "createdAt": "2025-04-30T13:30:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69228dac758610b8abeb63b9" },
+    "items": [
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92bf" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 3,
+        "priceAtPurchase": 18,
+        "discount": 0,
+        "subtotal": 54
+      }
+    ],
+    "itemsTotal": 54,
+    "shippingTotal": 10,
+    "grandTotal": 64,
+    "status": "delivered",
+    "createdAt": "2025-03-28T09:50:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69228dac758610b8abeb63ba" },
+    "items": [
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92c0" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 2,
+        "priceAtPurchase": 22,
+        "discount": 0,
+        "subtotal": 44
+      },
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92c1" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 1,
+        "priceAtPurchase": 45,
+        "discount": 0,
+        "subtotal": 45
+      }
+    ],
+    "itemsTotal": 89,
+    "shippingTotal": 10,
+    "grandTotal": 99,
+    "status": "delivered",
+    "createdAt": "2025-09-01T15:40:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69228dac758610b8abeb63bb" },
+    "items": [
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92c2" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 1,
+        "priceAtPurchase": 89,
+        "discount": 0,
+        "subtotal": 89
+      }
+    ],
+    "itemsTotal": 89,
+    "shippingTotal": 10,
+    "grandTotal": 99,
+    "status": "shipped",
+    "createdAt": "2025-11-25T12:10:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69228dac758610b8abeb63bc" },
+    "items": [
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92bb" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 1,
+        "priceAtPurchase": 32,
+        "discount": 0,
+        "subtotal": 32
+      },
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92bc" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 2,
+        "priceAtPurchase": 29,
+        "discount": 0,
+        "subtotal": 58
+      }
+    ],
+    "itemsTotal": 90,
+    "shippingTotal": 10,
+    "grandTotal": 100,
+    "status": "processing",
+    "createdAt": "2025-11-29T10:00:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69211ed4758610b8abeb5e77" },
+    "items": [
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92b9" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 2,
+        "priceAtPurchase": 48,
+        "discount": 0,
+        "subtotal": 96
+      }
+    ],
+    "itemsTotal": 96,
+    "shippingTotal": 10,
+    "grandTotal": 106,
+    "status": "delivered",
+    "createdAt": "2025-08-05T10:30:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69211ed4758610b8abeb5e78" },
+    "items": [
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92ba" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 1,
+        "priceAtPurchase": 55,
+        "discount": 0,
+        "subtotal": 55
+      },
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92bb" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 1,
+        "priceAtPurchase": 32,
+        "discount": 0,
+        "subtotal": 32
+      }
+    ],
+    "itemsTotal": 87,
+    "shippingTotal": 10,
+    "grandTotal": 97,
+    "status": "delivered",
+    "createdAt": "2025-07-15T14:15:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69211ed4758610b8abeb5e79" },
+    "items": [
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92bc" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 3,
+        "priceAtPurchase": 29,
+        "discount": 0,
+        "subtotal": 87
+      }
+    ],
+    "itemsTotal": 87,
+    "shippingTotal": 10,
+    "grandTotal": 97,
+    "status": "delivered",
+    "createdAt": "2025-06-20T11:00:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69211ed4758610b8abeb5e7a" },
+    "items": [
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92bd" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 1,
+        "priceAtPurchase": 78,
+        "discount": 0,
+        "subtotal": 78
+      }
+    ],
+    "itemsTotal": 78,
+    "shippingTotal": 10,
+    "grandTotal": 88,
+    "status": "delivered",
+    "createdAt": "2025-05-28T16:20:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69211ed4758610b8abeb5e7b" },
+    "items": [
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92be" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 2,
+        "priceAtPurchase": 36,
+        "discount": 0,
+        "subtotal": 72
+      }
+    ],
+    "itemsTotal": 72,
+    "shippingTotal": 10,
+    "grandTotal": 82,
+    "status": "delivered",
+    "createdAt": "2025-04-25T13:30:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69211ed4758610b8abeb5e7c" },
+    "items": [
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92bf" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 3,
+        "priceAtPurchase": 18,
+        "discount": 0,
+        "subtotal": 54
+      }
+    ],
+    "itemsTotal": 54,
+    "shippingTotal": 10,
+    "grandTotal": 64,
+    "status": "delivered",
+    "createdAt": "2025-03-22T15:40:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69211ed4758610b8abeb5e7d" },
+    "items": [
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92c0" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 2,
+        "priceAtPurchase": 22,
+        "discount": 0,
+        "subtotal": 44
+      },
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92c1" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 1,
+        "priceAtPurchase": 45,
+        "discount": 0,
+        "subtotal": 45
+      }
+    ],
+    "itemsTotal": 89,
+    "shippingTotal": 10,
+    "grandTotal": 99,
+    "status": "delivered",
+    "createdAt": "2025-09-01T15:40:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69211ed4758610b8abeb5e7e" },
+    "items": [
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92c2" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 1,
+        "priceAtPurchase": 89,
+        "discount": 0,
+        "subtotal": 89
+      }
+    ],
+    "itemsTotal": 89,
+    "shippingTotal": 10,
+    "grandTotal": 99,
+    "status": "shipped",
+    "createdAt": "2025-11-25T12:10:00Z"
+  },
+  {
+    "buyerId": { "$oid": "692218de1bb94c4026ecee0f" },
+    "items": [
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92bb" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 1,
+        "priceAtPurchase": 32,
+        "discount": 0,
+        "subtotal": 32
+      },
+      {
+        "productId": { "$oid": "692f2855758610b8abeb92bc" },
+        "sellerId": { "$oid": "692e709b758610b8abeb901c" },
+        "quantity": 2,
+        "priceAtPurchase": 29,
+        "discount": 0,
+        "subtotal": 58
+      }
+    ],
+    "itemsTotal": 90,
+    "shippingTotal": 10,
+    "grandTotal": 100,
+    "status": "processing",
+    "createdAt": "2025-11-29T10:00:00Z"
+  },
+   {
+    "buyerId": { "$oid": "69228dac758610b8abeb63b4" },
+    "items": [
+      { "productId": { "$oid": "692f2855758610b8abeb92b9" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 2, "priceAtPurchase": 48, "discount": 0, "subtotal": 96 },
+      { "productId": { "$oid": "692f2855758610b8abeb92bb" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 3, "priceAtPurchase": 32, "discount": 0, "subtotal": 96 },
+      { "productId": { "$oid": "692f2855758610b8abeb92bf" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 1, "priceAtPurchase": 18, "discount": 0, "subtotal": 18 }
+    ],
+    "itemsTotal": 210,
+    "shippingTotal": 10,
+    "grandTotal": 220,
+    "status": "delivered",
+    "createdAt": "2025-08-10T09:30:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69228dac758610b8abeb63b5" },
+    "items": [
+      { "productId": { "$oid": "692f2855758610b8abeb92ba" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 1, "priceAtPurchase": 55, "discount": 0, "subtotal": 55 },
+      { "productId": { "$oid": "692f2855758610b8abeb92bc" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 2, "priceAtPurchase": 29, "discount": 0, "subtotal": 58 },
+      { "productId": { "$oid": "692f2855758610b8abeb92c0" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 2, "priceAtPurchase": 22, "discount": 0, "subtotal": 44 }
+    ],
+    "itemsTotal": 157,
+    "shippingTotal": 10,
+    "grandTotal": 167,
+    "status": "delivered",
+    "createdAt": "2025-07-14T14:15:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69228dac758610b8abeb63b6" },
+    "items": [
+      { "productId": { "$oid": "692f2855758610b8abeb92bd" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 1, "priceAtPurchase": 78, "discount": 0, "subtotal": 78 },
+      { "productId": { "$oid": "692f2855758610b8abeb92be" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 2, "priceAtPurchase": 36, "discount": 0, "subtotal": 72 },
+      { "productId": { "$oid": "692f2855758610b8abeb92c1" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 1, "priceAtPurchase": 45, "discount": 0, "subtotal": 45 }
+    ],
+    "itemsTotal": 195,
+    "shippingTotal": 10,
+    "grandTotal": 205,
+    "status": "delivered",
+    "createdAt": "2025-06-22T09:45:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69228dac758610b8abeb63b7" },
+    "items": [
+      { "productId": { "$oid": "692f2855758610b8abeb92c2" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 1, "priceAtPurchase": 89, "discount": 0, "subtotal": 89 },
+      { "productId": { "$oid": "692f2855758610b8abeb92b9" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 1, "priceAtPurchase": 48, "discount": 0, "subtotal": 48 },
+      { "productId": { "$oid": "692f2855758610b8abeb92ba" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 1, "priceAtPurchase": 55, "discount": 0, "subtotal": 55 }
+    ],
+    "itemsTotal": 192,
+    "shippingTotal": 10,
+    "grandTotal": 202,
+    "status": "shipped",
+    "createdAt": "2025-11-20T10:10:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69228dac758610b8abeb63b8" },
+    "items": [
+      { "productId": { "$oid": "692f2855758610b8abeb92bb" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 2, "priceAtPurchase": 32, "discount": 0, "subtotal": 64 },
+      { "productId": { "$oid": "692f2855758610b8abeb92bc" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 1, "priceAtPurchase": 29, "discount": 0, "subtotal": 29 },
+      { "productId": { "$oid": "692f2855758610b8abeb92c0" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 3, "priceAtPurchase": 22, "discount": 0, "subtotal": 66 }
+    ],
+    "itemsTotal": 159,
+    "shippingTotal": 10,
+    "grandTotal": 169,
+    "status": "processing",
+    "createdAt": "2025-11-28T12:30:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69228dac758610b8abeb63b9" },
+    "items": [
+      { "productId": { "$oid": "692f2855758610b8abeb92be" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 3, "priceAtPurchase": 36, "discount": 0, "subtotal": 108 },
+      { "productId": { "$oid": "692f2855758610b8abeb92bf" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 2, "priceAtPurchase": 18, "discount": 0, "subtotal": 36 },
+      { "productId": { "$oid": "692f2855758610b8abeb92c1" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 1, "priceAtPurchase": 45, "discount": 0, "subtotal": 45 }
+    ],
+    "itemsTotal": 189,
+    "shippingTotal": 10,
+    "grandTotal": 199,
+    "status": "delivered",
+    "createdAt": "2025-09-05T11:20:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69228dac758610b8abeb63ba" },
+    "items": [
+      { "productId": { "$oid": "692f2855758610b8abeb92ba" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 2, "priceAtPurchase": 55, "discount": 0, "subtotal": 110 },
+      { "productId": { "$oid": "692f2855758610b8abeb92c2" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 1, "priceAtPurchase": 89, "discount": 0, "subtotal": 89 }
+    ],
+    "itemsTotal": 199,
+    "shippingTotal": 10,
+    "grandTotal": 209,
+    "status": "delivered",
+    "createdAt": "2025-10-12T08:40:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69228dac758610b8abeb63bb" },
+    "items": [
+      { "productId": { "$oid": "692f2855758610b8abeb92b9" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 3, "priceAtPurchase": 48, "discount": 0, "subtotal": 144 },
+      { "productId": { "$oid": "692f2855758610b8abeb92bb" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 1, "priceAtPurchase": 32, "discount": 0, "subtotal": 32 },
+      { "productId": { "$oid": "692f2855758610b8abeb92bc" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 1, "priceAtPurchase": 29, "discount": 0, "subtotal": 29 }
+    ],
+    "itemsTotal": 205,
+    "shippingTotal": 10,
+    "grandTotal": 215,
+    "status": "delivered",
+    "createdAt": "2025-08-30T10:55:00Z"
+  },
+  {
+    "buyerId": { "$oid": "692218de1bb94c4026ecee0f" },
+    "items": [
+      { "productId": { "$oid": "692f2855758610b8abeb92bd" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 1, "priceAtPurchase": 78, "discount": 0, "subtotal": 78 },
+      { "productId": { "$oid": "692f2855758610b8abeb92c0" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 4, "priceAtPurchase": 22, "discount": 0, "subtotal": 88 },
+      { "productId": { "$oid": "692f2855758610b8abeb92bf" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 1, "priceAtPurchase": 18, "discount": 0, "subtotal": 18 }
+    ],
+    "itemsTotal": 184,
+    "shippingTotal": 10,
+    "grandTotal": 194,
+    "status": "delivered",
+    "createdAt": "2025-11-16T12:00:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69228dac758610b8abeb63b4" },
+    "items": [
+      { "productId": { "$oid": "692f2855758610b8abeb92b9" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 2, "priceAtPurchase": 48, "discount": 0, "subtotal": 96 },
+      { "productId": { "$oid": "692f2855758610b8abeb92ba" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 1, "priceAtPurchase": 55, "discount": 0, "subtotal": 55 },
+      { "productId": { "$oid": "692f2855758610b8abeb92bb" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 1, "priceAtPurchase": 32, "discount": 0, "subtotal": 32 }
+    ],
+    "itemsTotal": 183,
+    "shippingTotal": 10,
+    "grandTotal": 193,
+    "status": "delivered",
+    "createdAt": "2025-08-10T09:30:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69228dac758610b8abeb63b5" },
+    "items": [
+      { "productId": { "$oid": "692f2855758610b8abeb92bc" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 4, "priceAtPurchase": 29, "discount": 10, "subtotal": 104.4 },
+      { "productId": { "$oid": "692f2855758610b8abeb92bd" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 1, "priceAtPurchase": 78, "discount": 10, "subtotal": 70.2 },
+      { "productId": { "$oid": "692f2855758610b8abeb92c0" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 2, "priceAtPurchase": 22, "discount": 10, "subtotal": 39.6 }
+    ],
+    "itemsTotal": 214.2,
+    "shippingTotal": 10,
+    "grandTotal": 224.2,
+    "status": "delivered",
+    "createdAt": "2025-07-15T14:15:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69228dac758610b8abeb63b6" },
+    "items": [
+      { "productId": { "$oid": "692f2855758610b8abeb92be" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 2, "priceAtPurchase": 36, "discount": 0, "subtotal": 72 },
+      { "productId": { "$oid": "692f2855758610b8abeb92bf" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 5, "priceAtPurchase": 18, "discount": 10, "subtotal": 81 },
+      { "productId": { "$oid": "692f2855758610b8abeb92c1" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 1, "priceAtPurchase": 45, "discount": 10, "subtotal": 40.5 }
+    ],
+    "itemsTotal": 193.5,
+    "shippingTotal": 10,
+    "grandTotal": 203.5,
+    "status": "delivered",
+    "createdAt": "2025-06-20T11:00:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69228dac758610b8abeb63b7" },
+    "items": [
+      { "productId": { "$oid": "692f2855758610b8abeb92c2" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 2, "priceAtPurchase": 89, "discount": 10, "subtotal": 160.2 },
+      { "productId": { "$oid": "692f2855758610b8abeb92b9" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 1, "priceAtPurchase": 48, "discount": 10, "subtotal": 43.2 },
+      { "productId": { "$oid": "692f2855758610b8abeb92ba" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 1, "priceAtPurchase": 55, "discount": 10, "subtotal": 49.5 },
+      { "productId": { "$oid": "692f2855758610b8abeb92bb" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 1, "priceAtPurchase": 32, "discount": 10, "subtotal": 28.8 }
+    ],
+    "itemsTotal": 281.7,
+    "shippingTotal": 10,
+    "grandTotal": 291.7,
+    "status": "shipped",
+    "createdAt": "2025-11-20T10:10:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69228dac758610b8abeb63b8" },
+    "items": [
+      { "productId": { "$oid": "692f2855758610b8abeb92bb" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 2, "priceAtPurchase": 32, "discount": 0, "subtotal": 64 },
+      { "productId": { "$oid": "692f2855758610b8abeb92bc" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 1, "priceAtPurchase": 29, "discount": 0, "subtotal": 29 },
+      { "productId": { "$oid": "692f2855758610b8abeb92c0" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 3, "priceAtPurchase": 22, "discount": 10, "subtotal": 59.4 },
+      { "productId": { "$oid": "692f2855758610b8abeb92c1" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 1, "priceAtPurchase": 45, "discount": 10, "subtotal": 40.5 }
+    ],
+    "itemsTotal": 192.9,
+    "shippingTotal": 10,
+    "grandTotal": 202.9,
+    "status": "processing",
+    "createdAt": "2025-11-28T12:30:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69228dac758610b8abeb63b4" },
+    "items": [
+      { "productId": { "$oid": "692f2855758610b8abeb92b9" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 2, "priceAtPurchase": 48, "discount": 0, "subtotal": 96 },
+      { "productId": { "$oid": "692f2855758610b8abeb92ba" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 1, "priceAtPurchase": 55, "discount": 0, "subtotal": 55 }
+    ],
+    "itemsTotal": 151,
+    "shippingTotal": 10,
+    "grandTotal": 161,
+    "status": "delivered",
+    "createdAt": "2025-08-05T10:30:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69228dac758610b8abeb63b5" },
+    "items": [
+      { "productId": { "$oid": "692f2855758610b8abeb92bb" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 3, "priceAtPurchase": 32, "discount": 0, "subtotal": 96 },
+      { "productId": { "$oid": "692f2855758610b8abeb92bc" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 2, "priceAtPurchase": 29, "discount": 0, "subtotal": 58 },
+      { "productId": { "$oid": "692f2855758610b8abeb92c0" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 1, "priceAtPurchase": 22, "discount": 0, "subtotal": 22 },
+      { "productId": { "$oid": "692f2855758610b8abeb92c1" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 1, "priceAtPurchase": 45, "discount": 0, "subtotal": 45 }
+    ],
+    "itemsTotal": 221,
+    "shippingTotal": 10,
+    "grandTotal": 231,
+    "status": "delivered",
+    "createdAt": "2025-07-14T14:15:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69228dac758610b8abeb63b6" },
+    "items": [
+      { "productId": { "$oid": "692f2855758610b8abeb92bd" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 1, "priceAtPurchase": 78, "discount": 10, "subtotal": 70.2 },
+      { "productId": { "$oid": "692f2855758610b8abeb92be" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 2, "priceAtPurchase": 36, "discount": 10, "subtotal": 64.8 },
+      { "productId": { "$oid": "692f2855758610b8abeb92bf" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 3, "priceAtPurchase": 18, "discount": 10, "subtotal": 48.6 },
+      { "productId": { "$oid": "692f2855758610b8abeb92c2" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 1, "priceAtPurchase": 89, "discount": 10, "subtotal": 80.1 }
+    ],
+    "itemsTotal": 263.7,
+    "shippingTotal": 10,
+    "grandTotal": 273.7,
+    "status": "delivered",
+    "createdAt": "2025-06-22T09:45:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69228dac758610b8abeb63b7" },
+    "items": [
+      { "productId": { "$oid": "692f2855758610b8abeb92c2" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 2, "priceAtPurchase": 89, "discount": 10, "subtotal": 160.2 },
+      { "productId": { "$oid": "692f2855758610b8abeb92b9" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 1, "priceAtPurchase": 48, "discount": 10, "subtotal": 43.2 },
+      { "productId": { "$oid": "692f2855758610b8abeb92ba" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 1, "priceAtPurchase": 55, "discount": 10, "subtotal": 49.5 },
+      { "productId": { "$oid": "692f2855758610b8abeb92bb" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 1, "priceAtPurchase": 32, "discount": 10, "subtotal": 28.8 }
+    ],
+    "itemsTotal": 281.7,
+    "shippingTotal": 10,
+    "grandTotal": 291.7,
+    "status": "shipped",
+    "createdAt": "2025-11-20T10:10:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69228dac758610b8abeb63b8" },
+    "items": [
+      { "productId": { "$oid": "692f2855758610b8abeb92bb" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 2, "priceAtPurchase": 32, "discount": 0, "subtotal": 64 },
+      { "productId": { "$oid": "692f2855758610b8abeb92bc" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 1, "priceAtPurchase": 29, "discount": 0, "subtotal": 29 },
+      { "productId": { "$oid": "692f2855758610b8abeb92c0" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 3, "priceAtPurchase": 22, "discount": 10, "subtotal": 59.4 },
+      { "productId": { "$oid": "692f2855758610b8abeb92c1" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 1, "priceAtPurchase": 45, "discount": 10, "subtotal": 40.5 }
+    ],
+    "itemsTotal": 192.9,
+    "shippingTotal": 10,
+    "grandTotal": 202.9,
+    "status": "processing",
+    "createdAt": "2025-11-28T12:30:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69228dac758610b8abeb63b4" },
+    "items": [
+      { "productId": { "$oid": "692f2855758610b8abeb92b9" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 1, "priceAtPurchase": 48, "discount": 0, "subtotal": 48 },
+      { "productId": { "$oid": "692f2855758610b8abeb92ba" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 2, "priceAtPurchase": 55, "discount": 0, "subtotal": 110 }
+    ],
+    "itemsTotal": 158,
+    "shippingTotal": 10,
+    "grandTotal": 168,
+    "status": "delivered",
+    "createdAt": "2025-08-12T09:30:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69228dac758610b8abeb63b5" },
+    "items": [
+      { "productId": { "$oid": "692f2855758610b8abeb92bb" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 3, "priceAtPurchase": 32, "discount": 0, "subtotal": 96 },
+      { "productId": { "$oid": "692f2855758610b8abeb92bc" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 1, "priceAtPurchase": 29, "discount": 0, "subtotal": 29 },
+      { "productId": { "$oid": "692f2855758610b8abeb92c0" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 1, "priceAtPurchase": 22, "discount": 0, "subtotal": 22 },
+      { "productId": { "$oid": "692f2855758610b8abeb92c1" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 1, "priceAtPurchase": 45, "discount": 0, "subtotal": 45 }
+    ],
+    "itemsTotal": 192,
+    "shippingTotal": 10,
+    "grandTotal": 202,
+    "status": "delivered",
+    "createdAt": "2025-07-20T14:15:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69228dac758610b8abeb63b6" },
+    "items": [
+      { "productId": { "$oid": "692f2855758610b8abeb92bd" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 1, "priceAtPurchase": 78, "discount": 10, "subtotal": 70.2 },
+      { "productId": { "$oid": "692f2855758610b8abeb92be" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 2, "priceAtPurchase": 36, "discount": 10, "subtotal": 64.8 },
+      { "productId": { "$oid": "692f2855758610b8abeb92bf" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 2, "priceAtPurchase": 18, "discount": 10, "subtotal": 32.4 },
+      { "productId": { "$oid": "692f2855758610b8abeb92c2" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 1, "priceAtPurchase": 89, "discount": 10, "subtotal": 80.1 }
+    ],
+    "itemsTotal": 247.5,
+    "shippingTotal": 10,
+    "grandTotal": 257.5,
+    "status": "delivered",
+    "createdAt": "2025-06-18T11:00:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69228dac758610b8abeb63b7" },
+    "items": [
+      { "productId": { "$oid": "692f2855758610b8abeb92c2" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 2, "priceAtPurchase": 89, "discount": 10, "subtotal": 160.2 },
+      { "productId": { "$oid": "692f2855758610b8abeb92b9" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 1, "priceAtPurchase": 48, "discount": 10, "subtotal": 43.2 },
+      { "productId": { "$oid": "692f2855758610b8abeb92ba" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 1, "priceAtPurchase": 55, "discount": 10, "subtotal": 49.5 },
+      { "productId": { "$oid": "692f2855758610b8abeb92bb" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 1, "priceAtPurchase": 32, "discount": 10, "subtotal": 28.8 }
+    ],
+    "itemsTotal": 281.7,
+    "shippingTotal": 10,
+    "grandTotal": 291.7,
+    "status": "shipped",
+    "createdAt": "2025-11-25T12:10:00Z"
+  },
+  {
+    "buyerId": { "$oid": "69228dac758610b8abeb63b8" },
+    "items": [
+      { "productId": { "$oid": "692f2855758610b8abeb92bb" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 2, "priceAtPurchase": 32, "discount": 0, "subtotal": 64 },
+      { "productId": { "$oid": "692f2855758610b8abeb92bc" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 1, "priceAtPurchase": 29, "discount": 0, "subtotal": 29 },
+      { "productId": { "$oid": "692f2855758610b8abeb92c0" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 3, "priceAtPurchase": 22, "discount": 10, "subtotal": 59.4 },
+      { "productId": { "$oid": "692f2855758610b8abeb92c1" }, "sellerId": { "$oid": "692e709b758610b8abeb901c" }, "quantity": 1, "priceAtPurchase": 45, "discount": 10, "subtotal": 40.5 }
+    ],
+    "itemsTotal": 192.9,
+    "shippingTotal": 10,
+    "grandTotal": 202.9,
+    "status": "processing",
+    "createdAt": "2025-11-28T12:30:00Z"
   }
 ]
