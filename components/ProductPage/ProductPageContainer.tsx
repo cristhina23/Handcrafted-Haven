@@ -8,6 +8,7 @@ import PopularProducts from "./PopularProducts";
 import { Product } from "@/types";
 import ProductDescription from "./ProductDescription";
 import AddToCartModal from "./AddToCartModal";
+import { useCart } from "@/contexts/CartContext";
 
 interface Props {
   productId: string;
@@ -20,9 +21,20 @@ export default function ProductPageContainer({ productId }: Props) {
   const [reviews, setReviews] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [isModalOpen, setModalOpen] = useState(false);
-  
+  const { addToCart } = useCart();
 
-  
+  const handleAddToCart = () => {
+    if (!product) return;
+
+    addToCart({
+      productId: product._id,
+      productName: product.title,
+      productImage: product.images[0],
+      price: product.price,
+      sellerId: product.sellerId,
+      sellerName: product.sellerName || seller?.shopName || "Unknown Seller",
+    });
+  };
   useEffect(() => {
     let isCancelled = false;
 
@@ -30,7 +42,9 @@ export default function ProductPageContainer({ productId }: Props) {
       try {
         setLoading(true);
 
-        const res = await fetch(`/api/products/${productId}`, { cache: "no-store" });
+        const res = await fetch(`/api/products/${productId}`, {
+          cache: "no-store",
+        });
         const data = await res.json();
         console.log(data);
 
@@ -41,7 +55,6 @@ export default function ProductPageContainer({ productId }: Props) {
         setSeller(data.product.sellerId);
         setCategory(data.product.categoryId);
         setReviews(data.reviews);
-
       } catch (error) {
         console.error("Error:", error);
       } finally {
@@ -50,12 +63,13 @@ export default function ProductPageContainer({ productId }: Props) {
     }
 
     fetchData();
-    return () => { isCancelled = true };
+    return () => {
+      isCancelled = true;
+    };
   }, [productId]);
 
   const handleAdd = (data: {
     variants: {
-      
       size: string | null;
       color: string | null;
       material: string | null;
@@ -67,7 +81,8 @@ export default function ProductPageContainer({ productId }: Props) {
   };
 
   if (loading) return <p className="text-center mt-10">Loading...</p>;
-  if (!product) return <p className="text-center mt-10 text-red-500">Product not found</p>;
+  if (!product)
+    return <p className="text-center mt-10 text-red-500">Product not found</p>;
 
   return (
     <div className="max-w-7xl mx-auto p-0 md:p-9 flex flex-col gap-10 ">
@@ -81,12 +96,16 @@ export default function ProductPageContainer({ productId }: Props) {
           rating={product.rating}
           ratingCount={product.ratingCount}
           location={product.country}
-          seller={seller?.shopName }
-          category={category?.name }
+          seller={seller?.shopName}
+          category={category?.name}
           stock={product.quantity}
-          colors={product.variants?.map((v) => v.color).filter((c): c is string => Boolean(c)) || []}
+          colors={
+            product.variants
+              ?.map((v) => v.color)
+              .filter((c): c is string => Boolean(c)) || []
+          }
           dimensions={product.dimensions}
-          onAddToCart={() => setModalOpen(true)}
+          onAddToCart={handleAddToCart}
         />
       </div>
 
@@ -102,7 +121,7 @@ export default function ProductPageContainer({ productId }: Props) {
         onClose={() => setModalOpen(false)}
         product={product}
         onAddToCart={handleAdd}
-/>
+      />
     </div>
   );
 }

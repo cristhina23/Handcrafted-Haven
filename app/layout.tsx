@@ -39,6 +39,7 @@ export default function RootLayout({
       <html lang="en">
         <body
           className={`${merriweather.variable} ${poppins.variable} font-sans antialiased w-full bg-[#F1F5F9]`}
+          suppressHydrationWarning
         >
           <CartProvider>
             <ProfileChecker>

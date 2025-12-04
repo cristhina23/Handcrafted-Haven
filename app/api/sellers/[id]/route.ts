@@ -2,14 +2,13 @@ import { NextRequest, NextResponse } from "next/server";
 import { connectDB } from "@/lib/db/db";
 import { Seller } from "@/lib/models/Seller";
 
-interface Params {
-  id: string;
-}
-
-export async function GET(req: NextRequest, { params }: { params: Params }) {
+export async function GET(
+  req: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
+) {
   try {
     await connectDB();
-    const { id } = params;
+    const { id } = await params;
 
     // Buscar seller POR SU _ID (el que usa el producto)
     const seller = await Seller.findById(id);
