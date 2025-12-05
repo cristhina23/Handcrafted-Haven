@@ -5,10 +5,14 @@ import ProductsSection from "./ProductsSection";
 import ProductCardSkeleton from "./ProductCardSkeleton";
 
 import { Product } from "@/types";
+import { SortOption } from "./DynamicSortSelector";
 
 interface ProductsSectionLoaderProps {
-  grid?: boolean;
-  [key: string]: unknown;
+  grid: number;
+  sortBy: SortOption;
+  onGridChange: (value: number) => void;
+  onSortChange: (value: SortOption) => void;
+  onOpenMobileFilter: () => void;
 }
 
 export default function ProductsSectionLoader(
@@ -25,8 +29,8 @@ export default function ProductsSectionLoader(
   }, []);
 
   if (loading || !products) {
-    return <ProductCardSkeleton grid={props.grid} />;
+    return <ProductCardSkeleton />;
   }
 
-  return <ProductsSection {...props} products={products} />;
+  return <ProductsSection {...props} products={products} loading={loading} />;
 }
