@@ -60,7 +60,7 @@ export function SellerProductsProvider({ children }: Props) {
     }
   }
 
-  // auto load when user logs in
+
   useEffect(() => {
     if (isSignedIn && user) refreshProducts();
   }, [isSignedIn, user]);

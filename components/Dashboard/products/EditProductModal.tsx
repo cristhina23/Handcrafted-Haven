@@ -194,8 +194,8 @@ export default function EditProductModal({
             onChange={(e) => setForm((p) => ({ ...p, title: e.target.value }))}
           />
           </label>
-          <div className="flex gap-4">
-            <label className="font-medium text-slate-900 dark:text-slate-100">
+          <div className="flex gap-4 w-full">
+            <label className="font-medium text-slate-900 dark:text-slate-100 flex-1">
               Price
               <input
             type="number"
@@ -205,7 +205,7 @@ export default function EditProductModal({
             onChange={(e) => setForm((p) => ({ ...p, price: Number(e.target.value) }))}
           />
             </label>
-          <label className="font-medium text-slate-900 dark:text-slate-100">
+          <label className="font-medium text-slate-900 dark:text-slate-100 flex-1">
             Stock
             <input
             type="number"
