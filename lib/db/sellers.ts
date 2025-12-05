@@ -11,7 +11,7 @@ export async function getSellers() {
     try {
         await connectDB();
         const ensureUserLoaded = User.modelName;
-        let sellers = await Seller.find().populate("userId").sort({ _id: -1 }).limit(10)
+        let sellers = await Seller.find().populate("userId").sort({ _id: 1, rating:-1 }).limit(10)
         sellers = sellers.filter(seller => seller.userId !== null);
         if(!sellers || sellers.length === 0){
             throw new Error("No sellers found");
@@ -162,7 +162,6 @@ export async function getTrendingArtisans(Category: string[]) {
             
             { $project: {
                 shopName: 1,
-                totalReviews: 1,
                 specialties: 1,
                 fullName: "$userdetails.fullName",
                 image: "$userdetails.image",
@@ -189,7 +188,7 @@ export async function getBestCraftman() {
         await connectDB();
 
         const bestCraftMan = await Seller.aggregate([
-            // 1. LOOKUP Orders (All-Time Sales Metrics)
+            
             {
                 $lookup: {
                     from: "orders",
@@ -200,7 +199,6 @@ export async function getBestCraftman() {
                                 $in: ["$$seller_id", "$items.sellerId"] 
                             },
                             status: "delivered",
-                            // No date filter - using all-time data
                         }},
                         { $unwind: "$items" },
                         { $match: { 
@@ -217,7 +215,6 @@ export async function getBestCraftman() {
             },
             { $unwind: { path: "$salesMetrics", preserveNullAndEmptyArrays: true } },
             
-            // 2. LOOKUP Reviews (Quality Metrics)
             {
                 $lookup: {
                     from: "reviews",
@@ -227,12 +224,11 @@ export async function getBestCraftman() {
                 }
             },
             
-            // 3. PROJECT: Calculate Avg Rating and combine metrics
             {
                 $project: {
                     shopName: 1,
                     profileImage: 1,
-                    userId: 1, // Keep userId for the final lookup
+                    userId: 1, 
                     totalRevenue: { $ifNull: ["$salesMetrics.totalRevenue", 0] },
                     totalItemsSold: { $ifNull: ["$salesMetrics.totalItemsSold", 0] },
                     totalReviews: { $size: "$reviews" },
@@ -240,7 +236,6 @@ export async function getBestCraftman() {
                 }
             },
             
-            // 4. PROJECT: Calculate final Craftsman Score
             {
                 $project: {
                     shopName: 1,
@@ -256,11 +251,9 @@ export async function getBestCraftman() {
                 }
             },
             
-            // 5. SORT & LIMIT
             { $sort: { craftmanScore: -1 } },
             { $limit: 1 }, 
             
-            // 6. LOOKUP User Details (for name and image)
             {
                 $lookup: {
                     from: "users",
@@ -270,8 +263,6 @@ export async function getBestCraftman() {
                 } 
             },
             { $unwind:"$userdetails"},
-
-            // 7. FINAL PROJECT: Output Cleanup
             {
                 $project: {
                     _id: 0,
@@ -283,12 +274,50 @@ export async function getBestCraftman() {
             }
         ]);
         
-        console.log("Best Craftsman Result:", bestCraftMan);
+        //console.log("Best Craftsman Result:", bestCraftMan);
         
         return bestCraftMan.length > 0 ? bestCraftMan[0] : null;
 
     } catch (error) {
         console.error("Error from Get Best CraftMan:", error);
         throw new Error("Oops! Something went wrong.");
+    }
+}
+
+/**************************************************
+ *  New Arrivals (Retrieve New Sellers)
+**************************************************/
+export async function getNewArrivals() {
+    try {
+        
+        await connectDB();
+        const newSellers = await Seller.aggregate([
+            {
+                $lookup: {
+                    from: "users",
+                    localField: "userId",
+                    foreignField: "_id",
+                    as: "userInfo"
+                }
+            },
+            {
+                $unwind: "$userInfo"
+            },
+            {
+                $project: {
+                    id: 1,
+                    FullName: "$userInfo.fullName",
+                    image: "$userInfo.image"
+                }
+            },
+            { $sort: { createdAt: - 1 } },
+            { $limit: 10 }
+        ]);
+
+        return newSellers.length > 0 ? newSellers : null;
+
+    } catch (error) {
+        console.log("Error From Get New Arrivals", error);
+        throw new Error("Oops! something went wrong.")
     }
 }

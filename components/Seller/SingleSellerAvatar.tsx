@@ -19,10 +19,10 @@ export default function SellerAvatar({ seller }: SellerAvatarProps) {
             </Card>
             <div className='text-(--brand-pale) text-base text-center'>
                 <p className='text-base'>{seller.fullName}</p>
-                <p className='text-sm'>Brand Name: {seller.fullName}</p>
+                <p className='text-sm'>{seller.shopName}</p>
                 {seller.specialties && (
-                    <p className='text-base font-bold'>
-                        catergory: {seller.specialties}
+                    <p className='text-sm'>
+                        Specialty: {seller.specialties}
                     </p>
                 )}
                 {seller.rating && (

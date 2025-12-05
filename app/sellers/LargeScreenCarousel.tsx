@@ -18,8 +18,8 @@ export function CarouselPlugin() {
     <Carousel
       plugins={[plugin.current]}
       className="w-full rated-carousel max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-5xl"
-      onMouseEnter={plugin.current.stop}
-      onMouseLeave={plugin.current.reset}
+      //onMouseEnter={plugin.current.stop}
+      //onMouseLeave={plugin.current.reset}
     >
       <CarouselContent className="">
         {cards.map((CardComponent, index) => (

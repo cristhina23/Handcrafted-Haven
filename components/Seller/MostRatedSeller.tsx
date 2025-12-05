@@ -60,7 +60,7 @@ function ActiveSellerSection() {
                 </h2>
                 </div>
 
-                <div className='flex flex-row justify-center items-center gap-2 w-full'>
+                <div className='flex flex-row justify-center items-center gap-5 w-full'>
                     {activeSeller.map((seller) => (
                        <SellerAvatar key={seller._id} seller={seller} /> 
                     ))}
@@ -90,7 +90,7 @@ function TopSellersByCategory() {
                 </h2>
                 </div>
 
-                <div className='flex flex-row justify-center items-center gap-2 w-full'>
+                <div className='flex flex-row justify-center items-center gap-5 w-full'>
                     {data.map((seller) => (
                        <SellerAvatar key={seller._id} seller={seller} /> 
                     ))}

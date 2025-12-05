@@ -2,6 +2,7 @@ import Meta from '@/components/Meta';
 import { CarouselPlugin } from './LargeScreenCarousel';
 import AsideSeller  from '@/components/Seller/Aside'; 
 import BestArtisansByMonth from '@/components/Seller/MonthlyHonourSection';
+import { NewArrivalCarousel } from '@/components/Seller/newArrivals';
 
 export default function Page() {
     return (
@@ -18,7 +19,8 @@ export default function Page() {
                 <div className='grid grid-cols-3 gap-3'>
                     <AsideSeller />
                     <div className="col-span-2 mr-10 ml-0 mb-20">
-                        <BestArtisansByMonth/>
+                        <BestArtisansByMonth />
+                        <NewArrivalCarousel/>
                     </div>
                 </div>
             </div>

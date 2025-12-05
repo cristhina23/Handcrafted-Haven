@@ -18,7 +18,7 @@ export default function BestArtisansByMonth() {
     }
 
     return (
-        <section>
+        <section className="mt-10 mb-25">
             <div className="font-merriweather">
                 <div className="mb-10">
                     <h1 className="text-3xl font-semibold  ">Featured Artisans</h1>

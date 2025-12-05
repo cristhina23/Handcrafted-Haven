@@ -60,7 +60,7 @@ export async function getBestMakerByproducts() {
                 }
             }
         ]);
-        console.log("Best Maker: ", bestMaker)
+        //console.log("Best Maker: ", bestMaker)
         if (!bestMaker || bestMaker.length === 0) return [];
 
         return bestMaker[0];

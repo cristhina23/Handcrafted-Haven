@@ -54,7 +54,7 @@ export async function getBestSellerByMonth() {
             }
         ]);
 
-        console.log("Best Seller", bestSeller)
+        //console.log("Best Seller", bestSeller)
         if (!bestSeller || bestSeller.length === 0) return "No best seller for this month";
 
         return bestSeller[0];

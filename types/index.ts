@@ -140,6 +140,7 @@ export interface SellerAvatarProps {
         totalReviews?: number,
         fullName: string,
         image: string,
+        userId?: string,
         totalSales?: number
     }
 }

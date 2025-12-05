@@ -1,8 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import { connectDB } from "@/lib/db/db";
 import { Seller } from "@/lib/models/Seller";
-import { mostRatedSeller, getActiveSellers, getTrendingArtisans } from "@/lib/db/sellers";
+import { mostRatedSeller, getActiveSellers, getTrendingArtisans, getNewArrivals } from "@/lib/db/sellers";
 import { getCategories } from "@/lib/db/data";
+
 
 
 export async function GET(req:NextRequest) {
@@ -27,6 +28,9 @@ export async function GET(req:NextRequest) {
           break;
         case "trending":
           data = await getTrendingArtisans(category);
+          break;
+        case "new-arrival":
+          data = await getNewArrivals();
           break;
         default:
           return NextResponse.json({ message: "Invalid type" }, { status: 400 });
