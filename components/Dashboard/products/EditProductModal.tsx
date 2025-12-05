@@ -1,275 +1,295 @@
 "use client";
 
-import { useState } from "react";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
-import { useProducts } from "@/contexts/SellerProductsContext";
-import { Product, Variant } from "@/types";
+import React, { useState, useEffect } from "react";
+import { X, Plus, Trash } from "lucide-react";
+import Image from "next/image";
+import { Variant } from "@/types";
 
-interface EditProductModalProps {
-  open: boolean;
-  onClose: () => void;
-  product: Product;
+interface Product {
+  _id: string;
+  title: string;
+  price: number;
+  quantity?: number;
+  description: string;
+  images?: string[];
+  variants?: Variant[];
 }
 
-type VariantKey = "color" | "size" | "material";
+interface Props {
+  isOpen: boolean;
+  onClose: () => void;
+  product?: Product | null;
+  onSave: (updated: Product) => void;
+}
 
-const categories = [
-  { id: "6920e4c01eef40052ea9de9e", name: "Textile" },
-  { id: "6920e4c01eef40052ea9de9c", name: "Jewelry" },
-  { id: "6920e4c01eef40052ea9de9f", name: "Accessories" },
-  { id: "6920e4c01eef40052ea9dea0", name: "Art" },
-  { id: "6920e4c01eef40052ea9de9d", name: "Home Decor" },
-];
-
-const emptyForm = {
-  title: "",
-  description: "",
-  price: 0,
-  quantity: 0,
-  images: [] as string[],
-  country: "",
-  categoryId: "",
-  dimensions: "",
-  isCustomOrder: false,
-  shippingMethods: [] as string[],
-  variants: [] as Variant[],   
-};
-
-
-export function EditProductModal({
-  open,
+export default function EditProductModal({
+  isOpen,
   onClose,
   product,
-}: EditProductModalProps) {
-  const { updateProduct } = useProducts();
-  const [form, setForm] = useState(emptyForm);
+  onSave,
+}: Props) {
+  const [form, setForm] = useState<Product>({
+    _id: "",
+    title: "",
+    price: 0,
+    quantity: 0,
+    description: "",
+    images: [],
+    variants: [],
+  });
 
-  
-  function handleOpenChange(isOpen: boolean) {
-    if (isOpen && product) {
+ 
+  useEffect(() => {
+    if (product) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setForm({
-        title: product.title,
-        description: product.description,
-        price: product.price,
-        quantity: product.quantity,
-        categoryId: product.categoryId,
-        variants : product.variants || [{ color: "", size: "", material: "" }],
+        ...product,
         images: product.images || [],
-        shippingMethods: product.shippingMethods || [],
-        isCustomOrder: product.isCustomOrder,
-        dimensions: product.dimensions || "",
-        country: product.country || "",
+        variants: product.variants || [],
+        quantity: product.quantity ?? 0,
       });
     }
+  }, [product]);
 
-    if (!isOpen) onClose();
-  }
+  if (!isOpen) return null;
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  function updateField(field: string, value: any) {
-    setForm((prev) => ({ ...prev, [field]: value }));
-  }
+ 
 
-  function updateVariant(index: number, key: VariantKey, value: string) {
-    const updated = [...form.variants];
+  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (!e.target.files) return;
+
+    const files = Array.from(e.target.files);
+    const uploadedUrls: string[] = [];
+
+    for (const file of files) {
+      const formData = new FormData();
+      formData.append("file", file);
+      formData.append("upload_preset", "the_new_one");
+
+      try {
+        const res = await fetch(
+          `https://api.cloudinary.com/v1_1/dttbqvomc/image/upload`,
+          { method: "POST", body: formData }
+        );
+        const data = await res.json();
+        uploadedUrls.push(data.secure_url);
+      } catch (err) {
+        console.error("Error uploading image:", err);
+      }
+    }
+
+    setForm((prev) => ({
+      ...prev,
+      images: [...(prev.images || []), ...uploadedUrls],
+    }));
+  };
+
+  const removeImage = (index: number) => {
+    setForm((prev) => ({
+      ...prev,
+      images: (prev.images || []).filter((_, i) => i !== index),
+    }));
+  };
+
+  
+
+  const addVariant = () => {
+    setForm((prev) => ({
+      ...prev,
+      variants: [...(prev.variants || []), { color: "", size: "", material: "" }],
+    }));
+  };
+
+  const updateVariant = (index: number, key: keyof Variant, value: string) => {
+    const updated = [...(form.variants || [])];
     updated[index][key] = value;
     setForm((prev) => ({ ...prev, variants: updated }));
-  }
+  };
 
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
+  const removeVariant = (index: number) => {
+    setForm((prev) => ({
+      ...prev,
+      variants: (prev.variants || []).filter((_, i) => i !== index),
+    }));
+  };
 
-    await updateProduct(product._id, form);
-
-    onClose();
-  }
+  
 
   return (
-    <Dialog open={open} onOpenChange={handleOpenChange}>
-      <DialogContent className="max-w-2xl">
-        <DialogHeader>
-          <DialogTitle>Edit </DialogTitle>
-        </DialogHeader>
+    <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center">
+      <div className="bg-white dark:bg-slate-800 rounded-xl p-6 w-[90%] max-w-2xl max-h-[90vh] overflow-y-auto shadow-xl">
 
-        <form onSubmit={handleSubmit} className="space-y-4">
-          {/* TITLE */}
-          <div>
-            <Label>Title</Label>
-            <Input
-              value={form.title}
-              onChange={(e) => updateField("title", e.target.value)}
-              required
-            />
-          </div>
+        {/* HEADER */}
+        <div className="flex justify-between items-center mb-4">
+          <h2 className="text-xl font-bold text-slate-800 dark:text-slate-200">
+            Edit Product
+          </h2>
+          <button
+            onClick={onClose}
+            className="text-slate-600 dark:text-slate-300 hover:text-red-500"
+          >
+            <X size={22} />
+          </button>
+        </div>
 
-          {/* DESCRIPTION */}
-          <div>
-            <Label>Description</Label>
-            <Textarea
-              value={form.description}
-              onChange={(e) => updateField("description", e.target.value)}
-              required
-            />
-          </div>
+        {/* IMAGES */}
+        
+        <div className="mb-4">
+          <p className="font-medium mb-2 text-slate-900 dark:text-slate-100">
+            Product Images
+          </p>
 
-          {/* PRICE & QUANTITY */}
-          <div className="grid grid-cols-2 gap-4">
-            <div>
-              <Label>Price</Label>
-              <Input
-                type="number"
-                value={form.price}
-                onChange={(e) => updateField("price", Number(e.target.value))}
-                required
-              />
-            </div>
-
-            <div>
-              <Label>Quantity</Label>
-              <Input
-                type="number"
-                value={form.quantity}
-                onChange={(e) =>
-                  updateField("quantity", Number(e.target.value))
-                }
-                required
-              />
-            </div>
-          </div>
-
-          {/* CATEGORY */}
-          <div>
-            <Label>Category</Label>
-            <select
-              className="border p-2 rounded w-full"
-              value={form.categoryId}
-              onChange={(e) => updateField("categoryId", e.target.value)}
-              required
-            >
-              <option value="">Select category</option>
-
-              {categories.map((c) => (
-                <option key={c.id} value={c.id}>
-                  {c.name}
-                </option>
-              ))}
-            </select>
-          </div>
-
-          {/* COUNTRY */}
-          <div>
-            <Label>Country</Label>
-            <Input
-              value={form.country}
-              onChange={(e) => updateField("country", e.target.value)}
-            />
-          </div>
-
-          {/* DIMENSIONS */}
-          <div>
-            <Label>Dimensions</Label>
-            <Input
-              value={form.dimensions}
-              onChange={(e) => updateField("dimensions", e.target.value)}
-            />
-          </div>
-
-          {/* SHIPPING METHODS */}
-          <div>
-            <Label>Shipping Methods</Label>
-
-            <div className="flex gap-4">
-              {["normal", "express"].map((method) => (
-                <label key={method} className="flex items-center gap-2">
-                  <input
-                    type="checkbox"
-                    checked={form.shippingMethods.includes(method)}
-                    onChange={(e) => {
-                      const updated = e.target.checked
-                        ? [...form.shippingMethods, method]
-                        : form.shippingMethods.filter((m) => m !== method);
-
-                      updateField("shippingMethods", updated);
-                    }}
+          <div className="flex flex-wrap gap-3">
+            
+            {(form.images || []).map((img, index) => (
+              <div
+                key={index}
+                className="relative w-20 h-20 rounded overflow-hidden border border-slate-300 dark:border-slate-600"
+              >
+                {img ? (
+                  <Image
+                    src={img}
+                    alt={`Product image ${index + 1}`}
+                    fill
+                    className="object-cover"
                   />
-                  {method}
-                </label>
-              ))}
-            </div>
-          </div>
-
-          {/* CUSTOM ORDER */}
-          <div className="flex items-center gap-2">
-            <input
-              type="checkbox"
-              checked={form.isCustomOrder}
-              onChange={(e) => updateField("isCustomOrder", e.target.checked)}
-            />
-            <Label>Custom Order Available</Label>
-          </div>
-
-          {/* VARIANTS */}
-          <div>
-            <Label>Variants</Label>
-
-            {form.variants.map((v, index) => (
-              <div key={index} className="grid grid-cols-3 gap-3 mt-2">
-                <Input
-                  placeholder="Color"
-                  value={v.color}
-                  onChange={(e) =>
-                    updateVariant(index, "color", e.target.value)
-                  }
-                />
-                <Input
-                  placeholder="Size"
-                  value={v.size}
-                  onChange={(e) =>
-                    updateVariant(index, "size", e.target.value)
-                  }
-                />
-                <Input
-                  placeholder="Material"
-                  value={v.material}
-                  onChange={(e) =>
-                    updateVariant(index, "material", e.target.value)
-                  }
-                />
+                ) : (
+                  <span className="text-gray-400 flex items-center justify-center h-full">
+                    N/A
+                  </span>
+                )}
+                
+                <button
+                  onClick={() => removeImage(index)}
+                  className="absolute top-1 right-1 bg-black/70 text-white rounded-full p-1"
+                >
+                  <X size={14} />
+                </button>
               </div>
             ))}
 
-            <Button
-              type="button"
-              className="mt-2"
-              onClick={() =>
-                updateField("variants", [
-                  ...form.variants,
-                  { color: "", size: "", material: "" },
-                ])
-              }
+            
+            <label className="w-20 h-20 border border-dashed rounded flex items-center justify-center cursor-pointer border-slate-400 dark:border-slate-500 hover:bg-slate-200 dark:hover:bg-slate-700 transition">
+              <Plus size={26} className="text-slate-600 dark:text-slate-300" />
+              <input
+                type="file"
+                accept="image/*"
+                multiple
+                onChange={handleFileUpload}
+                className="hidden"
+              />
+            </label>
+          </div>
+        </div>
+
+
+        {/* FORM FIELDS */}
+        <div className="space-y-3">
+          <label className="font-medium text-slate-900 dark:text-slate-100">
+            Product Name
+            <input
+            className="w-full p-2 border rounded dark:bg-slate-700 dark:text-slate-200 mb-2"
+            placeholder="Product name"
+            value={form.title}
+            onChange={(e) => setForm((p) => ({ ...p, title: e.target.value }))}
+          />
+          </label>
+          <div className="flex gap-4">
+            <label className="font-medium text-slate-900 dark:text-slate-100">
+              Price
+              <input
+            type="number"
+            className="w-full p-2 border rounded dark:bg-slate-700 dark:text-slate-200"
+            placeholder="Price"
+            value={form.price}
+            onChange={(e) => setForm((p) => ({ ...p, price: Number(e.target.value) }))}
+          />
+            </label>
+          <label className="font-medium text-slate-900 dark:text-slate-100">
+            Stock
+            <input
+            type="number"
+            className="w-full p-2 border rounded dark:bg-slate-700 dark:text-slate-200"
+            placeholder="Stock"
+            value={form.quantity}
+            onChange={(e) => setForm((p) => ({ ...p, quantity: Number(e.target.value) }))}
+          />
+          </label>
+          </div>
+          <label className="font-medium text-slate-900 dark:text-slate-100">
+            Description
+            <textarea
+            className="w-full font-normal p-2 border rounded dark:bg-slate-700 dark:text-slate-200"
+            placeholder="Description"
+            value={form.description}
+            onChange={(e) => setForm((p) => ({ ...p, description: e.target.value }))}
+          />
+          </label>
+        </div>
+
+        {/* VARIANTS */}
+        <div className="mt-6">
+          <div className="flex justify-between items-center">
+            <p className="font-medium text-slate-900 dark:text-slate-100">Variants</p>
+            <button
+              onClick={addVariant}
+              className="flex items-center gap-1 px-3 py-1 bg-blue-600 text-white rounded hover:bg-blue-700"
             >
-              + Add Variant
-            </Button>
+              <Plus size={18} /> Add Variant
+            </button>
           </div>
 
-          {/* SUBMIT */}
-          <Button type="submit" className="w-full">
-            Save Changes
-          </Button>
-          <Button type="submit" className="w-full" onClick={() => onClose()}>
-            Cancel
-          </Button>
-        </form>
-      </DialogContent>
-    </Dialog>
+          <div className="mt-3 space-y-3">
+            {(form.variants || []).map((v, index) => (
+              <div key={index} className="p-3 border rounded-lg dark:border-slate-600 space-y-2">
+                <div className="flex gap-3">
+                  <input
+                    className="w-full p-2 border rounded dark:bg-slate-700 dark:text-slate-200"
+                    placeholder="Color"
+                    value={v.color}
+                    onChange={(e) => updateVariant(index, "color", e.target.value)}
+                  />
+                  <input
+                    className="w-full p-2 border rounded dark:bg-slate-700 dark:text-slate-200"
+                    placeholder="Size"
+                    value={v.size}
+                    onChange={(e) => updateVariant(index, "size", e.target.value)}
+                  />
+                  <input
+                    className="w-full p-2 border rounded dark:bg-slate-700 dark:text-slate-200"
+                    placeholder="Material"
+                    value={v.material}
+                    onChange={(e) => updateVariant(index, "material", e.target.value)}
+                  />
+                </div>
+                <button
+                  onClick={() => removeVariant(index)}
+                  className="flex items-center gap-1 text-red-500 hover:text-red-600"
+                >
+                  <Trash size={16} /> Remove
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* SAVE BUTTON */}
+       <div className="flex gap-6">
+        <button
+          onClick={() => onClose}
+          className="mt-6 w-full bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
+        >
+          Cancel
+        </button>
+         <button
+          onClick={() => onSave(form)}
+          className="mt-6 w-full bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
+        >
+          Save Changes
+        </button>
+        
+       </div>
+      </div>
+    </div>
   );
 }

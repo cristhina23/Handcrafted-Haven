@@ -49,40 +49,28 @@ export async function GET(req: Request, { params }: { params: { id: string } }) 
 
 export async function PUT(req: Request, { params }: { params: { id: string } }) {
   try {
+    const resolvedParams = await params; 
+    const id = resolvedParams.id;
+
     const { userId } = await auth();
-    if (!userId) {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-    }
+    if (!userId) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
     await connectDB();
 
     const user = await User.findOne({ clerkId: userId });
-    const seller = await Seller.findOne({ userId: user._id });
+    const seller = await Seller.findOne({ userId: user?._id });
+    if (!seller) return NextResponse.json({ error: "Seller not found" }, { status: 404 });
 
-    if (!seller) {
-      return NextResponse.json({ error: "Seller not found" }, { status: 404 });
-    }
-
-    const product = await Product.findById(params.id);
-
-    if (!product) {
-      return NextResponse.json({ error: "Product not found" }, { status: 404 });
-    }
+    const product = await Product.findById(id);
+    if (!product) return NextResponse.json({ error: "Product not found" }, { status: 404 });
 
     if (product.sellerId.toString() !== seller._id.toString()) {
-      return NextResponse.json(
-        { error: "You are not allowed to update this product" },
-        { status: 403 }
-      );
+      return NextResponse.json({ error: "Forbidden" }, { status: 403 });
     }
 
     const body = await req.json();
 
-    const updatedProduct = await Product.findByIdAndUpdate(
-      params.id,
-      body,
-      { new: true }
-    );
+    const updatedProduct = await Product.findByIdAndUpdate(id, body, { new: true });
 
     return NextResponse.json({
       message: "Product updated successfully",
@@ -96,43 +84,35 @@ export async function PUT(req: Request, { params }: { params: { id: string } }) 
 
 
 
+
 export async function DELETE(req: Request, { params }: { params: { id: string } }) {
   try {
+    const resolvedParams = await params; 
+    const id = resolvedParams.id;
+
     const { userId } = await auth();
-    if (!userId) {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-    }
+    if (!userId) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
     await connectDB();
 
     const user = await User.findOne({ clerkId: userId });
-    const seller = await Seller.findOne({ userId: user._id });
+    const seller = await Seller.findOne({ userId: user?._id });
+    if (!seller) return NextResponse.json({ error: "Seller not found" }, { status: 404 });
 
-    if (!seller) {
-      return NextResponse.json({ error: "Seller not found" }, { status: 404 });
-    }
-
-    const product = await Product.findById(params.id);
-
-    if (!product) {
-      return NextResponse.json({ error: "Product not found" }, { status: 404 });
-    }
+    const product = await Product.findById(id);
+    if (!product) return NextResponse.json({ error: "Product not found" }, { status: 404 });
 
     if (product.sellerId.toString() !== seller._id.toString()) {
-      return NextResponse.json(
-        { error: "You are not allowed to delete this product" },
-        { status: 403 }
-      );
+      return NextResponse.json({ error: "Forbidden" }, { status: 403 });
     }
 
-    await Product.findByIdAndDelete(params.id);
+    await Product.findByIdAndDelete(id);
 
-    return NextResponse.json({
-      message: "Product deleted successfully",
-    });
+    return NextResponse.json({ message: "Product deleted successfully" });
   } catch (error) {
     console.error("Error deleting product:", error);
     return NextResponse.json({ error: "Failed to delete product" }, { status: 500 });
   }
 }
+
 
