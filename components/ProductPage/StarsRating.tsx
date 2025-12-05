@@ -10,7 +10,7 @@ export default function StarsRating({ rating }: Props) {
   const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
 
   return (
-    <div className="flex items-center gap-1">
+    <span className="flex items-center gap-1">
       {Array(fullStars)
         .fill(0)
         .map((_, i) => (
@@ -24,6 +24,6 @@ export default function StarsRating({ rating }: Props) {
         .map((_, i) => (
           <FaRegStar key={i} className="text-gray-400 text-lg" />
         ))}
-    </div>
+    </span>
   );
 }

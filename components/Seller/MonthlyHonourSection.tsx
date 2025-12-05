@@ -24,8 +24,8 @@ export default function BestArtisansByMonth() {
                     <h1 className="text-3xl font-semibold  ">Featured Artisans</h1>
                     <p className="text-lg ">Discover The Best & Latest Craft Makers</p>
                 </div>
-                <div className="grid grid-cols-3 gap-5 ">
-                    <Card className="border-0 p-0 shadow-none ">
+                <div className="grid lg:grid-cols-3 md:grid-cols-3 sm:grid-col gap-5 ">
+                    <Card className="border-0 p-0 shadow-none  ">
                         <CardContent className="p-0 m-0 border-0 ">
                             <Image 
                             src={bestSeller.storeBanner}
@@ -36,8 +36,8 @@ export default function BestArtisansByMonth() {
                             />
                         </CardContent>
                         <CardTitle className="border-0 shadow-none text-center pt-0 mt-0">
-                            <h2 className="text-xl pt-0 mt-0">{bestSeller.storeName}</h2>
-                            <h3 className="text-lg">Best Seller of The Month</h3>
+                            <h2 className=" sm:text-sm md:text-base lg:text-xl pt-0 mt-0">{bestSeller.storeName}</h2>
+                            <h3 className="sm:text-sm md:text-base lg:text-xl">Best Seller of The Month</h3>
                             <p className="text-xs">(Total Revenue: {formatCurrency(bestSeller.totalRevenue )})</p>
                         </CardTitle>
                     </Card>
@@ -52,8 +52,8 @@ export default function BestArtisansByMonth() {
                             />
                         </CardContent>
                         <CardTitle className="border-0 shadow-none text-center pt-0 mt-0">
-                            <h2 className="text-xl pt-0 mt-0">{bestMaker.brandName}</h2>
-                            <h3 className="text-lg">Best Crafting Brand</h3>
+                            <h2 className="sm:text-sm md:text-base lg:text-xl pt-0 mt-0">{bestMaker.brandName}</h2>
+                            <h3 className="sm:text-sm md:text-base lg:text-lg">Best Crafting Brand</h3>
                             <p className="text-xs">(total Product:{bestMaker.totalProduct})</p>
                         </CardTitle>
                     </Card>
@@ -68,10 +68,10 @@ export default function BestArtisansByMonth() {
                             />
                         </CardContent>
                         <CardTitle className="border-0 shadow-none text-center pt-0 mt-0">
-                            <h2 className="text-xl pt-0 mt-0">{craftsMan.sellerName}
+                            <h2 className="sm:text-sm md:text-base lg:text-lg pt-0 mt-0">{craftsMan.sellerName}
                                 <small className="text-sm">({craftsMan.storeName})</small>
                             </h2>
-                            <h3 className="text-lg">Craftsmanship Spotlight
+                            <h3 className="sm:text-sm md:text-base lg:text-lg">Craftsmanship Spotlight
                                 <p className="text-xs">(Scored Points: {Math.round(craftsMan.craftmanScore)})</p>
                             </h3>
                             

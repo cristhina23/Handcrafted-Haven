@@ -306,7 +306,7 @@ export async function getNewArrivals() {
             {
                 $project: {
                     id: 1,
-                    FullName: "$userInfo.fullName",
+                    fullName: "$userInfo.fullName",
                     image: "$userInfo.image"
                 }
             },

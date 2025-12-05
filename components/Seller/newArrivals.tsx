@@ -4,13 +4,12 @@ import * as React from "react"
 import { useEffect, useState } from "react"
 import Autoplay from "embla-carousel-autoplay"
 import Image from 'next/image';
+import Link from 'next/link';
 import { Card, CardContent } from "@/components/ui/card"
 import {
     Carousel,
     CarouselContent,
     CarouselItem,
-    CarouselNext,
-    CarouselPrevious,
 } from "@/components/ui/carousel";
 
 interface seller {
@@ -33,31 +32,30 @@ export function NewArrivalCarousel() {
   return (
     <Carousel
       plugins={[plugin.current]}
-      className="w-full grid justify-center items-center my-16 max-w-sm sm:max-w-md md:max-w-xl lg:max-w-2xl"
+      className="w-full grid justify-center items-center mx-0 my-16 max-w-sm sm:max-w-sm md:max-w-xl lg:max-w-2xl"
       //onMouseEnter={plugin.current.stop}
       //onMouseLeave={plugin.current.reset}
       >
             <div className="text-2xl font-bold mb-10">
                 <h2>New Arrivals</h2>      
             </div>
-      <CarouselContent className="w-full">
+      <CarouselContent className="w-full p-0 ">
         {newArrivals.map((seller : seller) => (
           <CarouselItem key={seller._id} className=" sm:basis-1/3 md:basis-1/3 lg:basis-1/5">
-            <div className="py-1 pr-1 pl-0">
-              <Card className='rounded-full aspect-2/2 p-0 max-h-35'>
-                <CardContent className="flex aspect-square items-center justify-center p-0">
+            <div className="py-1 pr-1 pl-0 ">
+              <Card className='flex justify-self-center rounded-full aspect-2/2 p-0 max-h-40'>
+                <Link href="#" className="flex aspect-square items-center justify-center p-0">
                   <Image
                     src={seller.image}
                     alt={seller.fullName}
                     width={300}
                     height={300}
-                    className="aspect-2/2 object-cover rounded-full w-full h-full">
+                    className="aspect-2/2 object-cover  rounded-full w-full h-full">
                     </Image>
-                </CardContent>
+                </Link>
               </Card>
-              <div className="text-lg text-(--brand-dark)">
-              
-                <h2>{seller.fullName}</h2>
+              <div className="text-base text-(--brand-dark)">
+                <h2 className="text-center text-(--brand-dark)">{seller.fullName}</h2>
               </div>
             </div>
           </CarouselItem>

@@ -15,10 +15,10 @@ function MostRatedSection() {
             .then(value => setRated(value));
     }, [])
     return (
-        <Card className="hidden bg-(--brand-dark) w-full lg:block lg:max-w-5xl">
-            <CardContent className="grid grid-cols-3 gap-6 justify-center items-center h-[300px] p-8 w-full">
+        <Card className="hidden flex flex-col justify-center items-center bg-(--brand-dark) w-full lg:block lg:max-w-5xl">
+            <CardContent className="grid grid-cols-3 gap-6  items-center h-[300px] p-8">
                 
-                <div className="col-span-1 flex flex-col justify-center w-full">
+                <div className="col-span-1 justify-self-center flex flex-col justify-center w-full">
                 <h2 className="font-merriweather text-(--brand-pale) text-4xl mb-6">
                     Most Rated Artisans
                 </h2>

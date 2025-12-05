@@ -29,7 +29,7 @@ export interface CategoryType {
 // ---------- Seller ----------
 export interface SellerType {
   _id: string;
-  userId: string;
+  userId: string | UserType;
   shopName: string;
   bio?: string;
   profileImage?: string;

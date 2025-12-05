@@ -12,7 +12,7 @@ import { cards } from '../../components/Seller/MostRatedSeller';
 
 export function CarouselPlugin() {
   const plugin = React.useRef(
-    Autoplay({ delay: 2000, stopOnInteraction: false })
+    Autoplay({ delay: 5000, stopOnInteraction: false })
   )
   return (
     <Carousel
@@ -23,7 +23,7 @@ export function CarouselPlugin() {
     >
       <CarouselContent className="">
         {cards.map((CardComponent, index) => (
-          <CarouselItem key={index}>
+          <CarouselItem key={index}className="justify-center">
             <div className="p-1">
               <CardComponent/>
             </div>
