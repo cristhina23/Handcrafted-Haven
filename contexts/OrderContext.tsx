@@ -18,6 +18,7 @@ interface OrderStats {
   weeklyRevenue?: number;
   pastWeekRevenue?: number;
   todayEarnings?: number;
+  growthPercent?: number;
 }
 
 interface WeeklyRevenue {
@@ -50,20 +51,21 @@ interface OrderContextType {
   revenueByCountry: RevenueByCountry;
   bestSellers: BestSellers;
 
+
   refreshStats: () => Promise<void>;
   refreshAnalytics: () => Promise<void>;
   refreshRevenueByCountry: () => Promise<void>;
   refreshBestSellers: () => Promise<void>;
 }
 
-// ---------------------------
+
 // CONTEXT
-// ---------------------------
+
 const OrderContext = createContext<OrderContextType | undefined>(undefined);
 
-// ---------------------------
+
 // PROVIDER
-// ---------------------------
+
 export const OrderProvider = ({ children }: { children: ReactNode }) => {
   const [stats, setStats] = useState<OrderStats | null>(null);
   const [analytics, setAnalytics] = useState<RevenueAnalytics | null>(null);

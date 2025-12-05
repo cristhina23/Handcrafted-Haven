@@ -4,10 +4,32 @@ import { useOrderContext } from "@/contexts/OrderContext";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 import { ChartContainer, ChartTooltipContent } from "@/components/ui/chart";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { useEffect, useState } from "react";
 
 
 export default function RevenueByCountry() {
-  const { revenueByCountry, bestSellers  } = useOrderContext();
+  const { revenueByCountry  } = useOrderContext();
+  const [axisColor, setAxisColor] = useState("#1e293b");
+
+  useEffect(() => {
+  // Función para actualizar el color si cambia el tema
+    const updateColor = () => {
+      const isDark = document.documentElement.classList.contains("dark");
+      setAxisColor(isDark ? "#e2e8f0" : "#1e293b");
+    };
+
+    // Ejecutar al montar
+    updateColor();
+
+    // Observar cambios en la clase "dark" del HTML
+    const observer = new MutationObserver(() => updateColor());
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   // Convertimos el objeto en array usable por Recharts
   const data = Object.entries(revenueByCountry).map(([country, revenue]) => ({
@@ -23,14 +45,14 @@ export default function RevenueByCountry() {
   };
 
   return (
-    <div className="w-full p-4 flex gap-8">
+    <div className="w-full  flex gap-8 rounded-xl shadow-lg">
      <div className="flex-1">
        <Card>
         <CardHeader>
-        <CardTitle className="font-bold text-lg">Revenue By Country</CardTitle>
+        <CardTitle className="font-bold text-xl">Revenue By Country</CardTitle>
         <CardDescription>Last 6 months</CardDescription>
       </CardHeader>
-       <ChartContainer config={chartConfig} className="border p-8">
+       <ChartContainer config={chartConfig} className="border md:p-8">
       <ResponsiveContainer width="100%" height={400}>
         <BarChart 
           data={data}
@@ -39,8 +61,19 @@ export default function RevenueByCountry() {
                   left: 20,
                 }}
         >
-          <XAxis type="number" /> {/* valores */}
-          <YAxis type="category" dataKey="country" /> {/* categorías */}
+          <XAxis 
+            type="number" 
+            tick={{ fill: axisColor }}
+            tickLine={{ stroke: axisColor }}
+            axisLine={{ stroke: axisColor }}
+          />
+          <YAxis 
+            type="category" 
+            dataKey="country"
+            tick={{ fill: axisColor }}
+            tickLine={{ stroke: axisColor }}
+            axisLine={{ stroke: axisColor }}
+          />
           <Tooltip content={<ChartTooltipContent />} />
           <Bar dataKey="revenue" fill="#3b82f6" radius={[0, 6, 6, 0]} />
         </BarChart>

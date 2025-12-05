@@ -7,7 +7,7 @@ export async function GET() {
     await connectDB();
 
    // get all orders and populate productId to get product name
-    const orders = await Order.find().populate("items.productId", "name");
+    const orders = await Order.find().populate("items.productId", "title");
 
     // Here we count how many times each product was sold
     const bestSellers: Record<string, number> = {};
@@ -15,12 +15,12 @@ export async function GET() {
       // Loop through the orders 
     orders.forEach(order => {
       // Loop through the items
-      order.items.forEach((item: IOrderItem & { productId?: { name?: string } }) => {
-        const productName = item.productId?.name || "Unknown Product";
+      order.items.forEach((item: IOrderItem & { productId?: { title?: string } }) => {
+        const productName = item.productId?.title || "Unknown Product";
         bestSellers[productName] = (bestSellers[productName] || 0) + item.quantity;
       });
     });
-
+    //console.log(bestSellers);
     return NextResponse.json(bestSellers);
   } catch (error) {
     console.error(error);

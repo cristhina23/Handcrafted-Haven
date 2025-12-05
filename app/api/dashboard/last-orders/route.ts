@@ -10,9 +10,9 @@ export async function GET() {
       .sort({ createdAt: -1 })
       .limit(10)
       .populate("items.productId", "title")
-      .populate("buyerId", "name image" )
+      .populate("buyerId", "fullName image" )
       .lean();
-    console.log('lastOrders', lastOrders)
+    console.log("Last orders fetched:", lastOrders)
     return NextResponse.json(lastOrders);
   } catch (error) {
     console.error(error);

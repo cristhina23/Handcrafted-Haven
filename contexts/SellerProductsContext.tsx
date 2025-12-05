@@ -1,10 +1,16 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState, ReactNode } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  ReactNode,
+} from "react";
 import { useUser } from "@clerk/nextjs";
 import { Product } from "@/types";
 
-interface ProductContextType {
+interface SellerProductsContextType {
   products: Product[];
   loading: boolean;
   error: string | null;
@@ -15,23 +21,27 @@ interface ProductContextType {
   refreshProducts: () => Promise<void>;
 }
 
-const ProductContext = createContext<ProductContextType | undefined>(undefined);
+const SellerProductsContext = createContext<
+  SellerProductsContextType | undefined
+>(undefined);
 
 interface Props {
   children: ReactNode;
 }
 
-export function ProductProvider({ children }: Props) {
+export function SellerProductsProvider({ children }: Props) {
   const { user, isSignedIn } = useUser();
+
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  // ====== Fetch products ======
+  // GET seller products
   async function refreshProducts() {
     try {
       setLoading(true);
-      const res = await fetch(`/api/products`, { cache: "no-store" });
+
+      const res = await fetch(`/api/products/seller`, { cache: "no-store" });
 
       if (!res.ok) {
         const err = await res.json();
@@ -40,21 +50,22 @@ export function ProductProvider({ children }: Props) {
 
       const data = await res.json();
       setProducts(data);
+
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
       setError(err.message);
+      console.error("Error loading products:", err.message);
     } finally {
       setLoading(false);
     }
   }
 
+  // auto load when user logs in
   useEffect(() => {
-    if (isSignedIn && user) {
-      refreshProducts();
-    }
+    if (isSignedIn && user) refreshProducts();
   }, [isSignedIn, user]);
 
-  // ====== Create Product ======
+  // CREATE product
   async function createProduct(data: Partial<Product>) {
     try {
       const res = await fetch(`/api/products`, {
@@ -63,15 +74,18 @@ export function ProductProvider({ children }: Props) {
         body: JSON.stringify(data),
       });
 
-      if (!res.ok) throw new Error("Failed to create product");
+      if (!res.ok) {
+        const err = await res.json();
+        throw new Error(err.error || "Failed to create product");
+      }
 
       await refreshProducts();
     } catch (err) {
-      console.error(err);
+      console.error("Create error:", err);
     }
   }
 
-  // ====== Update Product ======
+  // UPDATE product
   async function updateProduct(id: string, data: Partial<Product>) {
     try {
       const res = await fetch(`/api/products/${id}`, {
@@ -80,29 +94,37 @@ export function ProductProvider({ children }: Props) {
         body: JSON.stringify(data),
       });
 
-      if (!res.ok) throw new Error("Failed to update product");
+      if (!res.ok) {
+        const err = await res.json();
+        throw new Error(err.error || "Failed to update product");
+      }
 
       await refreshProducts();
     } catch (err) {
-      console.error(err);
+      console.error("Update error:", err);
     }
   }
 
-  // ====== Delete Product ======
+  // DELETE product
   async function deleteProduct(id: string) {
     try {
-      const res = await fetch(`/api/products/${id}`, { method: "DELETE" });
+      const res = await fetch(`/api/products/${id}`, {
+        method: "DELETE",
+      });
 
-      if (!res.ok) throw new Error("Failed to delete product");
+      if (!res.ok) {
+        const err = await res.json();
+        throw new Error(err.error || "Failed to delete product");
+      }
 
       await refreshProducts();
     } catch (err) {
-      console.error(err);
+      console.error("Delete error:", err);
     }
   }
 
   return (
-    <ProductContext.Provider
+    <SellerProductsContext.Provider
       value={{
         products,
         loading,
@@ -114,12 +136,14 @@ export function ProductProvider({ children }: Props) {
       }}
     >
       {children}
-    </ProductContext.Provider>
+    </SellerProductsContext.Provider>
   );
 }
 
+// HOOK
 export function useProducts() {
-  const context = useContext(ProductContext);
-  if (!context) throw new Error("useProducts must be used within a ProductProvider");
+  const context = useContext(SellerProductsContext);
+  if (!context)
+    throw new Error("useProducts must be used inside SellerProductsProvider");
   return context;
 }

@@ -39,7 +39,6 @@ const ProductSchema = new Schema<IProduct>(
     variants: [
       {
         color: String,
-        size: String,
         material: String,
       },
     ],

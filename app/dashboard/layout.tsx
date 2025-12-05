@@ -7,7 +7,7 @@ import { ThemeProvider } from "@/providers/ThemeProvider";
 import { SellerProvider } from "@/contexts/SellerContext";
 import { OrderProvider } from "@/contexts/OrderContext";
 import { Product } from "@/lib/models/Product";
-import { ProductProvider } from "@/contexts/ProductContext";
+import { SellerProductsProvider } from "@/contexts/SellerProductsContext";
 
 export default function DashboardLayout({
   children,
@@ -27,10 +27,10 @@ export default function DashboardLayout({
 
   return (
     <SellerProvider>
-      <ProductProvider>
+      <SellerProductsProvider>
       <OrderProvider>
         <ThemeProvider>
-          <div className="flex h-screen">
+          <div className="flex h-screen w-full">
             <Sidebar
               collapsed={collapsed}
               setCollapsed={setCollapsed}
@@ -41,7 +41,7 @@ export default function DashboardLayout({
             />
 
 
-            <div className="flex-1 flex flex-col">
+            <div className="flex-1 min-w-0 flex flex-col">
               <Header collapsed={collapsed} setCollapsed={setCollapsed} />
 
               
@@ -52,7 +52,7 @@ export default function DashboardLayout({
           </div>
         </ThemeProvider>
       </OrderProvider>
-      </ProductProvider>
+      </SellerProductsProvider>
     </SellerProvider>
   );
 }

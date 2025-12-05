@@ -4,6 +4,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { useOrderContext } from '@/contexts/OrderContext';
 import React, { useState, useMemo } from 'react';
 import DynamicSortSelector from '@/components/DynamicSortSelector'; 
+import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 
 
 export type SortOption = 'quantity-desc' | 'quantity-asc' | 'title-asc' | 'title-desc';
@@ -21,7 +23,7 @@ export default function BestSellers() {
 
   const [sortOption, setSortOption] = useState<SortOption>('quantity-desc');
 
-  // Convertimos bestSellers en array y aplicamos el orden
+  
   const sortedData = useMemo(() => {
     const arr = Object.entries(bestSellers).map(([title, quantity]) => ({ title, quantity }));
 
@@ -43,14 +45,26 @@ export default function BestSellers() {
   const topData = sortedData.slice(0, 10);
 
   return (
-    <Card className="p-6 max-w-[500px] ">
+    <Card className="md:p-6  rounded-xl shadow-lg ">
       <CardHeader >
        
-         <CardTitle className="font-bold text-lg  ">Best Sellers</CardTitle>
-        <CardDescription>Last 6 months</CardDescription>
+         <div className="flex justify-between items-center">
+          <CardTitle className="font-bold text-xl  ">Best Sellers</CardTitle>
+          <Link href="/dashboard/orders">
+              <CardDescription className="flex gap-2">
+                View All  Products 
+                <ArrowRight />
+              </CardDescription>
+            </Link>
+         </div>
+        <div className="flex gap-2">
+            <CardDescription>Top 10</CardDescription>
+           <span className='flex justify-center items-center'>-</span>
+          <CardDescription>Last 6 months</CardDescription>
+          </div>
        
         <div className='flex justify-between items-center'>
-          <CardDescription>Top 10</CardDescription>
+          
 
         
         <div className="my-2 w-48">
@@ -64,11 +78,15 @@ export default function BestSellers() {
       </CardHeader>
 
       <CardContent>
-        <ul className="text-sm text-slate-600 mt-4">
+        <ul className="text-md flex flex-col  gap-3 text-slate-600 mt-4 pb-5">
           {topData.map((item) => (
             <li key={item.title} className="flex justify-between py-1">
-              <span>{item.title}</span>
-              <span className="font-medium">{item.quantity}</span>
+              <div className='flex-2/3'>
+                <span className='text-slate-900 dark:text-slate-300'>{item.title}</span>
+              </div>
+              <div>
+                <span className="font-medium text-slate-900 dark:text-slate-300">{item.quantity}</span>
+              </div>
             </li>
           ))}
         </ul>

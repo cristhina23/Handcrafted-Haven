@@ -15,14 +15,21 @@ export default function CustomAccordionItem({
   children: React.ReactNode;
   collapsed: boolean;
 }) {
+  const hasChildren = Array.isArray(children) || !!children; // detecta si tiene sublinks
   const [open, setOpen] = useState(false);
+
+  const handleClick = () => {
+    if (hasChildren) {
+      setOpen(!open);
+    }
+  };
 
   return (
     <div className="mb-1">
       {/* Trigger */}
       <button
-        onClick={() => setOpen(!open)}
-        className={`w-full flex items-center gap-4 px-4 py-3 rounded-lg transition-all duration-300
+        onClick={handleClick}
+        className={`w-full flex items-center gap-4 px-4 py-3 text-left rounded-lg transition-all duration-300
         ${
           collapsed
             ? "justify-start"
@@ -32,11 +39,11 @@ export default function CustomAccordionItem({
         <Icon size={20} />
 
         {!collapsed && (
-          <span className="capitalize flex flex-1 justify-start">{label}</span>
+          <span className="  md:flex flex-1 justify-start  capitalize ">{label}</span>
         )}
 
-        
-        {!collapsed && (
+        {/* Arrow */}
+        {!collapsed && hasChildren && (
           <ChevronDown
             size={18}
             className={`transition-transform duration-300 ${
@@ -46,18 +53,20 @@ export default function CustomAccordionItem({
         )}
       </button>
 
-     
-      <div
-        className={`overflow-hidden transition-all duration-300 ${
-          open ? "max-h-40 mt-2" : "max-h-0"
-        }`}
-      >
-        {!collapsed && (
-          <div className="pl-12 pr-4 flex flex-col gap-2 text-sm text-slate-400">
-            {children}
-          </div>
-        )}
-      </div>
+ 
+      {hasChildren && (
+        <div
+          className={`overflow-hidden transition-all duration-300 ${
+            open ? "max-h-40 mt-2" : "max-h-0"
+          }`}
+        >
+          {!collapsed && (
+            <div className="pl-12 pr-4 flex flex-col gap-2 text-sm text-slate-400">
+              {children}
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 }

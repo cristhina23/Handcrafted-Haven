@@ -23,7 +23,7 @@ export default function DashboardPage({ clerkId }: Props) {
   if (!seller) return <div>No seller profile found.</div>;
 
   return (
-    <div className="p-6 bg-slate-100 dark:bg-slate-900 flex flex-col gap-8">
+    <div className=" md:p-6 bg-slate-100 dark:bg-slate-900 flex flex-col gap-8 pb-7">
       <WelcomeBanner />
       <CardsContainer />
       <Chart />
@@ -32,9 +32,15 @@ export default function DashboardPage({ clerkId }: Props) {
           <RevenueByCountry />
        
         
-          <BestSellers />
+          <div className="w-full   flex flex-col gap-8 md:flex-row  ">
+            <div className="flex-1">
+              <BestSellers />
+            </div>
         
-      <LastOrders />
+            <div className="flex-1">
+              <LastOrders />
+            </div>
+          </div>
     </div>
   );
 }

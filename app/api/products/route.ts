@@ -2,6 +2,9 @@
 import { NextResponse } from "next/server";
 import { connectDB } from "@/lib/db/db";
 import { Product } from "@/lib/models/Product";
+import { auth, Session } from "@clerk/nextjs/server";
+import { Seller } from "@/lib/models/Seller";
+import { User } from "@/lib/models/User";
 
 export async function GET() {
   try {
@@ -19,18 +22,24 @@ export async function GET() {
 
 export async function POST(req: Request) {
   try {
+    const { userId } = await auth();
+    if (!userId) {
+      return NextResponse.json(
+        { error: "Unauthorized" },
+        { status: 401 }
+      );
+    }
+
     await connectDB();
     const body = await req.json();
 
     const {
-      sellerId,
       title,
       description,
       price,
       images,
       categoryId,
       quantity,
-      country,
       variants,
       isCustomOrder,
       dimensions,
@@ -38,13 +47,6 @@ export async function POST(req: Request) {
     } = body;
 
     
-    if (!sellerId) {
-      return NextResponse.json(
-        { error: "sellerId is required" },
-        { status: 400 }
-      );
-    }
-
     if (!title || !description) {
       return NextResponse.json(
         { error: "title and description are required" },
@@ -74,15 +76,39 @@ export async function POST(req: Request) {
     }
 
     
+    const clerkId = userId;
+    const user = await User.findOne({ clerkId });
+
+    if (!user) {
+      return NextResponse.json(
+        { error: "User not found" },
+        { status: 404 }
+      );
+    }
+
+    
+    const seller = await Seller.findOne({ userId: user._id });
+
+    if (!seller) {
+      return NextResponse.json(
+        { error: "Seller profile not found for this user" },
+        { status: 404 }
+      );
+    }
+
+    const storeId = seller._id.toString();
+    const sellerCountry = seller.country || "";
+
+   
     const newProduct = await Product.create({
-      sellerId,
+      sellerId: storeId,
       title,
       description,
       price,
       images,
       categoryId,
-      quantity: quantity ?? 0,
-      country: country ?? "",
+      quantity: quantity ?? 1,
+      country: sellerCountry,
       variants: variants ?? [],
       isCustomOrder: isCustomOrder ?? false,
       dimensions: dimensions ?? "",
@@ -90,6 +116,7 @@ export async function POST(req: Request) {
     });
 
     return NextResponse.json(newProduct, { status: 201 });
+
   } catch (error) {
     console.error("Error creating product:", error);
     return NextResponse.json(
@@ -98,4 +125,5 @@ export async function POST(req: Request) {
     );
   }
 }
+
 
