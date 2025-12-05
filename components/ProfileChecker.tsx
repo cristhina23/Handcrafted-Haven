@@ -54,8 +54,13 @@ export default function ProfileChecker({
   // Mostrar loading mientras verifica
   if (checking) {
     return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="text-[#876A5C]">Loading...</div>
+      <div
+        className="flex items-center justify-center min-h-screen"
+        suppressHydrationWarning
+      >
+        <div className="text-[#876A5C]" suppressHydrationWarning>
+          Loading...
+        </div>
       </div>
     );
   }

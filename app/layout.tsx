@@ -32,17 +32,16 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-   
-
   return (
     <ClerkProvider>
       <html lang="en">
         <body
           className={`${merriweather.variable} ${poppins.variable} font-sans antialiased w-full bg-[#F1F5F9]`}
+          suppressHydrationWarning
         >
           <ProfileChecker>
-          <AOSWrapper />
-           <LayoutWrapper>{children}</LayoutWrapper>
+            <AOSWrapper />
+            <LayoutWrapper>{children}</LayoutWrapper>
           </ProfileChecker>
         </body>
       </html>

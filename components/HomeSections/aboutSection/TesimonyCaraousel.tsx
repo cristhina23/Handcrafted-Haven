@@ -10,9 +10,16 @@ import {
 } from "@/components/ui/carousel"
 import Autoplay from "embla-carousel-autoplay"
 
+interface Review {
+  _id: string;
+  comment: string;
+  userId?: {
+    fullName?: string;
+  };
+}
 
 export function CarouselOrientation() {
-  const [reviews, setReviews] = useState([]);
+  const [reviews, setReviews] = useState<Review[]>([]);
   useEffect(() => {
     fetch("/api/reviews")
       .then(res => res.json())

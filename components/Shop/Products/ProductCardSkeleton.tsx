@@ -1,11 +1,9 @@
 import { Skeleton } from "@/components/ui/skeleton";
 
-export default function ProductCardSkeleton({ grid }: { grid: number }) {
+export default function ProductCardSkeleton() {
   return (
     <div
-      className={`flex flex-col space-y-3 w-full animate-pulse border rounded-lg p-4 ${
-        grid === 1 ? "max-w-full" : ""
-      }`}
+      className="flex flex-col space-y-3 w-full animate-pulse border rounded-lg p-4"
     >
       {/* Imagen */}
       <Skeleton className="h-48 w-full rounded-xl" />
