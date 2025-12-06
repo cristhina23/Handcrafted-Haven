@@ -37,8 +37,12 @@ interface RevenueAnalytics {
 interface OrderContextType {
   stats: OrderStats | null;
   analytics: RevenueAnalytics | null;
+  bestSellers: Record<string, number>;
+  revenueByCountry: Record<string, number>;
   refreshStats: () => void;
   refreshAnalytics: () => void;
+  refreshBestSellers: () => void;
+  refreshRevenueByCountry: () => void;
 }
 
 const OrderContext = createContext<OrderContextType | undefined>(undefined);
@@ -46,6 +50,8 @@ const OrderContext = createContext<OrderContextType | undefined>(undefined);
 export const OrderProvider = ({ children }: { children: ReactNode }) => {
   const [stats, setStats] = useState<OrderStats | null>(null);
   const [analytics, setAnalytics] = useState<RevenueAnalytics | null>(null);
+  const [bestSellers, setBestSellers] = useState<Record<string, number>>({});
+  const [revenueByCountry, setRevenueByCountry] = useState<Record<string, number>>({});
 
   const fetchStats = async () => {
     try {
@@ -72,10 +78,32 @@ export const OrderProvider = ({ children }: { children: ReactNode }) => {
     }
   };
 
+  const fetchBestSellers = async () => {
+    try {
+      const res = await fetch("/api/dashboard/best-sellers");
+      const data = await res.json();
+      setBestSellers(data || {});
+    } catch (error) {
+      console.error("Error fetching best sellers:", error);
+    }
+  };
+
+  const fetchRevenueByCountry = async () => {
+    try {
+      const res = await fetch("/api/dashboard/revenue-by-country");
+      const data = await res.json();
+      setRevenueByCountry(data || {});
+    } catch (error) {
+      console.error("Error fetching revenue by country:", error);
+    }
+  };
+
   useEffect(() => {
     const loadStats = async () => {
       await fetchStats();
       await fetchAnalytics();
+      await fetchBestSellers();
+      await fetchRevenueByCountry();
     };
     loadStats();
   }, []);
@@ -87,6 +115,10 @@ export const OrderProvider = ({ children }: { children: ReactNode }) => {
         refreshStats: fetchStats,
         analytics,
         refreshAnalytics: fetchAnalytics,
+        bestSellers,
+        refreshBestSellers: fetchBestSellers,
+        revenueByCountry,
+        refreshRevenueByCountry: fetchRevenueByCountry,
       }}
     >
       {children}
