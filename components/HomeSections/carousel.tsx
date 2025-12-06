@@ -22,20 +22,7 @@ export function CarouselSpacing() {
             <div className="p-1 ">
               <Card className="rounded-full p-0 ">
                 <CardContent className="aspect-2/2 w-full rounded-full p-0 ">
-                 {/*  <Image
-<<<<<<< HEAD
-                    src={seller.userId.image || "https://res.cloudinary.com/dttbqvomc/image/upload/v1764969791/_Pngtree_outline_user_icon_5045523__1_-removebg-preview_xon9yz.png"}
-                    alt="seller"
-                    width={300}
-                    height={300}
-                    className="aspect-2/2 object-cover rounded-full w-full h-full"/> */}
-=======
-                    src={seller.userId.image}
-                    alt="seller"
-                    width={300}
-                    height={300}
-                    className="aspect-2/2 object-cover rounded-full w-full h-full"></Image> */}
->>>>>>> seller-dashboard-3
+                 
                 </CardContent>
               </Card>
             </div>
