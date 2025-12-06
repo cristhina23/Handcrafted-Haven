@@ -12,7 +12,8 @@ import { Product } from "@/types";
 
 interface SellerProductsContextType {
   products: Product[];
-  loading: boolean;
+  loading: boolean; // loading general (refrescar)
+  actionLoading: boolean; // 🔥 nuevo loading solo para create/update/delete
   error: string | null;
 
   createProduct: (data: Partial<Product>) => Promise<void>;
@@ -33,10 +34,13 @@ export function SellerProductsProvider({ children }: Props) {
   const { user, isSignedIn } = useUser();
 
   const [products, setProducts] = useState<Product[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true); // para refrescar lista
+  const [actionLoading, setActionLoading] = useState(false); // 🔥 para submit
   const [error, setError] = useState<string | null>(null);
 
-  // GET seller products
+  // ==============================
+  // GET - Refresh products
+  // ==============================
   async function refreshProducts() {
     try {
       setLoading(true);
@@ -50,7 +54,6 @@ export function SellerProductsProvider({ children }: Props) {
 
       const data = await res.json();
       setProducts(data);
-
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
       setError(err.message);
@@ -60,14 +63,17 @@ export function SellerProductsProvider({ children }: Props) {
     }
   }
 
-
   useEffect(() => {
     if (isSignedIn && user) refreshProducts();
   }, [isSignedIn, user]);
 
-  // CREATE product
+  // ==============================
+  // CREATE PRODUCT
+  // ==============================
   async function createProduct(data: Partial<Product>) {
     try {
+      setActionLoading(true);
+
       const res = await fetch(`/api/products`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -82,12 +88,18 @@ export function SellerProductsProvider({ children }: Props) {
       await refreshProducts();
     } catch (err) {
       console.error("Create error:", err);
+    } finally {
+      setActionLoading(false);
     }
   }
 
-  // UPDATE product
+  // ==============================
+  // UPDATE PRODUCT
+  // ==============================
   async function updateProduct(id: string, data: Partial<Product>) {
     try {
+      setActionLoading(true);
+
       const res = await fetch(`/api/products/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
@@ -102,12 +114,18 @@ export function SellerProductsProvider({ children }: Props) {
       await refreshProducts();
     } catch (err) {
       console.error("Update error:", err);
+    } finally {
+      setActionLoading(false);
     }
   }
 
-  // DELETE product
+  // ==============================
+  // DELETE PRODUCT
+  // ==============================
   async function deleteProduct(id: string) {
     try {
+      setActionLoading(true);
+
       const res = await fetch(`/api/products/${id}`, {
         method: "DELETE",
       });
@@ -120,6 +138,8 @@ export function SellerProductsProvider({ children }: Props) {
       await refreshProducts();
     } catch (err) {
       console.error("Delete error:", err);
+    } finally {
+      setActionLoading(false);
     }
   }
 
@@ -128,6 +148,7 @@ export function SellerProductsProvider({ children }: Props) {
       value={{
         products,
         loading,
+        actionLoading, // 💛 lo nuevo
         error,
         createProduct,
         updateProduct,

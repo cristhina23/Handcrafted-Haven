@@ -872,6 +872,7 @@ const sellerDemoProducts = [
     "dimensions": "150cm x 30cm",
     "shippingMethods": ["Standard"]
   },
+  
   {
     "_id": { "$oid": "692f2855758610b8abeb92bf" },
     "sellerId": { "$oid": "692e709b758610b8abeb901c" },

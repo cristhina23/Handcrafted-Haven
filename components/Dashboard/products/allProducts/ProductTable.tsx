@@ -55,9 +55,9 @@ export default function ProductTableShadCN() {
   if (loading) return <p className="p-4">Loading...</p>;
 
   return (
-    <div className="overflow-x-auto">
-      <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-        <thead className="bg-gray-100 dark:bg-gray-900">
+    <div className="overflow-x-auto rounded-md shadow-2xl">
+      <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700 ">
+        <thead className="bg-slate-200 dark:bg-gray-800" >
           <tr>
             <th className="p-4 text-left w-20">Image</th>
             <th className="p-4 text-left">Title</th>
@@ -101,7 +101,7 @@ export default function ProductTableShadCN() {
       </table>
 
       {/* PAGINACION */}
-      <div className="flex justify-between items-center mt-4">
+      <div className="flex justify-between items-center mt-4 p-2">
         <Button onClick={handlePrevPage} disabled={currentPage === 1}>
           Previous
         </Button>

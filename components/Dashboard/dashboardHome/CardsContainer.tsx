@@ -11,7 +11,8 @@ export default function CardsContainer() {
   const growth = stats.growthPercent ?? 0;
   const weeklyRevenue = stats.weeklyRevenue ?? 0;
 
-  const balanceChangeType: "up" | "down" = growth >= 0 ? "up" : "down";
+  const balanceChangeType: "up" | "down" =
+  (stats.growthPercent ?? 0) >= 0 ? "up" : "down";
 
   const isNewSeller = stats.totalOrders === 0;
 

@@ -8,15 +8,17 @@ export interface DynamicSortSelectorProps<T extends string> {
   options: Record<T, string>;
   defaultValue?: T;
   onChange?: (value: T) => void;
+  className?: string;
 }
 
 export default function DynamicSortSelector<T extends string>({
   options,
   defaultValue,
   onChange,
+  className = "",
 }: DynamicSortSelectorProps<T>) {
   const [isOpen, setIsOpen] = useState(false);
-  const [selected, setSelected] = useState<T>(defaultValue as T);
+  const [selected, setSelected] = useState<T | undefined>(defaultValue as T | undefined);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -36,14 +38,15 @@ export default function DynamicSortSelector<T extends string>({
   };
 
   return (
-    <div className="relative w-full md:w-48" ref={dropdownRef}>
+    <div className={`relative w-full md:w-48 ${className}`} ref={dropdownRef}>
       <motion.button
+        type="button"
         whileHover={{ scale: 1.03 }}
         whileTap={{ scale: 0.97 }}
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center justify-between w-full px-3 py-2 bg-white dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-lg shadow-sm text-slate-700 text-sm dark:text-slate-300"
       >
-        <span>{options[selected]}</span>
+        <span>{options[selected as T]}</span>
         <ChevronDownIcon className={`size-4 transition-transform ${isOpen ? "rotate-180" : ""}`} />
       </motion.button>
 
@@ -53,7 +56,7 @@ export default function DynamicSortSelector<T extends string>({
             initial={{ opacity: 0, y: 5, scale: 0.95 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 5, scale: 0.95 }}
-            className="absolute top-full left-0 mt-2 w-full bg-white dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-lg  text-slate-700 text-sm dark:text-slate-300  shadow-xl z-50 py-2 "
+            className="absolute top-full left-0 mt-2 w-full bg-white dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-lg text-slate-700 text-sm dark:text-slate-300 shadow-xl z-50 py-2"
           >
             {Object.entries(options).map(([value, label]) => {
               const val = value as T;
@@ -61,6 +64,8 @@ export default function DynamicSortSelector<T extends string>({
               return (
                 <button
                   key={value}
+                  type="button"                           /* <- IMPORTANTE */
+                  onMouseDown={(e) => e.preventDefault()} /* <- evita focus/submit raro en algunos browsers (opcional) */
                   onClick={() => handleSelect(val)}
                   className={`w-full flex justify-between items-center text-left px-3 py-2 text-sm hover:bg-slate-100 dark:hover:bg-slate-600 transition ${selected === val ? "bg-slate-200 dark:bg-slate-600 font-medium" : ""}`}
                 >

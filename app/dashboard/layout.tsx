@@ -45,7 +45,7 @@ export default function DashboardLayout({
               <Header collapsed={collapsed} setCollapsed={setCollapsed} />
 
               
-              <main className="p-6 overflow-y-auto flex-1 bg-slate-100 dark:bg-slate-900 text-foreground">
+              <main className=" p-2 md:p-6 h-full overflow-auto flex-1 bg-slate-100 dark:bg-slate-900 text-foreground">
                 {children}
               </main>
             </div>
