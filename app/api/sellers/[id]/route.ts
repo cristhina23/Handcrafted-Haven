@@ -2,18 +2,10 @@ import { NextRequest, NextResponse } from "next/server";
 import { connectDB } from "@/lib/db/db";
 import { Seller } from "@/lib/models/Seller";
 
-<<<<<<< HEAD
 export async function GET(
   req: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ) {
-=======
-interface Params {
-  params: Promise<{ id: string }>;
-}
-
-export async function GET(req: NextRequest, { params }: Params) {
->>>>>>> origin/main
   try {
     await connectDB();
     const { id } = await params;

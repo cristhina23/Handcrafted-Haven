@@ -9,7 +9,7 @@ export default function CardsContainer() {
   if (!stats) return <p>Loading... You should put a skeleton here</p>; 
 
 
-  const balanceChangeType: "up" | "down" = stats.growthPercent >= 0 ? "up" : "down";
+  const balanceChangeType: "up" | "down" = (stats.growthPercent ?? 0) >= 0 ? "up" : "down";
 
   const isNewSeller = stats.totalOrders === 0;
    const cardsForNewSeller = [
@@ -36,7 +36,7 @@ export default function CardsContainer() {
     },
     {
       title: "Balance",
-      value: `$${stats.weeklyRevenue.toLocaleString()}`,
+      value: `$${(stats.weeklyRevenue ?? 0).toLocaleString()}`,
       text: "You don't have any balance yet.",
       link: "Withdraw Money",
       icon: "card" as const,
@@ -72,8 +72,8 @@ export default function CardsContainer() {
     },
     {
       title: "Balance",
-      value: `$${stats.weeklyRevenue.toLocaleString()}`,
-      change: `${stats.growthPercent.toFixed(2)}%`, 
+      value: `$${(stats.weeklyRevenue ?? 0).toLocaleString()}`,
+      change: `${(stats.growthPercent ?? 0).toFixed(2)}%`, 
       changeType: balanceChangeType,
       link: "Withdraw Money",
       icon: "card" as const,

@@ -9,6 +9,7 @@ interface OrderStats {
   weeklyRevenue?: number;
   pastWeekRevenue?: number;
   todayEarnings?: number;
+  growthPercent?: number;
 }
 
 interface WeeklyRevenue {
