@@ -42,4 +42,4 @@ next-env.d.ts
 
 .clerk/
 # clerk configuration (can include secrets)
-.history/
+.history
