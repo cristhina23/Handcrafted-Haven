@@ -1,14 +1,7 @@
 // USERS
 const users = [
   {
-<<<<<<< HEAD
-    _id: "69211ed4758610b8abeb5e73",
-    fullName: "Ariana Lopez",
-    email: "ariana.jewelry@example.com",
-    password: "123456",
-    image:
-      "https://res.cloudinary.com/dttbqvomc/image/upload/v1763775284/Imagen_de_WhatsApp_2025-11-21_a_las_19.02.59_25f0cf0b_ywka6c.jpg",
-=======
+
     "_id": {"$oid":"69211ed4758610b8abeb5e73"},
      "clerkId": "user_8XaPq91Lb4FsM0wdR3Teh",
     "fullName": "Ariana Lopez",
@@ -24,11 +17,9 @@ const users = [
     },
     "createdAt": "2023-12-14T09:22:00Z"
 
->>>>>>> seller-dashboard-3
   },
-  
   {
-<<<<<<< HEAD
+
     _id: "69211ed4758610b8abeb5e74",
     fullName: "Daniel Rodriguez",
     email: "daniel.homedecor@example.com",
@@ -197,9 +188,7 @@ const users = [
     createdAt: "2024-11-20T12:40:00Z",
   },
   {
-<<<<<<< HEAD
-    "_id": "69228dac758610b8abeb63bd",
-=======
+
     "_id": {"$oid":"69211ed4758610b8abeb5e74"},
     "clerkId": "user_5KsQm72Df9VcA1xpN8BzJ",
     "fullName": "Daniel Rodriguez",
@@ -556,7 +545,6 @@ const users = [
   {
     "_id": {"$oid":"69228dac758610b8abeb63bd"},
     "clerkId": "user_P4vDc83Ny7FkW1shM9TeA",
->>>>>>> seller-dashboard-3
     "fullName": "Ricardo Fuentes",
     "email": "ricardo.fuentes@example.com",
     "password": "fuentespass",
@@ -723,9 +711,9 @@ const users = [
       "country":"United States"
     },
     "createdAt": "2024-11-20T12:45:00Z"
-  }
+  },
 
-=======
+  {
     _id: "69228dac758610b8abeb63bd",
     fullName: "Ricardo Fuentes",
     email: "ricardo.fuentes@example.com",
@@ -734,11 +722,11 @@ const users = [
     createdAt: "2024-11-20T12:45:00Z",
   },
 ];
->>>>>>> blog-page
 
-]
+
+
 //Sellers
-<<<<<<< HEAD
+
 
 const sellersProfiles =[
     {
@@ -753,166 +741,164 @@ const sellersProfiles =[
     "totalSales": 0,
     "reviews": []
   },
-=======
-const sellersProfiles = [
->>>>>>> blog-page
   {
-    _id: "692e0391758610b8abeb8e99",
-    userId: { $oid: "692e02417bcdabea1edcb8b2" },
-    shopName: "Cristhina's Fine Jewelry",
-    bio: "Handmade jewelry inspired by elegance and minimalism.",
-    profileImage:
+    "_id": "692e0391758610b8abeb8e99",
+    "userId": { $oid: "692e02417bcdabea1edcb8b2" },
+    "shopName": "Cristhina's Fine Jewelry",
+    "bio": "Handmade jewelry inspired by elegance and minimalism.",
+    "profileImage":
       "https://res.cloudinary.com/dttbqvomc/image/upload/v1763776965/DSC_0230_1_1_xzmvq2.webp",
-    country: "Venezuela",
-    specialties: ["Jewelry"],
-    rating: 4.8,
-    totalSales: 230,
-    reviews: [],
+    "country": "Venezuela",
+  " specialties": ["Jewelry"],
+    "rating": 4.8,
+    "totalSales": 230,
+    "reviews": [],
   },
   {
-    _id: "6921200e758610b8abeb5e83",
-    userId: "69211ed4758610b8abeb5e73",
-    shopName: "Ariana's Fine Jewelry",
-    bio: "Handmade jewelry inspired by elegance and minimalism.",
-    profileImage:
+    "_id": "6921200e758610b8abeb5e83",
+    "userId": "69211ed4758610b8abeb5e73",
+    "shopName": "Ariana's Fine Jewelry",
+    "bio": "Handmade jewelry inspired by elegance and minimalism.",
+    "profileImage":
       "https://res.cloudinary.com/dttbqvomc/image/upload/v1763776965/DSC_0230_1_1_xzmvq2.webp",
-    country: "Venezuela",
-    specialties: ["Jewelry"],
-    rating: 4.8,
-    totalSales: 230,
-    reviews: [],
+    "country": "Venezuela",
+    "specialties": ["Jewelry"],
+    "rating": 4.8,
+    "totalSales": 230,
+    "reviews": [],
   },
   {
-    _id: "6921200e758610b8abeb5e84",
-    userId: "69211ed4758610b8abeb5e74",
-    shopName: "Rodriguez Home Art",
-    bio: "Warm, cozy, and stylish home decor pieces.",
-    profileImage:
+    "_id": "6921200e758610b8abeb5e84",
+    "userId": "69211ed4758610b8abeb5e74",
+    "shopName": "Rodriguez Home Art",
+    "bio": "Warm, cozy, and stylish home decor pieces.",
+    "profileImage":
       "https://res.cloudinary.com/dttbqvomc/image/upload/v1763777026/5d8be15e3dfbd_kg9zyy.jpg",
-    country: "Colombia",
-    specialties: ["Home-Decor"],
-    rating: 4.6,
-    totalSales: 180,
-    reviews: [],
+    "country": "Colombia",
+    "specialties": ["Home-Decor"],
+    "rating": 4.6,
+    "totalSales": 180,
+    "reviews": [],
   },
   {
-    _id: "6921200e758610b8abeb5e85",
-    userId: "69211ed4758610b8abeb5e75",
-    shopName: "Marisol Textiles",
-    bio: "Colorful handmade textiles inspired by Latin tradition.",
-    profileImage:
+    "_id": "6921200e758610b8abeb5e85",
+    "userId": "69211ed4758610b8abeb5e75",
+    "shopName": "Marisol Textiles",
+    "bio": "Colorful handmade textiles inspired by Latin tradition.",
+    "profileImage":
       "https://res.cloudinary.com/dttbqvomc/image/upload/v1763777073/artesanas-tejido1_e4meul.jpg",
-    country: "Peru",
-    specialties: ["Textile"],
-    rating: 4.9,
-    totalSales: 320,
-    reviews: [],
+    "country": "Peru",
+    "specialties": ["Textile"],
+    "rating": 4.9,
+    "totalSales": 320,
+    "reviews": [],
   },
   {
-    _id: "6921200e758610b8abeb5e86",
-    userId: "69211ed4758610b8abeb5e76",
+    "_id": "6921200e758610b8abeb5e86",
+    "userId": "69211ed4758610b8abeb5e76",
     shopName: "Carolina's Accessories",
-    bio: "Trendy accessories designed for daily style.",
-    profileImage:
+    "bio": "Trendy accessories designed for daily style.",
+    "profileImage":
       "https://res.cloudinary.com/dttbqvomc/image/upload/v1763777129/DSC_0020-FI_gxxbih.jpg",
-    country: "Mexico",
-    specialties: ["Accessories"],
-    rating: 4.5,
-    totalSales: 150,
-    reviews: [],
+    "country": "Mexico",
+    "specialties": ["Accessories"],
+    "rating": 4.5,
+    "totalSales": 150,
+    "reviews": [],
   },
   {
-    _id: "6921200e758610b8abeb5e87",
-    userId: "69211ed4758610b8abeb5e77",
-    shopName: "Perez Art Studio",
-    bio: "Unique paintings and artistic pieces.",
-    profileImage:
+    "_id": "6921200e758610b8abeb5e87",
+    "userId": "69211ed4758610b8abeb5e77",
+    "shopName": "Perez Art Studio",
+    "bio": "Unique paintings and artistic pieces.",
+    "profileImage":
       "https://res.cloudinary.com/dttbqvomc/image/upload/v1763777227/artista-mujer-pintando-estudio_1303-11428_eve0sf.avif",
-    country: "Argentina",
-    specialties: ["Art"],
-    rating: 4.7,
-    totalSales: 210,
-    reviews: [],
+    "country": "Argentina",
+    "specialties": ["Art"],
+    "rating": 4.7,
+    "totalSales": 210,
+    "reviews": [],
   },
   {
-    _id: "6921200e758610b8abeb5e88",
-    userId: "69211ed4758610b8abeb5e78",
-    shopName: "Schmidt Woodcraft",
-    bio: "European-inspired wood furniture and decor.",
-    profileImage:
+    "_id": "6921200e758610b8abeb5e88",
+    "userId": "69211ed4758610b8abeb5e78",
+    "shopName": "Schmidt Woodcraft",
+    "bio": "European-inspired wood furniture and decor.",
+    "profileImage":
       "https://res.cloudinary.com/dttbqvomc/image/upload/v1763777286/DecoracionArtesanal_4_ifhllv.jpg",
-    country: "Germany",
-    specialties: ["Home-Decor"],
-    rating: 4.8,
-    totalSales: 340,
-    reviews: [],
+    "country": "Germany",
+    "specialties": ["Home-Decor"],
+    "rating": 4.8,
+    "totalSales": 340,
+    "reviews": [],
   },
   {
-    _id: "6921200e758610b8abeb5e89",
-    userId: "69211ed4758610b8abeb5e79",
-    shopName: "Hana Textile Studio",
-    bio: "Soft and premium-textile creations with Japanese influence.",
-    profileImage:
+    "_id": "6921200e758610b8abeb5e89",
+    "userId": "69211ed4758610b8abeb5e79",
+    "shopName": "Hana Textile Studio",
+    "bio": "Soft and premium-textile creations with Japanese influence.",
+    "profileImage":
       "https://res.cloudinary.com/dttbqvomc/image/upload/v1763777329/artesano-hilos-coloridos-artesania_mrlunb.webp",
-    country: "India",
-    specialties: ["Textile"],
-    rating: 4.9,
-    totalSales: 295,
-    reviews: [],
+    "country": "India",
+    "specialties": ["Textile"],
+    "rating": 4.9,
+    "totalSales": 295,
+    "reviews": [],
   },
   {
-    _id: "6921200e758610b8abeb5e8a",
-    userId: "69211ed4758610b8abeb5e7a",
-    shopName: "MJ Accessories",
-    bio: "Modern accessories for women and men.",
-    profileImage:
+    "_id": "6921200e758610b8abeb5e8a",
+    "userId": "69211ed4758610b8abeb5e7a",
+    "shopName": "MJ Accessories",
+    "bio": "Modern accessories for women and men.",
+    "profileImage":
       "https://res.cloudinary.com/dttbqvomc/image/upload/v1763777405/DSC_0017-FI_b7jgj6.jpg",
-    country: "USA",
-    specialties: ["Accessories"],
-    rating: 4.6,
-    totalSales: 175,
-    reviews: [],
+    "country": "USA",
+    "specialties": ["Accessories"],
+    "rating": 4.6,
+    "totalSales": 175,
+    "reviews": [],
   },
   {
-    _id: "6921200e758610b8abeb5e8b",
-    userId: "69211ed4758610b8abeb5e7b",
-    shopName: "Romano Ceramics",
-    bio: "Colorful ceramic art handmade in Italy.",
-    profileImage:
+    "_id": "6921200e758610b8abeb5e8b",
+    "userId": "69211ed4758610b8abeb5e7b",
+    "shopName": "Romano Ceramics",
+    "bio": "Colorful ceramic art handmade in Italy.",
+    "profileImage":
       "https://res.cloudinary.com/dttbqvomc/image/upload/v1763777474/pintor-dibujando-cuadro-taller_23-2148185853_ws1eig.avif",
-    country: "Italy",
-    specialties: ["Art"],
-    rating: 4.9,
-    totalSales: 410,
-    reviews: [],
+    "country": "Italy",
+    "specialties": ["Art"],
+    "rating": 4.9,
+    "totalSales": 410,
+    "reviews": [],
   },
   {
-    _id: "6921200e758610b8abeb5e8c",
-    userId: "69211ed4758610b8abeb5e7c",
-    shopName: "Petrova Artisan Jewelry",
-    bio: "Handcrafted Eastern European jewelry made with traditional techniques and modern elegance.",
-    profileImage:
+    "_id": "6921200e758610b8abeb5e8c",
+    "userId": "69211ed4758610b8abeb5e7c",
+    "shopName": "Petrova Artisan Jewelry",
+    "bio": "Handcrafted Eastern European jewelry made with traditional techniques and modern elegance.",
+    "profileImage":
       "https://res.cloudinary.com/dttbqvomc/image/upload/v1763777753/66ebf7bbf127667095021665_jewelry_2_lug0ks.webp",
-    country: "Russia",
-    specialties: ["Jewelry"],
-    rating: 4.7,
-    totalSales: 260,
-    reviews: [],
+    "country": "Russia",
+    "specialties": ["Jewelry"],
+    "rating": 4.7,
+    "totalSales": 260,
+    "reviews": [],
   },
   {
-<<<<<<< HEAD
-    _id: "6921200e758610b8abeb5e8d",
-    userId: "69211ed4758610b8abeb5e7d",
-    shopName: "Carter’s Creative Shop",
-    bio: "Unique handcrafted art pieces and custom-made creative gifts.",
-    profileImage:
+
+    "_id": "6921200e758610b8abeb5e8d",
+    "userId": "69211ed4758610b8abeb5e7d",
+    "shopName": "Carter’s Creative Shop",
+    "bio": "Unique handcrafted art pieces and custom-made creative gifts.",
+    "profileImage":
       "https://res.cloudinary.com/dttbqvomc/image/upload/v1763777715/hombre-pintando-casa_23-2148017490_jgxpny.avif",
-    country: "USA",
-    specialties: ["Art", "Custom Gifts"],
-    rating: 4.5,
-    totalSales: 198,
-    reviews: [],
-=======
+    "country": "USA",
+    "specialties": ["Art", "Custom Gifts"],
+    "rating": 4.5,
+    "totalSales": 198,
+    "reviews": [],
+  },
+  {
     "_id": "6921200e758610b8abeb5e8d",
     "userId": "69211ed4758610b8abeb5e7d",
     "shopName": "Carter’s Creative Shop",
@@ -923,26 +909,25 @@ const sellersProfiles = [
     "rating": 4.5,
     "totalSales": 198,
     "reviews": []
->>>>>>> seller-dashboard-3
+
   },
   {
-    _id: "6921200e758610b8abeb5e8e",
-    userId: "69211ed4758610b8abeb5e7e",
-    shopName: "Nair Textile Studio",
-    bio: "Handcrafted textiles with vibrant colors and traditional Indian weaving techniques.",
-    profileImage:
+    "_id": "6921200e758610b8abeb5e8e",
+    "userId": "69211ed4758610b8abeb5e7e",
+    "shopName": "Nair Textile Studio",
+    "bio": "Handcrafted textiles with vibrant colors and traditional Indian weaving techniques.",
+    "profileImage":
       "https://res.cloudinary.com/dttbqvomc/image/upload/v1763839501/textile_shop_profile.webp",
-    country: "India",
-    specialties: ["Textile"],
-    rating: 4.8,
-    totalSales: 310,
-    reviews: [],
+    "country": "India",
+    "specialties": ["Textile"],
+    "rating": 4.8,
+    "totalSales": 310,
+    "reviews": [],
   },
 ];
 
 // Products data
 
-<<<<<<< HEAD
 const sellerDemoProducts = [
   {
     "_id": { "$oid": "692f2855758610b8abeb92b9" },
@@ -1202,12 +1187,10 @@ const sellerDemoProducts = [
 
 
 
-  // seller 1
-  const seller1Products = [
-=======
+
 // seller 1
 const seller1Products = [
->>>>>>> blog-page
+
   {
     _id: { $oid: "692125e7758610b8abeb5e9d" },
     sellerId: "6921200e758610b8abeb5e83",
@@ -4283,7 +4266,7 @@ const reviewsSeller12 = [
     createdAt: "2024-11-24T14:15:00Z",
   },
   {
-<<<<<<< HEAD
+
     "productId": "69289f7b758610b8abeb79c9",
     "userId": "69228dac758610b8abeb7312",
     "sellerId": "69211ed4758610b8abeb5e7e",
@@ -5963,13 +5946,4 @@ const ordersDemo =[
     "createdAt": "2025-11-28T12:30:00Z"
   }
 ]
-=======
-    productId: "69289f7b758610b8abeb79c9",
-    userId: "69228dac758610b8abeb7312",
-    sellerId: "69211ed4758610b8abeb5e7e",
-    rating: 5,
-    comment: "King-size perfection. The indigo print is bold and traditional.",
-    createdAt: "2024-11-25T18:50:00Z",
-  },
-];
->>>>>>> blog-page
+
