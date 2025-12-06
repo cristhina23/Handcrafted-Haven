@@ -43,10 +43,7 @@ export default function RootLayout({
           suppressHydrationWarning
         >
           <div>
-            <Toaster
-            position="top-center"
-            reverseOrder={false}
-            />
+            <Toaster position="top-center" reverseOrder={false} />
           </div>
           <CartProvider>
             <ProfileChecker>
