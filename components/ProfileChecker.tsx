@@ -2,7 +2,7 @@
 
 import { useUser } from "@clerk/nextjs";
 import { useRouter, usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 export default function ProfileChecker({
   children,
@@ -13,6 +13,7 @@ export default function ProfileChecker({
   const router = useRouter();
   const pathname = usePathname();
   const [checking, setChecking] = useState(true);
+  const hasChecked = useRef(false);
 
   useEffect(() => {
     const checkProfile = async () => {
@@ -29,6 +30,12 @@ export default function ProfileChecker({
         return;
       }
 
+      // Solo verificar una vez por sesión
+      if (hasChecked.current) {
+        setChecking(false);
+        return;
+      }
+
       try {
         // Verificar si el usuario tiene perfil completo en la DB
         const response = await fetch(
@@ -36,14 +43,17 @@ export default function ProfileChecker({
         );
         const data = await response.json();
 
+        hasChecked.current = true;
+
         if (!data.exists || !data.profileCompleted) {
           // Redirigir a completar perfil
           router.push("/complete-profile");
-        } else {
-          setChecking(false);
         }
+        
+        setChecking(false);
       } catch (error) {
         console.error("Error checking profile:", error);
+        hasChecked.current = true;
         setChecking(false);
       }
     };
