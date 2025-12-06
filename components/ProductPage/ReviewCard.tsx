@@ -1,6 +1,8 @@
 "use client";
 import React, { useState } from "react";
-import { Pencil, Trash2, User } from "lucide-react";
+import { Pencil, Trash2 } from "lucide-react";
+import Image from "next/image";
+import { useUser } from "@clerk/nextjs";
 
 interface Review {
   _id: string;
@@ -30,13 +32,18 @@ export default function ReviewCard({
 }: Props) {
   const [isDeleting, setIsDeleting] = useState(false);
   const [imageError, setImageError] = useState(false);
+  const { user } = useUser();
   
   // Handle both populated and unpopulated userId
   const userId = typeof review.userId === 'string' ? review.userId : review.userId._id;
   const userName = typeof review.userId === 'object' ? review.userId.fullName : 'Anonymous';
-  const userImage = typeof review.userId === 'object' ? review.userId.image : null;
+  let userImage = typeof review.userId === 'object' ? review.userId.image : null;
   
+  // If this is the current user's review and we have Clerk user data, use Clerk's image
   const isOwner = currentUserId && userId === currentUserId;
+  if (isOwner && user?.imageUrl) {
+    userImage = user.imageUrl;
+  }
 
   const handleDelete = async () => {
     if (!confirm("Are you sure you want to delete this review?")) return;
@@ -53,17 +60,18 @@ export default function ReviewCard({
     <div className="p-4 border border-slate-100 rounded-lg hover:shadow-md transition-all duration-200 ease-out relative">
       {/* User Avatar and Name */}
       <div className="flex items-center gap-3 mb-3">
-        <div className="w-10 h-10 rounded-full overflow-hidden bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center flex-shrink-0">
+        <div className="relative w-10 h-10 rounded-full overflow-hidden bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center flex-shrink-0">
           {userImage && !imageError ? (
-            <img
+            <Image
               src={userImage}
               alt={userName || 'User'}
-              className="w-full h-full object-cover"
+              fill
+              className="object-cover"
               onError={() => {
                 console.error('Failed to load image:', userImage);
                 setImageError(true);
               }}
-              referrerPolicy="no-referrer"
+              unoptimized
             />
           ) : (
             <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-blue-400 to-purple-500 text-white font-semibold text-sm">
