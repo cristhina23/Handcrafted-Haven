@@ -49,7 +49,7 @@ export default function ProfileChecker({
           // Redirigir a completar perfil
           router.push("/complete-profile");
         }
-        
+
         setChecking(false);
       } catch (error) {
         console.error("Error checking profile:", error);

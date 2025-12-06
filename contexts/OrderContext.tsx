@@ -1,6 +1,12 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState, ReactNode } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  ReactNode,
+} from "react";
 
 interface OrderStats {
   totalOrders: number;
@@ -14,12 +20,12 @@ interface OrderStats {
 
 interface WeeklyRevenue {
   start: string; // date of start of the week
-  end: string;   // date of end of the week
+  end: string; // date of end of the week
   revenue: number;
 }
 
 interface MonthlyRevenue {
-  period: string; 
+  period: string;
   revenue: number;
 }
 
@@ -30,7 +36,7 @@ interface RevenueAnalytics {
 
 interface OrderContextType {
   stats: OrderStats | null;
-  analytics: RevenueAnalytics | null;  
+  analytics: RevenueAnalytics | null;
   refreshStats: () => void;
   refreshAnalytics: () => void;
 }
@@ -45,7 +51,7 @@ export const OrderProvider = ({ children }: { children: ReactNode }) => {
     try {
       const res = await fetch("/api/dashboard/stats");
       const data = await res.json();
-      setStats(data); 
+      setStats(data);
     } catch (error) {
       console.error("Error fetching stats:", error);
     }
@@ -72,10 +78,17 @@ export const OrderProvider = ({ children }: { children: ReactNode }) => {
       await fetchAnalytics();
     };
     loadStats();
-  }, []); 
+  }, []);
 
   return (
-    <OrderContext.Provider value={{ stats, refreshStats: fetchStats, analytics, refreshAnalytics: fetchAnalytics }}>
+    <OrderContext.Provider
+      value={{
+        stats,
+        refreshStats: fetchStats,
+        analytics,
+        refreshAnalytics: fetchAnalytics,
+      }}
+    >
       {children}
     </OrderContext.Provider>
   );
@@ -83,6 +96,7 @@ export const OrderProvider = ({ children }: { children: ReactNode }) => {
 
 export const useOrderContext = () => {
   const context = useContext(OrderContext);
-  if (!context) throw new Error("useOrderContext must be used within an OrderProvider");
+  if (!context)
+    throw new Error("useOrderContext must be used within an OrderProvider");
   return context;
 };
