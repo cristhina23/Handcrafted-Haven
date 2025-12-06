@@ -6,6 +6,8 @@ import Header from "@/components/Dashboard/header/Header";
 import { ThemeProvider } from "@/providers/ThemeProvider";
 import { SellerProvider } from "@/contexts/SellerContext";
 import { OrderProvider } from "@/contexts/OrderContext";
+import { Product } from "@/lib/models/Product";
+import { SellerProductsProvider } from "@/contexts/SellerProductsContext";
 
 export default function DashboardLayout({
   children,
@@ -25,9 +27,10 @@ export default function DashboardLayout({
 
   return (
     <SellerProvider>
+      <SellerProductsProvider>
       <OrderProvider>
         <ThemeProvider>
-          <div className="flex h-screen">
+          <div className="flex h-screen w-full">
             <Sidebar
               collapsed={collapsed}
               setCollapsed={setCollapsed}
@@ -38,17 +41,18 @@ export default function DashboardLayout({
             />
 
 
-            <div className="flex-1 flex flex-col">
+            <div className="flex-1 min-w-0 flex flex-col">
               <Header collapsed={collapsed} setCollapsed={setCollapsed} />
 
               
-              <main className="p-6 overflow-y-auto flex-1 bg-slate-100 dark:bg-slate-900 text-foreground">
+              <main className=" p-2 md:p-6 h-full overflow-auto flex-1 bg-slate-100 dark:bg-slate-900 text-foreground">
                 {children}
               </main>
             </div>
           </div>
         </ThemeProvider>
       </OrderProvider>
+      </SellerProductsProvider>
     </SellerProvider>
   );
 }
