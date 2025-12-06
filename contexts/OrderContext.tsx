@@ -51,7 +51,9 @@ export const OrderProvider = ({ children }: { children: ReactNode }) => {
   const [stats, setStats] = useState<OrderStats | null>(null);
   const [analytics, setAnalytics] = useState<RevenueAnalytics | null>(null);
   const [bestSellers, setBestSellers] = useState<Record<string, number>>({});
-  const [revenueByCountry, setRevenueByCountry] = useState<Record<string, number>>({});
+  const [revenueByCountry, setRevenueByCountry] = useState<
+    Record<string, number>
+  >({});
 
   const fetchStats = async () => {
     try {
