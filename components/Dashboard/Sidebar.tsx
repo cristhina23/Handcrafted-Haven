@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { sidebarLinks } from "./navigation";
-import { X } from "lucide-react";
-import { FC } from "react";
+import { FC, useState } from "react";
+import CustomAccordionItem from "../CustomAccordionItem";
 
 interface SidebarProps {
   activeMenu: boolean;
@@ -11,42 +11,80 @@ interface SidebarProps {
   screenSize: number;
   currentColor: string;
   collapsed: boolean;
-  setCollapsed: (value: boolean) => void;
+  setCollapsed: (v: boolean) => void;
 }
 
 const Sidebar: FC<SidebarProps> = ({
   activeMenu,
   setActiveMenu,
   screenSize,
-  currentColor,
   collapsed,
   setCollapsed,
 }) => {
+  const isMobile = screenSize <= 760;
+
+  // overlay solo depende de: mobile + expanded
+  const isOverlay = isMobile && !collapsed;
+
+  const handleToggle = () => {
+    // Si está colapsado → abrir y mostrar overlay
+    if (collapsed) {
+      setCollapsed(false);
+      setActiveMenu(true);
+    } else {
+      // Si está full → cerrar
+      setCollapsed(true);
+
+      // en mobile, cerrar overlay
+      if (isMobile) {
+        setActiveMenu(false);
+      }
+    }
+  };
+
   const handleCloseSidebar = () => {
-    if (activeMenu && screenSize <= 760) {
+    if (isMobile) {
+      setCollapsed(true);
       setActiveMenu(false);
     }
   };
 
-  if (!activeMenu) return null;
+  // Si NO está activo y no es mobile → no renderizar nada
+  if (!activeMenu && !isMobile) return null;
 
   return (
     <div
-      className={`h-screen overflow-y-auto pb-10 bg-slate-900 text-white dark:bg-card shadow-md transition-all duration-300 
-      ${collapsed ? "w-20" : "w-64"}`}
+      className={`h-screen overflow-y-auto pb-10 bg-slate-900 text-white dark:bg-slate-800 shadow-md transition-all duration-300
+
+      ${collapsed ? "w-16" : "w-64"}
+
+      ${isOverlay ? "fixed top-0 left-0 z-50" : ""}
+      ${isMobile && collapsed ? "relative" : ""}
+    `}
     >
+      {/* HEADER */}
       <div className="flex justify-between items-center p-4">
         {!collapsed && (
           <Link
             href="/"
             onClick={handleCloseSidebar}
-            className="flex items-center gap-3 text-xl font-bold tracking-tight text-slate-900 dark:text-white"
+            className="flex items-center gap-3 text-xl font-bold text-slate-300"
           >
-            <span className="text-slate-300 dark:text-gray-300">Hancrated</span>
+            Hancrated
           </Link>
+        )}
+
+        {isMobile && (
+          <button
+            onClick={handleToggle}
+            className="text-slate-300"
+          >
+            {collapsed ? "" : "✕"}
+          </button>
         )}
       </div>
 
+      {/* LINKS */}
       <div className="mt-5">
         {sidebarLinks.map((section) => (
           <div key={section.title}>
@@ -56,30 +94,25 @@ const Sidebar: FC<SidebarProps> = ({
               </p>
             )}
 
-            {section.links.map((link) => {
-              const Icon = link.icon;
-
-              return (
-                <Link
-                  href={`${process.env.NEXT_PUBLIC_BASE_URL}/${link.href}`}
-                  key={link.name}
-                  onClick={handleCloseSidebar}
-                  className={`flex items-center gap-4 pl-4 py-3 rounded-lg m-2 transition-all duration-300
-                   ${
-                     collapsed
-                       ? "justify-center"
-                       : "text-slate-300 dark:text-gray-200 hover:bg-slate-800 hover:text-gray-100 dark:hover:bg-slate-900/60 dark:hover:text-gray-100"
-                   }`}
-                >
-                  <Icon size={20} />
-                  {!collapsed && (
-                    <span className="capitalize">
-                      {link.name.replace("-", " ")}
-                    </span>
-                  )}
-                </Link>
-              );
-            })}
+            {section.links.map((link) => (
+              <CustomAccordionItem
+                key={link.name}
+                label={link.name.replace("-", " ")}
+                icon={link.icon}
+                collapsed={collapsed}
+              >
+                {link.sublinks?.map((sub) => (
+                  <Link
+                    key={sub.name}
+                    href={sub.href}
+                    onClick={handleCloseSidebar}
+                    className="text-md text-slate-300 hover:bg-slate-700 px-4 py-2 rounded"
+                  >
+                    {sub.name}
+                  </Link>
+                ))}
+              </CustomAccordionItem>
+            ))}
           </div>
         ))}
       </div>

@@ -3,6 +3,7 @@ import "./globals.css";
 import AOSWrapper from "@/components/AosWrapper";
 import ProfileChecker from "@/components/ProfileChecker";
 import { ClerkProvider } from "@clerk/nextjs";
+import { Toaster } from "react-hot-toast";
 
 import { Merriweather, Poppins } from "next/font/google";
 
@@ -39,6 +40,12 @@ export default function RootLayout({
           className={`${merriweather.variable} ${poppins.variable} font-sans antialiased w-full bg-[#F1F5F9]`}
           suppressHydrationWarning
         >
+          <div>
+            <Toaster
+            position="top-center"
+            reverseOrder={false}
+            />
+          </div>
           <ProfileChecker>
             <AOSWrapper />
             <LayoutWrapper>{children}</LayoutWrapper>

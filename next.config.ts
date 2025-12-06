@@ -13,10 +13,13 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
+<<<<<<< HEAD
         hostname: "images.unsplash.com",
       },
       {
         protocol: "https",
+=======
+>>>>>>> seller-dashboard-3
         hostname: "randomuser.me",
       },
     ],

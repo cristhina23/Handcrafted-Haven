@@ -1,7 +1,16 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState, ReactNode } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  ReactNode,
+} from "react";
 
+// ---------------------------
+// TYPES
+// ---------------------------
 interface OrderStats {
   totalOrders: number;
   totalRevenue: number;
@@ -9,79 +18,147 @@ interface OrderStats {
   weeklyRevenue?: number;
   pastWeekRevenue?: number;
   todayEarnings?: number;
+  growthPercent?: number;
 }
 
 interface WeeklyRevenue {
-  start: string; // date of start of the week
-  end: string;   // date of end of the week
+  start: string;
+  end: string;
   revenue: number;
 }
 
 interface MonthlyRevenue {
-  period: string; 
+  period: string;
   revenue: number;
 }
 
 interface RevenueAnalytics {
-  weeklyAnalytics: WeeklyRevenue[]; // all the weeks of the last 3 months
-  monthlyAnalytics: MonthlyRevenue[]; //last 3 monts
+  weeklyAnalytics: WeeklyRevenue[];
+  monthlyAnalytics: MonthlyRevenue[];
+}
+
+export interface RevenueByCountry {
+  [country: string]: number;
+}
+
+export interface BestSellers {
+  [productName: string]: number;
 }
 
 interface OrderContextType {
   stats: OrderStats | null;
-  analytics: RevenueAnalytics | null;  
-  refreshStats: () => void;
-  refreshAnalytics: () => void;
+  analytics: RevenueAnalytics | null;
+  revenueByCountry: RevenueByCountry;
+  bestSellers: BestSellers;
+
+
+  refreshStats: () => Promise<void>;
+  refreshAnalytics: () => Promise<void>;
+  refreshRevenueByCountry: () => Promise<void>;
+  refreshBestSellers: () => Promise<void>;
 }
 
+
+// CONTEXT
+
 const OrderContext = createContext<OrderContextType | undefined>(undefined);
+
+
+// PROVIDER
 
 export const OrderProvider = ({ children }: { children: ReactNode }) => {
   const [stats, setStats] = useState<OrderStats | null>(null);
   const [analytics, setAnalytics] = useState<RevenueAnalytics | null>(null);
+  const [revenueByCountry, setRevenueByCountry] = useState<RevenueByCountry>({});
+  const [bestSellers, setBestSellers] = useState<BestSellers>({});
 
   const fetchStats = async () => {
     try {
       const res = await fetch("/api/dashboard/stats");
+      if (!res.ok) throw new Error("Stats fetch failed");
       const data = await res.json();
-      setStats(data); 
-    } catch (error) {
-      console.error("Error fetching stats:", error);
+      setStats(data);
+    } catch (err) {
+      console.error("Error fetching stats:", err);
     }
   };
 
   const fetchAnalytics = async () => {
     try {
       const res = await fetch("/api/dashboard/revenue-analytics");
+      if (!res.ok) throw new Error("Analytics fetch failed");
       const data = await res.json();
 
-      // make sure to handle the case where data is null
       setAnalytics({
-        weeklyAnalytics: data.weeklyAnalytics || [],
-        monthlyAnalytics: data.monthlyAnalytics || [],
+        weeklyAnalytics: data.weeklyAnalytics ?? [],
+        monthlyAnalytics: data.monthlyAnalytics ?? [],
       });
-    } catch (error) {
-      console.error("Error fetching analytics:", error);
+    } catch (err) {
+      console.error("Error fetching analytics:", err);
     }
   };
 
+  const fetchRevenueByCountry = async () => {
+    try {
+      const res = await fetch("/api/dashboard/revenue-by-country");
+      if (!res.ok) throw new Error("Revenue by country fetch failed");
+      const data = await res.json();
+
+      setRevenueByCountry(data ?? {});
+    } catch (err) {
+      console.error("Error fetching revenue by country:", err);
+    }
+  };
+
+  const fetchBestSellers = async () => {
+    try {
+      const res = await fetch("/api/dashboard/best-sellers");
+      if (!res.ok) throw new Error("Best sellers fetch failed");
+      const data = await res.json();
+
+      setBestSellers(data ?? {});
+    } catch (err) {
+      console.error("Error fetching best sellers:", err);
+    }
+  };
+
+  // Auto load all on mount
   useEffect(() => {
-    const loadStats = async () => {
-      await fetchStats();
-      await fetchAnalytics();
+    const loadAll = async () => {
+      await Promise.all([
+        fetchStats(),
+        fetchAnalytics(),
+        fetchRevenueByCountry(),
+        fetchBestSellers(),
+      ]);
     };
-    loadStats();
-  }, []); 
+    loadAll();
+  }, []);
 
   return (
-    <OrderContext.Provider value={{ stats, refreshStats: fetchStats, analytics, refreshAnalytics: fetchAnalytics }}>
+    <OrderContext.Provider
+      value={{
+        stats,
+        analytics,
+        revenueByCountry,
+        bestSellers,
+        refreshStats: fetchStats,
+        refreshAnalytics: fetchAnalytics,
+        refreshRevenueByCountry: fetchRevenueByCountry,
+        refreshBestSellers: fetchBestSellers,
+      }}
+    >
       {children}
     </OrderContext.Provider>
   );
 };
 
+
 export const useOrderContext = () => {
-  const context = useContext(OrderContext);
-  if (!context) throw new Error("useOrderContext must be used within an OrderProvider");
-  return context;
+  const ctx = useContext(OrderContext);
+  if (!ctx)
+    throw new Error(
+      "useOrderContext must be used inside an <OrderProvider>"
+    );
+  return ctx;
 };

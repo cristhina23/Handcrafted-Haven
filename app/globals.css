@@ -220,3 +220,9 @@ h1, h2, h3, h4, h5, h6 {
 *::-webkit-scrollbar-thumb:hover {
   background: rgba(148, 163, 184, 0.7); 
 }
+
+.ig-data-tooltip {
+  background-color: #334155 !important; /* slate-700 */
+  color: #f1f5f9 !important; /* slate-100 */
+  border-color: #475569 !important; /* slate-600 */
+}

@@ -1,14 +1,34 @@
 // USERS
 const users = [
   {
+<<<<<<< HEAD
     _id: "69211ed4758610b8abeb5e73",
     fullName: "Ariana Lopez",
     email: "ariana.jewelry@example.com",
     password: "123456",
     image:
       "https://res.cloudinary.com/dttbqvomc/image/upload/v1763775284/Imagen_de_WhatsApp_2025-11-21_a_las_19.02.59_25f0cf0b_ywka6c.jpg",
+=======
+    "_id": {"$oid":"69211ed4758610b8abeb5e73"},
+     "clerkId": "user_8XaPq91Lb4FsM0wdR3Teh",
+    "fullName": "Ariana Lopez",
+    "email": "ariana.jewelry@example.com",
+    "password": "123456",
+    "image": "https://res.cloudinary.com/dttbqvomc/image/upload/v1763775284/Imagen_de_WhatsApp_2025-11-21_a_las_19.02.59_25f0cf0b_ywka6c.jpg",
+     "address": {
+      "street": "Calle Suipacha 831",
+      "city": "Caracas",
+      "state": "CABA",
+      "zipCode": "1008",
+      "country": "Venezuela"
+    },
+    "createdAt": "2023-12-14T09:22:00Z"
+
+>>>>>>> seller-dashboard-3
   },
+  
   {
+<<<<<<< HEAD
     _id: "69211ed4758610b8abeb5e74",
     fullName: "Daniel Rodriguez",
     email: "daniel.homedecor@example.com",
@@ -179,18 +199,529 @@ const users = [
   {
 <<<<<<< HEAD
     "_id": "69228dac758610b8abeb63bd",
+=======
+    "_id": {"$oid":"69211ed4758610b8abeb5e74"},
+    "clerkId": "user_5KsQm72Df9VcA1xpN8BzJ",
+    "fullName": "Daniel Rodriguez",
+    "email": "daniel.homedecor@example.com",
+    "password": "123456",
+    "image": "https://res.cloudinary.com/dttbqvomc/image/upload/v1763775283/2148096439_t0v5b3.jpg",
+    "address": {
+      "street": "Calle 5 Sur 450",
+      "city": "Cali",
+      "state": "Cali",
+      "zipCode": "01020",
+      "country": "Colombia"
+    },
+    "createdAt": "2024-01-08T17:40:00Z"
+
+  },
+  {
+    "_id": {"$oid":"69211ed4758610b8abeb5e75"},
+     "clerkId": "user_3LpNv60Hg2RtQ9swE5KuC",
+    "fullName": "Marisol Vega",
+    "email": "marisol.textile@example.com",
+    "password": "123456",
+    "image": "https://res.cloudinary.com/dttbqvomc/image/upload/v1763775282/Imagen_de_WhatsApp_2025-11-21_a_las_19.51.22_96dd9063_xn5ekv.jpg",
+    "address": {
+    "street": "Av. Primavera 245",
+    "city": "Lima",
+    "state": "Lima",
+    "zipCode": "15038",
+    "country": "Peru"
+  },
+  "createdAt": "2024-01-29T03:15:00Z"
+
+  },
+  {
+    "_id": {"$oid":"69211ed4758610b8abeb5e76"},
+    "clerkId": "user_7QwEr84Ts1YcM5jdG2PaB",
+    "fullName": "Carolina Suarez",
+    "email": "carolina.accessories@example.com",
+    "password": "123456",
+    "image": "https://res.cloudinary.com/dttbqvomc/image/upload/v1763775283/13870_qupbxp.jpg",
+    "address": {
+    "street": "Cra. 15 #93-60",
+    "city": "Distrito Federal",
+    "state": "DF",
+    "zipCode": "110221",
+    "country": "Mexico"
+  },
+  "createdAt": "2024-02-11T14:55:00Z"
+
+  },
+  {
+    "_id": {"$oid":"69211ed4758610b8abeb5e77"},
+    "clerkId": "user_1FdGb73Xk8LmR2zpQ4HvS",
+    "fullName": "Leonardo Perez",
+    "email": "leonardo.art@example.com",
+    "password": "123456",
+    "image": "https://res.cloudinary.com/dttbqvomc/image/upload/v1763775283/2149443790_mgedit.jpg",
+    "address": {
+    "street": "742 Evergreen Terrace",
+    "city": "Cordoba",
+    "state": "Cordoba",
+    "zipCode": "62704",
+    "country": "Argentina"
+  },
+  "createdAt": "2024-03-03T21:12:00Z"
+
+  },
+  {
+    "_id": {"$oid":"69211ed4758610b8abeb5e78"},
+    "clerkId": "user_9ZwTy65Mn3JqP8bvF1LsD",
+    "fullName": "Daniel Schmidt",
+    "email": "daniel.schmidt@example.com",
+    "password": "123456",
+    "image": "https://res.cloudinary.com/dttbqvomc/image/upload/v1763775283/244121808_10879746_uti8hq.jpg",
+    "address": {
+    "street": "2-1-1 Ueno Park",
+    "city": "Germany",
+    "state": "Germany",
+    "zipCode": "110-0007",
+    "country": "Germany"
+  },
+"createdAt": "2024-03-27T10:33:00Z"
+
+  },
+  {
+    "_id": {"$oid":"69211ed4758610b8abeb5e79"},
+    "clerkId": "user_4HpVc28Ks7BrN0ygT6QeM",
+    "fullName": "Hana Takahashi",
+    "email": "hana.takahashi@example.com",
+    "password": "123456",
+    "image": "https://res.cloudinary.com/dttbqvomc/image/upload/v1763775283/2151098592_xnbgpl.jpg",
+    "address": {
+    "street": "Gran Via 120",
+    "city": "India",
+    "state": "India",
+    "zipCode": "28013",
+    "country": "India"
+  },
+  "createdAt": "2024-04-14T07:48:00Z"
+
+  },
+  {
+    "_id": {"$oid":"69211ed4758610b8abeb5e7a"},
+    "clerkId": "user_6JnRf19Wx5LtS3kaV7BdQ",
+    "fullName": "Michael Johnson",
+    "email": "michael.johnson@example.com",
+    "password": "123456",
+    "image": "https://res.cloudinary.com/dttbqvomc/image/upload/v1763775282/17344_y9k0q1.jpg",
+    "address": {
+    "street": "Gran Via 120",
+    "city": "Ilinois",
+    "state": "Chicago",
+    "zipCode": "28013",
+    "country": "United States"
+  },
+  "createdAt": "2024-04-29T18:20:00Z"
+
+  },
+  {
+    "_id": {"$oid":"69211ed4758610b8abeb5e7b"},
+    "clerkId": "user_2CsMx54Qv8NpH1zdK9FrA",
+    "fullName": "Sofia Romano",
+    "email": "sofia.romano@example.com",
+    "password": "123456",
+    "image": "https://res.cloudinary.com/dttbqvomc/image/upload/v1763775732/10725_d2n24x.jpg",
+    "address": {
+    "street": "Gran Via 120",
+    "city": "Roma",
+    "state": "Italy",
+    "zipCode": "28013",
+    "country": "Italy"
+  },
+  "createdAt": "2024-05-05T11:05:00Z"
+
+  },
+  {
+    "_id": {"$oid":"69211ed4758610b8abeb5e7c"},
+    "clerkId": "user_0BtKj87Lm4RgP2wsC6XeU",
+    "fullName": "Elena Petrova",
+    "email": "elena.petrova@example.com",
+    "password": "123456",
+    "image": "https://res.cloudinary.com/dttbqvomc/image/upload/v1763775283/2149419444_tbxarg.jpg",
+    "address": {
+    "street": "19 Market Street",
+    "city": "Rusia",
+    "state": "MA",
+    "zipCode": "02108",
+    "country": "Rusia"
+  },
+  "createdAt": "2024-05-26T23:41:00Z"
+
+  },
+  {
+    "_id": {"$oid":"69211ed4758610b8abeb5e7d"},
+    "clerkId": "user_A9xFq12Vz7TbM4nrQ6LpG",
+    "fullName": "James Carter",
+    "email": "james.carter@example.com",
+    "password": "123456",
+    "image": "https://res.cloudinary.com/dttbqvomc/image/upload/v1763775282/Imagen_de_WhatsApp_2025-11-21_a_las_19.51.22_7f077f9a_ixfqkq.jpg",
+    "address": {
+    "street": "Av. Arequipa 2400",
+    "city": "Nevada",
+    "state": "NV",
+    "zipCode": "15046",
+    "country": "United States"
+  },
+  "createdAt": "2024-06-03T08:19:00Z"
+
+  },
+  {
+    "_id": {"$oid":"69211ed4758610b8abeb5e7e"},
+    "clerkId": "user_B3mGt58Qw9YsC1kjR4HeN",
+    "fullName": "Priya Nair",
+    "email": "priya.nair@example.com",
+    "password": "123456",
+    "image": "https://res.cloudinary.com/dttbqvomc/image/upload/v1763775283/Imagen_de_WhatsApp_2025-11-21_a_las_19.02.58_7fe30e40_ezltfu.jpg",
+    "address": {
+    "street": "Jr. Los Cedros 120",
+    "city": "India",
+    "state": "AR",
+    "zipCode": "04001",
+    "country": "India"
+  },
+  "createdAt": "2024-06-22T16:50:00Z"
+
+  },
+  {
+    "_id": {"$oid":"692218de1bb94c4026ecee0f"},
+    "clerkId": "user_C7vRp46Kd2PfS8lhT0ZwB",
+    "fullName": "Cristhina Chacon",
+    "email": "cristhina.chacon@example.com",
+    "password": "123456",
+    "image": "https://res.cloudinary.com/dttbqvomc/image/upload/v1763775162/samples/landscapes/beach-boat.jpg",
+    "address": {
+    "street": "Calle Reforma 150",
+    "city": "Ciudad de México",
+    "state": "CDMX",
+    "zipCode": "06500",
+    "country": "Mexico"
+  },
+  "createdAt": "2024-07-09T12:01:00Z"
+
+  },
+  {
+    "_id": {"$oid":"69228dac758610b8abeb63b4"},
+    "clerkId": "user_D1tNs83Mw5GjQ9vbA2LyX",
+    "fullName": "Laura Mendoza",
+    "email": "laura.mendoza@example.com",
+    "password": "password123",
+    "image": "https://randomuser.me/api/portraits/women/12.jpg",
+    "address": {
+    "street": "Av. Chapultepec 88",
+    "city": "Guadalajara",
+    "state": "JAL",
+    "zipCode": "44160",
+    "country": "Mexico"
+  },
+  "createdAt": "2024-07-28T04:37:00Z"
+
+  },
+  {
+    "_id": {"$oid":"69228dac758610b8abeb63b5"},
+    "clerkId": "user_E4kQp29Hs7WfM1xdJ8RzB",
+    "fullName": "Carlos Alvarez",
+    "email": "carlos.alvarez@example.com",
+    "password": "mypassword456",
+    "image": "https://randomuser.me/api/portraits/men/22.jpg",
+    "address": {
+    "street": "3-2-12 Shibuya",
+    "city": "Tokyo",
+    "state": "Tokyo",
+    "zipCode": "150-0002",
+    "country": "Japan"
+  },
+  "createdAt": "2024-08-16T15:29:00Z"
+
+  },
+  {
+    "_id": {"$oid":"69228dac758610b8abeb63b6"},
+    "clerkId": "user_F6bRm14Vq3LpT7ygC5DnK",
+    "fullName": "Sofía Rivas",
+    "email": "sofia.rivas@example.com",
+    "password": "secure789",
+    "image": "https://randomuser.me/api/portraits/women/33.jpg",
+    "address": {
+    "street": "1-6-1 Namba",
+    "city": "Osaka",
+    "state": "Osaka",
+    "zipCode": "542-0076",
+    "country": "Japan"
+  },
+    "createdAt": "2024-09-01T20:16:00Z"
+
+  },
+  {
+    "_id": {"$oid":"69228dac758610b8abeb63b7"},
+    "clerkId": "user_G8sTx70Kd5BnF3jeW2HpL",
+    "fullName": "Miguel Torres",
+    "email": "miguel.torres@example.com",
+    "password": "pass2024",
+    "image": "https://randomuser.me/api/portraits/men/44.jpg",
+    "address": {
+    "street": "Alexanderplatz 5",
+    "city": "Berlin",
+    "state": "BE",
+    "zipCode": "10178",
+    "country": "Germany"
+  },
+  "createdAt": "2024-09-20T06:44:00Z"
+
+  },
+  {
+    "_id": {"$oid":"69228dac758610b8abeb63b8"},
+    "clerkId": "user_H2wLq95Mz1VcS6rtP4XnD",
+    "fullName": "Ana Castillo",
+    "email": "ana.castillo@example.com",
+    "password": "ana12345",
+    "image": "https://randomuser.me/api/portraits/women/55.jpg",
+    "address": {
+    "street": "Marienplatz 1",
+    "city": "Munich",
+    "state": "BY",
+    "zipCode": "80331",
+    "country": "Germany"
+  },"createdAt": "2024-10-05T19:55:00Z"
+
+  },
+  {
+    "_id": {"$oid":"69228dac758610b8abeb63b9"},
+    "clerkId": "user_J5yCp38Fk9ZsR2whT7MbV",
+    "fullName": "Daniel Vega",
+    "email": "daniel.vega@example.com",
+    "password": "vega2024",
+    "image": "https://randomuser.me/api/portraits/men/66.jpg",
+    "address": {
+    "street": "55 King Street",
+    "city": "Toronto",
+    "state": "ON",
+    "zipCode": "M5H 1J8",
+    "country": "Canada"
+  }, "createdAt": "2024-10-27T13:02:00Z"
+
+  },
+  {
+    "_id": {"$oid":"69228dac758610b8abeb63ba"},
+    "clerkId": "user_K9pRn41Vt6HgD3uqB8WsX",
+    "fullName": "Mariana López",
+    "email": "mariana.lopez@example.com",
+    "password": "mariana321",
+    "image": "https://randomuser.me/api/portraits/women/77.jpg",
+    "address": {
+    "street": "1200 Rue Sainte-Catherine",
+    "city": "Montreal",
+    "state": "QC",
+    "zipCode": "H3B 1K1",
+    "country": "Canada"
+  }, "createdAt": "2024-11-03T22:33:00Z"
+
+  },
+  {
+    "_id": {"$oid":"69228dac758610b8abeb63bb"},
+    "clerkId": "user_M3qHv76Pw4XcT9deF1KrJ",
+    "fullName": "Jorge Salcedo",
+    "email": "jorge.salcedo@example.com",
+    "password": "jorgepass",
+    "image": "https://randomuser.me/api/portraits/men/88.jpg",
+     "address": {
+    "street": "Av. Paulista 1000",
+    "city": "São Paulo",
+    "state": "SP",
+    "zipCode": "01310-100",
+    "country": "Brazil"
+  },
+  "createdAt": "2024-11-12T09:11:00Z"
+
+  },
+  {
+    "_id": {"$oid":"69228dac758610b8abeb63bc"},
+    "clerkId": "user_N7zGs20Bx5LmQ8vfJ4RpC",
+    "fullName": "Paula Andrade",
+    "email": "paula.andrade@example.com",
+    "password": "andrade2024",
+    "image": "https://randomuser.me/api/portraits/women/99.jpg",
+    "address": {
+    "street": "Rua das Flores 55",
+    "city": "Curitiba",
+    "state": "PR",
+    "zipCode": "80010-110",
+    "country": "Brazil"
+  },
+  "createdAt": "2024-11-18T06:25:00Z"
+
+  },
+  {
+    "_id": {"$oid":"69228dac758610b8abeb63bd"},
+    "clerkId": "user_P4vDc83Ny7FkW1shM9TeA",
+>>>>>>> seller-dashboard-3
     "fullName": "Ricardo Fuentes",
     "email": "ricardo.fuentes@example.com",
     "password": "fuentespass",
     "image": "https://randomuser.me/api/portraits/men/11.jpg",
-    "createdAt": "2024-11-20T12:45:00Z"
+    "address": {
+    "street": "Av. Corrientes 2500",
+    "city": "Buenos Aires",
+    "state": "CABA",
+    "zipCode": "C1046",
+    "country": "Argentina"
+  },
+  "createdAt": "2024-11-23T14:47:00Z"
+
   },
   {
-    "_id": "692e6c048d62b51179eb7953",
+    "_id": {"$oid":"692b1b47cd9ac172bdc69bbe"},
+    "clerkId": "user_369vxKeFkm2Yv6A14BsrLNQCbo7",
+    "email": "borgesfacundo@gmail.com",
+    "fullName": "facundo borges",
+    "username": "facuborges",
+    "phone": "+1 8014338645",
+    "image": "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdl…",
+    "address": {
+      "street": "319 E 100 N",
+      "city": "Provo",
+      "state": "UT",
+      "zipCode": "84606",
+      "country": "United States"
+    },
+    "profileCompleted": true,
+    "createdAt": "2025-11-29T16:11:51.754+00:00"
+    
+  },
+  {
+    "_id": {"$oid":"692b1e3b350c65460764e9f1"},
+    "clerkId": "user_369z7z7rWMNyPTJ0v7Ps8Ejz1D8",
+    "email": "facuborges@hotmail.com",
+    "fullName": "Facundo Borges",
+    "username": "facundo",
+    "phone": "+1 8014338645",
+    "image": "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdl…",
+    "address": {
+      "street": "Heredia 325",
+      "city": "Palermo",
+      "state": "Buenos Aires",
+      "zipCode": "6500",
+      "country": "Argentina"
+    },
+    "profileCompleted": true,
+    "createdAt": "2025-11-29T16:24:27.735+00:00"
+    
+  },
+  {
+    "_id": {"$oid":"692cad2317f5d0b7c806d9ba"},
+    "clerkId": "user_36DK56KSqZwmuKHqAfsA4GDMAnu",
+    "email": "cristhiandelgado0306@gmail.com",
+    "fullName": "cristhian delgado",
+    "username": "cristhian23",
+    "phone": "+1 555-000-0000",
+    "image": "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdl…",
+    "address": {
+      "street": "123 Main street",
+      "city": "New York",
+      "state": "NY",
+      "zipCode": "10001",
+      "country": "United States"
+    },
+    "profileCompleted": true,
+    "createdAt": "2025-11-30T20:46:27.429+00:00"
+    
+  },
+  {
+    "_id": {"$oid":"692cd39661041687e14fdfdd"},
+    "clerkId": "user_36De8Qn3gOhM6GeHyuz1obKVDcd",
+    "email": "facundoborges@lgcypower.com",
+    "fullName": "Facundo Borges",
+    "username": "testingaccount",
+    "phone": "+1 8014338645",
+    "image": "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdl…",
+    "address": {
+      "street": "asd 213",
+      "city": "new tyork",
+      "state": "nd",
+      "zipCode": "10254",
+      "country": "United States"
+    },
+    "profileCompleted": true,
+    "createdAt": "2025-11-30T23:30:30.132+00:00"
+    
+  },
+  {
+    "_id": {"$oid":"692e02417bcdabea1edcb8b2"},
+    "clerkId": "user_36GANh8UcRzQGFqDf8o7cN1VdRE",
+    "email": "cristhinachacon23@gmail.com",
+    "fullName": "cristhina",
+    "username": "cristhina",
+    "phone": "+1 5550000000",
+    "image": "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdl…",
+    "address": {
+      "street": "123main",
+      "city": "Venezuela",
+      "state": "NY",
+      "zipCode": "10001",
+      "country": "United States"
+    },
+    "profileCompleted": true,
+    "role": "seller",
+    "createdAt": "2025-12-01T21:01:53.315+00:00"
+    
+  },
+  {
+    "_id": {"$oid":"692e5885e74d61a739e41d8c"},
+    "clerkId": "user_36Gtwk8AkfhMANBpTTTdawl5gKM",
+    "email": "iamkarenortega@gmail.com",
+    "fullName": "Karen Ortega",
+    "username": "mich",
+    "phone": "+54 5307048546",
+    "image": "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdl…",
+    "address": {
+      "street": "3375 E Dornock Dr.",
+      "city": "Eagle Mountain",
+      "state": "Ut",
+      "zipCode": "84005",
+      "country": "Argentina"
+    },
+    "profileCompleted": true,
+    "role": "user",
+    "createdAt": "2025-12-02T03:09:57.675+00:00"
+    
+  },
+  
+  {
+    "_id": {"$oid":"692eee6425fbe128d2bdf066"},
+    "clerkId": "user_36I8elziUvHfcTlF8eSB7uFdUz4",
+    "email": "kacrae9@gmail.com",
+    "fullName": "King-Kacrae",
+    "username": "king-kacrae",
+    "phone": "+1 9039631136",
+    "image": "https://img.clerk.com/eyJ0eXBlIjoicHJveHkiLCJzcmMiOiJodHRwczovL2ltYWdlcy5jbGVyay5kZXYvb2F1dGhfZ29vZ2xlL2ltZ18zNkk4ZWxHdUpnQVpaSFVibVdJaVcyNEZ3RnMifQ",
+    "address": {
+      "street": "trello street",
+      "city": "Abuja",
+      "state": "FCT",
+      "zipCode": "10001",
+      "country": "United Kingdom"
+    },
+    "profileCompleted": true,
+    "role": "user",
+    "createdAt": "2025-12-02T13:49:24.975+00:00"
+    
+  },
+  {
+    "_id": {"$oid":"692e6c048d62b51179eb7953"},
+    "clerkId":"user_36H3wYMP3F9O9AYV98NoSQzuzyo",
     "fullName": "Seller Demo",
     "email": "byu.handcraftedhaven2025@gmail.com",
     "password": "T3sTing123456",
     "image": "https://randomuser.me/api/portraits/men/11.jpg",
+    "address": {
+      "street":"123 Main Street",
+      "city": "New York",
+      "state":"NY",
+      "zipCode":"10001",
+      "country":"United States"
+    },
     "createdAt": "2024-11-20T12:45:00Z"
   }
 
@@ -369,6 +900,7 @@ const sellersProfiles = [
     reviews: [],
   },
   {
+<<<<<<< HEAD
     _id: "6921200e758610b8abeb5e8d",
     userId: "69211ed4758610b8abeb5e7d",
     shopName: "Carter’s Creative Shop",
@@ -380,6 +912,18 @@ const sellersProfiles = [
     rating: 4.5,
     totalSales: 198,
     reviews: [],
+=======
+    "_id": "6921200e758610b8abeb5e8d",
+    "userId": "69211ed4758610b8abeb5e7d",
+    "shopName": "Carter’s Creative Shop",
+    "bio": "Unique handcrafted art pieces and custom-made creative gifts.",
+    "profileImage": "https://res.cloudinary.com/dttbqvomc/image/upload/v1763777715/hombre-pintando-casa_23-2148017490_jgxpny.avif",
+    "country": "United States",
+    "specialties": ["Art", "Custom Gifts"],
+    "rating": 4.5,
+    "totalSales": 198,
+    "reviews": []
+>>>>>>> seller-dashboard-3
   },
   {
     _id: "6921200e758610b8abeb5e8e",
@@ -549,6 +1093,7 @@ const sellerDemoProducts = [
     "dimensions": "150cm x 30cm",
     "shippingMethods": ["Standard"]
   },
+  
   {
     "_id": { "$oid": "692f2855758610b8abeb92bf" },
     "sellerId": { "$oid": "692e709b758610b8abeb901c" },
