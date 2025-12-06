@@ -21,9 +21,10 @@ interface Review {
 export function CarouselOrientation() {
   const [reviews, setReviews] = useState<Review[]>([]);
   useEffect(() => {
-    fetch("/api/reviews")
+    fetch("/api/reviews/featured")
       .then((res) => res.json())
-      .then((data) => setReviews(data));
+      .then((data) => setReviews(data))
+      .catch((err) => console.error("Error fetching featured reviews:", err));
   }, []);
   return (
     <Carousel

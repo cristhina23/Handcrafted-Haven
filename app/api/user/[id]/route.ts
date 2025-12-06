@@ -24,6 +24,7 @@ export async function GET(
     // Return full user data
     return Response.json(
       {
+        _id: user._id.toString(),
         clerkId: user.clerkId,
         email: user.email,
         fullName: user.fullName,

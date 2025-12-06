@@ -35,6 +35,7 @@ export async function GET(
     const reviews = await Review.find({
   productId: new mongoose.Types.ObjectId(id),
 })
+  .populate('userId', 'fullName image')
   .sort({ createdAt: -1 })
   .limit(3)
   .lean();

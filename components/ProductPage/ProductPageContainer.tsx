@@ -142,7 +142,11 @@ export default function ProductPageContainer({ productId }: Props) {
 
       <ProductDescription description={product.description} />
 
-      <ProductReviews reviews={reviews} />
+      <ProductReviews
+        productId={product._id}
+        sellerId={product.sellerId}
+        initialReviews={reviews}
+      />
 
       <PopularProducts grid={3} />
 
