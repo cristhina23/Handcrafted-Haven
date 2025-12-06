@@ -11,10 +11,12 @@ import { User } from "@/lib/models/User";
 import { Seller } from "@/lib/models/Seller";
 
 
-export async function GET(req: Request, { params }: { params: { id: string } }) {
+export async function GET(
+  req: Request,
+  { params }: { params: Promise<{ id: string }> }
+) {
   try {
-    const resolvedParams = await params;
-    const { id } = resolvedParams;
+    const { id } = await params;
     console.log("ID recieved:", id);
     console.log("ID converted:", new mongoose.Types.ObjectId(id));
 
@@ -47,10 +49,13 @@ export async function GET(req: Request, { params }: { params: { id: string } }) 
 }
 
 
-export async function PUT(req: Request, { params }: { params: { id: string } }) {
+export async function PUT(
+  req: Request,
+  { params }: { params: Promise<{ id: string }> }
+) {
   try {
-    const resolvedParams = await params; 
-    const id = resolvedParams.id;
+    const { id } = await params;
+   
 
     const { userId } = await auth();
     if (!userId) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -85,10 +90,12 @@ export async function PUT(req: Request, { params }: { params: { id: string } }) 
 
 
 
-export async function DELETE(req: Request, { params }: { params: { id: string } }) {
+export async function DELETE(
+  req: Request,
+  { params }: { params: Promise<{ id: string }> }
+) {
   try {
-    const resolvedParams = await params; 
-    const id = resolvedParams.id;
+    const { id } = await params;
 
     const { userId } = await auth();
     if (!userId) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
