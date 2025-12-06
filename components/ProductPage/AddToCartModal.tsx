@@ -113,6 +113,27 @@ export default function AddToCartModal({
               </p>
               </div>
 
+              
+              {/* COLOR */}
+              {colors.length > 0 && (
+                <div className="mb-4">
+                  <p className="font-medium mb-1 text-slate-900">Color</p>
+                  <div className="flex flex-wrap gap-2">
+                    {colors.map((c) => (
+                      <button
+                        key={c}
+                        onClick={() => setSelected({ ...selected, color: c })}
+                        className={`px-3 py-1 border rounded-lg ${
+                          selected.color === c ? "bg-black text-white" : "bg-gray-100"
+                        }`}
+                      >
+                        {c}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+
               {/* SIZE */}
               {sizes.length > 0 && (
                 <div className="mb-4">
@@ -133,25 +154,6 @@ export default function AddToCartModal({
                 </div>
               )}
 
-              {/* COLOR */}
-              {colors.length > 0 && (
-                <div className="mb-4">
-                  <p className="font-medium mb-1 text-slate-900">Color</p>
-                  <div className="flex flex-wrap gap-2">
-                    {colors.map((c) => (
-                      <button
-                        key={c}
-                        onClick={() => setSelected({ ...selected, color: c })}
-                        className={`px-3 py-1 border rounded-lg ${
-                          selected.color === c ? "bg-black text-white" : "bg-gray-100"
-                        }`}
-                      >
-                        {c}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              )}
 
               {/* MATERIAL */}
               {materials.length > 0 && (

@@ -2,6 +2,9 @@
 
 import { useUser } from "@clerk/nextjs";
 import { useSeller } from "@/contexts/SellerContext";
+import WelcomeBanner from "./dashboardHome.tsx/WelcomeBanner";
+import CardsContainer from "./dashboardHome.tsx/CardsContainer";
+import Chart from "./dashboardHome.tsx/RevenueAnalytics";
 
 interface Props {
   clerkId?: string; 
@@ -17,14 +20,10 @@ export default function DashboardPage({ clerkId }: Props) {
   if (!seller) return <div>No seller profile found.</div>;
 
   return (
-    <div className="p-6">
-      
-      <h2>{seller.shopName}</h2>
-      {seller.bio && <p>{seller.bio}</p>}
-      <p>País: {seller.country}</p>
-      <p>Especialidades: {seller.specialties.join(", ")}</p>
-      <p>Rating: {seller.rating}</p>
-      <p>Total ventas: {seller.totalSales}</p>
+    <div className="p-6 bg-slate-100 dark:bg-slate-900 flex flex-col gap-8">
+      <WelcomeBanner />
+      <CardsContainer />
+      <Chart />
     </div>
   );
 }
