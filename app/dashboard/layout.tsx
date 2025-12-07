@@ -8,6 +8,7 @@ import { SellerProvider } from "@/contexts/SellerContext";
 import { OrderProvider } from "@/contexts/OrderContext";
 import { Product } from "@/lib/models/Product";
 import { SellerProductsProvider } from "@/contexts/SellerProductsContext";
+import { SellerOrdersProvider } from "@/contexts/SellerOrdersContext";
 
 export default function DashboardLayout({
   children,
@@ -29,6 +30,7 @@ export default function DashboardLayout({
     <SellerProvider>
       <SellerProductsProvider>
       <OrderProvider>
+        <SellerOrdersProvider>
         <ThemeProvider>
           <div className="flex h-screen w-full">
             <Sidebar
@@ -51,6 +53,7 @@ export default function DashboardLayout({
             </div>
           </div>
         </ThemeProvider>
+        </SellerOrdersProvider>
       </OrderProvider>
       </SellerProductsProvider>
     </SellerProvider>

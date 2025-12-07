@@ -70,7 +70,7 @@ const Sidebar: FC<SidebarProps> = ({
             onClick={handleCloseSidebar}
             className="flex items-center gap-3 text-xl font-bold text-slate-300"
           >
-            Hancrated
+            Handcrafted
           </Link>
         )}
 
@@ -100,7 +100,9 @@ const Sidebar: FC<SidebarProps> = ({
                 label={link.name.replace("-", " ")}
                 icon={link.icon}
                 collapsed={collapsed}
+                href={link.href}
               >
+                
                 {link.sublinks?.map((sub) => (
                   <Link
                     key={sub.name}
@@ -113,6 +115,7 @@ const Sidebar: FC<SidebarProps> = ({
                 ))}
               </CustomAccordionItem>
             ))}
+
           </div>
         ))}
       </div>

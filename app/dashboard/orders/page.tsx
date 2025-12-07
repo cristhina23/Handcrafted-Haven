@@ -1,8 +1,12 @@
+import OrdersPageContainer from '@/components/Dashboard/orders/OrdersPageContainer'
 import React from 'react'
 
 function page() {
   return (
-    <div>manage orders</div>
+    <div>
+
+      <OrdersPageContainer />
+    </div>
   )
 }
 

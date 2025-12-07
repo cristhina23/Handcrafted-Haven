@@ -42,13 +42,14 @@ export default function DropdownSelect({
   return (
     <div className="relative" ref={dropdownRef}>
       <motion.button
+        type="button"
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.97 }}
         onClick={() => setIsOpen((prev) => !prev)}
         className={`
           flex items-center justify-between gap-2 px-3 py-2 
           bg-gray-100 border border-gray-400 rounded-md 
-          text-gray-700 text-sm transition-all
+          text-gray-700 text-sm transition-all dark:bg-gray-800 dark:text-slate-300
           ${widthClass}
         `}
       >
@@ -69,12 +70,13 @@ export default function DropdownSelect({
             className={`
               absolute top-full right-0 mt-2 
               bg-white shadow-md border border-gray-300 
-              rounded-md py-2 text-sm z-50
+              rounded-md py-2 text-sm z-50 dark:bg-gray-800 dark:text-slate-300
               ${widthClass}
             `}
           >
             {options.map((opt) => (
               <button
+                type="button"
                 key={opt.value}
                 onClick={() => {
                   onChange?.(opt.value);
@@ -86,7 +88,7 @@ export default function DropdownSelect({
                   ${
                     value === opt.value
                       ? "bg-gray-200 text-gray-700"
-                      : "hover:bg-gray-100"
+                      : "hover:bg-gray-100 dark:hover:bg-gray-700"
                   }
                 `}
               >

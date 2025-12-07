@@ -100,14 +100,39 @@ export interface IOrderItem {
   subtotal: number;
 }
 
-export interface IOrder extends Document {
-  buyerId: Types.ObjectId;
-  items: IOrderItem[];
-  itemsTotal: number;
-  shippingTotal: number;
-  grandTotal: number;
+export interface OrderItemClient {
+  productId: string;
+  sellerId: string;
+  quantity: number;
+  priceAtPurchase: number;
+  discount?: number;
+  subtotal: number;
+  price: number;
+  productTitle: string;
+  productImage: string;
+}
+
+export interface Address {
+  street: string;
+  city: string;
+  state: string;
+  zipCode: string;
+  country: string;
+  phone?: string; 
+}
+
+export interface OrderClient {
+  _id: string;
+  buyerName: string; 
+  buyerImage: string;
+  buyerAddress: Address;
+  buyerEmail: string;
+  buyerPhone?: string;
+  shippingMethod: string;
+  items: OrderItemClient[];
+  total: number;     
   status: "pending" | "processing" | "shipped" | "delivered";
-  createdAt: Date;
+  createdAt: string; 
 }
 
 // ---------- Review ----------

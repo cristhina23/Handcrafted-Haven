@@ -99,6 +99,7 @@ export default function ProductTableShadCN() {
           ))}
         </tbody>
       </table>
+      
 
       {/* PAGINACION */}
       <div className="flex justify-between items-center mt-4 p-2">

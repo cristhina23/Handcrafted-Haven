@@ -76,7 +76,7 @@ export default function RecentOrders() {
                         {order.buyerId.fullName.charAt(0).toUpperCase()}
                       </div>
                     )}
-                    {order.buyerId.fullName}
+                    
                   </td>
                   <td className="py-2 font-medium">${order.grandTotal.toFixed(2)}</td>
                   <td className="py-2 text-slate-500">

@@ -33,14 +33,9 @@ export const sidebarLinks = [
       { 
         name: "orders", 
         href: "/dashboard/orders", 
-        icon: ShoppingCart,
-        sublinks: [
-          { name: "all orders", href: "/dashboard/orders" },
-          { name: "pending", href: "/dashboard/orders/pending" },
-          { name: "completed", href: "/dashboard/orders/completed" },
-        ]
+        icon: ShoppingCart
       },
-      { 
+      /* { 
         name: "statistics", 
         href: "/dashboard/statistics", 
         icon: BarChart3 
@@ -54,7 +49,7 @@ export const sidebarLinks = [
         name: "messages", 
         href: "/dashboard/messages", 
         icon: MessageSquare 
-      },
+      }, */
     ],
   },
   {
