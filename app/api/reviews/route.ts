@@ -4,6 +4,7 @@ import { Review } from "@/lib/models/Review";
 import { auth } from "@clerk/nextjs/server";
 import { User } from "@/lib/models/User";
 import mongoose from "mongoose";
+import { updateProductRating } from "@/lib/utils/updateProductRating";
 
 // GET all reviews for a product
 export async function GET(req: NextRequest) {
@@ -115,6 +116,9 @@ export async function POST(req: NextRequest) {
     const review = await Review.findById(newReview._id)
       .populate("userId", "fullName image")
       .lean();
+
+    // Update product rating
+    await updateProductRating(productObjectId);
 
     return NextResponse.json(
       { message: "Review created successfully", review },

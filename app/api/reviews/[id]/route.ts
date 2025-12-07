@@ -3,7 +3,7 @@ import { connectDB } from "@/lib/db/db";
 import { Review } from "@/lib/models/Review";
 import { auth } from "@clerk/nextjs/server";
 import { User } from "@/lib/models/User";
-import mongoose from "mongoose";
+import { updateProductRating } from "@/lib/utils/updateProductRating";
 
 // PUT update a review
 export async function PUT(
@@ -70,6 +70,9 @@ export async function PUT(
       .populate("userId", "fullName image")
       .lean();
 
+    // Update product rating
+    await updateProductRating(review.productId);
+
     return NextResponse.json(
       { message: "Review updated successfully", review: updatedReview },
       { status: 200 }
@@ -125,7 +128,13 @@ export async function DELETE(
       );
     }
 
+    // Store productId before deleting
+    const productId = review.productId;
+
     await Review.findByIdAndDelete(reviewId);
+
+    // Update product rating
+    await updateProductRating(productId);
 
     return NextResponse.json(
       { message: "Review deleted successfully" },
