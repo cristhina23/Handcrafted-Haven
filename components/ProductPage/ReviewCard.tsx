@@ -46,12 +46,12 @@ export default function ReviewCard({
   // Function to decode Clerk proxy URL
   const decodeClerkImageUrl = (url: string | null): string | null => {
     if (!url) return null;
-    
+
     try {
       // Check if it's a Clerk proxy URL
-      if (url.includes('img.clerk.com/eyJ')) {
+      if (url.includes("img.clerk.com/eyJ")) {
         // Extract the base64 part after the last /
-        const base64Part = url.split('/').pop();
+        const base64Part = url.split("/").pop();
         if (base64Part) {
           // Decode base64
           const decoded = atob(base64Part);
@@ -62,7 +62,7 @@ export default function ReviewCard({
       }
       return url;
     } catch (error) {
-      console.error('Error decoding Clerk URL:', error);
+      console.error("Error decoding Clerk URL:", error);
       return url;
     }
   };

@@ -7,15 +7,15 @@ import { User } from "@/lib/models/User";
 // Function to decode Clerk proxy URL and get the real image URL
 function decodeClerkImageUrl(url: string | null | undefined): string | null {
   if (!url) return null;
-  
+
   try {
     // Check if it's a Clerk proxy URL
-    if (url.includes('img.clerk.com/eyJ')) {
+    if (url.includes("img.clerk.com/eyJ")) {
       // Extract the base64 part after the last /
-      const base64Part = url.split('/').pop();
+      const base64Part = url.split("/").pop();
       if (base64Part) {
         // Use Buffer for Node.js environment
-        const decoded = Buffer.from(base64Part, 'base64').toString('utf-8');
+        const decoded = Buffer.from(base64Part, "base64").toString("utf-8");
         const parsed = JSON.parse(decoded);
         // Return the actual source URL
         return parsed.src || url;
@@ -23,7 +23,7 @@ function decodeClerkImageUrl(url: string | null | undefined): string | null {
     }
     return url;
   } catch (error) {
-    console.error('Error decoding Clerk URL:', error);
+    console.error("Error decoding Clerk URL:", error);
     return url;
   }
 }
