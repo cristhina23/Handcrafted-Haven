@@ -31,7 +31,7 @@ export default function BlogPage() {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
-  const postsPerPage = 4;
+  const postsPerPage = 6;
 
   useEffect(() => {
     fetchPosts();
