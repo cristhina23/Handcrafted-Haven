@@ -1,16 +1,17 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Pencil, Trash2 } from "lucide-react";
-import Image from "next/image";
 import { useUser } from "@clerk/nextjs";
 
 interface Review {
   _id: string;
-  userId: {
-    _id: string;
-    fullName?: string;
-    image?: string;
-  } | string;
+  userId:
+    | {
+        _id: string;
+        fullName?: string;
+        image?: string;
+      }
+    | string;
   rating: number;
   comment: string;
   createdAt: string;
@@ -33,17 +34,53 @@ export default function ReviewCard({
   const [isDeleting, setIsDeleting] = useState(false);
   const [imageError, setImageError] = useState(false);
   const { user } = useUser();
-  
+
   // Handle both populated and unpopulated userId
-  const userId = typeof review.userId === 'string' ? review.userId : review.userId._id;
-  const userName = typeof review.userId === 'object' ? review.userId.fullName : 'Anonymous';
-  let userImage = typeof review.userId === 'object' ? review.userId.image : null;
-  
-  // If this is the current user's review and we have Clerk user data, use Clerk's image
+  const userId =
+    typeof review.userId === "string" ? review.userId : review.userId._id;
+  const userName =
+    typeof review.userId === "object" ? review.userId.fullName : "Anonymous";
+  let userImage =
+    typeof review.userId === "object" ? review.userId.image : null;
+
+  // Function to decode Clerk proxy URL
+  const decodeClerkImageUrl = (url: string | null): string | null => {
+    if (!url) return null;
+    
+    try {
+      // Check if it's a Clerk proxy URL
+      if (url.includes('img.clerk.com/eyJ')) {
+        // Extract the base64 part after the last /
+        const base64Part = url.split('/').pop();
+        if (base64Part) {
+          // Decode base64
+          const decoded = atob(base64Part);
+          const parsed = JSON.parse(decoded);
+          // Return the actual source URL
+          return parsed.src || url;
+        }
+      }
+      return url;
+    } catch (error) {
+      console.error('Error decoding Clerk URL:', error);
+      return url;
+    }
+  };
+
+  // Decode the image from database (in case it's a Clerk proxy URL)
+  userImage = decodeClerkImageUrl(userImage);
+
+  // If this is the current user's review and we have fresh Clerk data, use that
   const isOwner = currentUserId && userId === currentUserId;
   if (isOwner && user?.imageUrl) {
-    userImage = user.imageUrl;
+    const decodedUrl = decodeClerkImageUrl(user.imageUrl);
+    userImage = decodedUrl || userImage;
   }
+
+  // Reset image error when userImage changes
+  useEffect(() => {
+    setImageError(false);
+  }, [userImage]);
 
   const handleDelete = async () => {
     if (!confirm("Are you sure you want to delete this review?")) return;
@@ -62,25 +99,25 @@ export default function ReviewCard({
       <div className="flex items-center gap-3 mb-3">
         <div className="relative w-10 h-10 rounded-full overflow-hidden bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center flex-shrink-0">
           {userImage && !imageError ? (
-            <Image
+            <img
               src={userImage}
-              alt={userName || 'User'}
-              fill
-              className="object-cover"
+              alt={userName || "User"}
+              className="w-full h-full object-cover"
               onError={() => {
-                console.error('Failed to load image:', userImage);
+                console.error("Failed to load image:", userImage);
                 setImageError(true);
               }}
-              unoptimized
             />
           ) : (
             <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-blue-400 to-purple-500 text-white font-semibold text-sm">
-              {userName ? userName.charAt(0).toUpperCase() : 'A'}
+              {userName ? userName.charAt(0).toUpperCase() : "A"}
             </div>
           )}
         </div>
         <div>
-          <p className="font-medium text-slate-800">{userName || 'Anonymous'}</p>
+          <p className="font-medium text-slate-800">
+            {userName || "Anonymous"}
+          </p>
           <p className="text-xs text-slate-400">
             {new Date(review.createdAt).toLocaleDateString()}
           </p>

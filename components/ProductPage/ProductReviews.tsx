@@ -7,11 +7,13 @@ import { ChevronDown, ChevronUp } from "lucide-react";
 
 interface Review {
   _id: string;
-  userId: {
-    _id: string;
-    fullName?: string;
-    image?: string;
-  } | string;
+  userId:
+    | {
+        _id: string;
+        fullName?: string;
+        image?: string;
+      }
+    | string;
   rating: number;
   comment: string;
   createdAt: string;
@@ -32,7 +34,9 @@ function ProductReviews({ productId, sellerId, initialReviews }: Props) {
   const [editingReview, setEditingReview] = useState<Review | null>(null);
   const [currentUserDbId, setCurrentUserDbId] = useState<string | null>(null);
   const [userHasReviewed, setUserHasReviewed] = useState(false);
-  const [allReviewsLoaded, setAllReviewsLoaded] = useState(initialReviews.length < 3);
+  const [allReviewsLoaded, setAllReviewsLoaded] = useState(
+    initialReviews.length < 3
+  );
 
   // Get user's database ID
   useEffect(() => {
@@ -60,9 +64,8 @@ function ProductReviews({ productId, sellerId, initialReviews }: Props) {
   useEffect(() => {
     if (currentUserDbId) {
       const hasReviewed = reviews.some((review) => {
-        const reviewUserId = typeof review.userId === 'string' 
-          ? review.userId 
-          : review.userId._id;
+        const reviewUserId =
+          typeof review.userId === "string" ? review.userId : review.userId._id;
         return reviewUserId === currentUserDbId;
       });
       setUserHasReviewed(hasReviewed);
@@ -252,7 +255,8 @@ function ProductReviews({ productId, sellerId, initialReviews }: Props) {
             </>
           ) : (
             <>
-              Show All Reviews {allReviewsLoaded && `(${reviews.length})`} <ChevronDown size={20} />
+              Show All Reviews {allReviewsLoaded && `(${reviews.length})`}{" "}
+              <ChevronDown size={20} />
             </>
           )}
         </button>

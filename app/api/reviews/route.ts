@@ -23,7 +23,7 @@ export async function GET(req: NextRequest) {
     const reviews = await Review.find({
       productId: new mongoose.Types.ObjectId(productId),
     })
-      .populate('userId', 'fullName image')
+      .populate("userId", "fullName image")
       .sort({ createdAt: -1 })
       .lean();
 
@@ -113,7 +113,7 @@ export async function POST(req: NextRequest) {
 
     // Populate user data before sending response
     const review = await Review.findById(newReview._id)
-      .populate('userId', 'fullName image')
+      .populate("userId", "fullName image")
       .lean();
 
     return NextResponse.json(

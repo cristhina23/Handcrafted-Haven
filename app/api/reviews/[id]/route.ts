@@ -67,7 +67,7 @@ export async function PUT(
 
     // Populate user data before sending response
     const updatedReview = await Review.findById(review._id)
-      .populate('userId', 'fullName image')
+      .populate("userId", "fullName image")
       .lean();
 
     return NextResponse.json(
