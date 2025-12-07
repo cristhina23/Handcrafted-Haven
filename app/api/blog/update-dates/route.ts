@@ -40,13 +40,18 @@ export async function POST() {
       });
     }
 
-    // Actualizar cada post con su fecha correspondiente
+    // Actualizar cada post con su fecha correspondiente usando updateOne
     const updatePromises = posts.map((post, index) => {
-      const dateIndex = index % postDates.length; // En caso de que haya más posts que fechas
-      return BlogPost.findByIdAndUpdate(post._id, {
-        createdAt: postDates[dateIndex],
-        updatedAt: postDates[dateIndex],
-      });
+      const dateIndex = index % postDates.length;
+      return BlogPost.collection.updateOne(
+        { _id: post._id },
+        {
+          $set: {
+            createdAt: postDates[dateIndex],
+            updatedAt: postDates[dateIndex],
+          },
+        }
+      );
     });
 
     await Promise.all(updatePromises);
