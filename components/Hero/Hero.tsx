@@ -28,7 +28,7 @@ const slides: Slide[] = [
     title: "Discover Unique Handcrafted Treasures",
     subtitle:
       "Connecting artisans with those who value meaningful, handmade creations.",
-    backgroundImage: "/images/hero-slide-3.webp",
+    backgroundImage: "/images/hero-slide-1.webp",
     ctaText: "Learn More",
     ctaLink: "/products",
     type: "hero",
@@ -38,7 +38,7 @@ const slides: Slide[] = [
     title: "Our Purpose",
     subtitle:
       "Empowering artisans worldwide while preserving traditional crafts for future generations. We believe in fair trade, authentic craftsmanship, and building meaningful connections between creators and customers. Every purchase supports a family, preserves a tradition, and creates a ripple effect of positive change in communities around the globe. Join us in celebrating the beauty of human creativity and the stories behind every handmade piece.",
-    backgroundImage: "/images/hero-slide-3.webp",
+    backgroundImage: "/images/hero-slide-2.webp",
     ctaText: "Learn About Us",
     ctaLink: "/about",
     type: "purpose",
