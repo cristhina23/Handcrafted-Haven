@@ -22,8 +22,6 @@ interface Props {
 }
 
 export default function ReviewForm({
-  productId,
-  sellerId,
   existingReview,
   onSubmit,
   onCancel,

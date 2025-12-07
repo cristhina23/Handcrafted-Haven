@@ -117,7 +117,6 @@ export default function BlogPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header Banner */}
-      
 
       <div className="container mx-auto px-4 py-8">
         <div className="flex flex-col lg:flex-row gap-6">
