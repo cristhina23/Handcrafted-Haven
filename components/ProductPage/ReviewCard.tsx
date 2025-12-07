@@ -68,7 +68,7 @@ export default function ReviewCard({
   };
 
   // Decode the image from database (in case it's a Clerk proxy URL)
-  userImage = decodeClerkImageUrl(userImage);
+  userImage = decodeClerkImageUrl(userImage || null);
 
   // If this is the current user's review and we have fresh Clerk data, use that
   const isOwner = currentUserId && userId === currentUserId;
