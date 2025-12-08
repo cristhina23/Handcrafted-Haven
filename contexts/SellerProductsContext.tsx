@@ -12,8 +12,8 @@ import { Product } from "@/types";
 
 interface SellerProductsContextType {
   products: Product[];
-  loading: boolean; // loading general (refrescar)
-  actionLoading: boolean; // 🔥 nuevo loading solo para create/update/delete
+  loading: boolean; 
+  actionLoading: boolean; 
   error: string | null;
 
   createProduct: (data: Partial<Product>) => Promise<void>;
@@ -34,13 +34,11 @@ export function SellerProductsProvider({ children }: Props) {
   const { user, isSignedIn } = useUser();
 
   const [products, setProducts] = useState<Product[]>([]);
-  const [loading, setLoading] = useState(true); // para refrescar lista
-  const [actionLoading, setActionLoading] = useState(false); // 🔥 para submit
+  const [loading, setLoading] = useState(true);
+  const [actionLoading, setActionLoading] = useState(false); 
   const [error, setError] = useState<string | null>(null);
 
-  // ==============================
-  // GET - Refresh products
-  // ==============================
+
   async function refreshProducts() {
     try {
       setLoading(true);
@@ -67,9 +65,7 @@ export function SellerProductsProvider({ children }: Props) {
     if (isSignedIn && user) refreshProducts();
   }, [isSignedIn, user]);
 
-  // ==============================
-  // CREATE PRODUCT
-  // ==============================
+  
   async function createProduct(data: Partial<Product>) {
     try {
       setActionLoading(true);
@@ -93,9 +89,7 @@ export function SellerProductsProvider({ children }: Props) {
     }
   }
 
-  // ==============================
-  // UPDATE PRODUCT
-  // ==============================
+  
   async function updateProduct(id: string, data: Partial<Product>) {
     try {
       setActionLoading(true);
@@ -119,9 +113,6 @@ export function SellerProductsProvider({ children }: Props) {
     }
   }
 
-  // ==============================
-  // DELETE PRODUCT
-  // ==============================
   async function deleteProduct(id: string) {
     try {
       setActionLoading(true);
@@ -148,7 +139,7 @@ export function SellerProductsProvider({ children }: Props) {
       value={{
         products,
         loading,
-        actionLoading, // 💛 lo nuevo
+        actionLoading, 
         error,
         createProduct,
         updateProduct,
@@ -161,7 +152,7 @@ export function SellerProductsProvider({ children }: Props) {
   );
 }
 
-// HOOK
+
 export function useProducts() {
   const context = useContext(SellerProductsContext);
   if (!context)

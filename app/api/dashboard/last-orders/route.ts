@@ -12,7 +12,7 @@ export async function GET() {
       .populate("items.productId", "title")
       .populate("buyerId", "fullName image" )
       .lean();
-    console.log("Last orders fetched:", lastOrders)
+    /* console.log("Last orders fetched:", lastOrders) */
     return NextResponse.json(lastOrders);
   } catch (error) {
     console.error(error);

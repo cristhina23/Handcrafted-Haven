@@ -159,3 +159,11 @@ export interface Notification {
   title: string;
   message: string;
 }
+
+export interface OrderType {
+  _id: string;
+  sellerId: string;
+  buyerId?: string;
+  grandTotal?: number;
+  createdAt: Date;
+}

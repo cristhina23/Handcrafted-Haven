@@ -11,7 +11,7 @@ export async function GET(req: NextRequest, { params }: Params) {
     await connectDB();
     const { id } = await params;
 
-    // Buscar seller POR SU _ID (el que usa el producto)
+   
     const seller = await Seller.findById(id);
 
     if (!seller) {

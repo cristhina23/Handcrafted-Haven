@@ -8,10 +8,7 @@ import {
   ReactNode,
 } from "react";
 
-// ---------------------------
-// TYPES
 
-// ---------------------------
 interface OrderStats {
   totalOrders: number;
   totalRevenue: number;

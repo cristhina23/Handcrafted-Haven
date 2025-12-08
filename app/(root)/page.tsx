@@ -3,6 +3,7 @@ import MeetOurMakers from "@/components/HomeSections/ArstianSection";
 import Impression from "@/components/HomeSections/aboutSection/Section";
 import Events from "@/components/HomeSections/BlogEventSection/Section";
 import Hero from "@/components/Hero/Hero";
+import BecomeSeller from "@/components/HomeSections/BecomeSeller/BecomeSeller";
 
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
       <Impression />
       <MeetOurMakers />
       <Events/>
+      <BecomeSeller/>
     </>
   );
 }

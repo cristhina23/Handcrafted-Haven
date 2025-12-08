@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // app/api/orders/[id]/route.ts
 import { connectDB } from "@/lib/db/db";
 import { Order } from "@/lib/models/Order";
@@ -25,6 +26,7 @@ export async function GET(
     }
 
     return NextResponse.json({ order });
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
     console.error("Error:", error);
     return NextResponse.json({ message: "Server error" }, { status: 500 });
