@@ -111,7 +111,7 @@ const Hero: React.FC = () => {
   const currentSlideData = slides[currentSlide];
 
   return (
-    <section className="relative w-full min-h-[80vh] md:min-h-[85vh] lg:min-h-screen overflow-hidden overflow-x-hidden">
+    <section className="relative w-full h-[calc(100vh-80px)] overflow-hidden">
       {/* Background images with smooth transition */}
       {slides.map((slide, index) => (
         <div
@@ -135,37 +135,37 @@ const Hero: React.FC = () => {
       ))}
 
       {/* Content Container */}
-      <div className="relative z-10 min-h-[80vh] md:min-h-[85vh] lg:min-h-screen flex flex-col justify-center items-center px-4 md:px-6 lg:px-8 py-12 md:py-16 lg:py-20 text-center">
+      <div className="relative z-10 h-full flex flex-col justify-center items-center px-4 md:px-6 lg:px-8 py-8 md:py-12 lg:py-16 text-center">
         <div className="max-w-6xl mx-auto w-full">
           {/* Slide content */}
           {currentSlideData.type === "hero" ? (
             // Hero content (Slide 1)
-            <div className="pb-16 md:pb-20">
-              <h1 className="text-3xl md:text-5xl lg:text-7xl font-bold text-white mb-4 md:mb-6 leading-tight drop-shadow-lg px-2">
+            <div className="pb-8 md:pb-12">
+              <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold text-white mb-3 md:mb-4 leading-tight drop-shadow-lg px-2">
                 {currentSlideData.title}
               </h1>
 
-              <h4 className="text-base md:text-xl lg:text-2xl text-white/90 mb-6 md:mb-8 max-w-3xl mx-auto leading-relaxed drop-shadow-md px-4">
+              <h4 className="text-sm md:text-lg lg:text-xl text-white/90 mb-4 md:mb-6 max-w-3xl mx-auto leading-relaxed drop-shadow-md px-4">
                 {currentSlideData.subtitle}
               </h4>
 
               <Link
                 href={currentSlideData.ctaLink}
                 className="inline-block bg-sky-300 hover:bg-sky-400 text-gray-900 font-bold 
-                         py-3 px-6 md:py-4 md:px-8 rounded-lg shadow-xl hover:shadow-2xl transform hover:-translate-y-1 
-                         transition-all duration-300 text-base md:text-lg border-2 border-sky-300 hover:border-sky-400"
+                         py-2.5 px-5 md:py-3 md:px-7 rounded-lg shadow-xl hover:shadow-2xl transform hover:-translate-y-1 
+                         transition-all duration-300 text-sm md:text-base border-2 border-sky-300 hover:border-sky-400"
               >
                 {currentSlideData.ctaText}
               </Link>
             </div>
           ) : currentSlideData.type === "purpose" ? (
             // Purpose content (Slide 2)
-            <div className="pb-16 md:pb-20">
-              <h1 className="text-2xl md:text-4xl lg:text-6xl font-bold text-white mb-3 md:mb-4 leading-tight drop-shadow-lg px-2">
+            <div className="pb-8 md:pb-12">
+              <h1 className="text-2xl md:text-3xl lg:text-5xl font-bold text-white mb-2 md:mb-3 leading-tight drop-shadow-lg px-2">
                 {currentSlideData.title}
               </h1>
 
-              <h4 className="text-sm md:text-lg lg:text-xl text-white/90 mb-4 md:mb-6 drop-shadow-md max-w-4xl mx-auto px-4 md:px-4 leading-snug">
+              <h4 className="text-xs md:text-base lg:text-lg text-white/90 mb-3 md:mb-4 drop-shadow-md max-w-4xl mx-auto px-4 md:px-4 leading-snug">
                 {/* Mostrar texto más corto en móvil */}
                 <span className="block md:hidden">
                   Empowering artisans worldwide while preserving traditional
@@ -180,17 +180,17 @@ const Hero: React.FC = () => {
               {currentSlideData.features && (
                 <>
                   {/* Vista móvil: solo 3 features principales */}
-                  <div className="grid grid-cols-1 gap-2 max-w-xs mx-auto mb-4 px-4 md:hidden">
+                  <div className="grid grid-cols-1 gap-2 max-w-xs mx-auto mb-3 px-4 md:hidden">
                     {currentSlideData.features
                       .slice(0, 3)
                       .map((feature, index) => (
                         <div
                           key={index}
-                          className="bg-white/20 backdrop-blur-md rounded-lg p-2.5 shadow-lg border border-white/30"
+                          className="bg-white/20 backdrop-blur-md rounded-lg p-2 shadow-lg border border-white/30"
                         >
                           <div className="flex items-center space-x-2">
-                            <div className="w-2 h-2 bg-sky-400 rounded-full flex-shrink-0"></div>
-                            <span className="text-white font-medium text-xs leading-tight drop-shadow">
+                            <div className="w-1.5 h-1.5 bg-sky-400 rounded-full flex-shrink-0"></div>
+                            <span className="text-white font-medium text-[10px] leading-tight drop-shadow">
                               {feature}
                             </span>
                           </div>
@@ -199,15 +199,15 @@ const Hero: React.FC = () => {
                   </div>
 
                   {/* Vista desktop: todas las features */}
-                  <div className="hidden md:grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-8 px-4">
+                  <div className="hidden md:grid md:grid-cols-2 gap-3 md:gap-4 max-w-4xl mx-auto mb-4 md:mb-6 px-4">
                     {currentSlideData.features.map((feature, index) => (
                       <div
                         key={index}
-                        className="bg-white/20 backdrop-blur-md rounded-lg p-5 shadow-lg hover:shadow-xl transition-all duration-300 border border-white/30 transform hover:scale-105 hover:bg-white/30"
+                        className="bg-white/20 backdrop-blur-md rounded-lg p-3 md:p-4 shadow-lg hover:shadow-xl transition-all duration-300 border border-white/30 transform hover:scale-105 hover:bg-white/30"
                       >
-                        <div className="flex items-center space-x-3">
-                          <div className="w-4 h-4 bg-sky-400 rounded-full flex-shrink-0"></div>
-                          <span className="text-white font-semibold text-sm lg:text-base drop-shadow">
+                        <div className="flex items-center space-x-2 md:space-x-3">
+                          <div className="w-3 h-3 bg-sky-400 rounded-full flex-shrink-0"></div>
+                          <span className="text-white font-semibold text-xs md:text-sm drop-shadow">
                             {feature}
                           </span>
                         </div>
@@ -220,20 +220,20 @@ const Hero: React.FC = () => {
               <Link
                 href={currentSlideData.ctaLink}
                 className="inline-block bg-sky-300 hover:bg-sky-400 text-gray-900 font-bold 
-                         py-3 px-6 md:py-4 md:px-8 rounded-lg shadow-xl hover:shadow-2xl transform hover:-translate-y-1 
-                         transition-all duration-300 text-base md:text-lg border-2 border-sky-300 hover:border-sky-400"
+                         py-2.5 px-5 md:py-3 md:px-7 rounded-lg shadow-xl hover:shadow-2xl transform hover:-translate-y-1 
+                         transition-all duration-300 text-sm md:text-base border-2 border-sky-300 hover:border-sky-400"
               >
                 {currentSlideData.ctaText}
               </Link>
             </div>
           ) : (
             // Benefits content (Slide 3)
-            <div className="pb-16 md:pb-20">
-              <h1 className="text-2xl md:text-4xl lg:text-6xl font-bold text-white mb-3 md:mb-4 leading-tight drop-shadow-lg px-2">
+            <div className="pb-8 md:pb-12">
+              <h1 className="text-2xl md:text-3xl lg:text-5xl font-bold text-white mb-2 md:mb-3 leading-tight drop-shadow-lg px-2">
                 {currentSlideData.title}
               </h1>
 
-              <h4 className="text-sm md:text-lg lg:text-xl text-white/90 mb-4 md:mb-6 drop-shadow-md px-4 md:px-4 leading-snug">
+              <h4 className="text-xs md:text-base lg:text-lg text-white/90 mb-3 md:mb-4 drop-shadow-md px-4 md:px-4 leading-snug">
                 {/* Texto más corto en móvil */}
                 <span className="block md:hidden">
                   Discover the advantages of authentic, handmade products.
@@ -247,22 +247,20 @@ const Hero: React.FC = () => {
               {currentSlideData.benefits && (
                 <>
                   {/* Vista móvil: solo 2 benefits principales */}
-                  <div className="grid grid-cols-1 gap-2.5 max-w-xs mx-auto mb-4 px-4 md:hidden">
+                  <div className="grid grid-cols-1 gap-2 max-w-xs mx-auto mb-3 px-4 md:hidden">
                     {currentSlideData.benefits
                       .slice(0, 2)
                       .map((benefit, benefitIndex) => (
                         <div
                           key={benefitIndex}
-                          className="bg-white/20 backdrop-blur-md rounded-xl p-3 shadow-lg border border-white/30"
+                          className="bg-white/20 backdrop-blur-md rounded-xl p-2.5 shadow-lg border border-white/30"
                         >
                           <div className="text-center">
-                            <div className="text-2xl mb-1.5">
-                              {benefit.icon}
-                            </div>
-                            <h3 className="text-xs font-semibold text-white mb-1 drop-shadow">
+                            <div className="text-xl mb-1">{benefit.icon}</div>
+                            <h3 className="text-[10px] font-semibold text-white mb-0.5 drop-shadow">
                               {benefit.title}
                             </h3>
-                            <p className="text-white/90 leading-tight text-[10px] drop-shadow">
+                            <p className="text-white/90 leading-tight text-[9px] drop-shadow">
                               {benefit.description}
                             </p>
                           </div>
@@ -271,20 +269,20 @@ const Hero: React.FC = () => {
                   </div>
 
                   {/* Vista desktop: todos los benefits */}
-                  <div className="hidden md:grid md:grid-cols-2 gap-4 md:gap-6 max-w-5xl mx-auto mb-6 md:mb-8 px-4">
+                  <div className="hidden md:grid md:grid-cols-2 gap-3 md:gap-4 max-w-5xl mx-auto mb-4 md:mb-6 px-4">
                     {currentSlideData.benefits.map((benefit, benefitIndex) => (
                       <div
                         key={benefitIndex}
-                        className="bg-white/20 backdrop-blur-md rounded-xl p-4 md:p-6 lg:p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 border border-white/30 hover:bg-white/30"
+                        className="bg-white/20 backdrop-blur-md rounded-xl p-3 md:p-5 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 border border-white/30 hover:bg-white/30"
                       >
                         <div className="text-center">
-                          <div className="text-3xl md:text-4xl lg:text-5xl mb-2 md:mb-4">
+                          <div className="text-2xl md:text-3xl mb-1.5 md:mb-2">
                             {benefit.icon}
                           </div>
-                          <h3 className="text-base md:text-lg lg:text-xl font-semibold text-white mb-2 md:mb-3 drop-shadow">
+                          <h3 className="text-sm md:text-base font-semibold text-white mb-1 md:mb-2 drop-shadow">
                             {benefit.title}
                           </h3>
-                          <p className="text-white/90 leading-relaxed text-xs md:text-sm lg:text-base drop-shadow">
+                          <p className="text-white/90 leading-relaxed text-xs md:text-sm drop-shadow">
                             {benefit.description}
                           </p>
                         </div>
@@ -297,8 +295,8 @@ const Hero: React.FC = () => {
               <Link
                 href={currentSlideData.ctaLink}
                 className="inline-block bg-sky-300 hover:bg-sky-400 text-gray-900 font-bold 
-                         py-3 px-6 md:py-4 md:px-8 rounded-lg shadow-xl hover:shadow-2xl transform hover:-translate-y-1 
-                         transition-all duration-300 text-base md:text-lg border-2 border-sky-300 hover:border-sky-400"
+                         py-2.5 px-5 md:py-3 md:px-7 rounded-lg shadow-xl hover:shadow-2xl transform hover:-translate-y-1 
+                         transition-all duration-300 text-sm md:text-base border-2 border-sky-300 hover:border-sky-400"
               >
                 {currentSlideData.ctaText}
               </Link>
@@ -308,7 +306,7 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Slide indicators (dots) :v */}
-      <div className="absolute bottom-8 md:bottom-12 lg:bottom-16 left-1/2 transform -translate-x-1/2 flex space-x-3 md:space-x-4 z-20">
+      <div className="absolute bottom-4 md:bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2 md:space-x-3 z-20">
         {slides.map((_, index) => (
           <button
             key={index}
