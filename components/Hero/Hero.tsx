@@ -111,7 +111,7 @@ const Hero: React.FC = () => {
   const currentSlideData = slides[currentSlide];
 
   return (
-    <section className="relative w-full h-[60vh] md:h-[80vh] lg:h-screen overflow-hidden">
+    <section className="relative w-full h-[70vh] md:h-[80vh] lg:h-screen overflow-hidden">
       {/* Background images with smooth transition */}
       {slides.map((slide, index) => (
         <div
@@ -127,6 +127,7 @@ const Hero: React.FC = () => {
             className="object-cover"
             priority={index === 0}
             quality={90}
+            unoptimized={index === 0 || index === 1}
           />
           {/* Overlay for text readability */}
           <div className="absolute inset-0 bg-black/30"></div>
@@ -134,25 +135,25 @@ const Hero: React.FC = () => {
       ))}
 
       {/* Content Container */}
-      <div className="relative z-10 h-full flex flex-col justify-center items-center px-6 text-center">
-        <div className="max-w-4xl mx-auto">
+      <div className="relative z-10 h-full flex flex-col justify-center items-center px-4 md:px-6 py-8 md:py-0 text-center">
+        <div className="max-w-4xl mx-auto w-full">
           {/* Slide content */}
           {currentSlideData.type === "hero" ? (
             // Hero content (Slide 1)
             <>
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-lg">
+              <h1 className="text-3xl md:text-5xl lg:text-7xl font-bold text-white mb-4 md:mb-6 leading-tight drop-shadow-lg px-2">
                 {currentSlideData.title}
               </h1>
 
-              <h4 className="text-lg md:text-xl lg:text-2xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed drop-shadow-md">
+              <h4 className="text-base md:text-xl lg:text-2xl text-white/90 mb-6 md:mb-8 max-w-3xl mx-auto leading-relaxed drop-shadow-md px-4">
                 {currentSlideData.subtitle}
               </h4>
 
               <Link
                 href={currentSlideData.ctaLink}
                 className="inline-block bg-sky-300 hover:bg-sky-400 text-gray-900 font-bold 
-                         py-4 px-8 rounded-lg shadow-xl hover:shadow-2xl transform hover:-translate-y-1 
-                         transition-all duration-300 text-lg border-2 border-sky-300 hover:border-sky-400"
+                         py-3 px-6 md:py-4 md:px-8 rounded-lg shadow-xl hover:shadow-2xl transform hover:-translate-y-1 
+                         transition-all duration-300 text-base md:text-lg border-2 border-sky-300 hover:border-sky-400"
               >
                 {currentSlideData.ctaText}
               </Link>
@@ -160,15 +161,15 @@ const Hero: React.FC = () => {
           ) : currentSlideData.type === "purpose" ? (
             // Purpose content (Slide 2)
             <>
-              <h1 className="text-2xl md:text-5xl lg:text-6xl font-bold text-white mb-2 md:mb-4 leading-tight drop-shadow-lg">
+              <h1 className="text-2xl md:text-4xl lg:text-6xl font-bold text-white mb-3 md:mb-4 leading-tight drop-shadow-lg px-2">
                 {currentSlideData.title}
               </h1>
 
-              <h4 className="text-xs md:text-lg lg:text-xl text-white/90 mb-4 md:mb-8 drop-shadow-md max-w-4xl mx-auto px-2 md:px-4 leading-tight">
+              <h4 className="text-sm md:text-lg lg:text-xl text-white/90 mb-4 md:mb-6 drop-shadow-md max-w-4xl mx-auto px-4 md:px-4 leading-snug">
                 {/* Mostrar texto más corto en móvil */}
                 <span className="block md:hidden">
                   Empowering artisans worldwide while preserving traditional
-                  crafts for future generations.
+                  crafts.
                 </span>
                 <span className="hidden md:block">
                   {currentSlideData.subtitle}
@@ -178,14 +179,14 @@ const Hero: React.FC = () => {
               {/* Purpose features */}
               {currentSlideData.features && (
                 <>
-                  {/* Vista móvil: solo 4 features principales */}
-                  <div className="grid grid-cols-1 gap-2 max-w-sm mx-auto mb-4 px-2 md:hidden">
+                  {/* Vista móvil: solo 3 features principales */}
+                  <div className="grid grid-cols-1 gap-2 max-w-xs mx-auto mb-4 px-4 md:hidden">
                     {currentSlideData.features
-                      .slice(0, 4)
+                      .slice(0, 3)
                       .map((feature, index) => (
                         <div
                           key={index}
-                          className="bg-white/90 rounded-lg p-2 shadow-md border border-gray-100 hover:shadow-lg transform hover:scale-102 transition-all duration-300"
+                          className="bg-white/90 rounded-lg p-2.5 shadow-md border border-gray-100"
                         >
                           <div className="flex items-center space-x-2">
                             <div className="w-2 h-2 bg-sky-600 rounded-full flex-shrink-0"></div>
@@ -219,8 +220,8 @@ const Hero: React.FC = () => {
               <Link
                 href={currentSlideData.ctaLink}
                 className="inline-block bg-sky-300 hover:bg-sky-400 text-gray-900 font-bold 
-                         py-4 px-8 rounded-lg shadow-xl hover:shadow-2xl transform hover:-translate-y-1 
-                         transition-all duration-300 text-lg border-2 border-sky-300 hover:border-sky-400"
+                         py-3 px-6 md:py-4 md:px-8 rounded-lg shadow-xl hover:shadow-2xl transform hover:-translate-y-1 
+                         transition-all duration-300 text-base md:text-lg border-2 border-sky-300 hover:border-sky-400"
               >
                 {currentSlideData.ctaText}
               </Link>
@@ -228,15 +229,14 @@ const Hero: React.FC = () => {
           ) : (
             // Benefits content (Slide 3)
             <>
-              <h1 className="text-2xl md:text-5xl lg:text-6xl font-bold text-white mb-2 md:mb-4 leading-tight drop-shadow-lg">
+              <h1 className="text-2xl md:text-4xl lg:text-6xl font-bold text-white mb-3 md:mb-4 leading-tight drop-shadow-lg px-2">
                 {currentSlideData.title}
               </h1>
 
-              <h4 className="text-xs md:text-lg lg:text-xl text-white/90 mb-4 md:mb-8 drop-shadow-md px-2 md:px-4 leading-tight">
+              <h4 className="text-sm md:text-lg lg:text-xl text-white/90 mb-4 md:mb-6 drop-shadow-md px-4 md:px-4 leading-snug">
                 {/* Texto más corto en móvil */}
                 <span className="block md:hidden">
-                  Discover the unique advantages of choosing authentic, handmade
-                  products.
+                  Discover the advantages of authentic, handmade products.
                 </span>
                 <span className="hidden md:block">
                   {currentSlideData.subtitle}
@@ -247,7 +247,7 @@ const Hero: React.FC = () => {
               {currentSlideData.benefits && (
                 <>
                   {/* Vista móvil: solo 2 benefits principales */}
-                  <div className="grid grid-cols-1 gap-3 max-w-sm mx-auto mb-4 px-2 md:hidden">
+                  <div className="grid grid-cols-1 gap-2.5 max-w-xs mx-auto mb-4 px-4 md:hidden">
                     {currentSlideData.benefits
                       .slice(0, 2)
                       .map((benefit, benefitIndex) => (
@@ -256,11 +256,11 @@ const Hero: React.FC = () => {
                           className="bg-white/95 rounded-xl p-3 shadow-md border border-gray-50"
                         >
                           <div className="text-center">
-                            <div className="text-2xl mb-2">{benefit.icon}</div>
-                            <h3 className="text-sm font-semibold text-gray-800 mb-1">
+                            <div className="text-2xl mb-1.5">{benefit.icon}</div>
+                            <h3 className="text-xs font-semibold text-gray-800 mb-1">
                               {benefit.title}
                             </h3>
-                            <p className="text-gray-600 leading-tight text-xs">
+                            <p className="text-gray-600 leading-tight text-[10px]">
                               {benefit.description}
                             </p>
                           </div>
@@ -295,8 +295,8 @@ const Hero: React.FC = () => {
               <Link
                 href={currentSlideData.ctaLink}
                 className="inline-block bg-sky-300 hover:bg-sky-400 text-gray-900 font-bold 
-                         py-4 px-8 rounded-lg shadow-xl hover:shadow-2xl transform hover:-translate-y-1 
-                         transition-all duration-300 text-lg border-2 border-sky-300 hover:border-sky-400"
+                         py-3 px-6 md:py-4 md:px-8 rounded-lg shadow-xl hover:shadow-2xl transform hover:-translate-y-1 
+                         transition-all duration-300 text-base md:text-lg border-2 border-sky-300 hover:border-sky-400"
               >
                 {currentSlideData.ctaText}
               </Link>
@@ -306,7 +306,7 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Slide indicators (dots) :v */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-20">
+      <div className="absolute bottom-4 md:bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-20">
         {slides.map((_, index) => (
           <button
             key={index}
