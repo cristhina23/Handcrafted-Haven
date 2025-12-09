@@ -9,14 +9,25 @@ import { User } from "@/lib/models/User";
 export async function GET() {
   try {
     await connectDB();
-    const products = await Product.find();
+    const products = await Product.find().populate("sellerId", "shopName");
 
-    return NextResponse.json(
-      JSON.parse(JSON.stringify(products))
-    );
+    // Transform products to include sellerName at root level
+    const productsWithSeller = products.map((product) => {
+      const productObj = product.toObject();
+      return {
+        ...productObj,
+        sellerName: productObj.sellerId?.shopName || "Unknown Seller",
+        sellerId: productObj.sellerId?._id || productObj.sellerId,
+      };
+    });
+
+    return NextResponse.json(JSON.parse(JSON.stringify(productsWithSeller)));
   } catch (error) {
     console.error("Error fetching products:", error);
-    return NextResponse.json({ error: "Failed to load products" }, { status: 500 });
+    return NextResponse.json(
+      { error: "Failed to load products" },
+      { status: 500 }
+    );
   }
 }
 

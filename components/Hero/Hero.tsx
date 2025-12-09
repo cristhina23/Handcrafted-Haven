@@ -30,7 +30,7 @@ const slides: Slide[] = [
       "Connecting artisans with those who value meaningful, handmade creations.",
     backgroundImage: "/images/hero-slide-1.webp",
     ctaText: "Learn More",
-    ctaLink: "/products",
+    ctaLink: "/blog",
     type: "hero",
   },
   {
@@ -40,7 +40,7 @@ const slides: Slide[] = [
       "Empowering artisans worldwide while preserving traditional crafts for future generations. We believe in fair trade, authentic craftsmanship, and building meaningful connections between creators and customers. Every purchase supports a family, preserves a tradition, and creates a ripple effect of positive change in communities around the globe. Join us in celebrating the beauty of human creativity and the stories behind every handmade piece.",
     backgroundImage: "/images/hero-slide-2.webp",
     ctaText: "Learn About Us",
-    ctaLink: "/about",
+    ctaLink: "/contact",
     type: "purpose",
     features: [
       "Support Local Artisans Globally",
@@ -60,7 +60,7 @@ const slides: Slide[] = [
       "Discover the unique advantages of choosing authentic, handmade products over mass-produced alternatives.",
     backgroundImage: "/images/hero-slide-3.webp",
     ctaText: "Start Shopping",
-    ctaLink: "/products",
+    ctaLink: "/shop",
     type: "benefits",
     benefits: [
       {

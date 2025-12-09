@@ -33,7 +33,6 @@ export async function GET(
   }
 }
 
-
 export async function PUT(
   req: Request,
   { params }: { params: Promise<{ id: string }> }
@@ -43,12 +42,14 @@ export async function PUT(
     
     const { id } = await params;
     const { userId } = await auth();
-    if (!userId) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    if (!userId)
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
 
     const user = await User.findOne({ clerkId: userId });
     const seller = await Seller.findOne({ userId: user?._id });
-    if (!seller) return NextResponse.json({ error: "Seller not found" }, { status: 404 });
+    if (!seller)
+      return NextResponse.json({ error: "Seller not found" }, { status: 404 });
 
     const order = await Order.findById(id);
     if (!order) return NextResponse.json({ error: "Order not found" }, { status: 404 });
@@ -80,13 +81,15 @@ export async function DELETE(
     const { id } = await params;
 
     const { userId } = await auth();
-    if (!userId) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    if (!userId)
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
     await connectDB();
 
     const user = await User.findOne({ clerkId: userId });
     const seller = await Seller.findOne({ userId: user?._id });
-    if (!seller) return NextResponse.json({ error: "Seller not found" }, { status: 404 });
+    if (!seller)
+      return NextResponse.json({ error: "Seller not found" }, { status: 404 });
 
     const order = await Order.findById(id);
     if (!order) return NextResponse.json({ error: "Order not found" }, { status: 404 });

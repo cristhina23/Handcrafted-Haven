@@ -1,23 +1,33 @@
 import mongoose, { Schema, Document } from "mongoose";
 
 export interface ICartItem {
-  productId: mongoose.Types.ObjectId;
+  productId: string;
+  productName: string;
+  productImage: string;
+  price: number;
   quantity: number;
+  sellerId: string;
+  sellerName: string;
 }
 
 export interface ICart extends Document {
-  userId: mongoose.Types.ObjectId;
+  userId: string; // Clerk user ID
   items: ICartItem[];
   updatedAt: Date;
 }
 
 const CartSchema = new Schema<ICart>(
   {
-    userId: { type: Schema.Types.ObjectId, ref: "User", required: true },
+    userId: { type: String, required: true, unique: true }, // Clerk uses strings
     items: [
       {
-        productId: { type: Schema.Types.ObjectId, ref: "Product" },
-        quantity: Number,
+        productId: { type: String, required: true },
+        productName: { type: String, required: true },
+        productImage: { type: String, required: true },
+        price: { type: Number, required: true },
+        quantity: { type: Number, required: true },
+        sellerId: { type: String, required: true },
+        sellerName: { type: String, required: true },
       },
     ],
   },

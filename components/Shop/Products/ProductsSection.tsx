@@ -37,9 +37,13 @@ export default function ProductsSection({
       case "price-descending":
         return b.price - a.price;
       case "created-ascending":
-        return new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime();
+        return (
+          new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
+        );
       case "created-descending":
-        return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+        return (
+          new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+        );
       default:
         return 0;
     }
@@ -50,7 +54,7 @@ export default function ProductsSection({
     return (
       <section className="space-y-6">
         <FilterSortGrid
-          totalProducts={0}               // o products.length si prefieres
+          totalProducts={0} // o products.length si prefieres
           onGridChange={onGridChange}
           onSortChange={onSortChange}
           onMobileFilterClick={onOpenMobileFilter}

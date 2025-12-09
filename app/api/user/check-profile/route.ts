@@ -22,10 +22,19 @@ export async function GET(req: NextRequest) {
       );
     }
 
+    // Actually validate that required fields exist, not just trust profileCompleted flag
+    const hasRequiredFields = Boolean(
+      user.username &&
+        user.address &&
+        user.address.street &&
+        user.address.city &&
+        user.address.country
+    );
+
     return Response.json(
       {
         exists: true,
-        profileCompleted: user.profileCompleted || false,
+        profileCompleted: hasRequiredFields,
         user: {
           username: user.username,
           email: user.email,

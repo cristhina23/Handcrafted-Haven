@@ -41,11 +41,4 @@ yarn-error.log*
 next-env.d.ts
 
 .clerk/
-# clerk configuration (can include secrets)
-<<<<<<< HEAD
 .history/
-=======
-/.clerk/
-.history
-
->>>>>>> seller-dashboard-3

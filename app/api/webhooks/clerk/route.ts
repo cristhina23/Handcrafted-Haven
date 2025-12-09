@@ -4,6 +4,30 @@ import { WebhookEvent } from "@clerk/nextjs/server";
 import { connectDB } from "@/lib/db/db";
 import { User } from "@/lib/models/User";
 
+// Function to decode Clerk proxy URL and get the real image URL
+function decodeClerkImageUrl(url: string | null | undefined): string | null {
+  if (!url) return null;
+
+  try {
+    // Check if it's a Clerk proxy URL
+    if (url.includes("img.clerk.com/eyJ")) {
+      // Extract the base64 part after the last /
+      const base64Part = url.split("/").pop();
+      if (base64Part) {
+        // Use Buffer for Node.js environment
+        const decoded = Buffer.from(base64Part, "base64").toString("utf-8");
+        const parsed = JSON.parse(decoded);
+        // Return the actual source URL
+        return parsed.src || url;
+      }
+    }
+    return url;
+  } catch (error) {
+    console.error("Error decoding Clerk URL:", error);
+    return url;
+  }
+}
+
 export async function POST(req: Request) {
   const WEBHOOK_SECRET = process.env.CLERK_WEBHOOK_SECRET;
 
@@ -69,12 +93,15 @@ export async function POST(req: Request) {
     await connectDB();
     const { id, email_addresses, first_name, last_name, image_url } = evt.data;
 
+    // Decode Clerk image URL to get the real URL
+    const decodedImageUrl = decodeClerkImageUrl(image_url);
+
     // Create user in MongoDB
     await User.create({
       clerkId: id,
       email: email_addresses[0].email_address,
       fullName: `${first_name || ""} ${last_name || ""}`.trim(),
-      image: image_url,
+      image: decodedImageUrl,
       profileCompleted: false,
     });
 
@@ -88,13 +115,16 @@ export async function POST(req: Request) {
     await connectDB();
     const { id, email_addresses, first_name, last_name, image_url } = evt.data;
 
+    // Decode Clerk image URL to get the real URL
+    const decodedImageUrl = decodeClerkImageUrl(image_url);
+
     // Update user in MongoDB
     await User.findOneAndUpdate(
       { clerkId: id },
       {
         email: email_addresses[0].email_address,
         fullName: `${first_name || ""} ${last_name || ""}`.trim(),
-        image: image_url,
+        image: decodedImageUrl,
       }
     );
 
