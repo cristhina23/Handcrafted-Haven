@@ -111,7 +111,7 @@ const Hero: React.FC = () => {
   const currentSlideData = slides[currentSlide];
 
   return (
-    <section className="relative w-full h-[70vh] md:h-[80vh] lg:h-screen overflow-hidden">
+    <section className="relative w-full min-h-[80vh] md:min-h-[85vh] lg:min-h-screen overflow-hidden overflow-x-hidden">
       {/* Background images with smooth transition */}
       {slides.map((slide, index) => (
         <div
@@ -135,12 +135,12 @@ const Hero: React.FC = () => {
       ))}
 
       {/* Content Container */}
-      <div className="relative z-10 h-full flex flex-col justify-center items-center px-4 md:px-6 py-8 md:py-0 text-center">
-        <div className="max-w-4xl mx-auto w-full">
+      <div className="relative z-10 min-h-[80vh] md:min-h-[85vh] lg:min-h-screen flex flex-col justify-center items-center px-4 md:px-6 lg:px-8 py-12 md:py-16 lg:py-20 text-center">
+        <div className="max-w-6xl mx-auto w-full">
           {/* Slide content */}
           {currentSlideData.type === "hero" ? (
             // Hero content (Slide 1)
-            <>
+            <div className="pb-16 md:pb-20">
               <h1 className="text-3xl md:text-5xl lg:text-7xl font-bold text-white mb-4 md:mb-6 leading-tight drop-shadow-lg px-2">
                 {currentSlideData.title}
               </h1>
@@ -157,10 +157,10 @@ const Hero: React.FC = () => {
               >
                 {currentSlideData.ctaText}
               </Link>
-            </>
+            </div>
           ) : currentSlideData.type === "purpose" ? (
             // Purpose content (Slide 2)
-            <>
+            <div className="pb-16 md:pb-20">
               <h1 className="text-2xl md:text-4xl lg:text-6xl font-bold text-white mb-3 md:mb-4 leading-tight drop-shadow-lg px-2">
                 {currentSlideData.title}
               </h1>
@@ -186,11 +186,11 @@ const Hero: React.FC = () => {
                       .map((feature, index) => (
                         <div
                           key={index}
-                          className="bg-white/90 rounded-lg p-2.5 shadow-md border border-gray-100"
+                          className="bg-white/20 backdrop-blur-md rounded-lg p-2.5 shadow-lg border border-white/30"
                         >
                           <div className="flex items-center space-x-2">
-                            <div className="w-2 h-2 bg-sky-600 rounded-full flex-shrink-0"></div>
-                            <span className="text-gray-800 font-medium text-xs leading-tight">
+                            <div className="w-2 h-2 bg-sky-400 rounded-full flex-shrink-0"></div>
+                            <span className="text-white font-medium text-xs leading-tight drop-shadow">
                               {feature}
                             </span>
                           </div>
@@ -203,11 +203,11 @@ const Hero: React.FC = () => {
                     {currentSlideData.features.map((feature, index) => (
                       <div
                         key={index}
-                        className="bg-white/90 rounded-lg p-5 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 transform hover:scale-102"
+                        className="bg-white/20 backdrop-blur-md rounded-lg p-5 shadow-lg hover:shadow-xl transition-all duration-300 border border-white/30 transform hover:scale-105 hover:bg-white/30"
                       >
                         <div className="flex items-center space-x-3">
-                          <div className="w-4 h-4 bg-sky-600 rounded-full flex-shrink-0"></div>
-                          <span className="text-gray-800 font-medium text-sm lg:text-base">
+                          <div className="w-4 h-4 bg-sky-400 rounded-full flex-shrink-0"></div>
+                          <span className="text-white font-semibold text-sm lg:text-base drop-shadow">
                             {feature}
                           </span>
                         </div>
@@ -225,10 +225,10 @@ const Hero: React.FC = () => {
               >
                 {currentSlideData.ctaText}
               </Link>
-            </>
+            </div>
           ) : (
             // Benefits content (Slide 3)
-            <>
+            <div className="pb-16 md:pb-20">
               <h1 className="text-2xl md:text-4xl lg:text-6xl font-bold text-white mb-3 md:mb-4 leading-tight drop-shadow-lg px-2">
                 {currentSlideData.title}
               </h1>
@@ -253,14 +253,14 @@ const Hero: React.FC = () => {
                       .map((benefit, benefitIndex) => (
                         <div
                           key={benefitIndex}
-                          className="bg-white/95 rounded-xl p-3 shadow-md border border-gray-50"
+                          className="bg-white/20 backdrop-blur-md rounded-xl p-3 shadow-lg border border-white/30"
                         >
                           <div className="text-center">
                             <div className="text-2xl mb-1.5">{benefit.icon}</div>
-                            <h3 className="text-xs font-semibold text-gray-800 mb-1">
+                            <h3 className="text-xs font-semibold text-white mb-1 drop-shadow">
                               {benefit.title}
                             </h3>
-                            <p className="text-gray-600 leading-tight text-[10px]">
+                            <p className="text-white/90 leading-tight text-[10px] drop-shadow">
                               {benefit.description}
                             </p>
                           </div>
@@ -273,16 +273,16 @@ const Hero: React.FC = () => {
                     {currentSlideData.benefits.map((benefit, benefitIndex) => (
                       <div
                         key={benefitIndex}
-                        className="bg-white/95 rounded-xl p-4 md:p-6 lg:p-8 shadow-md hover:shadow-xl transition-all duration-300 transform hover:scale-102 border border-gray-50"
+                        className="bg-white/20 backdrop-blur-md rounded-xl p-4 md:p-6 lg:p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 border border-white/30 hover:bg-white/30"
                       >
                         <div className="text-center">
                           <div className="text-3xl md:text-4xl lg:text-5xl mb-2 md:mb-4">
                             {benefit.icon}
                           </div>
-                          <h3 className="text-base md:text-lg lg:text-xl font-semibold text-gray-800 mb-2 md:mb-3">
+                          <h3 className="text-base md:text-lg lg:text-xl font-semibold text-white mb-2 md:mb-3 drop-shadow">
                             {benefit.title}
                           </h3>
-                          <p className="text-gray-600 leading-relaxed text-xs md:text-sm lg:text-base">
+                          <p className="text-white/90 leading-relaxed text-xs md:text-sm lg:text-base drop-shadow">
                             {benefit.description}
                           </p>
                         </div>
@@ -300,20 +300,20 @@ const Hero: React.FC = () => {
               >
                 {currentSlideData.ctaText}
               </Link>
-            </>
+            </div>
           )}
         </div>
       </div>
 
       {/* Slide indicators (dots) :v */}
-      <div className="absolute bottom-4 md:bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-20">
+      <div className="absolute bottom-8 md:bottom-12 lg:bottom-16 left-1/2 transform -translate-x-1/2 flex space-x-3 md:space-x-4 z-20">
         {slides.map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`w-4 h-4 rounded-full transition-all duration-300 cursor-pointer ${
+            className={`w-3 h-3 md:w-4 md:h-4 rounded-full transition-all duration-300 cursor-pointer ${
               index === currentSlide
-                ? "bg-white shadow-lg"
+                ? "bg-white shadow-lg scale-110"
                 : "bg-white/50 hover:bg-white/75"
             }`}
             aria-label={`Go to slide ${index + 1}`}
