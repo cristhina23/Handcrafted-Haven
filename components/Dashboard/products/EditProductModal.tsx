@@ -167,7 +167,6 @@ export default function EditProductModal({
                 </button>
               </div>
             ))}
-
             
             <label className="w-20 h-20 border border-dashed rounded flex items-center justify-center cursor-pointer border-slate-400 dark:border-slate-500 hover:bg-slate-200 dark:hover:bg-slate-700 transition">
               <Plus size={26} className="text-slate-600 dark:text-slate-300" />

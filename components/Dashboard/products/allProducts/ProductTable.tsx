@@ -18,13 +18,15 @@ export default function ProductTableShadCN() {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [productToDelete, setProductToDelete] = useState<Product | null>(null);
 
-  // --- PAGINACION ---
+
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 5; // cantidad de productos por página
+  const itemsPerPage = 8; 
 
   const totalPages = Math.ceil(products.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
   const currentProducts = products.slice(startIndex, startIndex + itemsPerPage);
+
+  const isEmpty = currentProducts.length === 0;
 
   const handleNextPage = () => {
     if (currentPage < totalPages) setCurrentPage(currentPage + 1);
@@ -56,17 +58,33 @@ export default function ProductTableShadCN() {
 
   return (
     <div className="overflow-x-auto rounded-md shadow-2xl">
+      
+        
+      
+
       <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700 ">
         <thead className="bg-slate-200 dark:bg-gray-800" >
           <tr>
-            <th className="p-4 text-left w-20">Image</th>
-            <th className="p-4 text-left">Title</th>
-            <th className="p-4 text-left ">Rating</th>
-            <th className="p-4 text-left w-26">Price</th>
-            <th className="p-4 text-left w-20">Qty</th>
-            <th className="p-4 text-center w-32">Actions</th>
+            <th className="p-4 text-left w-20 text-slate-800 dark:text-slate-300">Image</th>
+            <th className="p-4 text-left text-slate-800 dark:text-slate-300">Title</th>
+            <th className="p-4 text-left text-slate-800 dark:text-slate-300">Rating</th>
+            <th className="p-4 text-left w-26 text-slate-800 dark:text-slate-300">Price</th>
+            <th className="p-4 text-left w-20 text-slate-800 dark:text-slate-300">Qty</th>
+            <th className="p-4 text-center w-32 text-slate-800 dark:text-slate-300">Actions</th>
           </tr>
         </thead>
+        {isEmpty ? (
+        <tbody>
+          <tr>
+            <td
+              colSpan={6}
+              className="p-8 text-center text-gray-500 dark:text-gray-400"
+            >
+              No products found.
+            </td>
+          </tr>
+        </tbody>
+      ) : (
         <tbody className="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
           {currentProducts.map((p) => (
             <tr key={p._id} className="hover:bg-gray-50 dark:hover:bg-gray-700 transition">
@@ -98,6 +116,7 @@ export default function ProductTableShadCN() {
             </tr>
           ))}
         </tbody>
+      )}
       </table>
       
 

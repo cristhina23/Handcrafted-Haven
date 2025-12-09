@@ -86,7 +86,7 @@ export default function AddProductFormExtended() {
       mainImageUrl = data.url;
     }
 
-    // 2. Subir galleryImages
+    
     const galleryUrls: string[] = [];
 
     for (const file of galleryImages) {
@@ -142,7 +142,7 @@ export default function AddProductFormExtended() {
     <form className="max-w-3xl mx-auto p-2 md:p-6 bg-white dark:bg-slate-900/50 rounded-lg text-slate-900 dark:text-slate-300 space-y-4 shadow-2xl " onSubmit={handleSubmit}>
       <h2 className="text-2xl font-bold">Add Product</h2>
 
-      {/* TITLE */}
+     
       <Input
         placeholder="Product Title"
         value={title}
@@ -150,7 +150,7 @@ export default function AddProductFormExtended() {
         className="py-6 px-4 text-lg"
       />
 
-      {/* DESCRIPTION */}
+      
       <Textarea
         placeholder="Product Description"
         value={description}
@@ -158,7 +158,7 @@ export default function AddProductFormExtended() {
         className="h-32"
       />
 
-      {/* PRICE & QUANTITY */}
+      
       <div className="flex gap-4">
         <Input
           type="number"
@@ -178,7 +178,7 @@ export default function AddProductFormExtended() {
         />
       </div>
 
-      {/* CATEGORY */}
+      
       <DynamicSortSelector
           options={categoryOptions}
           defaultValue={categories[0].id}
@@ -186,7 +186,7 @@ export default function AddProductFormExtended() {
 
         />
 
-      {/* DIMENSIONS */}
+    
       <Input
         placeholder="Dimensions"
         value={dimensions}
@@ -194,7 +194,7 @@ export default function AddProductFormExtended() {
         className="py-6 px-4 text-lg"
       />
 
-      {/* IS CUSTOM ORDER */}
+      
       <div className="flex items-center gap-2">
         <Checkbox
           checked={isCustomOrder}
@@ -204,7 +204,7 @@ export default function AddProductFormExtended() {
         <Label className="text-md font-normal">Is Custom Order</Label>
       </div>
 
-      {/* SHIPPING METHODS */}
+      
       <div>
         <p className="mb-2 font-medium">Shipping Methods:</p>
         <div className="flex flex-col md:flex-row gap-4">
@@ -221,7 +221,7 @@ export default function AddProductFormExtended() {
         </div>
       </div>
 
-      {/* VARIANTS */}
+     
       <div>
         <div className="flex justify-between items-center mb-2">
           <p className="font-medium text-lg">Variants</p>
@@ -297,7 +297,7 @@ export default function AddProductFormExtended() {
         </div>
       ))}
 
-      {/* Botón para agregar nuevas imágenes */}
+      
       {galleryImages.length < 5 && (
         <label className="w-40 h-40 border border-dashed rounded flex items-center justify-center cursor-pointer border-slate-400 dark:border-slate-500 hover:bg-slate-200 dark:hover:bg-slate-700 transition">
           <Plus size={26} className="text-slate-600 dark:text-slate-300" />

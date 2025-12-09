@@ -32,7 +32,7 @@ export default function DashboardPage({ clerkId }: Props) {
           <RevenueByCountry />
        
         
-          <div className="w-full   flex flex-col gap-8 md:flex-row  ">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 auto-rows-[1fr]">
             <div className="flex-1">
               <BestSellers />
             </div>

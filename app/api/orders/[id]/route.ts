@@ -40,11 +40,11 @@ export async function PUT(
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    await connectDB();
     const { id } = await params;
     const { userId } = await auth();
     if (!userId) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
-    await connectDB();
 
     const user = await User.findOne({ clerkId: userId });
     if (!user) return NextResponse.json({ error: "User not found" }, { status: 404 });
@@ -61,6 +61,7 @@ export async function PUT(
 
     
     const sellerHasItem = order.items.some(
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (item: any) => String(item.sellerId) === String(seller._id)
     );
     if (!sellerHasItem) return NextResponse.json({ error: "Forbidden" }, { status: 403 });

@@ -39,11 +39,12 @@ export async function PUT(
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    await connectDB();
+    
     const { id } = await params;
     const { userId } = await auth();
     if (!userId) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
-    await connectDB();
 
     const user = await User.findOne({ clerkId: userId });
     const seller = await Seller.findOne({ userId: user?._id });

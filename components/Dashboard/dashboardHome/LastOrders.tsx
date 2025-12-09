@@ -28,6 +28,8 @@ interface Order {
 export default function RecentOrders() {
   const [orders, setOrders] = useState<Order[]>([]);
 
+  const isEmpty = orders.length === 0;  
+
   useEffect(() => {
     fetch("/api/dashboard/last-orders", { method: "GET" })
       .then((res) => res.json())
@@ -36,10 +38,10 @@ export default function RecentOrders() {
   }, []);
 
   return (
-    <Card className="md:p-6  rounded-xl shadow-lg  ">
+    <Card className="h-full md:p-6   rounded-xl shadow-lg  ">
       <CardHeader>
         <div className="flex justify-between">
-        <CardTitle className="text-lg font-bold">Recent Orders</CardTitle>
+        <CardTitle className="text-xl font-bold text-slate-900 dark:text-slate-300">Recent Orders</CardTitle>
           <Link href="/dashboard/orders">
             <CardDescription className="flex gap-2">View All  Orders <ArrowRight /></CardDescription>
           </Link>
@@ -48,7 +50,10 @@ export default function RecentOrders() {
       </CardHeader>
       <CardContent>
         <div className="overflow-x-auto">
-          <table className="w-full table-auto border-collapse text-sm text-left">
+          {isEmpty ? (
+            <p className="text-md text-slate-800 dark:text-slate-300">No orders found yet.. Start selling!</p>
+          ) : (
+            <table className="w-full table-auto border-collapse text-sm text-left">
             <thead>
               <tr className="border-b">
                 <th className="py-2">Customer</th>
@@ -86,8 +91,10 @@ export default function RecentOrders() {
               ))}
             </tbody>
           </table>
+          )}
         </div>
       </CardContent>
     </Card>
   );
 }
+

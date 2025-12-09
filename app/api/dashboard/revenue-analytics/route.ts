@@ -1,9 +1,7 @@
 import { NextResponse } from "next/server";
 import { connectDB } from "@/lib/db/db";
 import { Order, IOrderItem } from "@/lib/models/Order";
-import { auth } from "@clerk/nextjs/server";
-import { User } from "@/lib/models/User";
-import { Seller } from "@/lib/models/Seller";
+import { getSellerFromAuth } from "@/lib/scripts/getSeller";
 
 interface SellerOrderItem {
   orderId: string;         
@@ -27,22 +25,11 @@ export async function GET() {
   try {
     await connectDB();
 
-    const { userId: clerkId } = await auth();
-    if (!clerkId) {
-      return NextResponse.json({ error: "Not authenticated" }, { status: 401 });
-    }
+    const { seller, error, status } = await getSellerFromAuth();
+    if (error) return NextResponse.json({ error }, { status });
 
-    // Buscar el usuario y el seller correspondiente
-    const user = await User.findOne({ clerkId }).lean();
-    if (!user) return NextResponse.json({ error: "User not found" }, { status: 404 });
-
-    const seller = await Seller.findOne({ userId: user._id }).lean();
-    if (!seller) return NextResponse.json({ error: "Seller not found" }, { status: 404 });
-
-    // Traer todas las órdenes
     const orders = await Order.find().lean();
 
-    // Filtrar los items que pertenecen al seller
     const sellerOrdersItems: SellerOrderItem[] = [];
     orders.forEach(order => {
       order.items.forEach((item: IOrderItem) => {

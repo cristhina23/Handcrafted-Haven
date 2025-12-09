@@ -26,8 +26,8 @@ export const sidebarLinks = [
         href: "/dashboard/products", 
         icon: Package,
         sublinks: [
-          { name: "all products", href: "/dashboard/products?tab=all" },
-          { name: "add product", href: "/dashboard/products?tab=add" }
+          { name: "All Products", href: "/dashboard/products?tab=all" },
+          { name: "Add Product", href: "/dashboard/products?tab=add" }
         ]
       },
       { 
@@ -60,9 +60,9 @@ export const sidebarLinks = [
         href: "/dashboard/my-store", 
         icon: Store,
         sublinks: [
-          { name: "store info", href: "/dashboard/my-store" },
-          { name: "delivery options", href: "/dashboard/my-store/delivery" },
-          { name: "payment methods", href: "/dashboard/my-store/payments" },
+          { name: "Store Info", href: "/dashboard/my-store" },
+          /* { name: "delivery options", href: "/dashboard/my-store/delivery" },
+          { name: "payment methods", href: "/dashboard/my-store/payments" }, */
         ]
       },
       { 
@@ -80,8 +80,8 @@ export const sidebarLinks = [
         href: "/dashboard/settings", 
         icon: Settings,
         sublinks: [
-          { name: "account", href: "/dashboard/settings/account" },
-          { name: "security", href: "/dashboard/settings/security" },
+          { name: "Account", href: "/dashboard/settings/account" },
+          { name: "Security", href: "/dashboard/settings/security" },
         ]
       },
       { 

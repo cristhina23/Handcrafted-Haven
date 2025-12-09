@@ -163,7 +163,11 @@ export default function OrdersTable() {
 
    
     if (loading) return <p className="p-4">Loading orders...</p>;
-    if (!orders.length) return <p className="p-4">No orders found</p>;
+    if (!orders.length) return  (
+      <div className="p-8 text-center text-gray-500 dark:text-gray-400 border rounded-xl bg-white dark:bg-gray-800">
+        No orders found.
+      </div>
+    );
 
   return (
     <div>

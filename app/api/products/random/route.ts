@@ -7,16 +7,16 @@ export async function GET() {
   try {
     await connectDB();
 
-    // Trae todos los productos
+
     let products = await Product.find().lean();
 
-    // Mezcla los productos (pure shuffle)
+   
     for (let i = products.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [products[i], products[j]] = [products[j], products[i]];
     }
 
-    // Toma solo los primeros 3
+    
     products = products.slice(0, 3);
 
     return NextResponse.json(products);

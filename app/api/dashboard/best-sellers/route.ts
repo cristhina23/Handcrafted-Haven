@@ -1,26 +1,39 @@
 import { NextResponse } from "next/server";
 import { connectDB } from "@/lib/db/db";
 import { Order, IOrderItem } from "@/lib/models/Order";
+import { auth } from "@clerk/nextjs/server";
+import { User } from "@/lib/models/User";
+import { Seller } from "@/lib/models/Seller";
+import { getSellerFromAuth } from "@/lib/scripts/getSeller";
 
 export async function GET() {
   try {
     await connectDB();
 
-   // get all orders and populate productId to get product name
+    const { seller, error, status } = await getSellerFromAuth();
+    if (error) return NextResponse.json({ error }, { status });
+
+    
     const orders = await Order.find().populate("items.productId", "title");
 
-    // Here we count how many times each product was sold
+    
     const bestSellers: Record<string, number> = {};
 
-      // Loop through the orders 
     orders.forEach(order => {
-      // Loop through the items
-      order.items.forEach((item: IOrderItem & { productId?: { title?: string } }) => {
-        const productName = item.productId?.title || "Unknown Product";
-        bestSellers[productName] = (bestSellers[productName] || 0) + item.quantity;
-      });
+      order.items.forEach(
+        (item: IOrderItem & { productId?: { title?: string } }) => {
+          
+          
+          if (item.sellerId?.toString() !== seller._id.toString()) return;
+
+          const productName = item.productId?.title || "Unknown Product";
+
+          bestSellers[productName] =
+            (bestSellers[productName] || 0) + (item.quantity || 0);
+        }
+      );
     });
-    //console.log(bestSellers);
+
     return NextResponse.json(bestSellers);
   } catch (error) {
     console.error(error);

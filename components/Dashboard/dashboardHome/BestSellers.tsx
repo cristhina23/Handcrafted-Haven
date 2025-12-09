@@ -43,13 +43,14 @@ export default function BestSellers() {
 
 
   const topData = sortedData.slice(0, 10);
+  const isEmpty = topData.length === 0;
 
   return (
-    <Card className="md:p-6  rounded-xl shadow-lg ">
+    <Card className="h-full md:p-6  rounded-xl shadow-lg ">
       <CardHeader >
        
          <div className="flex justify-between items-center">
-          <CardTitle className="font-bold text-xl  ">Best Sellers</CardTitle>
+          <CardTitle className="font-bold text-xl text-slate-900 dark:text-slate-300 ">Best Sellers</CardTitle>
           <Link href="/dashboard/orders">
               <CardDescription className="flex gap-2">
                 View All  Products 
@@ -67,29 +68,34 @@ export default function BestSellers() {
           
 
         
-        <div className="my-2 w-48">
+        <div className={`my-2 w-48 ${isEmpty ? "hidden" : ""}`}>
           <DynamicSortSelector<SortOption>
             options={OPTIONS}
             defaultValue="quantity-desc"
             onChange={(value) => setSortOption(value)}
+           
           />
         </div>
         </div>
       </CardHeader>
 
       <CardContent>
-        <ul className="text-md flex flex-col  gap-3 text-slate-600 mt-4 pb-5">
-          {topData.map((item) => (
-            <li key={item.title} className="flex justify-between py-1">
-              <div className='flex-2/3'>
-                <span className='text-slate-900 dark:text-slate-300'>{item.title}</span>
-              </div>
-              <div>
-                <span className="font-medium text-slate-900 dark:text-slate-300">{item.quantity}</span>
-              </div>
-            </li>
-          ))}
-        </ul>
+        {isEmpty ? (
+          <p className="text-md text-slate-800 dark:text-slate-300">Start selling to see your best-selling products here.</p>
+        ) : (
+            <ul className="text-md flex flex-col  gap-3 text-slate-600 mt-4 pb-5">
+            {topData.map((item) => (
+              <li key={item.title} className="flex justify-between py-1">
+                <div className='flex-2/3'>
+                  <span className='text-slate-900 dark:text-slate-300'>{item.title}</span>
+                </div>
+                <div>
+                  <span className="font-medium text-slate-900 dark:text-slate-300">{item.quantity}</span>
+                </div>
+              </li>
+            ))}
+          </ul>
+        )}
       </CardContent>
     </Card>
   );

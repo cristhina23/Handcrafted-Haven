@@ -86,7 +86,7 @@ export default function ProfileImage({ sellerImageUrl, user }: HeaderProps) {
                 
                   <motion.div  
                     className="px-4 py-4 w-full hover:bg-gray-100 border-b border-gray-100 cursor-pointer"                 >
-                    <Link href="/dashboard/profile">
+                    <Link href="/dashboard/my-profile">
                       <p className="flex items-center gap-2 font-semibold text-slate-800 text-sm text-start"><User size={18} /> Edit Profile</p>
                     </Link>
                   </motion.div>

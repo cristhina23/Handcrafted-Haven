@@ -40,20 +40,20 @@ export default function DashboardCard({
   return (
     <div className="bg-white border-2 border-slate-200 dark:bg-card dark:border-slate-800 p-6 rounded-xl shadow-lg  flex flex-col gap-3">
       
-      {/* Title */}
+      
       <div className="flex items-center justify-between text-lg font-bold text-slate-800 dark:text-slate-400">
         <span>{title}</span>
         {icons[icon]}
       </div>
 
-      {/* Valor */}
+      
       <h2 className="text-3xl font-bold text-slate-800 dark:text-slate-400">{value}</h2>
       {
         text && (
           <p className="text-sm text-slate-500 dark:text-slate-400">{text}</p>
         )
       }
-      {/* Cambio */}
+      
       {changeType !== "none" && (
         <p
           className={`text-sm ${
@@ -64,7 +64,7 @@ export default function DashboardCard({
         </p>
       )}
 
-      {/* Link */}
+      
       {typeof link === "string" ? (
         <Link
           href={link}

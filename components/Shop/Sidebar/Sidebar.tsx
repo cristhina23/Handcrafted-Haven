@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import ShopBy from "./ShopBy";
 import FilterBy, { PriceRange } from "./FilterBy";
 import FilterByCountry from "./FilterByCountry";
+import RandomProducts from "./RandomProducts";
 
 interface Category {
   _id: string;
@@ -138,6 +139,10 @@ export default function Sidebar({
         >
           Reset Filters
         </button>
+      </div>
+
+      <div>
+        <RandomProducts />
       </div>
     </aside>
   );

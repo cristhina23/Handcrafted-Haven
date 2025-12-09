@@ -4,28 +4,14 @@ import { Order, IOrderItem } from "@/lib/models/Order";
 import { auth } from "@clerk/nextjs/server";
 import { User } from "@/lib/models/User";
 import { Seller } from "@/lib/models/Seller";
+import { getSellerFromAuth } from "@/lib/scripts/getSeller";
 
 export async function GET() {
   try {
     await connectDB();
 
-    const { userId: clerkId } = await auth();
-
-    if (!clerkId) {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-    }
-
-    const user = await User.findOne({ clerkId });
-
-    if (!user) {
-      return NextResponse.json({ error: "User not found" }, { status: 404 });
-    }
-
-    const seller = await Seller.findOne({ userId: user._id });
-
-    if (!seller) {
-      return NextResponse.json({ error: "Seller not found" }, { status: 404 });
-    }
+    const { seller, error, status } = await getSellerFromAuth();
+    if (error) return NextResponse.json({ error }, { status });
 
     const orders = await Order.find().populate("buyerId", "address").lean();
 
@@ -39,7 +25,7 @@ export async function GET() {
         }
       });
     });
-    console.log(revenueByCountry);
+    /* console.log('This is the revenueByCountry: ', revenueByCountry); */
 
     return NextResponse.json(revenueByCountry);
 
