@@ -6,6 +6,7 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { useUser, SignInButton, UserButton, SignedOut } from "@clerk/nextjs";
 import { User } from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
+import { Button } from "@/components/ui/button";
 
 const UserActions: FC = () => {
   const { isSignedIn, user } = useUser();

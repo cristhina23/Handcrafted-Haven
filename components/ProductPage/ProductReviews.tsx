@@ -69,6 +69,7 @@ function ProductReviews({ productId, sellerId, initialReviews }: Props) {
           typeof review.userId === "string" ? review.userId : review.userId._id;
         return reviewUserId === currentUserDbId;
       });
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setUserHasReviewed(hasReviewed);
     }
   }, [currentUserDbId, reviews]);
