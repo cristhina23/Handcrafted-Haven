@@ -3,7 +3,7 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   // Empty turbopack config to silence the warning (dev uses Turbopack, prod uses webpack)
   turbopack: {},
-  // Force webpack for production builds to avoid Turbopack font issues
+  // Force webpack for production builds
   webpack: (config) => {
     return config;
   },
