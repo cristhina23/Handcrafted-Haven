@@ -1,6 +1,13 @@
 import { SignIn } from "@clerk/nextjs";
 
-export default function SignInPage() {
+export default async function SignInPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ redirect_url?: string }>;
+}) {
+  const params = await searchParams;
+  const redirectUrl = params.redirect_url || "/";
+
   return (
     <div className="flex min-h-screen items-center justify-center bg-[#F9F8F6] py-12 px-4 sm:px-6 lg:px-8">
       <div className="w-full max-w-md">
@@ -13,6 +20,7 @@ export default function SignInPage() {
           </p>
         </div>
         <SignIn
+          fallbackRedirectUrl={redirectUrl}
           appearance={{
             elements: {
               rootBox: "mx-auto",

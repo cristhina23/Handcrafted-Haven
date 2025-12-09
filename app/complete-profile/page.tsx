@@ -105,6 +105,16 @@ export default function CompleteProfilePage() {
       return;
     }
 
+    if (!formData.street || formData.street.trim().length === 0) {
+      alert("Street address is required for shipping");
+      return;
+    }
+
+    if (!formData.city || formData.city.trim().length === 0) {
+      alert("City is required for shipping");
+      return;
+    }
+
     if (formData.phoneNumber && !/^[0-9\-\s()]+$/.test(formData.phoneNumber)) {
       alert(
         "Phone number can only contain numbers, spaces, hyphens, and parentheses"
@@ -280,7 +290,7 @@ export default function CompleteProfilePage() {
                 <div className="space-y-4">
                   <div>
                     <label className="block text-sm font-medium text-[#111111] mb-2">
-                      Street Address
+                      Street Address <span className="text-red-500">*</span>
                     </label>
                     <Input
                       type="text"
@@ -288,13 +298,14 @@ export default function CompleteProfilePage() {
                       value={formData.street}
                       onChange={handleChange}
                       placeholder="123 Main St, Apt 4"
+                      required
                     />
                   </div>
 
                   <div className="grid grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-medium text-[#111111] mb-2">
-                        City
+                        City <span className="text-red-500">*</span>
                       </label>
                       <Input
                         type="text"
@@ -302,6 +313,7 @@ export default function CompleteProfilePage() {
                         value={formData.city}
                         onChange={handleChange}
                         placeholder="New York"
+                        required
                         pattern="[A-Za-z\s\-']+"
                         title="Please enter a valid city name (letters, spaces, hyphens, and apostrophes only)"
                       />

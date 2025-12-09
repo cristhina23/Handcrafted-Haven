@@ -58,13 +58,13 @@ export default function CheckoutContainer() {
     setStep(3);
   };
 
-  const handleUpdateQuantity = (productId: string, newQuantity: number) => {
+  const handleUpdateQuantity = (itemIndex: number, newQuantity: number) => {
     if (newQuantity < 1) return;
-    updateQuantity(productId, newQuantity);
+    updateQuantity(itemIndex, newQuantity);
   };
 
-  const handleRemoveItem = (productId: string) => {
-    removeFromCart(productId);
+  const handleRemoveItem = (itemIndex: number) => {
+    removeFromCart(itemIndex);
     // If cart becomes empty, redirect to shop
     if (items.length === 1) {
       router.push("/shop");

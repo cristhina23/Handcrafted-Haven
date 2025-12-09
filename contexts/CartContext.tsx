@@ -29,8 +29,8 @@ interface CartContextType {
     item: Omit<CartItem, "quantity"> & { quantity?: number },
     openModal?: boolean
   ) => void;
-  removeFromCart: (productId: string) => void;
-  updateQuantity: (productId: string, quantity: number) => void;
+  removeFromCart: (itemIndex: number) => void;
+  updateQuantity: (itemIndex: number, quantity: number) => void;
   clearCart: () => void;
   openCart: () => void;
   closeCart: () => void;
@@ -175,19 +175,46 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     console.log("Adding to cart:", item);
 
     setItems((prevItems) => {
-      const existingItem = prevItems.find(
-        (i) => i.productId === item.productId
-      );
+      // Create a function to compare items including variants
+      const isSameItem = (a: CartItem, b: typeof item) => {
+        if (a.productId !== b.productId) return false;
+
+        // Compare variants
+        const aSize = a.variants?.size || null;
+        const bSize = b.variants?.size || null;
+        const aColor = a.variants?.color || null;
+        const bColor = b.variants?.color || null;
+        const aMaterial = a.variants?.material || null;
+        const bMaterial = b.variants?.material || null;
+
+        // Compare dimensions and shipping method
+        const aDimensions = a.dimensions || null;
+        const bDimensions = b.dimensions || null;
+        const aShipping = a.shippingMethod || null;
+        const bShipping = b.shippingMethod || null;
+
+        return (
+          aSize === bSize &&
+          aColor === bColor &&
+          aMaterial === bMaterial &&
+          aDimensions === bDimensions &&
+          aShipping === bShipping
+        );
+      };
+
+      const existingItem = prevItems.find((i) => isSameItem(i, item));
 
       let updatedItems: CartItem[];
 
       if (existingItem) {
+        // Same product with same variants - increase quantity
         updatedItems = prevItems.map((i) =>
-          i.productId === item.productId
+          isSameItem(i, item)
             ? { ...i, quantity: i.quantity + (item.quantity || 1) }
             : i
         );
       } else {
+        // New item or different variant - add as separate item
         updatedItems = [
           ...prevItems,
           { ...item, quantity: item.quantity || 1 },
@@ -203,25 +230,23 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     }
   };
 
-  const removeFromCart = (productId: string) => {
+  const removeFromCart = (itemIndex: number) => {
     setItems((prevItems) => {
-      const updatedItems = prevItems.filter(
-        (item) => item.productId !== productId
-      );
+      const updatedItems = prevItems.filter((_, index) => index !== itemIndex);
       syncCartToDatabase(updatedItems);
       return updatedItems;
     });
   };
 
-  const updateQuantity = (productId: string, quantity: number) => {
+  const updateQuantity = (itemIndex: number, quantity: number) => {
     if (quantity < 1) {
-      removeFromCart(productId);
+      removeFromCart(itemIndex);
       return;
     }
 
     setItems((prevItems) => {
-      const updatedItems = prevItems.map((item) =>
-        item.productId === productId ? { ...item, quantity } : item
+      const updatedItems = prevItems.map((item, index) =>
+        index === itemIndex ? { ...item, quantity } : item
       );
       syncCartToDatabase(updatedItems);
       return updatedItems;
