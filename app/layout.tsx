@@ -37,10 +37,10 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-      <html lang="en">
+      <html lang="en" suppressHydrationWarning>
         <body
           className={`${merriweather.variable} ${poppins.variable} font-sans antialiased w-full bg-[#F1F5F9]`}
-          suppressHydrationWarning
+          
         >
           <div>
             <Toaster position="top-center" reverseOrder={false} />

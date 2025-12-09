@@ -43,13 +43,13 @@ export default function ProductPageContainer({ productId }: Props) {
   const handlePayNow = () => {
     if (!product) return;
 
-    // Check if user is signed in
+    
     if (!isSignedIn) {
       router.push("/sign-in?redirect_url=/checkout");
       return;
     }
 
-    // Add to cart without opening modal
+    
     addToCart(
       {
         productId: product._id,
