@@ -74,8 +74,8 @@ export default function CheckoutContainer() {
   const totalWithShipping = totalPrice + shippingCost;
 
   return (
-    <div className="min-h-screen bg-gray-50 py-4 md:py-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gray-50 py-4 md:py-8 flex justify-center">
+      <div className="w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-6 md:mb-8">
           <h1 className="text-2xl md:text-3xl font-bold text-slate-900">

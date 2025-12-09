@@ -28,42 +28,17 @@ export default function ProductPageContainer({ productId }: Props) {
   const { isSignedIn } = useUser();
 
   const handleAddToCart = () => {
-    if (!product) return;
-
-    addToCart({
-      productId: product._id,
-      productName: product.title,
-      productImage: product.images[0],
-      price: product.price,
-      sellerId: product.sellerId,
-      sellerName: product.sellerName || seller?.shopName || "Unknown Seller",
-    });
+    // Open modal to select variants
+    setModalOpen(true);
   };
 
   const handlePayNow = () => {
-    if (!product) return;
-
-    
     if (!isSignedIn) {
       router.push("/sign-in?redirect_url=/checkout");
       return;
     }
-
-    
-    addToCart(
-      {
-        productId: product._id,
-        productName: product.title,
-        productImage: product.images[0],
-        price: product.price,
-        sellerId: product.sellerId,
-        sellerName: product.sellerName || seller?.shopName || "Unknown Seller",
-      },
-      false
-    );
-
-    // Redirect to checkout
-    router.push("/checkout");
+    // Open modal to select variants before paying
+    setModalOpen(true);
   };
   useEffect(() => {
     let isCancelled = false;
@@ -105,9 +80,57 @@ export default function ProductPageContainer({ productId }: Props) {
       material: string | null;
     };
     shippingMethod: string;
+    dimensions: string | null;
     quantity: number;
   }) => {
-    console.log("ADDED →", data);
+    if (!product) return;
+
+    // Add to cart with variants
+    addToCart({
+      productId: product._id,
+      productName: product.title,
+      productImage: product.images[0],
+      price: product.price,
+      sellerId: product.sellerId,
+      sellerName: product.sellerName || seller?.shopName || "Unknown Seller",
+      quantity: data.quantity,
+      variants: data.variants,
+      dimensions: data.dimensions,
+      shippingMethod: data.shippingMethod,
+    });
+  };
+
+  const handlePayNowFromModal = (data: {
+    variants: {
+      size: string | null;
+      color: string | null;
+      material: string | null;
+    };
+    shippingMethod: string;
+    dimensions: string | null;
+    quantity: number;
+  }) => {
+    if (!product) return;
+
+    // Add to cart without opening the cart modal
+    addToCart(
+      {
+        productId: product._id,
+        productName: product.title,
+        productImage: product.images[0],
+        price: product.price,
+        sellerId: product.sellerId,
+        sellerName: product.sellerName || seller?.shopName || "Unknown Seller",
+        quantity: data.quantity,
+        variants: data.variants,
+        dimensions: data.dimensions,
+        shippingMethod: data.shippingMethod,
+      },
+      false // Don't open cart modal
+    );
+
+    // Redirect to checkout
+    router.push("/checkout");
   };
 
   if (loading) return <p className="text-center mt-10">Loading...</p>;
@@ -156,6 +179,7 @@ export default function ProductPageContainer({ productId }: Props) {
         onClose={() => setModalOpen(false)}
         product={product}
         onAddToCart={handleAdd}
+        onPayNow={handlePayNowFromModal}
       />
     </div>
   );

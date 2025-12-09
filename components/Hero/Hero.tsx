@@ -256,7 +256,9 @@ const Hero: React.FC = () => {
                           className="bg-white/20 backdrop-blur-md rounded-xl p-3 shadow-lg border border-white/30"
                         >
                           <div className="text-center">
-                            <div className="text-2xl mb-1.5">{benefit.icon}</div>
+                            <div className="text-2xl mb-1.5">
+                              {benefit.icon}
+                            </div>
                             <h3 className="text-xs font-semibold text-white mb-1 drop-shadow">
                               {benefit.title}
                             </h3>

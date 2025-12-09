@@ -98,9 +98,46 @@ export default function CartModal() {
                     <h3 className="font-semibold text-sm text-slate-900 truncate">
                       {item.productName || "Unknown Product"}
                     </h3>
-                    <p className="text-xs text-gray-500 mb-2">
+                    <p className="text-xs text-gray-500 mb-1">
                       by {item.sellerName || "Unknown Seller"}
                     </p>
+
+                    {/* Variants Display */}
+                    {item.variants && (
+                      <div className="text-xs text-gray-600 mb-1 space-y-0.5">
+                        {item.variants.size && (
+                          <p>
+                            Size:{" "}
+                            <span className="font-medium">
+                              {item.variants.size}
+                            </span>
+                          </p>
+                        )}
+                        {item.variants.color && (
+                          <p>
+                            Color:{" "}
+                            <span className="font-medium">
+                              {item.variants.color}
+                            </span>
+                          </p>
+                        )}
+                        {item.variants.material && (
+                          <p>
+                            Material:{" "}
+                            <span className="font-medium">
+                              {item.variants.material}
+                            </span>
+                          </p>
+                        )}
+                      </div>
+                    )}
+                    {item.dimensions && (
+                      <p className="text-xs text-gray-600 mb-1">
+                        Dimensions:{" "}
+                        <span className="font-medium">{item.dimensions}</span>
+                      </p>
+                    )}
+
                     <p className="text-sm font-bold text-slate-900">
                       ${(item.price || 0).toFixed(2)}
                     </p>

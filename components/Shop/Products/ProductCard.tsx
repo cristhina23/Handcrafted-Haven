@@ -11,9 +11,12 @@ import {
   ArrowRight,
 } from "lucide-react";
 import QuickViewModal from "./QuickViewModal";
+import AddToCartModal from "@/components/ProductPage/AddToCartModal";
 import { Product } from "@/types";
 import Link from "next/link";
 import { useCart } from "@/contexts/CartContext";
+import { useRouter } from "next/navigation";
+import { useUser } from "@clerk/nextjs";
 
 interface Props {
   product: Product;
@@ -24,12 +27,27 @@ export default function ProductCard({ product, grid }: Props) {
   const isHorizontal = grid === 1;
   const [hovered, setHovered] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [showAddToCartModal, setShowAddToCartModal] = useState(false);
   const { addToCart } = useCart();
+  const router = useRouter();
+  const { isSignedIn } = useUser();
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
+    setShowAddToCartModal(true);
+  };
 
+  const handleAddToCartConfirm = (data: {
+    variants: {
+      size: string | null;
+      color: string | null;
+      material: string | null;
+    };
+    shippingMethod: string;
+    dimensions: string | null;
+    quantity: number;
+  }) => {
     addToCart({
       productId: product._id,
       productName: product.title,
@@ -37,7 +55,45 @@ export default function ProductCard({ product, grid }: Props) {
       price: product.price,
       sellerId: product.sellerId,
       sellerName: product.sellerName || "Unknown Seller",
+      quantity: data.quantity,
+      variants: data.variants,
+      dimensions: data.dimensions,
+      shippingMethod: data.shippingMethod,
     });
+  };
+
+  const handlePayNow = (data: {
+    variants: {
+      size: string | null;
+      color: string | null;
+      material: string | null;
+    };
+    shippingMethod: string;
+    dimensions: string | null;
+    quantity: number;
+  }) => {
+    if (!isSignedIn) {
+      router.push("/sign-in?redirect_url=/checkout");
+      return;
+    }
+
+    addToCart(
+      {
+        productId: product._id,
+        productName: product.title,
+        productImage: product.images[0],
+        price: product.price,
+        sellerId: product.sellerId,
+        sellerName: product.sellerName || "Unknown Seller",
+        quantity: data.quantity,
+        variants: data.variants,
+        dimensions: data.dimensions,
+        shippingMethod: data.shippingMethod,
+      },
+      false
+    );
+
+    router.push("/checkout");
   };
 
   return (
@@ -117,6 +173,15 @@ export default function ProductCard({ product, grid }: Props) {
         isOpen={showModal}
         onClose={() => setShowModal(false)}
         product={product}
+      />
+
+      {/* Modal de Add to Cart */}
+      <AddToCartModal
+        isOpen={showAddToCartModal}
+        onClose={() => setShowAddToCartModal(false)}
+        product={product}
+        onAddToCart={handleAddToCartConfirm}
+        onPayNow={handlePayNow}
       />
     </>
   );

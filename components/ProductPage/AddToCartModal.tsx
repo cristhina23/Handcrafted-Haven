@@ -16,10 +16,19 @@ interface Props {
     variants?: Variant[];
     shippingMethods?: string[];
     quantity?: number;
-    dimensions?: string
+    dimensions?: string;
   };
   onAddToCart: (data: {
-    
+    variants: {
+      size: string | null;
+      color: string | null;
+      material: string | null;
+    };
+    shippingMethod: string;
+    dimensions: string | null;
+    quantity: number;
+  }) => void;
+  onPayNow?: (data: {
     variants: {
       size: string | null;
       color: string | null;
@@ -35,15 +44,21 @@ export default function AddToCartModal({
   isOpen,
   onClose,
   product,
-
   onAddToCart,
+  onPayNow,
 }: Props) {
   const [qty, setQty] = useState(1);
 
   // Extract variant types
-  const sizes = product.variants?.map((v) => v.size).filter(Boolean) as string[];
-  const colors = product.variants?.map((v) => v.color).filter(Boolean) as string[];
-  const materials = product.variants?.map((v) => v.material).filter(Boolean) as string[];
+  const sizes = product.variants
+    ?.map((v) => v.size)
+    .filter(Boolean) as string[];
+  const colors = product.variants
+    ?.map((v) => v.color)
+    .filter(Boolean) as string[];
+  const materials = product.variants
+    ?.map((v) => v.material)
+    .filter(Boolean) as string[];
 
   const [selected, setSelected] = useState({
     size: sizes?.[0] || null,
@@ -53,15 +68,31 @@ export default function AddToCartModal({
 
   const shippingDefault = product.shippingMethods?.[0] || "";
   const [selectedShipping, setSelectedShipping] = useState(shippingDefault);
-  
 
   const handleConfirm = () => {
     onAddToCart({
-       dimensions: product.dimensions || null,
-      variants: selected,   
+      dimensions: product.dimensions || null,
+      variants: selected,
       shippingMethod: selectedShipping,
       quantity: qty,
     });
+
+    onClose();
+  };
+
+  const handlePayNow = () => {
+    const data = {
+      dimensions: product.dimensions || null,
+      variants: selected,
+      shippingMethod: selectedShipping,
+      quantity: qty,
+    };
+
+    if (onPayNow) {
+      onPayNow(data);
+    } else {
+      onAddToCart(data);
+    }
 
     onClose();
   };
@@ -83,12 +114,19 @@ export default function AddToCartModal({
           <motion.div
             className="absolute right-0 top-0 h-full w-full md:w-[320px] xl:w-[360px] bg-white shadow-xl flex flex-col"
             initial={{ x: "100%" }}
-            animate={{ x: "0%", transition: { type: "spring", stiffness: 120, damping: 16 } }}
+            animate={{
+              x: "0%",
+              transition: { type: "spring", stiffness: 120, damping: 16 },
+            }}
             exit={{ x: "100%" }}
           >
             <div className="flex justify-between items-center p-4 border-b">
-              <h2 className="text-lg font-semibold text-slate-900">Add to Cart</h2>
-              <button onClick={onClose} className="text-xl">✕</button>
+              <h2 className="text-lg font-semibold text-slate-900">
+                Add to Cart
+              </h2>
+              <button onClick={onClose} className="text-xl">
+                ✕
+              </button>
             </div>
 
             <div className="flex-1 p-4 overflow-y-auto pb-28">
@@ -101,19 +139,16 @@ export default function AddToCartModal({
                   className="w-16 h-16 object-cover rounded-lg"
                 />
                 <div>
-                  <p className="font-medium text-slate-900" >{product.title}</p>
+                  <p className="font-medium text-slate-900">{product.title}</p>
                   <p className="text-slate-700 text-md">${product.price}</p>
                 </div>
               </div>
 
               <div>
                 <p className="font-medium mb-1 text-slate-900">Dimensions</p>
-                <p className="text-slate-700 mb-2">
-                {product.dimensions}
-              </p>
+                <p className="text-slate-700 mb-2">{product.dimensions}</p>
               </div>
 
-              
               {/* COLOR */}
               {colors.length > 0 && (
                 <div className="mb-4">
@@ -124,7 +159,9 @@ export default function AddToCartModal({
                         key={c}
                         onClick={() => setSelected({ ...selected, color: c })}
                         className={`px-3 py-1 border rounded-lg ${
-                          selected.color === c ? "bg-black text-white" : "bg-gray-100"
+                          selected.color === c
+                            ? "bg-black text-white"
+                            : "bg-gray-100"
                         }`}
                       >
                         {c}
@@ -144,7 +181,9 @@ export default function AddToCartModal({
                         key={s}
                         onClick={() => setSelected({ ...selected, size: s })}
                         className={`px-3 py-1 border rounded-lg ${
-                          selected.size === s ? "bg-black text-white" : "bg-gray-100"
+                          selected.size === s
+                            ? "bg-black text-white"
+                            : "bg-gray-100"
                         }`}
                       >
                         {s}
@@ -154,7 +193,6 @@ export default function AddToCartModal({
                 </div>
               )}
 
-
               {/* MATERIAL */}
               {materials.length > 0 && (
                 <div className="mb-4">
@@ -163,9 +201,13 @@ export default function AddToCartModal({
                     {materials.map((m) => (
                       <button
                         key={m}
-                        onClick={() => setSelected({ ...selected, material: m })}
+                        onClick={() =>
+                          setSelected({ ...selected, material: m })
+                        }
                         className={`px-3 py-1 border rounded-lg ${
-                          selected.material === m ? "bg-black text-white" : "bg-gray-100"
+                          selected.material === m
+                            ? "bg-black text-white"
+                            : "bg-gray-100"
                         }`}
                       >
                         {m}
@@ -179,14 +221,14 @@ export default function AddToCartModal({
               <div className="mb-4">
                 <p className="font-medium mb-1 text-slate-900">Shipping</p>
                 <DropdownSelect
-                    options={(product.shippingMethods ?? []).map((m) => ({
-                      label: m,
-                      value: m,
-                    }))}
-                    value={selectedShipping}
-                    onChange={(value) => setSelectedShipping(value)}
-                    widthClass="w-full" 
-                  />
+                  options={(product.shippingMethods ?? []).map((m) => ({
+                    label: m,
+                    value: m,
+                  }))}
+                  value={selectedShipping}
+                  onChange={(value) => setSelectedShipping(value)}
+                  widthClass="w-full"
+                />
               </div>
 
               {/* QUANTITY */}
@@ -212,7 +254,7 @@ export default function AddToCartModal({
                 Add to Cart
               </button>
               <button
-                onClick={handleConfirm}
+                onClick={handlePayNow}
                 className="w-full py-2 border-4 rounded-lg border-slate-800  text-slate-800 font-semibold  shadow-md hover:bg-slate-800 hover:text-white hover:shadow-xl hover:scale-[1.03] transition-scale duration-200 ease-out"
               >
                 Pay Now

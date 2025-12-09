@@ -11,6 +11,13 @@ interface CartItem {
   quantity: number;
   sellerId: string;
   sellerName: string;
+  variants?: {
+    size: string | null;
+    color: string | null;
+    material: string | null;
+  };
+  dimensions?: string | null;
+  shippingMethod?: string;
 }
 
 interface CartContextType {
@@ -111,9 +118,8 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
                 typeof item.quantity === "number" &&
                 item.sellerId &&
                 item.sellerName
-            );
-
-            // Only set items if we have valid data, otherwise keep localStorage data
+              // variants, dimensions, and shippingMethod are optional
+            ); // Only set items if we have valid data, otherwise keep localStorage data
             if (validItems.length > 0) {
               setItems(validItems);
             } else {
