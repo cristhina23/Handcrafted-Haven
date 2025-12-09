@@ -78,9 +78,9 @@ export default function CartModal() {
         ) : (
           <>
             <div className="flex-1 overflow-y-auto p-4 space-y-4">
-              {items.map((item) => (
+              {items.map((item, index) => (
                 <div
-                  key={item.productId}
+                  key={`${item.productId}-${index}`}
                   className="flex gap-4 p-3 bg-gray-50 rounded-lg"
                 >
                   {/* Product Image */}
@@ -145,9 +145,7 @@ export default function CartModal() {
                     {/* Quantity Controls */}
                     <div className="flex items-center gap-2 mt-2">
                       <button
-                        onClick={() =>
-                          updateQuantity(item.productId, item.quantity - 1)
-                        }
+                        onClick={() => updateQuantity(index, item.quantity - 1)}
                         className="p-1 hover:bg-gray-200 rounded transition-colors"
                       >
                         <Minus className="w-4 h-4" />
@@ -156,15 +154,13 @@ export default function CartModal() {
                         {item.quantity}
                       </span>
                       <button
-                        onClick={() =>
-                          updateQuantity(item.productId, item.quantity + 1)
-                        }
+                        onClick={() => updateQuantity(index, item.quantity + 1)}
                         className="p-1 hover:bg-gray-200 rounded transition-colors"
                       >
                         <Plus className="w-4 h-4" />
                       </button>
                       <button
-                        onClick={() => removeFromCart(item.productId)}
+                        onClick={() => removeFromCart(index)}
                         className="ml-auto p-1 hover:bg-red-50 text-red-500 rounded transition-colors"
                       >
                         <Trash2 className="w-4 h-4" />

@@ -8,12 +8,19 @@ interface OrderSummaryProps {
     productImage: string;
     price: number;
     quantity: number;
+    variants?: {
+      size: string | null;
+      color: string | null;
+      material: string | null;
+    };
+    dimensions?: string | null;
+    shippingMethod?: string;
   }>;
   subtotal: number;
   shippingCost: number;
   total: number;
-  onUpdateQuantity: (productId: string, newQuantity: number) => void;
-  onRemoveItem: (productId: string) => void;
+  onUpdateQuantity: (itemIndex: number, newQuantity: number) => void;
+  onRemoveItem: (itemIndex: number) => void;
 }
 
 export default function OrderSummary({
@@ -32,9 +39,9 @@ export default function OrderSummary({
 
       {/* Items */}
       <div className="space-y-4 mb-6 max-h-96 overflow-y-auto">
-        {items.map((item) => (
+        {items.map((item, index) => (
           <div
-            key={item.productId}
+            key={`${item.productId}-${index}`}
             className="flex gap-3 pb-4 border-b last:border-b-0"
           >
             <div className="relative w-12 h-12 md:w-16 md:h-16 flex-shrink-0 rounded-md overflow-hidden">
@@ -49,6 +56,55 @@ export default function OrderSummary({
               <h3 className="text-xs md:text-sm font-medium text-slate-900 truncate mb-1">
                 {item.productName}
               </h3>
+
+              {/* Variants Display */}
+              {item.variants && (
+                <div className="text-xs text-gray-600 mb-1 space-y-0.5">
+                  {item.variants.size && (
+                    <p>
+                      Size:{" "}
+                      <span className="font-medium text-slate-700">
+                        {item.variants.size}
+                      </span>
+                    </p>
+                  )}
+                  {item.variants.color && (
+                    <p>
+                      Color:{" "}
+                      <span className="font-medium text-slate-700">
+                        {item.variants.color}
+                      </span>
+                    </p>
+                  )}
+                  {item.variants.material && (
+                    <p>
+                      Material:{" "}
+                      <span className="font-medium text-slate-700">
+                        {item.variants.material}
+                      </span>
+                    </p>
+                  )}
+                </div>
+              )}
+
+              {item.dimensions && (
+                <p className="text-xs text-gray-600 mb-1">
+                  Dimensions:{" "}
+                  <span className="font-medium text-slate-700">
+                    {item.dimensions}
+                  </span>
+                </p>
+              )}
+
+              {item.shippingMethod && (
+                <p className="text-xs text-gray-600 mb-1">
+                  Shipping:{" "}
+                  <span className="font-medium text-slate-700">
+                    {item.shippingMethod}
+                  </span>
+                </p>
+              )}
+
               <p className="text-xs md:text-sm font-semibold text-slate-900 mb-2">
                 ${item.price.toFixed(2)} each
               </p>
@@ -58,10 +114,7 @@ export default function OrderSummary({
                 <div className="flex items-center border border-gray-300 rounded-md">
                   <button
                     onClick={() =>
-                      onUpdateQuantity(
-                        item.productId,
-                        Math.max(1, item.quantity - 1)
-                      )
+                      onUpdateQuantity(index, Math.max(1, item.quantity - 1))
                     }
                     className="p-1 hover:bg-gray-100 transition-colors"
                     aria-label="Decrease quantity"
@@ -72,9 +125,7 @@ export default function OrderSummary({
                     {item.quantity}
                   </span>
                   <button
-                    onClick={() =>
-                      onUpdateQuantity(item.productId, item.quantity + 1)
-                    }
+                    onClick={() => onUpdateQuantity(index, item.quantity + 1)}
                     className="p-1 hover:bg-gray-100 transition-colors"
                     aria-label="Increase quantity"
                   >
@@ -83,7 +134,7 @@ export default function OrderSummary({
                 </div>
 
                 <button
-                  onClick={() => onRemoveItem(item.productId)}
+                  onClick={() => onRemoveItem(index)}
                   className="p-1 text-red-500 hover:text-red-700 hover:bg-red-50 rounded transition-colors"
                   aria-label="Remove item"
                 >

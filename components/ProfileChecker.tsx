@@ -45,9 +45,12 @@ export default function ProfileChecker({
 
         hasChecked.current = true;
 
+        // Solo redirigir a complete-profile si realmente no tiene perfil completo
         if (!data.exists || !data.profileCompleted) {
-          // Redirigir a completar perfil
+          console.log("Profile incomplete, redirecting to complete-profile");
           router.push("/complete-profile");
+        } else {
+          console.log("Profile is complete, allowing navigation");
         }
 
         setChecking(false);

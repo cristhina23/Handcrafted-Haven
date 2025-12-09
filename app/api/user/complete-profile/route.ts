@@ -5,12 +5,24 @@ import { User } from "@/lib/models/User";
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { clerkId, email, fullName, image, username, phone, address, role } = body;
+    const { clerkId, email, fullName, image, username, phone, address, role } =
+      body;
 
     // Validaciones básicas
     if (!clerkId || !email || !username) {
       return Response.json(
         { message: "Missing required fields: clerkId, email, username" },
+        { status: 400 }
+      );
+    }
+
+    // Validar que address tenga los campos requeridos
+    if (!address || !address.street || !address.city || !address.country) {
+      return Response.json(
+        {
+          message:
+            "Street address, city, and country are required for shipping",
+        },
         { status: 400 }
       );
     }

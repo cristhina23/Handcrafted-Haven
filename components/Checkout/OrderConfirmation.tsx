@@ -21,6 +21,13 @@ interface OrderConfirmationProps {
     price: number;
     quantity: number;
     sellerName: string;
+    variants?: {
+      size: string | null;
+      color: string | null;
+      material: string | null;
+    };
+    dimensions?: string | null;
+    shippingMethod?: string;
   }>;
   subtotal: number;
   shippingCost: number;
@@ -149,7 +156,56 @@ export default function OrderConfirmation({
                 <p className="text-xs md:text-sm text-gray-600">
                   by {item.sellerName}
                 </p>
-                <p className="text-xs md:text-sm text-gray-600">
+
+                {/* Variants Display */}
+                {item.variants && (
+                  <div className="text-xs text-gray-600 mt-1 space-y-0.5">
+                    {item.variants.size && (
+                      <p>
+                        Size:{" "}
+                        <span className="font-medium text-slate-700">
+                          {item.variants.size}
+                        </span>
+                      </p>
+                    )}
+                    {item.variants.color && (
+                      <p>
+                        Color:{" "}
+                        <span className="font-medium text-slate-700">
+                          {item.variants.color}
+                        </span>
+                      </p>
+                    )}
+                    {item.variants.material && (
+                      <p>
+                        Material:{" "}
+                        <span className="font-medium text-slate-700">
+                          {item.variants.material}
+                        </span>
+                      </p>
+                    )}
+                  </div>
+                )}
+
+                {item.dimensions && (
+                  <p className="text-xs text-gray-600 mt-1">
+                    Dimensions:{" "}
+                    <span className="font-medium text-slate-700">
+                      {item.dimensions}
+                    </span>
+                  </p>
+                )}
+
+                {item.shippingMethod && (
+                  <p className="text-xs text-gray-600 mt-1">
+                    Shipping:{" "}
+                    <span className="font-medium text-slate-700">
+                      {item.shippingMethod}
+                    </span>
+                  </p>
+                )}
+
+                <p className="text-xs md:text-sm text-gray-600 mt-1">
                   Quantity: {item.quantity}
                 </p>
               </div>
