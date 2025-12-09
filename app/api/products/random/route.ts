@@ -16,13 +16,11 @@ export async function GET() {
     // Trae todos los productos
     let products = await Product.find().populate("sellerId", "shopName").lean();
 
-   
     for (let i = products.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [products[i], products[j]] = [products[j], products[i]];
     }
 
-    
     products = products.slice(0, 3);
 
     // Transform to include sellerName
@@ -40,9 +38,7 @@ export async function GET() {
     return NextResponse.json(productsWithSeller);
   } catch (error) {
     console.error("Error fetching random products:", error);
-    return NextResponse.json(
-      { error: "Failed to load random products" },
-      { status: 500 }
-    );
+    // Return empty array to prevent client-side crashes
+    return NextResponse.json([], { status: 200 });
   }
 }

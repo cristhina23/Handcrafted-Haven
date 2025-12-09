@@ -20,8 +20,18 @@ export function useRandomProducts() {
         setLoading(true);
         const res = await fetch("/api/products/random");
         const data = await res.json();
-        setProducts(data);
+
+        // Validate that data is an array
+        if (Array.isArray(data)) {
+          setProducts(data);
+        } else {
+          console.error("Invalid data format from /api/products/random:", data);
+          setProducts([]);
+          setError(data.error || "Failed to fetch random products");
+        }
       } catch (err) {
+        console.error("Error fetching random products:", err);
+        setProducts([]);
         setError("Failed to fetch random products");
       } finally {
         setLoading(false);
