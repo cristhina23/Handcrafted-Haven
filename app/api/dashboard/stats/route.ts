@@ -12,10 +12,9 @@ export async function GET() {
 
     const { seller, error, status } = await getSellerFromAuth();
     if (error) return NextResponse.json({ error }, { status });
-    
+
     const orders = await Order.find().lean();
 
-   
     const sellerOrdersItems: {
       orderId: string;
       buyerId: string;
@@ -23,18 +22,20 @@ export async function GET() {
       createdAt: Date;
     }[] = [];
 
-    orders.forEach(order => {
+    orders.forEach((order: any) => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      order.items.forEach((item: { sellerId: { toString: () => any; }; subtotal: any; }) => {
-        if (item.sellerId.toString() === seller._id.toString()) {
-          sellerOrdersItems.push({
-            orderId: order._id.toString(),
-            buyerId: order.buyerId.toString(),
-            grandTotal: item.subtotal,
-            createdAt: order.createdAt,
-          });
+      order.items.forEach(
+        (item: { sellerId: { toString: () => any }; subtotal: any }) => {
+          if (item.sellerId.toString() === seller._id.toString()) {
+            sellerOrdersItems.push({
+              orderId: order._id.toString(),
+              buyerId: order.buyerId.toString(),
+              grandTotal: item.subtotal,
+              createdAt: order.createdAt,
+            });
+          }
         }
-      });
+      );
     });
 
     if (sellerOrdersItems.length === 0) {
@@ -48,9 +49,13 @@ export async function GET() {
     }
 
     // Estadísticas
-    const totalOrders = new Set(sellerOrdersItems.map(i => i.orderId)).size;
-    const totalRevenue = sellerOrdersItems.reduce((sum, i) => sum + i.grandTotal, 0);
-    const totalCustomers = new Set(sellerOrdersItems.map(i => i.buyerId)).size;
+    const totalOrders = new Set(sellerOrdersItems.map((i) => i.orderId)).size;
+    const totalRevenue = sellerOrdersItems.reduce(
+      (sum, i) => sum + i.grandTotal,
+      0
+    );
+    const totalCustomers = new Set(sellerOrdersItems.map((i) => i.buyerId))
+      .size;
 
     // Fechas para semanas
     const now = new Date();
@@ -65,13 +70,22 @@ export async function GET() {
 
     const weeklyTotals = [0, 0, 0, 0];
 
-    sellerOrdersItems.forEach(item => {
+    sellerOrdersItems.forEach((item) => {
       const created = new Date(item.createdAt).getTime();
-      if (created >= startOfThreeWeeksAgo.getTime() && created < startOfTwoWeeksAgo.getTime()) {
+      if (
+        created >= startOfThreeWeeksAgo.getTime() &&
+        created < startOfTwoWeeksAgo.getTime()
+      ) {
         weeklyTotals[0] += item.grandTotal;
-      } else if (created >= startOfTwoWeeksAgo.getTime() && created < startOfLastWeek.getTime()) {
+      } else if (
+        created >= startOfTwoWeeksAgo.getTime() &&
+        created < startOfLastWeek.getTime()
+      ) {
         weeklyTotals[1] += item.grandTotal;
-      } else if (created >= startOfLastWeek.getTime() && created < startOfThisWeek.getTime()) {
+      } else if (
+        created >= startOfLastWeek.getTime() &&
+        created < startOfThisWeek.getTime()
+      ) {
         weeklyTotals[2] += item.grandTotal;
       } else if (created >= startOfThisWeek.getTime()) {
         weeklyTotals[3] += item.grandTotal;
@@ -80,9 +94,10 @@ export async function GET() {
 
     const [weekMinus3, weekMinus2, lastWeek, thisWeek] = weeklyTotals;
     const avgPreviousWeeks = (weekMinus3 + weekMinus2 + lastWeek) / 3;
-    const growthPercent = avgPreviousWeeks > 0
-      ? ((thisWeek - avgPreviousWeeks) / avgPreviousWeeks) * 100
-      : 0;
+    const growthPercent =
+      avgPreviousWeeks > 0
+        ? ((thisWeek - avgPreviousWeeks) / avgPreviousWeeks) * 100
+        : 0;
 
     const stats = {
       totalOrders,
@@ -93,9 +108,11 @@ export async function GET() {
     };
 
     return NextResponse.json(stats);
-
   } catch (error) {
     console.error("Error fetching stats:", error);
-    return NextResponse.json({ error: "Error fetching stats" }, { status: 500 });
+    return NextResponse.json(
+      { error: "Error fetching stats" },
+      { status: 500 }
+    );
   }
 }

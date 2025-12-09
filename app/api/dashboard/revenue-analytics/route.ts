@@ -4,8 +4,8 @@ import { Order, IOrderItem } from "@/lib/models/Order";
 import { getSellerFromAuth } from "@/lib/scripts/getSeller";
 
 interface SellerOrderItem {
-  orderId: string;         
-  buyerId: string;         
+  orderId: string;
+  buyerId: string;
   subtotal: number;
   createdAt: Date;
 }
@@ -31,7 +31,7 @@ export async function GET() {
     const orders = await Order.find().lean();
 
     const sellerOrdersItems: SellerOrderItem[] = [];
-    orders.forEach(order => {
+    orders.forEach((order: any) => {
       order.items.forEach((item: IOrderItem) => {
         if (item.sellerId.toString() === seller._id.toString()) {
           sellerOrdersItems.push({
@@ -53,7 +53,7 @@ export async function GET() {
 
     const getStartOfWeek = (date: Date) => {
       const day = date.getDay();
-      const diff = day === 0 ? -6 : 1 - day; 
+      const diff = day === 0 ? -6 : 1 - day;
       const start = new Date(date);
       start.setDate(date.getDate() + diff);
       start.setHours(0, 0, 0, 0);
@@ -69,7 +69,7 @@ export async function GET() {
       const end = new Date(current);
       end.setDate(current.getDate() + 7);
 
-      const weekItems = sellerOrdersItems.filter(item => {
+      const weekItems = sellerOrdersItems.filter((item) => {
         const created = new Date(item.createdAt);
         return created >= current && created < end;
       });
@@ -85,20 +85,26 @@ export async function GET() {
       const start = new Date(now.getFullYear(), now.getMonth() - i, 1);
       const end = new Date(now.getFullYear(), now.getMonth() - i + 1, 1);
 
-      const monthItems = sellerOrdersItems.filter(item => {
+      const monthItems = sellerOrdersItems.filter((item) => {
         const created = new Date(item.createdAt);
         return created >= start && created < end;
       });
 
-      const monthlyRevenue = monthItems.reduce((sum, item) => sum + item.subtotal, 0);
+      const monthlyRevenue = monthItems.reduce(
+        (sum, item) => sum + item.subtotal,
+        0
+      );
       months.push({
-        period: start.toLocaleString("default", { month: "short", year: "numeric" }),
+        period: start.toLocaleString("default", {
+          month: "short",
+          year: "numeric",
+        }),
         revenue: monthlyRevenue,
       });
     }
 
     return NextResponse.json({
-      weeklyAnalytics: weeks.map(w => ({
+      weeklyAnalytics: weeks.map((w) => ({
         start: w.start.toISOString().split("T")[0],
         end: w.end.toISOString().split("T")[0],
         revenue: w.revenue,
@@ -107,6 +113,9 @@ export async function GET() {
     });
   } catch (error) {
     console.error("Error fetching revenue analytics:", error);
-    return NextResponse.json({ error: "Error fetching revenue analytics" }, { status: 500 });
+    return NextResponse.json(
+      { error: "Error fetching revenue analytics" },
+      { status: 500 }
+    );
   }
 }
