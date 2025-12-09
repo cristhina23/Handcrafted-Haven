@@ -4,6 +4,7 @@ import { useUser } from "@clerk/nextjs";
 import ReviewCard from "./ReviewCard";
 import ReviewForm from "./ReviewForm";
 import { ChevronDown, ChevronUp } from "lucide-react";
+import toast from "react-hot-toast";
 
 interface Review {
   _id: string;
@@ -101,10 +102,10 @@ function ProductReviews({ productId, sellerId, initialReviews }: Props) {
       setReviews([data.review, ...reviews]);
       setShowForm(false);
       setUserHasReviewed(true);
-      alert("Review submitted successfully!");
+      toast.success("Review submitted successfully!");
     } catch (error) {
       console.error("Error creating review:", error);
-      alert("Error creating review. Please try again.");
+      toast.error("Error creating review. Please try again.");
     }
   };
 
