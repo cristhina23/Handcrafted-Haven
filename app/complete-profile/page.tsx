@@ -357,7 +357,7 @@ export default function CompleteProfilePage() {
                         name="country"
                         value={formData.country}
                         onChange={handleChange}
-                        className="h-9 w-full rounded-md border border-[#D0D3D8] bg-white px-3 text-sm shadow-xs focus:border-[#876A5C] focus:outline-none focus:ring-2 focus:ring-[#876A5C]/20"
+                        className="h-9 w-full rounded-md border border-[#D0D3D8] bg-white px-3 text-sm shadow-xs focus:border-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-800"
                       >
                         {countryCodes.map((item) => (
                           <option key={item.country} value={item.country}>
@@ -373,7 +373,7 @@ export default function CompleteProfilePage() {
               <Button
                 type="submit"
                 disabled={loading}
-                className="w-full bg-[#876A5C] hover:bg-[#6B5449] text-white"
+                className="w-full bg-slate-800 hover:bg-slate-700 text-white"
               >
                 {loading ? "Saving..." : "Complete Profile"}
               </Button>

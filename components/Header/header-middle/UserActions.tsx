@@ -1,16 +1,21 @@
 "use client";
 
-import { FC } from "react";
+import { FC, useState } from "react";
 import { FaRegHeart, FaRegUser } from "react-icons/fa";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { useUser, SignInButton, UserButton, SignedOut } from "@clerk/nextjs";
-import { User } from "lucide-react";
+import { MenuIcon, User, X } from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
 import { Button } from "@/components/ui/button";
+import { AnimatePresence, motion } from "framer-motion";
+import Link from "next/link";
 
 const UserActions: FC = () => {
   const { isSignedIn, user } = useUser();
   const { itemCount, openCart } = useCart();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
     <div className="flex gap-4 sm:gap-6 mr-4">
@@ -56,7 +61,45 @@ const UserActions: FC = () => {
         </SignedOut>
         </Button>
       )}
+
+      <div className="flex items-center justify-center">
+        <MenuIcon className="text-slate-900 w-4 h-4 sm:w-5 sm:h-5 md:hidden" 
+      onClick={toggleMenu}/>
+      </div>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ type: "tween", duration: 0.3 }}
+            className="fixed top-0 right-0 h-full w-2/3  md:w-64 bg-white shadow-lg z-50"
+          >
+            
+              <div className="p-6 flex justify-between items-center border-b">
+              <h2 className="text-lg font-bold">Menu</h2>
+              <button onClick={toggleMenu} className="text-slate-900 font-bold text-xl"><X size={24}/>
+              </button>
+            </div>
+            <div className=" w-2/3 mx-auto py-8">
+            <ul className="p-4 flex flex-col gap-4 px-6">
+              <li><Link href="/" className="hover:text-blue-500 text-lg font-bold" onClick={toggleMenu}>Home</Link></li>
+              
+              <li><Link href="/shop" className="hover:text-blue-500 text-lg font-bold" onClick={toggleMenu}>Shop</Link></li>
+              
+              <li><Link href="/sellers" className="hover:text-blue-500 text-lg font-bold" onClick={toggleMenu}>Sellers</Link></li>
+              <li><Link href="/blog" className="hover:text-blue-500 text-lg font-bold" >Blog</Link></li>
+              
+            </ul>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
+
+    
   );
 };
 
