@@ -1,22 +1,27 @@
-// pages/api/user/get-role.ts
-import { NextApiRequest, NextApiResponse } from "next";
+import { NextResponse } from "next/server";
 import { connectDB } from "@/lib/db/db";
 import { User } from "@/lib/models/User";
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+// /api/get-user-role?clerkId=123
+export async function GET(req: Request) {
   await connectDB();
 
-  const { clerkId } = req.query;
-  if (!clerkId || typeof clerkId !== "string") {
-    return res.status(400).json({ error: "Missing clerkId" });
+  const { searchParams } = new URL(req.url);
+  const clerkId = searchParams.get("clerkId");
+
+  if (!clerkId) {
+    return NextResponse.json({ error: "Missing clerkId" }, { status: 400 });
   }
 
   try {
     const user = await User.findOne({ clerkId });
-    if (!user) return res.status(404).json({ error: "User not found" });
 
-    return res.status(200).json({ role: user.role });
-  } catch (err) {
-    return res.status(500).json({ error: "Server error" });
+    if (!user) {
+      return NextResponse.json({ error: "User not found" }, { status: 404 });
+    }
+
+    return NextResponse.json({ role: user.role }, { status: 200 });
+  } catch (error) {
+    return NextResponse.json({ error: "Server error" }, { status: 500 });
   }
 }
