@@ -1,12 +1,13 @@
 "use client";
 
+import LoadingGlow from "@/components/LoadingGlow";
 import DashboardCard from "./DashboardCard";
 import { useOrderContext } from "@/contexts/OrderContext";
 
 export default function CardsContainer() {
   const { stats } = useOrderContext();
 
-  if (!stats) return <p>Loading... You should put a skeleton here</p>;
+  if (!stats) return <LoadingGlow />;
 
   const balanceChangeType: "up" | "down" =
     (stats.growthPercent ?? 0) >= 0 ? "up" : "down";

@@ -9,6 +9,7 @@ import RevenueByCountry from "./dashboardHome/RevenueByCountry"
 import BestSellers from "./dashboardHome/BestSellers";
 import LastOrders from "./dashboardHome/LastOrders";
 import { useState } from "react";
+import LoadingGlow from "../LoadingGlow";
 
 interface Props {
   clerkId?: string; 
@@ -19,10 +20,10 @@ export default function DashboardPage({ clerkId }: Props) {
   const { seller, loading, error } = useSeller();
   const [roles, setRoles] = useState<string[]>([]);
 
-  if (!isSignedIn) return <div>Please log in</div>;
-  if (loading) return <div>Loading seller info...</div>;
+  if (!isSignedIn) return <div className=" md:p-6 bg-slate-100 dark:bg-slate-900 flex flex-col gap-8 pb-7">Please log in</div>;
+  if (loading) return <div><LoadingGlow /></div>;
   if (error) return <div>Error: {error}</div>;
-  if (!seller) return <div>No seller profile found.</div>;
+  if (!seller) return <div className=" md:p-6 bg-slate-100 dark:bg-slate-900 flex flex-col gap-8 pb-7">No seller profile found.</div>;
 
   return (
     <div className=" md:p-6 bg-slate-100 dark:bg-slate-900 flex flex-col gap-8 pb-7">

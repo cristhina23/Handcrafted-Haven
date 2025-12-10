@@ -6,6 +6,7 @@ import React, { useState, useMemo } from 'react';
 import DynamicSortSelector from '@/components/DynamicSortSelector'; 
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import LoadingGlow from '@/components/LoadingGlow';
 
 
 export type SortOption = 'quantity-desc' | 'quantity-asc' | 'title-asc' | 'title-desc';
@@ -19,7 +20,7 @@ const OPTIONS: Record<SortOption, string> = {
 
 
 export default function BestSellers() {
-  const { bestSellers } = useOrderContext();
+  const { bestSellers, loading } = useOrderContext();
 
   const [sortOption, setSortOption] = useState<SortOption>('quantity-desc');
 
@@ -44,6 +45,8 @@ export default function BestSellers() {
 
   const topData = sortedData.slice(0, 10);
   const isEmpty = topData.length === 0;
+
+  if (loading) return <div><LoadingGlow /></div>;
 
   return (
     <Card className="h-full md:p-6  rounded-xl shadow-lg ">

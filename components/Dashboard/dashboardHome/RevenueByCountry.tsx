@@ -5,10 +5,11 @@ import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recha
 import { ChartContainer, ChartTooltipContent } from "@/components/ui/chart";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { useEffect, useState } from "react";
+import LoadingGlow from "@/components/LoadingGlow";
 
 
 export default function RevenueByCountry() {
-  const { revenueByCountry  } = useOrderContext();
+  const { revenueByCountry, loading  } = useOrderContext();
   const [axisColor, setAxisColor] = useState("#1e293b");
 
   useEffect(() => {
@@ -45,6 +46,10 @@ export default function RevenueByCountry() {
       color: "#3b82f6",
     },
   };
+
+  if (loading) {
+    return <LoadingGlow />;
+  }
 
   return (
     <div className="w-full  flex gap-8 rounded-xl shadow-lg">

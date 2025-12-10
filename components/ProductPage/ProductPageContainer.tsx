@@ -11,6 +11,7 @@ import AddToCartModal from "./AddToCartModal";
 import { useCart } from "@/contexts/CartContext";
 import { useRouter } from "next/navigation";
 import { useUser } from "@clerk/nextjs";
+import LoadingGlow from "../LoadingGlow";
 
 interface Props {
   productId: string;
@@ -126,14 +127,14 @@ export default function ProductPageContainer({ productId }: Props) {
         dimensions: data.dimensions,
         shippingMethod: data.shippingMethod,
       },
-      false // Don't open cart modal
+      false 
     );
 
-    // Redirect to checkout
+    
     router.push("/checkout");
   };
 
-  if (loading) return <p className="text-center mt-10">Loading...</p>;
+  if (loading) return <p className="text-center mt-10"><LoadingGlow /></p>;
   if (!product)
     return <p className="text-center mt-10 text-red-500">Product not found</p>;
 

@@ -8,12 +8,13 @@ import {
   IgrLegendModule,
 } from "igniteui-react-charts";
 import { useOrderContext } from "@/contexts/OrderContext";
+import LoadingGlow from "@/components/LoadingGlow";
 
 IgrLegendModule.register();
 IgrCategoryChartModule.register();
 
 export default function RevenueAnalytics() {
-  const { analytics, stats } = useOrderContext(); 
+  const { analytics, stats, loading } = useOrderContext(); 
   const legendRef = useRef<IgrLegend | null>(null);
   const chartRef = useRef<IgrCategoryChart | null>(null);
   const [range, setRange] = useState("1M");
@@ -41,7 +42,7 @@ export default function RevenueAnalytics() {
 
   if (!analytics || !stats) return <p>Loading chart...</p>;
 
-  // Filtrar semanas y meses según rango
+  
   let filteredWeeks = analytics.weeklyAnalytics || [];
   let filteredMonths = analytics.monthlyAnalytics || [];
 
@@ -59,16 +60,17 @@ export default function RevenueAnalytics() {
       break;
   }
 
-  // Datos para el gráfico
+  
   const chartData = isNewSeller
     ? [{ period: "Start selling", revenue: 0 }]
     : filteredWeeks.map(w => ({ period: `${w.start} - ${w.end}`, revenue: w.revenue }));
 
-  // Métricas
+  
   const currentWeekRevenue = isNewSeller ? 0 : stats.weeklyRevenue ?? 0;
   const pastWeekRevenue = isNewSeller ? 0 : analytics.weeklyAnalytics?.[analytics.weeklyAnalytics.length - 2]?.revenue ?? 0;
   const todayEarnings = isNewSeller ? 0 : stats.todayEarnings ?? 0;
 
+  if (loading) return <LoadingGlow />;
   return (
     <div className="flex flex-col bg-white border border-slate-200 dark:border-none dark:bg-slate-800 p-6 rounded-xl shadow-lg md:p-6">
       {/* Header */}

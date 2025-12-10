@@ -5,6 +5,8 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import toast from "react-hot-toast";
+import LoadingGlow from "@/components/LoadingGlow";
 
 interface Buyer {
   fullName: string;
@@ -27,16 +29,27 @@ interface Order {
 
 export default function RecentOrders() {
   const [orders, setOrders] = useState<Order[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const isEmpty = orders.length === 0;  
 
   useEffect(() => {
-    fetch("/api/dashboard/last-orders", { method: "GET" })
+    try {
+      setIsLoading(true);
+      fetch("/api/dashboard/last-orders", { method: "GET" })
       .then((res) => res.json())
       .then((data) => setOrders(data))
       .catch((err) => console.error(err));
+    } catch (error) {
+      toast.error("Failed to fetch orders");
+    } finally {
+      setIsLoading(false);
+    }
   }, []);
 
+  if (isLoading) {
+    return <LoadingGlow />;
+  }
   return (
     <Card className="h-full md:p-6   rounded-xl shadow-lg  ">
       <CardHeader>

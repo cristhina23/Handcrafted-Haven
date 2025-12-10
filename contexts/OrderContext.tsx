@@ -20,8 +20,8 @@ interface OrderStats {
 }
 
 interface WeeklyRevenue {
-  start: string; // date of start of the week
-  end: string; // date of end of the week
+  start: string; 
+  end: string; 
   revenue: number;
 }
 
@@ -31,11 +31,12 @@ interface MonthlyRevenue {
 }
 
 interface RevenueAnalytics {
-  weeklyAnalytics: WeeklyRevenue[]; // all the weeks of the last 3 months
-  monthlyAnalytics: MonthlyRevenue[]; //last 3 monts
+  weeklyAnalytics: WeeklyRevenue[]; 
+  monthlyAnalytics: MonthlyRevenue[]; 
 }
 
 interface OrderContextType {
+  loading: boolean;
   stats: OrderStats | null;
   analytics: RevenueAnalytics | null;
   bestSellers: Record<string, number>;
@@ -49,6 +50,7 @@ interface OrderContextType {
 const OrderContext = createContext<OrderContextType | undefined>(undefined);
 
 export const OrderProvider = ({ children }: { children: ReactNode }) => {
+  const [loading, setLoading] = useState(true);
   const [stats, setStats] = useState<OrderStats | null>(null);
   const [analytics, setAnalytics] = useState<RevenueAnalytics | null>(null);
   const [bestSellers, setBestSellers] = useState<Record<string, number>>({});
@@ -58,46 +60,58 @@ export const OrderProvider = ({ children }: { children: ReactNode }) => {
 
   const fetchStats = async () => {
     try {
+      setLoading(true);
       const res = await fetch("/api/dashboard/stats");
       const data = await res.json();
       setStats(data);
     } catch (error) {
       console.error("Error fetching stats:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
   const fetchAnalytics = async () => {
     try {
+      setLoading(true);
       const res = await fetch("/api/dashboard/revenue-analytics");
       const data = await res.json();
 
-      // make sure to handle the case where data is null
+      
       setAnalytics({
         weeklyAnalytics: data.weeklyAnalytics || [],
         monthlyAnalytics: data.monthlyAnalytics || [],
       });
     } catch (error) {
       console.error("Error fetching analytics:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
   const fetchBestSellers = async () => {
     try {
+      setLoading(true);
       const res = await fetch("/api/dashboard/best-sellers");
       const data = await res.json();
       setBestSellers(data || {});
     } catch (error) {
       console.error("Error fetching best sellers:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
   const fetchRevenueByCountry = async () => {
     try {
+      setLoading(true);
       const res = await fetch("/api/dashboard/revenue-by-country");
       const data = await res.json();
       setRevenueByCountry(data || {});
     } catch (error) {
       console.error("Error fetching revenue by country:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -114,6 +128,7 @@ export const OrderProvider = ({ children }: { children: ReactNode }) => {
   return (
     <OrderContext.Provider
       value={{
+        loading,
         stats,
         refreshStats: fetchStats,
         analytics,
