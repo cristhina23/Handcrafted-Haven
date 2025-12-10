@@ -30,7 +30,7 @@ export default function NewsletterSection() {
         text-white flex items-center justify-center px-6 py-20 
       "
       style={{
-        backgroundImage: "url('/sellerBanner5.jpg')", 
+        backgroundImage: "url('/sellerBanner4.jpg')", 
       }}
     >
       <div
