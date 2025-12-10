@@ -88,7 +88,7 @@ export const sidebarLinks = [
       },
       {
         name: "Order History", 
-        href: "/order-history", 
+        href: "/dashboard/order-history", 
         roles: ["seller", "user"],
         icon: HelpCircle
       },

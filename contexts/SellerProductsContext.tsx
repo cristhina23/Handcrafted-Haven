@@ -12,8 +12,8 @@ import { Product } from "@/types";
 
 interface SellerProductsContextType {
   products: Product[];
-  loading: boolean; 
-  actionLoading: boolean; 
+  loading: boolean;
+  actionLoading: boolean;
   error: string | null;
 
   createProduct: (data: Partial<Product>) => Promise<void>;
@@ -35,27 +35,33 @@ export function SellerProductsProvider({ children }: Props) {
 
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
-  const [actionLoading, setActionLoading] = useState(false); 
+  const [actionLoading, setActionLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-
 
   async function refreshProducts() {
     try {
       setLoading(true);
 
       const res = await fetch(`/api/products/seller`, { cache: "no-store" });
+      const data = await res.json();
 
-      if (!res.ok) {
-        const err = await res.json();
-        throw new Error(err.error || "Failed to fetch products");
+      if (data.error === "Seller profile not found") {
+        setProducts([]);
+        setError(null);
+        return;
       }
 
-      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.error || "Failed to fetch products");
+      }
+
       setProducts(data);
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      setError(null);
+      
     } catch (err: any) {
-      setError(err.message);
       console.error("Error loading products:", err.message);
+      setError(err.message);
+      setProducts([]); 
     } finally {
       setLoading(false);
     }
@@ -65,7 +71,6 @@ export function SellerProductsProvider({ children }: Props) {
     if (isSignedIn && user) refreshProducts();
   }, [isSignedIn, user]);
 
-  
   async function createProduct(data: Partial<Product>) {
     try {
       setActionLoading(true);
@@ -89,7 +94,6 @@ export function SellerProductsProvider({ children }: Props) {
     }
   }
 
-  
   async function updateProduct(id: string, data: Partial<Product>) {
     try {
       setActionLoading(true);
@@ -139,7 +143,7 @@ export function SellerProductsProvider({ children }: Props) {
       value={{
         products,
         loading,
-        actionLoading, 
+        actionLoading,
         error,
         createProduct,
         updateProduct,
@@ -151,7 +155,6 @@ export function SellerProductsProvider({ children }: Props) {
     </SellerProductsContext.Provider>
   );
 }
-
 
 export function useProducts() {
   const context = useContext(SellerProductsContext);

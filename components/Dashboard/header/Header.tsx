@@ -36,9 +36,10 @@ const Header: React.FC<HeaderProps> = ({ collapsed, setCollapsed }) => {
 
       <div className="flex gap-4">
         <DashboardThemeToggle  />
-        <button className="p-2 rounded-md hover:bg-gray-500 dark:hover:bg-gray-700 text-slate-300">
-           <NotificationDropdown notifications={notifications} />
-        </button>
+        <div className="p-2 rounded-md hover:bg-gray-500 dark:hover:bg-gray-700 text-slate-300 cursor-pointer">
+          <NotificationDropdown notifications={notifications} />
+        </div>
+
         <div>
          <ProfileImage sellerImageUrl={seller?.profileImage || user?.imageUrl} user={user} />
         </div>

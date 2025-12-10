@@ -25,8 +25,8 @@ export const SellerOrdersProvider = ({ children }: { children: ReactNode }) => {
       const res = await fetch("/api/orders");
       const data = await res.json(); 
 
-      
-      const mappedOrders: OrderClient[] = data.orders.map((order: any) => ({
+      const ordersArray = Array.isArray(data.orders) ? data.orders : [];
+      const mappedOrders: OrderClient[] = ordersArray.map((order: any) => ({
         _id: order._id,
         buyerName: order.buyerId?.fullName || "Unknown",
         buyerImage: order.buyerId?.image || "",
