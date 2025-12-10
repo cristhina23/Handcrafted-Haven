@@ -1,13 +1,9 @@
-import OrdersPageContainer from '@/components/Dashboard/orders/OrdersPageContainer'
-import React from 'react'
+import UserOrdersPage from "@/components/UserDashboard/UserOrdersPage";
 
-function page() {
+export default function Page() {
   return (
-    <div>
-
-      <OrdersPageContainer />
+    <div className="p-6">
+      <UserOrdersPage />
     </div>
-  )
+  );
 }
-
-export default page
