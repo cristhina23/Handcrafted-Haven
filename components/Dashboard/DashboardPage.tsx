@@ -8,6 +8,7 @@ import Chart from "./dashboardHome/RevenueAnalytics"
 import RevenueByCountry from "./dashboardHome/RevenueByCountry"
 import BestSellers from "./dashboardHome/BestSellers";
 import LastOrders from "./dashboardHome/LastOrders";
+import { useState } from "react";
 
 interface Props {
   clerkId?: string; 
@@ -16,6 +17,7 @@ interface Props {
 export default function DashboardPage({ clerkId }: Props) {
   const { isSignedIn, user } = useUser();
   const { seller, loading, error } = useSeller();
+  const [roles, setRoles] = useState<string[]>([]);
 
   if (!isSignedIn) return <div>Please log in</div>;
   if (loading) return <div>Loading seller info...</div>;

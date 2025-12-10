@@ -4,6 +4,8 @@ import Link from "next/link";
 import { sidebarLinks } from "./navigation";
 import { FC, useState } from "react";
 import CustomAccordionItem from "../CustomAccordionItem";
+import { useUser } from "@clerk/nextjs";
+import { useSeller } from "@/contexts/SellerContext";
 
 interface SidebarProps {
   activeMenu: boolean;
@@ -22,20 +24,22 @@ const Sidebar: FC<SidebarProps> = ({
   setCollapsed,
 }) => {
   const isMobile = screenSize <= 760;
+  const { seller, loading } = useSeller();
+  const userRole = seller ? "user,seller" : "user";
 
-  // overlay solo depende de: mobile + expanded
+ 
   const isOverlay = isMobile && !collapsed;
 
   const handleToggle = () => {
-    // Si está colapsado → abrir y mostrar overlay
+    
     if (collapsed) {
       setCollapsed(false);
       setActiveMenu(true);
     } else {
-      // Si está full → cerrar
+      
       setCollapsed(true);
 
-      // en mobile, cerrar overlay
+      
       if (isMobile) {
         setActiveMenu(false);
       }
@@ -49,7 +53,17 @@ const Sidebar: FC<SidebarProps> = ({
     }
   };
 
-  // Si NO está activo y no es mobile → no renderizar nada
+  const filteredSections = sidebarLinks
+    .map(section => ({
+      ...section,
+      links: section.links.filter(link => {
+        if (!link.roles) return true;
+        return link.roles.some(role => userRole.split(",").includes(role));
+      })
+    }))
+    .filter(section => section.links.length > 0);
+
+  
   if (!activeMenu && !isMobile) return null;
 
   return (
@@ -86,7 +100,7 @@ const Sidebar: FC<SidebarProps> = ({
 
       {/* LINKS */}
       <div className="mt-5">
-        {sidebarLinks.map((section) => (
+        {filteredSections.map((section) => (
           <div key={section.title}>
             {!collapsed && (
               <p className="text-slate-300 uppercase px-4 mt-4 mb-2 text-sm">

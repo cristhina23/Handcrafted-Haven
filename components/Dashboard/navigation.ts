@@ -1,3 +1,4 @@
+import { resolveSrv } from "dns/promises";
 import { hr } from "framer-motion/client";
 import {
   LayoutDashboard,
@@ -19,12 +20,14 @@ export const sidebarLinks = [
       { 
         name: "dashboard", 
         href: "/dashboard", 
-        icon: LayoutDashboard 
+        icon: LayoutDashboard,
+        roles: ["seller"]
       },
       { 
         name: "products",  
         href: "/dashboard/products", 
         icon: Package,
+        roles: ["seller"],
         sublinks: [
           { name: "All Products", href: "/dashboard/products?tab=all" },
           { name: "Add Product", href: "/dashboard/products?tab=add" }
@@ -33,22 +36,27 @@ export const sidebarLinks = [
       { 
         name: "orders", 
         href: "/dashboard/orders", 
-        icon: ShoppingCart
+        icon: ShoppingCart,
+        roles: ["seller"]
       },
       /* { 
         name: "statistics", 
         href: "/dashboard/statistics", 
-        icon: BarChart3 
+        icon: BarChart3,
+        roles: ["seller"]
       },
       { 
         name: "notifications", 
         href: "/dashboard/notifications", 
-        icon: Bell 
+        icon: Bell,
+        roles: ["seller", "user"],
+        
       },
       { 
         name: "messages", 
         href: "/dashboard/messages", 
-        icon: MessageSquare 
+        icon: MessageSquare,
+        roles: ["user", "seller"],
       }, */
     ],
   },
@@ -59,26 +67,36 @@ export const sidebarLinks = [
         name: "my-store", 
         href: "/dashboard/my-store", 
         icon: Store,
+        roles: ["seller"],
         sublinks: [
           { name: "Store Info", href: "/dashboard/my-store" },
           /* { name: "delivery options", href: "/dashboard/my-store/delivery" },
           { name: "payment methods", href: "/dashboard/my-store/payments" }, */
         ]
-      },
-      { 
-        name: "my-profile", 
-        href: "/dashboard/my-profile", 
-        icon: User 
-      },
+      }
+      
     ],
   },
   {
     title: "General",
     links: [
       { 
+        name: "my-profile", 
+        href: "/dashboard/my-profile",
+        roles: ["seller", "user"], 
+        icon: User 
+      },
+      {
+        name: "Order History", 
+        href: "/order-history", 
+        roles: ["seller", "user"],
+        icon: HelpCircle
+      },
+      { 
         name: "settings", 
         href: "/dashboard/settings", 
         icon: Settings,
+        roles: ["seller", "user"],
         sublinks: [
           { name: "Account", href: "/dashboard/settings/account" },
           { name: "Security", href: "/dashboard/settings/security" },
@@ -87,8 +105,9 @@ export const sidebarLinks = [
       { 
         name: "help", 
         href: "/dashboard/help", 
+        roles: ["seller", "user"],
         icon: HelpCircle 
-      },
+      }
     ],
   },
 ];
