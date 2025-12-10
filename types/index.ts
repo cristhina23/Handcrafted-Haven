@@ -29,7 +29,7 @@ export interface CategoryType {
 // ---------- Seller ----------
 export interface SellerType {
   _id: string;
-  userId: string;
+  userId?: string;
   shopName: string;
   bio?: string;
   profileImage?: string;
@@ -154,6 +154,38 @@ export interface WishlistType {
   products: string[];
 }
 
+
+export interface SellerAvatarProps {
+    seller: {
+        _id: string
+        shopName :string,
+        profileImage?: string,
+        rating?: number,
+        specialties?: string,
+        totalReviews?: number,
+        fullName: string,
+        image: string,
+        userId?: string,
+        totalSales?: number
+    }
+}
+export interface aggregateSellerData{
+    _id: string,
+    shopName: string,
+    rating: number,
+    specialties?: string,
+    totalReviews?: number,
+    fullName: string,
+    image: string,
+    totalSales?: number
+}
+
+/*****************************
+ *  StarIcon Rating
+*****************************/
+export interface starRatingProps{
+  rating:number
+}
 export interface Notification {
   id: string;
   title: string;

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import AOSWrapper from "@/components/AosWrapper";
+import AOSWrapper from "@/components/ui/AosWrapper";
 import ProfileChecker from "@/components/ProfileChecker";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Toaster } from "react-hot-toast";

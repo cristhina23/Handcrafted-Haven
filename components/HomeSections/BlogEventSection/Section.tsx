@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Card } from "@/components/ui/card"
-import Date from "@/components/Date";
+import Date from "@/components/ui/Date";
 import { FaArrowRight } from "react-icons/fa";
 
 export default function Events() {
