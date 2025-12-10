@@ -31,7 +31,7 @@ export interface SellerType {
   _id: string;
   userId?: string;
   shopName: string;
-  bio?: string;
+  bio: string;
   profileImage?: string;
   country: string;
   specialties: string[];
