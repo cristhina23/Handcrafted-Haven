@@ -10,13 +10,16 @@ import ProductsSection from "@/components/HomeSections/products/ProductsSection"
 export default function Home() {
   return (
     <>
-      <Hero />
-      <ProductsSection />
-      <CategorySection />
-      <Impression />
-      <MeetOurMakers />
-      <BecomeSeller/>
-      <Events/>
+      <div >
+        
+        <Hero />
+        <CategorySection />
+        <ProductsSection />
+        <MeetOurMakers />
+        <Impression />
+        <Events />
+        <BecomeSeller />
+      </div>
     </>
   );
 }
