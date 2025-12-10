@@ -1,0 +1,103 @@
+"use client";
+
+import { FC, useState } from "react";
+import { FaRegHeart, FaRegUser } from "react-icons/fa";
+import { AiOutlineShoppingCart } from "react-icons/ai";
+import { useUser, SignInButton, UserButton, SignedOut } from "@clerk/nextjs";
+import { MenuIcon, User, X } from "lucide-react";
+import { useCart } from "@/contexts/CartContext";
+import { Button } from "@/components/ui/button";
+import { AnimatePresence, motion } from "framer-motion";
+import Link from "next/link";
+
+const UserActions: FC = () => {
+  const { isSignedIn, user } = useUser();
+  const { itemCount, openCart } = useCart();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
+  return (
+    <div className="flex gap-4 sm:gap-6 mr-4">
+      {/* Wishlist */}
+      <div className="flex gap-1 sm:gap-2 items-center cursor-pointer transform transition-transform duration-400 hover:scale-110">
+        <FaRegHeart className="text-slate-900 w-4 h-4 sm:w-5 sm:h-5" />
+        <span className="text-slate-900 text-xs sm:text-sm">Wishlist</span>
+      </div>
+
+      {/* Cart */}
+      <div
+        onClick={openCart}
+        className="flex gap-1 sm:gap-2 items-center cursor-pointer transform transition-transform duration-400 hover:scale-110 relative"
+      >
+        <div className="relative">
+          <AiOutlineShoppingCart className="text-slate-900 w-4 h-4 sm:w-5 sm:h-5" />
+          {itemCount > 0 && (
+            <span className="absolute -top-2 -right-2 bg-[#77d4ff] text-slate-900 text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">
+              {itemCount}
+            </span>
+          )}
+        </div>
+        <span className="text-slate-900 text-xs sm:text-sm">Cart</span>
+      </div>
+
+      {/* Account */}
+      {isSignedIn ? (
+        <UserButton>
+          <UserButton.MenuItems>
+            <UserButton.Link
+              label="Profile"
+              labelIcon={<User className="size-4" />}
+              href={`/dashboard`}
+            />
+          </UserButton.MenuItems>
+        </UserButton>
+      ) : (
+        <Button>
+          <SignedOut>
+          <SignInButton>
+            <div>Login</div>
+          </SignInButton>
+        </SignedOut>
+        </Button>
+      )}
+
+      <MenuIcon className="text-slate-900 w-4 h-4 sm:w-5 sm:h-5 md:hidden" 
+      onClick={toggleMenu}/>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ type: "tween", duration: 0.3 }}
+            className="fixed top-0 right-0 h-full w-2/3  md:w-64 bg-white shadow-lg z-50"
+          >
+            
+              <div className="p-6 flex justify-between items-center border-b">
+              <h2 className="text-lg font-bold">Menu</h2>
+              <button onClick={toggleMenu} className="text-slate-900 font-bold text-xl"><X size={24}/>
+              </button>
+            </div>
+            <div className=" w-2/3 mx-auto py-8">
+            <ul className="p-4 flex flex-col gap-4 px-6">
+              <li><Link href="/" className="hover:text-blue-500 text-lg font-bold" >Home</Link></li>
+              
+              <li><Link href="/about" className="hover:text-blue-500 text-lg font-bold" onClick={toggleMenu}>Shop</Link></li>
+              
+              <li><Link href="/contact" className="hover:text-blue-500 text-lg font-bold">Contact</Link></li>
+              <li><Link href="/dashboard" className="hover:text-blue-500 text-lg font-bold">Blog</Link></li>
+            </ul>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+
+    
+  );
+};
+
+export default UserActions;
