@@ -69,3 +69,25 @@ export async function getBestMakerByproducts() {
         throw new Error("Oops! something went wrong.")
     }
 }
+
+/*************************************
+ *  Get Products by seller's Id
+**************************************/
+export async function getProductsBySellersId(id:string) {
+    try {
+
+        await connectDB()
+
+        const products = await Product.find({
+                sellerId: id,
+        });
+
+        console.log("Get seller's product:",products)
+        //if (!products || products.length === 0) throw new Error("This Seller is yet upload products");
+
+        return products || [];
+    } catch (error) {
+        console.log("Get product By seller's Id:", error)
+        throw new Error("Oops! something went wrong.")
+    }
+}

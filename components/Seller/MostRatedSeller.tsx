@@ -15,7 +15,7 @@ function MostRatedSection() {
             .then(value => setRated(value));
     }, [])
     return (
-        <Card className="hidden flex flex-col justify-center items-center bg-(--brand-dark) w-full lg:block lg:max-w-5xl">
+        <Card className="hidden flex flex-col justify-center items-center bg-(--brand-dark) w-full sm:max-w-xl lg:flex md:max-w-2xl lg:max-w-5xl">
             <CardContent className="grid grid-cols-3 gap-6  items-center h-[300px] p-8">
                 
                 <div className="col-span-1 justify-self-center flex flex-col justify-center w-full">
@@ -51,16 +51,16 @@ function ActiveSellerSection() {
     }, []);
     
     return (
-        <Card className="hidden bg-(--brand-dark) w-full lg:block lg:max-w-5xl">
+        <Card className="bg-(--brand-dark) w-full flex flex-col justify-center items-center sm:max-w-xl lg:block md:max-w-2xl lg:max-w-5xl">
             <CardContent className="flex flex-col justify-center items-center h-[300px] p-6 ">
                 
                 <div className=" text-center text-(--brand-pale)">
-                <h2 className="font-merriweather text-3xl mb-6">
+                <h2 className="font-merriweather sm:text-2xl md:text-3xl mb-6">
                     Most Active Artisans
                 </h2>
                 </div>
 
-                <div className='flex flex-row justify-center items-center gap-5 w-full'>
+                <div className='flex flex-row justify-center items-center gap-3 w-full'>
                     {activeSeller.map((seller) => (
                        <SellerAvatar key={seller._id} seller={seller} /> 
                     ))}
@@ -81,7 +81,7 @@ function TopSellersByCategory() {
         .then(value => setData(value))
     }, []);
     return (
-        <Card className="hidden bg-(--brand-dark) w-full lg:block lg:max-w-5xl">
+        <Card className="flex flex-col justify-center items-center bg-(--brand-dark) w-full sm:max-w-xl lg:block md:max-w-2xl lg:max-w-5xl">
             <CardContent className="flex flex-col justify-center items-center h-[300px] p-6 ">
                 
                 <div className=" text-center text-(--brand-pale)">

@@ -32,18 +32,18 @@ export function NewArrivalCarousel() {
   return (
     <Carousel
       plugins={[plugin.current]}
-      className="w-full grid justify-center items-center mx-0 my-16 max-w-sm sm:max-w-sm md:max-w-xl lg:max-w-2xl"
+      className="w-full grid justify-center items-center mx-0 my-16 "
       //onMouseEnter={plugin.current.stop}
       //onMouseLeave={plugin.current.reset}
       >
             <div className="text-2xl font-bold mb-10">
                 <h2>New Arrivals</h2>      
             </div>
-      <CarouselContent className="w-full p-0 ">
+      <CarouselContent className="w-full max-w-md sm:max-w-xl md:max-w-2xl lg:max-w-3xl p-0 ">
         {newArrivals.map((seller : seller) => (
-          <CarouselItem key={seller._id} className=" sm:basis-1/3 md:basis-1/3 lg:basis-1/5">
+          <CarouselItem key={seller._id} className="basis-1/3 sm:basis-1/5 md:basis-1/5 lg:basis-1/5">
             <div className="py-1 pr-1 pl-0 ">
-              <Card className='flex justify-self-center rounded-full aspect-2/2 p-0 max-h-40'>
+              <Card className='flex justify-self-center rounded-full aspect-2/2 p-0 max-h-25 sm:max-h-40'>
                 <Link href="#" className="flex aspect-square items-center justify-center p-0">
                   <Image
                     src={seller.image}

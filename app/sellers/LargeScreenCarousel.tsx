@@ -17,13 +17,13 @@ export function CarouselPlugin() {
   return (
     <Carousel
       plugins={[plugin.current]}
-      className="w-full rated-carousel max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-5xl"
+      className="w-full sm:max-w-xl md:max-w-2xl lg:max-w-4xl xl:max-w-5xl"
       //onMouseEnter={plugin.current.stop}
       //onMouseLeave={plugin.current.reset}
     >
-      <CarouselContent className="">
+      <CarouselContent className="justify-center items-center">
         {cards.map((CardComponent, index) => (
-          <CarouselItem key={index}className="justify-center">
+          <CarouselItem key={index}className="justify-center items-center">
             <div className="p-1">
               <CardComponent/>
             </div>

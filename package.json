@@ -20,6 +20,7 @@
     "embla-carousel-autoplay": "^8.6.0",
     "embla-carousel-react": "^8.6.0",
     "framer-motion": "^12.23.24",
+    "heroicons": "^2.2.0",
     "igniteui-react-charts": "^19.3.0",
     "igniteui-react-core": "^19.3.0",
     "lucide-react": "^0.554.0",

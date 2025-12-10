@@ -23,6 +23,31 @@ export async function getSellers() {
     }
 }
 
+/***********************************************
+ *  Retrieve Seller's Details
+************************************************/
+export async function getSellerById(id: string) {
+    try {
+        await connectDB();
+
+        const sellerInfo = await Seller.findById(id)
+            .populate({
+                path: "userId",
+                select: "fullName image",
+            });
+
+        if (!sellerInfo) {
+            throw new Error("Seller not found!");
+        }
+
+        return sellerInfo;
+
+    } catch (error) {
+        console.log("Seller By ID Error: ", error);
+        throw new Error("Oops! something went wrong");
+    }
+}
+
 /*******************************************************
  * Most Rated Artisans
  ******************************************************/
@@ -265,7 +290,7 @@ export async function getBestCraftman() {
             { $unwind:"$userdetails"},
             {
                 $project: {
-                    _id: 0,
+                    _id: 1,
                     sellerName: "$userdetails.fullName",
                     storeImage:"$profileImage",
                     storeName: "$shopName",      
@@ -274,7 +299,8 @@ export async function getBestCraftman() {
             }
         ]);
         
-        //console.log("Best Craftsman Result:", bestCraftMan);
+        const seller = bestCraftMan[0]
+        console.log("Best Craftsman Result:", seller._id);
         
         return bestCraftMan.length > 0 ? bestCraftMan[0] : null;
 

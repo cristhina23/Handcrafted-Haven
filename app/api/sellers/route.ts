@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { connectDB } from "@/lib/db/db";
-import { Seller } from "@/lib/models/Seller";
-import { mostRatedSeller, getActiveSellers, getTrendingArtisans, getNewArrivals } from "@/lib/db/sellers";
+import { mostRatedSeller, getActiveSellers, getTrendingArtisans, getNewArrivals, getSellers } from "@/lib/db/sellers";
 import { getCategories } from "@/lib/db/data";
 
 
@@ -38,7 +37,7 @@ export async function GET(req:NextRequest) {
       return NextResponse.json(data, { status: 200 });
     }
 
-    const sellers = await Seller.find().lean();
+    const sellers = await getSellers();
     
 
     return NextResponse.json(sellers);

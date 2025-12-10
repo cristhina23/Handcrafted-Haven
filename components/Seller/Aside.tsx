@@ -1,5 +1,4 @@
 "use client";
-import { useEffect, useState } from "react";
 import Link from 'next/link';
 import Image from 'next/image';
 import Date from "@/components/ui/Date";
@@ -8,7 +7,6 @@ import { Card, CardHeader, CardTitle, CardContent } from "../ui/card"
 import AllFilters from "./FilterBy";
 
 export default function AsideSeller() {
-    const [CategoryNameList, setName] = useState([]);
     
     return (
         <aside className="hidden col-span-1 m-10 md:block  ">

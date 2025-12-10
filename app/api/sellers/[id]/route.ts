@@ -12,7 +12,12 @@ export async function GET(req: NextRequest, { params }: { params: Params }) {
     const { id } = params;
 
     // Buscar seller POR SU _ID (el que usa el producto)
-    const seller = await Seller.findById(id);
+    const seller = await Seller.findById(id).populate(
+      {
+        path: "userId",
+        select: "fullName image",
+      }
+    );
 
     if (!seller) {
       return NextResponse.json({ message: "Seller not found" }, { status: 404 });
@@ -20,7 +25,8 @@ export async function GET(req: NextRequest, { params }: { params: Params }) {
 
     return NextResponse.json(seller);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  } catch (err: any) {
+  } catch (err:any) {
+    console.error("Error fetching seller:", err);
     return NextResponse.json({ error: err.message }, { status: 500 });
   }
 }

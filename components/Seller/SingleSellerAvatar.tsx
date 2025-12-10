@@ -7,7 +7,7 @@ import StarsRating from '@/components/ProductPage/StarsRating';
 
 export default function SellerAvatar({ seller }: SellerAvatarProps) {
     return (
-        <Link href="" className='max-h-50 flex flex-col items-center  '>
+        <Link href={`.sellers/${seller._id}`} className='max-h-50 flex flex-col items-center  '>
             <Card className='rounded-full aspect-2/2 p-0 max-h-35'>
                 <Image
                     src={seller.image}

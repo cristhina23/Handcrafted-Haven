@@ -18,8 +18,8 @@ export default function BestArtisansByMonth() {
     }
 
     return (
-        <section className="mt-10 mb-25">
-            <div className="font-merriweather">
+        <section className="w-full mt-10 mb-25">
+            <div className="max-w-sm sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-4xl w-full mx-auto font-merriweather">
                 <div className="mb-10">
                     <h1 className="text-3xl font-semibold  ">Featured Artisans</h1>
                     <p className="text-lg ">Discover The Best & Latest Craft Makers</p>
@@ -36,7 +36,7 @@ export default function BestArtisansByMonth() {
                             />
                         </CardContent>
                         <CardTitle className="border-0 shadow-none text-center pt-0 mt-0">
-                            <h2 className=" sm:text-sm md:text-base lg:text-xl pt-0 mt-0">{bestSeller.storeName}</h2>
+                            <h2 className="text-xs sm:text-sm md:text-base lg:text-xl pt-0 mt-0">{bestSeller.storeName}</h2>
                             <h3 className="sm:text-sm md:text-base lg:text-xl">Best Seller of The Month</h3>
                             <p className="text-xs">(Total Revenue: {formatCurrency(bestSeller.totalRevenue )})</p>
                         </CardTitle>
