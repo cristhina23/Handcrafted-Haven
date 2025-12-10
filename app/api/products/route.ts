@@ -11,7 +11,7 @@ export async function GET() {
     await connectDB();
     const products = await Product.find().populate("sellerId", "shopName");
 
-    // Transform products to include sellerName at root level
+  
     const productsWithSeller = products.map((product) => {
       const productObj = product.toObject();
       return {

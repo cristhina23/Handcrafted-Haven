@@ -4,17 +4,19 @@ import Impression from "@/components/HomeSections/aboutSection/Section";
 import Events from "@/components/HomeSections/BlogEventSection/Section";
 import Hero from "@/components/Hero/Hero";
 import BecomeSeller from "@/components/HomeSections/BecomeSeller/BecomeSeller";
+import ProductsSection from "@/components/HomeSections/products/ProductsSection";
 
 
 export default function Home() {
   return (
     <>
       <Hero />
+      <ProductsSection />
       <CategorySection />
       <Impression />
       <MeetOurMakers />
-      <Events/>
       <BecomeSeller/>
+      <Events/>
     </>
   );
 }
