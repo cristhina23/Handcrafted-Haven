@@ -9,15 +9,24 @@ if (!MONGODB_URL) {
 const connection: { isConnected?: number } = {};
 
 export const connectDB = async () => {
-  if (connection.isConnected) {
-    console.log("MongoDB already connected");
+  if (mongoose.connection.readyState === 1) {
+    // Solo loguea una vez si quieres, o elimina el log para evitar spam
+    // console.log("MongoDB already connected");
+    return;
+  }
+
+  if (mongoose.connection.readyState === 2) {
+    // 2 = connecting, espera a que termine
     return;
   }
 
   try {
-    const db = await mongoose.connect(MONGODB_URL);
-    connection.isConnected = db.connections[0].readyState;
-    console.log("MongoDB connected successfully");
+    await mongoose.connect(MONGODB_URL);
+    // Solo loguea una vez
+    if (!connection.isConnected) {
+      console.log("MongoDB connected successfully");
+      connection.isConnected = 1;
+    }
   } catch (error) {
     console.error("MongoDB connection failed", error);
     throw new Error("MongoDB connection failed");

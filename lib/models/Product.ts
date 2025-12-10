@@ -31,7 +31,11 @@ const ProductSchema = new Schema<IProduct>(
     description: { type: String, required: true },
     price: { type: Number, required: true },
     images: { type: [String], required: true },
-    categoryId: { type: Schema.Types.ObjectId, ref: "Category", required: true },
+    categoryId: {
+      type: Schema.Types.ObjectId,
+      ref: "Category",
+      required: true,
+    },
     quantity: { type: Number, default: 0 },
     country: { type: String },
     rating: { type: Number, default: 0 },
@@ -45,13 +49,10 @@ const ProductSchema = new Schema<IProduct>(
     isCustomOrder: { type: Boolean, default: false },
     dimensions: String,
     shippingMethods: [String],
+    reviews: [{ type: Schema.Types.ObjectId, ref: "Review" }], // <-- Agregado para población
   },
   { timestamps: true }
 );
 
 export const Product =
-  mongoose.models.Product ||
-  mongoose.model<IProduct>("Product", ProductSchema);
-
-
-  
+  mongoose.models.Product || mongoose.model<IProduct>("Product", ProductSchema);

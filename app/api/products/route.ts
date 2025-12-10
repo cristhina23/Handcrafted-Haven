@@ -1,3 +1,4 @@
+import { Review } from "@/lib/models/Review";
 // app/api/products/route.ts
 import { NextResponse } from "next/server";
 import { connectDB } from "@/lib/db/db";
@@ -9,15 +10,17 @@ import { User } from "@/lib/models/User";
 export async function GET() {
   try {
     await connectDB();
-    const products = await Product.find().populate("sellerId", "shopName");
+    const products = await Product.find()
+      .populate("sellerId", "shopName")
+      .populate("reviews");
 
-  
     const productsWithSeller = products.map((product) => {
       const productObj = product.toObject();
       return {
         ...productObj,
         sellerName: productObj.sellerId?.shopName || "Unknown Seller",
         sellerId: productObj.sellerId?._id || productObj.sellerId,
+        reviews: productObj.reviews || [],
       };
     });
 
@@ -35,10 +38,7 @@ export async function POST(req: Request) {
   try {
     const { userId } = await auth();
     if (!userId) {
-      return NextResponse.json(
-        { error: "Unauthorized" },
-        { status: 401 }
-      );
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
     await connectDB();
@@ -57,7 +57,6 @@ export async function POST(req: Request) {
       shippingMethods,
     } = body;
 
-    
     if (!title || !description) {
       return NextResponse.json(
         { error: "title and description are required" },
@@ -86,18 +85,13 @@ export async function POST(req: Request) {
       );
     }
 
-    
     const clerkId = userId;
     const user = await User.findOne({ clerkId });
 
     if (!user) {
-      return NextResponse.json(
-        { error: "User not found" },
-        { status: 404 }
-      );
+      return NextResponse.json({ error: "User not found" }, { status: 404 });
     }
 
-    
     const seller = await Seller.findOne({ userId: user._id });
 
     if (!seller) {
@@ -110,7 +104,6 @@ export async function POST(req: Request) {
     const storeId = seller._id.toString();
     const sellerCountry = seller.country || "";
 
-   
     const newProduct = await Product.create({
       sellerId: storeId,
       title,
@@ -127,7 +120,6 @@ export async function POST(req: Request) {
     });
 
     return NextResponse.json(newProduct, { status: 201 });
-
   } catch (error) {
     console.error("Error creating product:", error);
     return NextResponse.json(
@@ -136,5 +128,3 @@ export async function POST(req: Request) {
     );
   }
 }
-
-
