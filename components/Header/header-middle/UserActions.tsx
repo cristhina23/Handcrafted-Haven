@@ -87,7 +87,9 @@ const UserActions: FC = () => {
             <ul className="p-4 flex flex-col gap-4 px-6">
               <li><Link href="/" className="hover:text-blue-500 text-lg font-bold" onClick={toggleMenu}>Home</Link></li>
               
+              <li><Link href="/about" className="hover:text-blue-500 text-lg font-bold" onClick={toggleMenu}>About</Link></li>
               <li><Link href="/shop" className="hover:text-blue-500 text-lg font-bold" onClick={toggleMenu}>Shop</Link></li>
+              <li><Link href="/contact" className="hover:text-blue-500 text-lg font-bold" onClick={toggleMenu}>Contact Us</Link></li>
               
               <li><Link href="/sellers" className="hover:text-blue-500 text-lg font-bold" onClick={toggleMenu}>Sellers</Link></li>
               <li><Link href="/blog" className="hover:text-blue-500 text-lg font-bold" >Blog</Link></li>
