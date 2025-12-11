@@ -4,10 +4,10 @@ import { User } from "@/lib/models/User";
 
 export async function GET(
   req: NextRequest,
-  { params }: { params: Promise<{ id: string }> }
+  { params }: { params: { id: string } }
 ) {
   try {
-    const { id: clerkId } = await params;
+    const { id: clerkId } = params;
 
     if (!clerkId) {
       return Response.json({ message: "User ID is required" }, { status: 400 });

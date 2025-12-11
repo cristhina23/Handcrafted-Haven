@@ -8,7 +8,7 @@ import { updateProductRating } from "@/lib/utils/updateProductRating";
 // PUT update a review
 export async function PUT(
   req: NextRequest,
-  { params }: { params: Promise<{ id: string }> }
+  { params }: { params: { id: string } }
 ) {
   try {
     const { userId } = await auth();
@@ -20,7 +20,7 @@ export async function PUT(
       );
     }
 
-    const { id: reviewId } = await params;
+    const { id: reviewId } = params;
 
     await connectDB();
 

@@ -5,7 +5,7 @@ import mongoose from "mongoose";
 import { auth } from "@clerk/nextjs/server";
 import { User } from "@/lib/models/User";
 
-export async function GET(req: NextRequest, context: { params: Promise<{ id: string }> }) {
+export async function GET(req: NextRequest, { params }: { params: { id: string } }) {
   try {
     await connectDB();
 
@@ -19,7 +19,7 @@ export async function GET(req: NextRequest, context: { params: Promise<{ id: str
       return NextResponse.json({ error: "User not found" }, { status: 404 });
     }
 
-    const { id } = await context.params;
+    const { id } = params;
 
     if (!mongoose.Types.ObjectId.isValid(id)) {
       return NextResponse.json({ error: "Invalid ID" }, { status: 400 });

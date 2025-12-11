@@ -13,11 +13,14 @@ export async function GET(
   { params }: { params: { id: string } }
 ) {
   try {
-    const { id } = params;   
+    const { id } = params;
     await connectDB();
 
     if (!mongoose.Types.ObjectId.isValid(id)) {
-      return NextResponse.json({ message: "Invalid order ID" }, { status: 400 });
+      return NextResponse.json(
+        { message: "Invalid order ID" },
+        { status: 400 }
+      );
     }
 
     const order = await Order.findById(id)
@@ -43,7 +46,7 @@ export async function PUT(
   { params }: { params: { id: string } }
 ) {
   try {
-    const { id } = params; 
+    const { id } = params;
     await connectDB();
 
     const { userId } = await auth();
@@ -61,7 +64,10 @@ export async function PUT(
     const { status } = await req.json();
 
     if (!status)
-      return NextResponse.json({ error: "Status is required" }, { status: 400 });
+      return NextResponse.json(
+        { error: "Status is required" },
+        { status: 400 }
+      );
 
     const order = await Order.findById(id);
     if (!order)

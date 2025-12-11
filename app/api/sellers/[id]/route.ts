@@ -4,7 +4,7 @@ import { Seller } from "@/lib/models/Seller";
 
 export async function GET(
   req: NextRequest,
-  { params }: { params: Promise<{ id: string }> }
+  { params }: { params: { id: string } }
 ) {
   try {
     await connectDB();
