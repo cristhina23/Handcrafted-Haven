@@ -13,10 +13,10 @@ export async function GET(
   context: RouteContext
 ) {
   try {
-    await connectDB();
+    const resolvedParams = context.params;
+    const { id: sellerId } = resolvedParams; 
 
-    const sellerId = context.params.id;
-    console.log("Received sellerId:", sellerId);
+    await connectDB(); 
 
     const products = await getProductsBySellersId(sellerId);
 

@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-// app/api/orders/[id]/route.ts
+
 import { connectDB } from "@/lib/db/db";
 import { Order } from "@/lib/models/Order";
 import { Seller } from "@/lib/models/Seller";
@@ -39,11 +39,12 @@ export async function GET(
 }
 
 export async function PUT(
-  req: NextRequest,
-  { params }: { params: { id: string } }
+  req: Request,
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const { id } = params; 
+    const resolvedParams = await params;
+    const { id } = resolvedParams;
     await connectDB();
 
     const { userId } = await auth();
@@ -91,11 +92,12 @@ export async function PUT(
 }
 
 export async function DELETE(
-  req: NextRequest,
-  { params }: { params: { id: string } }
+ request: Request,
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const { id } = params; // <-- sin await
+    const resolvedParams = await params;
+    const { id } = resolvedParams;
     await connectDB();
 
     const { userId } = await auth();
