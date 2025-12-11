@@ -18,7 +18,7 @@ interface RouteContext {
 
 export async function GET(
   request: Request,
-  context: RouteContent
+  context: RouteContext
 ) {
   try {
     const resolvedParams = context.params;
