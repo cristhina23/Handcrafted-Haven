@@ -9,16 +9,17 @@ import { notFound } from "next/navigation";
 export default async function SellerPage({ params }: { params: { id: string } }) {
     const { id } = await params;
     const sellerDoc = await getSellerById(id);
+    const sellerImage = 'https://res.cloudinary.com/dttbqvomc/image/upload/v1765426095/banner2_l1fkbm.jpg'
 
   const seller = JSON.parse(JSON.stringify(sellerDoc))
 
   if (!seller || seller.length === 0) {
     notFound()
   }
-console.log("Seller:", seller)
+
   return (
     <div className="w-full flex flex-col">
-      <HeroBanner banner={seller.profileImage} />
+      <HeroBanner banner={sellerImage} />
 
       <SellerProfile
         name={seller.shopName}
