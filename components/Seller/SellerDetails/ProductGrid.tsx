@@ -18,16 +18,17 @@ export default function ProductGrid({ sellerId }: { sellerId: string }) {
 
   const products = allProducts.filter((p: any) => p.sellerId === sellerId);
   const reviews = allReviews.filter((p: any) => p.sellerId === sellerId);
+  console.log("allProducts:", allProducts);
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">
+    <div className="md:p-12 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-12 mt-4">
       {products.map((p) => (
         <div
           key={p._id}
           className="border rounded-lg p-2 shadow-sm hover:shadow-md transition"
         >
           <Image
-            src={p.images}
+            src={p.images[0] || ""}
             alt={p.title}
             className="w-full h-40 object-cover rounded"
             width={200}
