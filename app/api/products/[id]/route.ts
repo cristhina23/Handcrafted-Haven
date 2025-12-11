@@ -12,10 +12,10 @@ import { Review } from "@/lib/models/Review";
 
 export async function GET(
   request: Request,
-  { params }: { params: Promise<{ id: string }> }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
-    const resolvedParams = await params;
+    const resolvedParams = context.params;
     const { id } = resolvedParams;
     console.log("ID recieved:", id);
     console.log("ID converted:", new mongoose.Types.ObjectId(id));
