@@ -7,6 +7,8 @@ import { getCategories } from "@/lib/db/data";
 
 export async function GET(req:NextRequest) {
   try {
+    
+  
     await connectDB();
     const url = new URL(req.url);
     const type = url.searchParams.get("type");
@@ -39,7 +41,7 @@ export async function GET(req:NextRequest) {
 
     const sellers = await getSellers();
     
-
+     
     return NextResponse.json(sellers);
   } catch (error) {
     console.log("Seller API error", error)

@@ -24,7 +24,7 @@ export function NewArrivalCarousel() {
         fetch('/api/sellers?type=new-arrival')
         .then(res => res.json())
         .then(data => setNewArrivals(data))
-    })
+    }, []);
   const plugin = React.useRef(
     Autoplay({ delay: 5000, stopOnInteraction: false })
   )

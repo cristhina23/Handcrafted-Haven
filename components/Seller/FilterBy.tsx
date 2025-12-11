@@ -20,7 +20,7 @@ export default function AllFilters() {
         fetch('/api/categories')
         .then(res => res.json())
         .then(data => setName(data))
-    })
+    }, []);
     
     return (
        <section>
