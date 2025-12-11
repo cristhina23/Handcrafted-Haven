@@ -76,7 +76,7 @@ export const SellerOrdersProvider = ({ children }: { children: ReactNode }) => {
 
       const updatedOrder = await res.json();
 
-      // Actualiza el estado local directamente para reflejar el cambio
+      
       setOrders(prevOrders =>
         prevOrders.map(order =>
           order._id === updatedOrder._id
@@ -89,7 +89,7 @@ export const SellerOrdersProvider = ({ children }: { children: ReactNode }) => {
 
     } catch (err) {
       console.error("Error updating order:", err);
-      // opcional: revertir el estado local si falla
+      
       setLocalStatuses(prev => ({ ...prev, [orderId]: orders.find(o => o._id === orderId)?.status || "" }));
     }
 };

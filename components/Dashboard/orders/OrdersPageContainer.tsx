@@ -83,7 +83,7 @@ function StatusDropdown({ options, value = null, onChange, widthClass = "w-32" }
   );
 }
 
-export default function OrdersTable() {
+export default function OrdersTable({ params }: { params: { id: string } }) {
   const { orders, loading, updateOrderStatus, deleteOrder } = useOrders();
   const [selectedOrder, setSelectedOrder] = useState<OrderClient | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
