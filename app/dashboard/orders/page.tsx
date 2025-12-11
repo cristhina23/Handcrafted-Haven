@@ -1,7 +1,7 @@
 import OrdersPageContainer from '@/components/Dashboard/orders/OrdersPageContainer'
 import React from 'react'
 
-function page({ params }: { params: { id: string } }) {
+function page() {
   return (
     <div>
 
