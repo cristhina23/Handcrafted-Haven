@@ -712,6 +712,19 @@ const users = [
     },
     "createdAt": "2024-11-20T12:45:00Z"
   },
+  {
+    "_id":{"$oid":"692e6c048d62b51179eb7953"},"clerkId":"user_36H3wYMP3F9O9AYV98NoSQzuzyo",
+    "fullName":"Seller Demo",
+    "email":"byu.handcraftedhaven2025@gmail.com",
+    "password":"T3sTing123456",
+    "image":"https://randomuser.me/api/portraits/men/11.jpg",
+    "address":{"street":"calle piura","city":"Villa EL Salvador","state":"Provincia de Lima","zipCode":"11836","country":"Peru"},
+    "createdAt":"2024-11-20T12:45:00Z",
+    "phone":"+51 949807845",
+    "profileCompleted":true,
+    "role":"seller",
+    "updatedAt":{"$date":{"$numberLong":"1765338638268"}},"username":"sellerdemo"
+  },
 
   {
     _id: "69228dac758610b8abeb63bd",

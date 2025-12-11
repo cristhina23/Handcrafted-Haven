@@ -5,7 +5,7 @@ import { sidebarLinks } from "./navigation";
 import { FC } from "react";
 import CustomAccordionItem from "../CustomAccordionItem";
 import { useUser } from "@clerk/nextjs";
-import { useSeller } from "@/contexts/SellerContext";
+import { useCheckSeller } from "@/hooks/useCheckSeller";
 
 interface SidebarProps {
   activeMenu: boolean;
@@ -26,23 +26,21 @@ const Sidebar: FC<SidebarProps> = ({
   const isMobile = screenSize <= 760;
   const { user } = useUser();
 
-  const isSeller = user?.publicMetadata?.role === "seller";
+  // 🚀 Hook personalizado que consulta si el usuario tiene tienda
+  const { isSeller, loading } = useCheckSeller();
 
-  const sellerData = isSeller ? useSeller() : null;
-  const seller = sellerData?.seller;
-  const loadingSeller = sellerData?.loading;
+  // Mientras carga, no mostramos nada (o puedes poner un skeleton)
+  if (loading) return null;
 
-  const userRole = isSeller ? "user,seller" : "user";
-
+  const userRole = isSeller ? "seller" : "user";
   const isOverlay = isMobile && !collapsed;
 
   const handleToggle = () => {
-    if (collapsed) {
-      setCollapsed(false);
+    setCollapsed(!collapsed);
+    if (!collapsed) {
       setActiveMenu(true);
-    } else {
-      setCollapsed(true);
-      if (isMobile) setActiveMenu(false);
+    } else if (isMobile) {
+      setActiveMenu(false);
     }
   };
 
@@ -53,12 +51,13 @@ const Sidebar: FC<SidebarProps> = ({
     }
   };
 
+  // Filtramos los links según el rol del usuario
   const filteredSections = sidebarLinks
     .map((section) => ({
       ...section,
       links: section.links.filter((link) => {
-        if (!link.roles) return true;
-        return link.roles.some((role) => userRole.split(",").includes(role));
+        if (!link.roles) return true; // si no tiene roles definidos, mostramos
+        return link.roles.includes(userRole);
       }),
     }))
     .filter((section) => section.links.length > 0);
@@ -71,8 +70,7 @@ const Sidebar: FC<SidebarProps> = ({
       transition-all duration-300
       ${collapsed ? "w-16" : "w-64"}
       ${isOverlay ? "fixed top-0 left-0 z-50" : ""}
-      ${isMobile && collapsed ? "relative" : ""}
-    `}
+      ${isMobile && collapsed ? "relative" : ""}`}
     >
       {/* HEADER */}
       <div className="flex justify-between items-center p-4">
@@ -88,7 +86,7 @@ const Sidebar: FC<SidebarProps> = ({
 
         {isMobile && (
           <button onClick={handleToggle} className="text-slate-300">
-            {collapsed ? "" : "✕"}
+            {collapsed ? "☰" : "✕"}
           </button>
         )}
       </div>
@@ -116,7 +114,7 @@ const Sidebar: FC<SidebarProps> = ({
                     key={sub.name}
                     href={sub.href}
                     onClick={handleCloseSidebar}
-                    className="text-md text-slate-300 hover:bg-slate-700 px-4 py-2 rounded"
+                    className="text-md text-slate-300 hover:bg-slate-700 px-4 py-2 rounded block"
                   >
                     {sub.name}
                   </Link>
