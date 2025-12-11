@@ -8,7 +8,7 @@ import { updateProductRating } from "@/lib/utils/updateProductRating";
 // PUT update a review
 export async function PUT(
   req: NextRequest,
-  { params }: { params: Promise<{ id: string }> }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
     const { userId } = await auth();
@@ -20,7 +20,7 @@ export async function PUT(
       );
     }
 
-    const { id: reviewId } = await params;
+    const { id: reviewId } = await context.params;
 
     await connectDB();
 
@@ -89,7 +89,7 @@ export async function PUT(
 // DELETE a review
 export async function DELETE(
   req: NextRequest,
-  { params }: { params: Promise<{ id: string }> }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
     const { userId } = await auth();
@@ -101,7 +101,7 @@ export async function DELETE(
       );
     }
 
-    const { id: reviewId } = await params;
+    const { id: reviewId } = await context.params;
 
     await connectDB();
 
