@@ -1,8 +1,10 @@
+import { Product } from "@/lib/models/Product";
 import { NextRequest, NextResponse } from "next/server";
 import { connectDB } from "@/lib/db/db";
 import { Order } from "@/lib/models/Order";
 import { auth } from "@clerk/nextjs/server";
 import { User } from "@/lib/models/User";
+import "@/lib/models/Product";  
 
 export async function GET(req: NextRequest) {
   try {
@@ -13,13 +15,11 @@ export async function GET(req: NextRequest) {
       return NextResponse.json({ error: "Not authenticated" }, { status: 401 });
     }
 
-    // Find MongoDB user
     const user = await User.findOne({ clerkId });
     if (!user) {
       return NextResponse.json({ error: "User not found" }, { status: 404 });
     }
 
-    // Fetch orders that belong to this user
     const orders = await Order.find({ buyerId: user._id })
       .sort({ createdAt: -1 })
       .populate({

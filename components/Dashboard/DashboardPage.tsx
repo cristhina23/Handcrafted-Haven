@@ -17,7 +17,12 @@ interface Props {
 
 export default function DashboardPage({ clerkId }: Props) {
   const { isSignedIn, user } = useUser();
-  const { seller, loading } = useSeller();
+  const isSeller = user?.publicMetadata?.role === "seller";
+  const sellerContext = isSeller ? useSeller() : null;
+
+  const seller = sellerContext?.seller;
+  const loading = sellerContext?.loading ?? false;
+
 
   if (!isSignedIn) return <div>Please log in</div>;
 
