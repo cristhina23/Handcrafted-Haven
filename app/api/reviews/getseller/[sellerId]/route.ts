@@ -18,6 +18,9 @@ export async function GET(
     const reviews = await Review.find({ sellerId }).sort({ createdAt: -1 });
     return NextResponse.json(reviews);
   } catch (error) {
-    return NextResponse.json({ error: "Failed to fetch reviews" }, { status: 500 });
+    return NextResponse.json(
+      { error: "Failed to fetch reviews" },
+      { status: 500 }
+    );
   }
 }
