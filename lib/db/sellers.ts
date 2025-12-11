@@ -36,8 +36,8 @@ export async function getSellers() {
       },
       {
         $addFields: {
-          userId: "$userInfo"
-        }
+          userId: "$userInfo",
+        },
       },
       {
         $sort: { _id: 1, rating: -1 },

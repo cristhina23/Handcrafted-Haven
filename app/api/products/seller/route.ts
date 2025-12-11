@@ -1,4 +1,4 @@
-
+import { Review } from "@/lib/models/Review";
 
 import { auth } from "@clerk/nextjs/server";
 import { connectDB } from "@/lib/db/db";
@@ -18,10 +18,7 @@ export async function GET() {
 
     const user = await User.findOne({ clerkId: userId });
     if (!user) {
-      return NextResponse.json(
-        { error: "User not found" },
-        { status: 404 }
-      );
+      return NextResponse.json({ error: "User not found" }, { status: 404 });
     }
 
     const seller = await Seller.findOne({ userId: user._id });
@@ -32,13 +29,14 @@ export async function GET() {
       );
     }
 
-    
     const products = await Product.find({ sellerId: seller._id }).lean();
-    
+
     return NextResponse.json(products);
   } catch (error) {
     console.error(error);
-    return NextResponse.json({ error: "Failed to fetch products" }, { status: 500 });
+    return NextResponse.json(
+      { error: "Failed to fetch products" },
+      { status: 500 }
+    );
   }
 }
-

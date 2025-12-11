@@ -1,3 +1,4 @@
+import { Review } from "@/lib/models/Review";
 import { NextRequest, NextResponse } from "next/server";
 import { connectDB } from "@/lib/db/db";
 import { getProductsBySellersId } from "@/lib/db/products";
