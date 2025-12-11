@@ -1,10 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, ReactNode } from "react";
 import Sidebar from "@/components/Dashboard/Sidebar";
 import Header from "@/components/Dashboard/header/Header";
 import { ThemeProvider } from "@/providers/ThemeProvider";
-
 import { useUser } from "@clerk/nextjs";
 
 import { SellerProvider } from "@/contexts/SellerContext";
@@ -12,18 +11,24 @@ import { OrderProvider } from "@/contexts/OrderContext";
 import { SellerProductsProvider } from "@/contexts/SellerProductsContext";
 import { SellerOrdersProvider } from "@/contexts/SellerOrdersContext";
 
-export default function DashboardLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+
+const SellerContextsWrapper = ({ children }: { children: ReactNode }) => (
+  <SellerProvider>
+    <SellerProductsProvider>
+      <OrderProvider>
+        <SellerOrdersProvider>{children}</SellerOrdersProvider>
+      </OrderProvider>
+    </SellerProductsProvider>
+  </SellerProvider>
+);
+
+export default function DashboardLayout({ children }: { children: ReactNode }) {
   const { user, isLoaded } = useUser();
   const [collapsed, setCollapsed] = useState(false);
   const [activeMenu, setActiveMenu] = useState(true);
   const [screenSize, setScreenSize] = useState(1200);
 
-  const isSeller = user?.publicMetadata?.role === "seller";
-
+  // Actualiza tamaño de pantalla
   useEffect(() => {
     const updateSize = () => setScreenSize(window.innerWidth);
     window.addEventListener("resize", updateSize);
@@ -33,23 +38,9 @@ export default function DashboardLayout({
 
   if (!isLoaded) return null;
 
-  const SellerWrapper = ({ children }: { children: React.ReactNode }) => {
-    if (!isSeller) return <>{children}</>; // Don't wrap if not seller
-
-    return (
-      <SellerProvider>
-        <SellerProductsProvider>
-          <OrderProvider>
-            <SellerOrdersProvider>{children}</SellerOrdersProvider>
-          </OrderProvider>
-        </SellerProductsProvider>
-      </SellerProvider>
-    );
-  };
-
   return (
     <ThemeProvider>
-      <SellerWrapper>
+      <SellerContextsWrapper>
         <div className="flex h-screen w-full">
           <Sidebar
             collapsed={collapsed}
@@ -64,11 +55,12 @@ export default function DashboardLayout({
             <Header collapsed={collapsed} setCollapsed={setCollapsed} />
 
             <main className="p-2 md:p-6 h-full overflow-auto flex-1 bg-slate-100 dark:bg-slate-900 text-foreground">
+              
               {children}
             </main>
           </div>
         </div>
-      </SellerWrapper>
+      </SellerContextsWrapper>
     </ThemeProvider>
   );
 }
