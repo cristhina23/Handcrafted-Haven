@@ -8,7 +8,7 @@ export async function GET(
 ) {
   try {
     await connectDB();
-    const { id } = params;
+    const { id } = await params;
 
     // Buscar seller POR SU _ID (el que usa el producto)
     const seller = await Seller.findById(id).populate(
