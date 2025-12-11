@@ -9,12 +9,11 @@ import { auth } from "@clerk/nextjs/server";
 import mongoose from "mongoose";
 
 export async function GET(
-  request: Request,
-  { params }: { params: Promise<{ id: string }> }
+  req: NextRequest,
+  context: { params: { id: string } }
 ) {
   try {
-    const resolvedParams = await params;
-    const { id } = resolvedParams;  
+    const { id } = context.params;   
     await connectDB();
 
     if (!mongoose.Types.ObjectId.isValid(id)) {

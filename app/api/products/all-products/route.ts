@@ -11,6 +11,7 @@ export async function GET() {
     const products = await Product.find({}).limit(12); 
     return NextResponse.json({ products });
   } catch (err) {
+    console.log("Get All product Api error", err)
     return NextResponse.json({ error: "Failed to fetch products" }, { status: 500 });
   }
 }

@@ -3,6 +3,12 @@ import { NextResponse } from "next/server";
 import { connectDB } from "@/lib/db/db";
 import { getProductsBySellersId } from "@/lib/db/products";
 
+interface RouteContext {
+    params: {
+        id: string;
+    };
+}
+
 export async function GET(
   request: Request,
   context: { params: { id: string } }
