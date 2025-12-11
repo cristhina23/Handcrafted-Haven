@@ -14,15 +14,14 @@ interface RouteContext {
   params: {
     id: string;
   };
-}
+} 
 
 export async function GET(
   request: Request,
-  context: RouteContext
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
-    const resolvedParams = context.params;
-    const { id } = resolvedParams;
+    const { id } = await context.params;
     console.log("ID recieved:", id);
     console.log("ID converted:", new mongoose.Types.ObjectId(id));
 
@@ -59,12 +58,12 @@ export async function GET(
 
 export async function PUT(
   req: Request,
-  { params }: RouteContext
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
     await connectDB();
 
-    const { id } = await params;
+    const { id } = await context.params;
     const { userId } = await auth();
     if (!userId)
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });

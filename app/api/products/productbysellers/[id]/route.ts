@@ -11,15 +11,15 @@ interface RouteContext {
 
 export async function GET(
   request: Request,
-  context: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
     await connectDB();
 
-    const sellerId = context.params.id;
-    console.log("Received sellerId:", sellerId);
+    const {id} = await context.params;
+    console.log("Received sellerId:", id);
 
-    const products = await getProductsBySellersId(sellerId);
+    const products = await getProductsBySellersId(id);
 
     return NextResponse.json(products, { status: 200 });
   } catch (err: any) {
