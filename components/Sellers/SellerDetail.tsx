@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import CardsContainer from "@/components/ProductPage/CardsContainer";
+import ProductGrid from "@/components/Seller/SellerDetails/ProductGrid";
 
 export default function SellerDetail({ sellerId }: { sellerId: string }) {
   const [seller, setSeller] = useState<any>(null);
@@ -29,7 +29,7 @@ export default function SellerDetail({ sellerId }: { sellerId: string }) {
         {seller.story || "Sin historia disponible."}
       </p>
       <h2 className="text-xl font-semibold mb-2">Productos publicados</h2>
-      <CardsContainer products={products} />
+      <ProductGrid sellerId={sellerId} />
     </div>
   );
 }

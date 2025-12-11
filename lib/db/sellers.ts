@@ -35,6 +35,11 @@ export async function getSellers() {
         $unwind: "$userInfo",
       },
       {
+        $addFields: {
+          userId: "$userInfo"
+        }
+      },
+      {
         $sort: { _id: 1, rating: -1 },
       },
       {

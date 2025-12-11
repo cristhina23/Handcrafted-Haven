@@ -21,6 +21,7 @@ export interface IProduct extends Document {
   isCustomOrder: boolean;
   dimensions?: string;
   shippingMethods: string[];
+  reviews?: mongoose.Types.ObjectId[];
   createdAt: Date;
 }
 

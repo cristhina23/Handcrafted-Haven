@@ -8,15 +8,13 @@ export async function GET(
 ) {
   try {
     await connectDB();
-    const { id } = params;
+    const { id } = await params;
 
     // Buscar seller POR SU _ID (el que usa el producto)
-    const seller = await Seller.findById(id).populate(
-      {
-        path: "userId",
-        select: "fullName image",
-      }
-    );
+    const seller = await Seller.findById(id).populate({
+      path: "userId",
+      select: "fullName image",
+    });
 
     if (!seller) {
       return NextResponse.json(
@@ -26,8 +24,8 @@ export async function GET(
     }
 
     return NextResponse.json(seller);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  } catch (err:any) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (err: any) {
     console.error("Error fetching seller:", err);
     return NextResponse.json({ error: err.message }, { status: 500 });
   }
