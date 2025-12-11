@@ -5,9 +5,9 @@ const categories = [
   { name: "Home", path: "/" },
   { name: "About", path: "/about" },
   { name: "Shop", path: "/shop" },
-  { name: "Contact Us", path: "/contact" },
   { name: "Sellers", path: "/sellers" },
   { name: "Blog", path: "/blog" },
+  { name: "Contact Us", path: "/contact" },
 ];
 
 export default function CategoryMenu() {

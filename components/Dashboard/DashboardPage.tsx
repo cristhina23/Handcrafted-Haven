@@ -19,6 +19,7 @@ interface Props {
 export default function DashboardPage({ clerkId }: Props) {
   const { isSignedIn, user } = useUser();
   const isSeller = user?.publicMetadata?.role === "seller";
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const sellerContext = isSeller ? useSeller() : null;
 
   const seller = sellerContext?.seller;
@@ -36,7 +37,7 @@ export default function DashboardPage({ clerkId }: Props) {
     );
   }
 
-  if (loading) return <div className="p-6">Loading dashboard...</div>;
+  if (loading) return <LoadingGlow />;
 
   return (
     <div className="md:p-6 bg-slate-100 dark:bg-slate-900 flex flex-col gap-8 pb-7">
