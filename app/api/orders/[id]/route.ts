@@ -4,16 +4,16 @@ import { connectDB } from "@/lib/db/db";
 import { Order } from "@/lib/models/Order";
 import { Seller } from "@/lib/models/Seller";
 import { User } from "@/lib/models/User";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { auth } from "@clerk/nextjs/server";
 import mongoose from "mongoose";
 
 export async function GET(
-  req: Request,
+  req: NextRequest,
   { params }: { params: { id: string } }
 ) {
   try {
-    const { id } = params;   // <-- sin await
+    const { id } = params;   
     await connectDB();
 
     if (!mongoose.Types.ObjectId.isValid(id)) {
@@ -39,7 +39,7 @@ export async function GET(
 }
 
 export async function PUT(
-  req: Request,
+  req: NextRequest,
   { params }: { params: { id: string } }
 ) {
   try {
@@ -91,7 +91,7 @@ export async function PUT(
 }
 
 export async function DELETE(
-  req: Request,
+  req: NextRequest,
   { params }: { params: { id: string } }
 ) {
   try {

@@ -18,6 +18,7 @@ export async function GET(
 
     return NextResponse.json(products, { status: 200 });
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (err: any) {
     console.log("API error from Get sellers products:", err);
     return NextResponse.json(
