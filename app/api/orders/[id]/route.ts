@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-// app/api/orders/[id]/route.ts
+
 import { connectDB } from "@/lib/db/db";
 import { Order } from "@/lib/models/Order";
 import { Seller } from "@/lib/models/Seller";
@@ -9,11 +9,12 @@ import { auth } from "@clerk/nextjs/server";
 import mongoose from "mongoose";
 
 export async function GET(
-  req: NextRequest,
-  context: { params: { id: string } }
+  request: Request,
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const { id } = context.params;   
+    const resolvedParams = await params;
+    const { id } = resolvedParams;  
     await connectDB();
 
     if (!mongoose.Types.ObjectId.isValid(id)) {
@@ -39,11 +40,12 @@ export async function GET(
 }
 
 export async function PUT(
-  req: NextRequest,
-  context: { params: { id: string } }
+  req: Request,
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const { id } = context.params; 
+    const resolvedParams = await params;
+    const { id } = resolvedParams;
     await connectDB();
 
     const { userId } = await auth();
@@ -91,11 +93,12 @@ export async function PUT(
 }
 
 export async function DELETE(
-  req: NextRequest,
-  context: { params: { id: string } }
+ request: Request,
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const { id } = context.params;
+    const resolvedParams = await params;
+    const { id } = resolvedParams;
     await connectDB();
 
     const { userId } = await auth();
