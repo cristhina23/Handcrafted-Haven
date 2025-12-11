@@ -8,7 +8,9 @@ export async function GET(
 ) {
   try {
     const resolvedParams = await params;
-    const { id: sellerId } = resolvedParams;  
+    const { id: sellerId } = resolvedParams; 
+
+    await connectDB(); 
 
     const products = await getProductsBySellersId(sellerId);
 
