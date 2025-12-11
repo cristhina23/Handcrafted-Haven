@@ -8,21 +8,22 @@ export default function ProductGrid({ sellerId }: { sellerId: string }) {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch(`/api/products/productbysellers/${sellerId}`)
+    fetch(`/api/products`)
       .then(res => res.json())
       .then(data => setProducts(data));
   }, [sellerId]);
 
+  const filteredProducts:string[] = products.filter(product => product.sellerId === sellerId);
   
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">
-      {products.map((p) => (
+      {filteredProducts.map((p) => (
         <div
           key={p._id}
           className="border rounded-lg p-2 shadow-sm hover:shadow-md transition"
         >
           <Image
-            src={p.images}
+            src={p.images[0]}
             alt={p.title}
             className="w-full h-40 object-cover rounded"
             width={200}

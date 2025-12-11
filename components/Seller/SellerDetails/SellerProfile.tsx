@@ -22,7 +22,7 @@ export default function SellerProfile({
       <Image
         src={image}
         alt={name}
-        className="w-30 h-30 rounded-full border-2 border-dark shadow-md -mt-15 ml-5 md:ml-20 md:w-40 md:h-42 "
+        className="w-30 h-30 object-cover rounded-full border-2 border-dark shadow-md -mt-15 ml-5 md:ml-20 md:w-40 md:h-42 "
         width={200}
         height={200}
       />

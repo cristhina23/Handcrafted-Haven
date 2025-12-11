@@ -6,7 +6,7 @@ export default function HeroBanner({ banner }: { banner: string }) {
       <Image
         src={banner}
         alt="Seller banner"
-        className="w-full h-full object-fit"
+        className="w-full h-full object-cover"
         width={1200}
         height={1200}
       />
