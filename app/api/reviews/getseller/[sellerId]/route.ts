@@ -7,10 +7,10 @@ import { connectDB } from "@/lib/db/db";
 
 export async function GET(
   req: Request,
-  { params }: { params: { sellerId: string } }
+  context: { params: Promise<{ sellerId: string }> }
 ) {
   await connectDB();
-  const { sellerId } = params;
+  const { sellerId } = await context.params;
   if (!mongoose.Types.ObjectId.isValid(sellerId)) {
     return NextResponse.json({ error: "Invalid sellerId" }, { status: 400 });
   }
