@@ -10,10 +10,10 @@ import mongoose from "mongoose";
 
 export async function GET(
   req: NextRequest,
-  context: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
-    const { id } = context.params;   
+    const { id } = await context.params;   
     await connectDB();
 
     if (!mongoose.Types.ObjectId.isValid(id)) {
