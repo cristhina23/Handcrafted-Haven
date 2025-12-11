@@ -10,9 +10,15 @@ import mongoose from "mongoose";
 import { Product } from "@/lib/models/Product";
 import { Review } from "@/lib/models/Review";
 
+interface RouteContext {
+  params: {
+    id: string;
+  };
+}
+
 export async function GET(
   request: Request,
-  context: { params: Promise<{ id: string }> }
+  context: RouteContent
 ) {
   try {
     const resolvedParams = context.params;
