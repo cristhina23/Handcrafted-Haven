@@ -4,13 +4,11 @@ import { getProductsBySellersId } from "@/lib/db/products";
 
 export async function GET(
   request: Request,
-  context: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    await connectDB();
-
-    const sellerId = context.params.id;
-    console.log("Received sellerId:", sellerId);
+    const resolvedParams = await params;
+    const { id: sellerId } = resolvedParams;  
 
     const products = await getProductsBySellersId(sellerId);
 
