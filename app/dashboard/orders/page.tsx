@@ -5,7 +5,7 @@ function page({ params }: { params: { id: string } }) {
   return (
     <div>
 
-      <OrdersPageContainer />
+      <OrdersPageContainer  />
     </div>
   )
 }
