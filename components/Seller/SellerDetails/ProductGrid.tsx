@@ -1,46 +1,30 @@
 "use client";
 import { useEffect, useState } from "react";
-import Image from "next/image";
+import ProductsContainer from "@/components/Shop/Products/ProductsContainer";
+import { Product } from "@/types";
 
-export default function ProductGrid({ sellerId }: { sellerId: string }) {
-  const [allProducts, setAllProducts] = useState<any[]>([]);
-  const [allReviews, setAllReviews] = useState<any[]>([]);
+export default function SellerProductsList({ sellerId }: { sellerId: string }) {
+  const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch("/api/products")
       .then((res) => res.json())
-      .then((data) => setAllProducts(Array.isArray(data) ? data : []));
+      .then((data) => {
+        const validProducts = Array.isArray(data) ? data : [];
+        const filtered = validProducts.filter(
+          (p: Product) => p.sellerId === sellerId
+        );
+        setProducts(filtered);
+        setLoading(false);
+      });
+  }, [sellerId]);
 
-    fetch("/api/reviews")
-      .then((res) => res.json())
-      .then((data) => setAllReviews(Array.isArray(data) ? data : []));
-  }, []);
-
-  const products = allProducts.filter((p: any) => p.sellerId === sellerId);
-  const reviews = allReviews.filter((p: any) => p.sellerId === sellerId);
-  console.log("allProducts:", allProducts);
+  if (loading) return <p>Loading...</p>;
 
   return (
-    <div className="md:p-12 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-12 mt-4">
-      {products.map((p) => (
-        <div
-          key={p._id}
-          className="border rounded-lg p-2 shadow-sm hover:shadow-md transition"
-        >
-          <Image
-            src={p.images[0] || ""}
-            alt={p.title}
-            className="w-full h-40 object-cover rounded"
-            width={200}
-            height={200}
-          />
-
-          <h3 className="text-sm mt-2 font-semibold">{p.title}</h3>
-          <p className="text-xs text-gray-500">{p.price}</p>
-
-          <p className="text-xs mt-1">⭐ {p.rating}</p>
-        </div>
-      ))}
+    <div className="md:p-12" >
+      <ProductsContainer products={products} grid={3} />
     </div>
   );
 }

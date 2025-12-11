@@ -3,19 +3,12 @@
 import { useState } from "react";
 import ProductGrid from "./ProductGrid";
 import { useEffect } from "react";
+import { useSeller } from "@/contexts/SellerContext";
 
 export default function SellerTabs({ id }: { id: string }) {
   const [activeTab, setActiveTab] = useState("products");
-
-  const [allReviews, setAllReviews] = useState<any[]>([]);
-
-  useEffect(() => {
-    fetch("/api/reviews")
-      .then((res) => res.json())
-      .then((data) => setAllReviews(Array.isArray(data) ? data : []));
-  }, []);
-
-  const reviews = allReviews.filter((p: any) => p.id === sellerId);
+  const {seller} = useSeller();
+  
 
   return (
     <div className="w-full mt-10 mb-20 px-4 md:px-8 mt-25">

@@ -11,7 +11,7 @@ interface Props {
 export default function ProductsContainer({ products, grid }: Props) {
   return (
     <div
-      className={`grid gap-6
+      className={`md:p-12 grid gap-6
          grid-cols-1           
         ${grid === 2 ? "sm:grid-cols-2" : ""}
         ${grid === 3 ? "sm:grid-cols-3" : ""}
