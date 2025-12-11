@@ -7,15 +7,16 @@ import { NextResponse } from "next/server";
 import { auth } from "@clerk/nextjs/server";
 import mongoose from "mongoose";
 
+
 export async function GET(
   req: Request,
-  { params }: { params: Promise<{ id: string }> }
+  { params }: { params: { id: string } }
 ) {
   try {
-    const { id } = await params;
+    const { id } = params;
     await connectDB();
 
-    console.log("ID received:", id);
+    console.log("GET Order ID:", id);
 
     if (!mongoose.Types.ObjectId.isValid(id)) {
       return NextResponse.json(
@@ -24,32 +25,48 @@ export async function GET(
       );
     }
 
-    const order = await Order.findById(id).lean();
+    const order = await Order.findById(id)
+      .populate({
+        path: "items.productId",
+        select: "title images",
+      })
+      .lean();
+
     if (!order) {
-      return NextResponse.json({ message: "Order not found" }, { status: 404 });
+      return NextResponse.json(
+        { message: "Order not found" },
+        { status: 404 }
+      );
     }
 
     return NextResponse.json({ order });
   } catch (error) {
     console.error("Error fetching order:", error);
-    return NextResponse.json({ message: "Server error" }, { status: 500 });
+    return NextResponse.json(
+      { message: "Server error" },
+      { status: 500 }
+    );
   }
 }
 
+
 export async function PUT(
   req: Request,
-  { params }: { params: Promise<{ id: string }> }
+  { params }: { params: { id: string } }
 ) {
   try {
+    const { id } = params;
     await connectDB();
-    const { id } = await params;
+
     const { userId } = await auth();
     if (!userId)
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
+
     const user = await User.findOne({ clerkId: userId });
     if (!user)
       return NextResponse.json({ error: "User not found" }, { status: 404 });
+
 
     const seller = await Seller.findOne({ userId: user._id });
     if (!seller)
@@ -57,6 +74,7 @@ export async function PUT(
 
     const body = await req.json();
     const { status } = body;
+
     if (!status)
       return NextResponse.json(
         { error: "Status is required" },
@@ -65,19 +83,27 @@ export async function PUT(
 
     const order = await Order.findById(id);
     if (!order)
-      return NextResponse.json({ error: "Order not found" }, { status: 404 });
+      return NextResponse.json(
+        { error: "Order not found" },
+        { status: 404 }
+      );
+
 
     const sellerHasItem = order.items.some(
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (item: any) => String(item.sellerId) === String(seller._id)
     );
+
     if (!sellerHasItem)
       return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+
 
     order.status = status;
     await order.save();
 
-    return NextResponse.json({ message: "Order updated successfully", order });
+    return NextResponse.json({
+      message: "Order updated successfully",
+      order,
+    });
   } catch (error) {
     console.error("Error updating order:", error);
     return NextResponse.json(
@@ -89,15 +115,15 @@ export async function PUT(
 
 export async function DELETE(
   req: Request,
-  { params }: { params: Promise<{ id: string }> }
+  { params }: { params: { id: string } }
 ) {
   try {
-    const { id } = await params;
+    const { id } = params;
+    await connectDB();
+
     const { userId } = await auth();
     if (!userId)
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-
-    await connectDB();
 
     const user = await User.findOne({ clerkId: userId });
     if (!user)
@@ -114,6 +140,7 @@ export async function DELETE(
     const sellerHasItem = order.items.some(
       (item: any) => String(item.sellerId) === String(seller._id)
     );
+
     if (!sellerHasItem)
       return NextResponse.json({ error: "Forbidden" }, { status: 403 });
 

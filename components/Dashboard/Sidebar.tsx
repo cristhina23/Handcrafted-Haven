@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { sidebarLinks } from "./navigation";
-import { FC, useState } from "react";
+import { FC } from "react";
 import CustomAccordionItem from "../CustomAccordionItem";
 import { useUser } from "@clerk/nextjs";
 import { useSeller } from "@/contexts/SellerContext";
@@ -24,25 +24,25 @@ const Sidebar: FC<SidebarProps> = ({
   setCollapsed,
 }) => {
   const isMobile = screenSize <= 760;
-  const { seller, loading } = useSeller();
-  const userRole = seller ? "user,seller" : "user";
+  const { user } = useUser();
 
- 
+  const isSeller = user?.publicMetadata?.role === "seller";
+
+  const sellerData = isSeller ? useSeller() : null;
+  const seller = sellerData?.seller;
+  const loadingSeller = sellerData?.loading;
+
+  const userRole = isSeller ? "user,seller" : "user";
+
   const isOverlay = isMobile && !collapsed;
 
   const handleToggle = () => {
-    
     if (collapsed) {
       setCollapsed(false);
       setActiveMenu(true);
     } else {
-      
       setCollapsed(true);
-
-      
-      if (isMobile) {
-        setActiveMenu(false);
-      }
+      if (isMobile) setActiveMenu(false);
     }
   };
 
@@ -54,24 +54,22 @@ const Sidebar: FC<SidebarProps> = ({
   };
 
   const filteredSections = sidebarLinks
-    .map(section => ({
+    .map((section) => ({
       ...section,
-      links: section.links.filter(link => {
+      links: section.links.filter((link) => {
         if (!link.roles) return true;
-        return link.roles.some(role => userRole.split(",").includes(role));
-      })
+        return link.roles.some((role) => userRole.split(",").includes(role));
+      }),
     }))
-    .filter(section => section.links.length > 0);
+    .filter((section) => section.links.length > 0);
 
-  
   if (!activeMenu && !isMobile) return null;
 
   return (
     <div
-      className={`h-screen overflow-y-auto pb-10 bg-slate-900 text-white dark:bg-slate-800 shadow-md transition-all duration-300
-
+      className={`h-screen overflow-y-auto pb-10 bg-slate-900 text-white dark:bg-slate-800 shadow-md
+      transition-all duration-300
       ${collapsed ? "w-16" : "w-64"}
-
       ${isOverlay ? "fixed top-0 left-0 z-50" : ""}
       ${isMobile && collapsed ? "relative" : ""}
     `}
@@ -89,10 +87,7 @@ const Sidebar: FC<SidebarProps> = ({
         )}
 
         {isMobile && (
-          <button
-            onClick={handleToggle}
-            className="text-slate-300"
-          >
+          <button onClick={handleToggle} className="text-slate-300">
             {collapsed ? "" : "✕"}
           </button>
         )}
@@ -116,7 +111,6 @@ const Sidebar: FC<SidebarProps> = ({
                 collapsed={collapsed}
                 href={link.href}
               >
-                
                 {link.sublinks?.map((sub) => (
                   <Link
                     key={sub.name}
@@ -129,7 +123,6 @@ const Sidebar: FC<SidebarProps> = ({
                 ))}
               </CustomAccordionItem>
             ))}
-
           </div>
         ))}
       </div>

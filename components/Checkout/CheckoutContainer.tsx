@@ -47,16 +47,43 @@ export default function CheckoutContainer() {
     setStep(2);
   };
 
-  const handlePaymentSubmit = () => {
-    // Generate fake order number
-    const orderNum = `ORD-${Date.now()}-${Math.random()
-      .toString(36)
-      .substr(2, 9)
-      .toUpperCase()}`;
-    setOrderNumber(orderNum);
-    clearCart();
-    setStep(3);
+  const handlePaymentSubmit = async () => {
+    try {
+      const res = await fetch("/api/orders", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          items: items.map((item) => ({
+            productId: item.productId,
+            sellerId: item.sellerId,
+            quantity: item.quantity,
+            price: item.price,
+            subtotal: item.price * item.quantity,
+          })),
+          shippingInfo,
+          shippingCost,
+          total: totalPrice + shippingCost,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        console.error("Order creation failed:", data);
+        alert("Could not create order");
+        return;
+      }
+
+      setOrderNumber(data.order._id);
+
+      clearCart();
+      setStep(3);
+    } catch (err) {
+      console.error("Error creating order:", err);
+    }
   };
+
+
 
   const handleUpdateQuantity = (itemIndex: number, newQuantity: number) => {
     if (newQuantity < 1) return;

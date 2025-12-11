@@ -1,30 +1,31 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React from "react";
 import DashboardThemeToggle from "./DashboardThemeToggle";
-import { Bell, ListIndentDecrease } from "lucide-react";
+import { ListIndentDecrease } from "lucide-react";
 import { useUser } from "@clerk/nextjs";
-import Image from "next/image";
 import ProfileImage from "./ProfileImage";
-import { useSeller } from "@/contexts/SellerContext";
 import NotificationDropdown from "./NotificationDropdown";
+import { useSeller } from "@/contexts/SellerContext";
 
 interface HeaderProps {
   collapsed: boolean;
   setCollapsed: (val: boolean) => void;
 }
 
-
 const Header: React.FC<HeaderProps> = ({ collapsed, setCollapsed }) => {
   const { isSignedIn, user } = useUser();
-  const { seller, loading, error } = useSeller();
+
+  const isSeller = user?.publicMetadata?.role === "seller";
+
+  const sellerContext = isSeller ? useSeller() : null;
+  const seller = sellerContext?.seller;
 
   const notifications = [
     { id: "1", title: "Rishi Chopra", message: "You have a new message" },
     { id: "2", title: "Neha Kannded", message: "Your order has been shipped" },
     { id: "3", title: "Nirmala Chauhan", message: "New comment on your post" },
   ];
-
 
   return (
     <div className="w-full bg-slate-900 dark:bg-card flex items-center justify-between px-6 py-2 lg:py-4 gap-4">
@@ -35,14 +36,18 @@ const Header: React.FC<HeaderProps> = ({ collapsed, setCollapsed }) => {
       />
 
       <div className="flex gap-4">
-        <DashboardThemeToggle  />
-        <button className="p-2 rounded-md hover:bg-gray-500 dark:hover:bg-gray-700 text-slate-300">
-           <NotificationDropdown notifications={notifications} />
-        </button>
-        <div>
-         <ProfileImage sellerImageUrl={seller?.profileImage || user?.imageUrl} user={user} />
+        <DashboardThemeToggle />
+        
+        <div className="p-2 rounded-md hover:bg-gray-500 dark:hover:bg-gray-700 text-slate-300 cursor-pointer">
+          <NotificationDropdown notifications={notifications} />
         </div>
-      
+
+        <div>
+          <ProfileImage
+            sellerImageUrl={seller?.profileImage || user?.imageUrl}
+            user={user}
+          />
+        </div>
       </div>
     </div>
   );

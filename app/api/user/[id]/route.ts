@@ -21,7 +21,6 @@ export async function GET(
       return Response.json({ message: "User not found" }, { status: 404 });
     }
 
-    // Return full user data
     return Response.json(
       {
         _id: user._id.toString(),
