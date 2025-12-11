@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
+import isEqual from "lodash.isequal";
 import CategoryNames from "./categoryButtons";
 import SellerCardList from "./SellerCardList";
 import { SellerType } from "@/types";
@@ -15,7 +16,12 @@ export default function SellersList() {
     useEffect(() => {
         fetch('/api/sellers')
             .then(res => res.json())
-            .then(result => setData(result));
+            .then(result => {
+                if (!isEqual(result, data)) {
+                    setData(result);
+                }
+            });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const handleCategoryClick = useCallback((categoryName: string) => {
