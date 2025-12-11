@@ -11,12 +11,16 @@ import RevenueByCountry from "./dashboardHome/RevenueByCountry";
 import BestSellers from "./dashboardHome/BestSellers";
 import LastOrders from "./dashboardHome/LastOrders";
 
-export default function DashboardPage() {
+interface Props {
+  clerkId?: string;
+}
+
+export default function DashboardPage({ clerkId }: Props) {
   const { isSignedIn, user } = useUser();
   const [isSeller, setIsSeller] = useState(false);
   const [loading, setLoading] = useState(true);
 
-  // Función interna para checkear si el usuario es seller
+ 
   const checkSeller = async (clerkId: string) => {
     try {
       setLoading(true);
@@ -33,7 +37,7 @@ export default function DashboardPage() {
 
   useEffect(() => {
     if (user?.id) {
-      checkSeller(user.id); // usamos Clerk user.id
+      checkSeller(user.id); 
     }
   }, [user?.id]);
 
