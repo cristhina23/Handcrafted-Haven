@@ -11,10 +11,10 @@ import mongoose from "mongoose";
 
 export async function GET(
   req: Request,
-  context: { params: { id: string } }
+  { params }: { params: { id: string } }
 ) {
   try {
-    const { id } = context.params;
+    const { id } = await params;
     await connectDB();
 
     console.log("GET Order ID:", id);
@@ -53,10 +53,10 @@ export async function GET(
 
 export async function PUT(
   req: Request,
-  context: { params: { id: string } }
+  { params }: { params: { id: string } }
 ) {
   try {
-    const { id } = context.params;
+    const { id } = await params;
     await connectDB();
 
     const { userId } = await auth();
@@ -116,10 +116,10 @@ export async function PUT(
 
 export async function DELETE(
   req: Request,
-  context: { params: { id: string } }
+  { params }: { params: { id: string } }
 ) {
   try {
-    const { id } = context.params;
+    const { id } = await params;
     await connectDB();
 
     const { userId } = await auth();
