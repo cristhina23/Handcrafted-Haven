@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // app/api/orders/[id]/route.ts
 import { connectDB } from "@/lib/db/db";
 import { Order } from "@/lib/models/Order";
@@ -10,10 +11,10 @@ import mongoose from "mongoose";
 
 export async function GET(
   req: Request,
-  { params }: { params: { id: string } }
+  context: { params: { id: string } }
 ) {
   try {
-    const { id } = params;
+    const { id } = context.params;
     await connectDB();
 
     console.log("GET Order ID:", id);
@@ -52,10 +53,10 @@ export async function GET(
 
 export async function PUT(
   req: Request,
-  { params }: { params: { id: string } }
+  context: { params: { id: string } }
 ) {
   try {
-    const { id } = params;
+    const { id } = context.params;
     await connectDB();
 
     const { userId } = await auth();
