@@ -30,7 +30,7 @@ const ProductsSection: React.FC = () => {
     return <p className="text-center mt-10">No products available.</p>;
 
   return (
-    <section className="py-12 px-4 md:px-8 bg-slate-100 dark:bg-slate-900">
+    <section className="py-12 px-4 md:px-8 bg-white dark:bg-slate-900">
       <h2 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-gray-100 mb-6">
         Featured Products
       </h2>

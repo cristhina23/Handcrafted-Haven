@@ -11,14 +11,13 @@ export default function Home() {
   return (
     <>
       <div >
-        
         <Hero />
-        <CategorySection />
         <ProductsSection />
+        <CategorySection />
         <MeetOurMakers />
+        <BecomeSeller />
         <Impression />
         <Events />
-        <BecomeSeller />
       </div>
     </>
   );
